@@ -273,6 +273,12 @@ class Manager implements IManager {
 		// And you cannot share your rootfolder
 		if ($this->userManager->userExists($share->getSharedBy())) {
 			$userFolder = $this->rootFolder->getUserFolder($share->getSharedBy());
+
+			// Share record of SharedBy user has been revoked or deleted
+			if (empty($userFolder->getById($share->getNode()->getId()))) {
+				$userFolder = $this->rootFolder->getUserFolder($share->getShareOwner());
+				$share->setSharedBy($share->getShareOwner());
+			}
 		} else {
 			$userFolder = $this->rootFolder->getUserFolder($share->getShareOwner());
 		}
