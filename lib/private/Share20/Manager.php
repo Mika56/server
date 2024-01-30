@@ -270,14 +270,16 @@ class Manager implements IManager {
 			throw new \InvalidArgumentException('Path should be either a file or a folder');
 		}
 
+		$sharedByUserHasAccess = true;
+
 		// And you cannot share your rootfolder
 		if ($this->userManager->userExists($share->getSharedBy())) {
 			$userFolder = $this->rootFolder->getUserFolder($share->getSharedBy());
 
 			// Share record of SharedBy user has been revoked or deleted
 			if (empty($userFolder->getById($share->getNode()->getId()))) {
+				$sharedByUserHasAccess = false;
 				$userFolder = $this->rootFolder->getUserFolder($share->getShareOwner());
-				$share->setSharedBy($share->getShareOwner());
 			}
 		} else {
 			$userFolder = $this->rootFolder->getUserFolder($share->getShareOwner());
@@ -300,7 +302,7 @@ class Manager implements IManager {
 		$isFederatedShare = $share->getNode()->getStorage()->instanceOfStorage('\OCA\Files_Sharing\External\Storage');
 		$permissions = 0;
 
-		if (!$isFederatedShare && $share->getNode()->getOwner() && $share->getNode()->getOwner()->getUID() !== $share->getSharedBy()) {
+		if (!$isFederatedShare && $share->getNode()->getOwner() && $share->getNode()->getOwner()->getUID() !== $share->getSharedBy() && $sharedByUserHasAccess) {
 			$userMounts = array_filter($userFolder->getById($share->getNode()->getId()), function ($mount) {
 				// We need to filter since there might be other mountpoints that contain the file
 				// e.g. if the user has access to the same external storage that the file is originating from
