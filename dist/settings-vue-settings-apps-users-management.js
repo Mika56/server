@@ -1,3 +1,10463 @@
-/*! For license information please see settings-vue-settings-apps-users-management.js.LICENSE.txt */
-(()=>{var e,r,o,i={92652:(t,e,r)=>{"use strict";r.d(e,{J:()=>o});var n=r(31352);const o=Object.freeze({installed:(0,n.Iu)("settings","Your apps"),enabled:(0,n.Iu)("settings","Active apps"),disabled:(0,n.Iu)("settings","Disabled apps"),updates:(0,n.Iu)("settings","Updates"),"app-bundles":(0,n.Iu)("settings","App bundles"),featured:(0,n.Iu)("settings","Featured apps"),supported:(0,n.Iu)("settings","Supported apps")})},38605:(t,e,r)=>{"use strict";r.d(e,{Z:()=>n});const n=(0,r(17499).IY)().setApp("settings").detectUser().build()},40491:(e,r,o)=>{"use strict";var i=o(20144),s=o(2324),a=o(83678);const u={name:"App",beforeMount(){null!==document.getElementById("serverData")&&this.$store.commit("setServerData",JSON.parse(document.getElementById("serverData").dataset.server))}},c=(0,o(51900).Z)(u,(function(){return(0,this._self._c)("router-view")}),[],!1,null,null,null).exports;var p=o(25108);function d(t,e){for(var r in e)t[r]=e[r];return t}var l=/[!'()*]/g,h=function(t){return"%"+t.charCodeAt(0).toString(16)},f=/%2C/g,m=function(t){return encodeURIComponent(t).replace(l,h).replace(f,",")};function g(t){try{return decodeURIComponent(t)}catch(t){}return t}var y=function(t){return null==t||"object"==typeof t?t:String(t)};function v(t){var e={};return(t=t.trim().replace(/^(\?|#|&)/,""))?(t.split("&").forEach((function(t){var r=t.replace(/\+/g," ").split("="),n=g(r.shift()),o=r.length>0?g(r.join("=")):null;void 0===e[n]?e[n]=o:Array.isArray(e[n])?e[n].push(o):e[n]=[e[n],o]})),e):e}function b(t){var e=t?Object.keys(t).map((function(e){var r=t[e];if(void 0===r)return"";if(null===r)return m(e);if(Array.isArray(r)){var n=[];return r.forEach((function(t){void 0!==t&&(null===t?n.push(m(e)):n.push(m(e)+"="+m(t)))})),n.join("&")}return m(e)+"="+m(r)})).filter((function(t){return t.length>0})).join("&"):null;return e?"?"+e:""}var w=/\/?$/;function A(t,e,r,n){var o=n&&n.options.stringifyQuery,i=e.query||{};try{i=E(i)}catch(t){}var s={name:e.name||t&&t.name,meta:t&&t.meta||{},path:e.path||"/",hash:e.hash||"",query:i,params:e.params||{},fullPath:I(e,o),matched:t?U(t):[]};return r&&(s.redirectedFrom=I(r,o)),Object.freeze(s)}function E(t){if(Array.isArray(t))return t.map(E);if(t&&"object"==typeof t){var e={};for(var r in t)e[r]=E(t[r]);return e}return t}var x=A(null,{path:"/"});function U(t){for(var e=[];t;)e.unshift(t),t=t.parent;return e}function I(t,e){var r=t.path,n=t.query;void 0===n&&(n={});var o=t.hash;return void 0===o&&(o=""),(r||"/")+(e||b)(n)+o}function O(t,e,r){return e===x?t===e:!!e&&(t.path&&e.path?t.path.replace(w,"")===e.path.replace(w,"")&&(r||t.hash===e.hash&&P(t.query,e.query)):!(!t.name||!e.name)&&t.name===e.name&&(r||t.hash===e.hash&&P(t.query,e.query)&&P(t.params,e.params)))}function P(t,e){if(void 0===t&&(t={}),void 0===e&&(e={}),!t||!e)return t===e;var r=Object.keys(t).sort(),n=Object.keys(e).sort();return r.length===n.length&&r.every((function(r,o){var i=t[r];if(n[o]!==r)return!1;var s=e[r];return null==i||null==s?i===s:"object"==typeof i&&"object"==typeof s?P(i,s):String(i)===String(s)}))}function C(t){for(var e=0;e<t.matched.length;e++){var r=t.matched[e];for(var n in r.instances){var o=r.instances[n],i=r.enteredCbs[n];if(o&&i){delete r.enteredCbs[n];for(var s=0;s<i.length;s++)o._isBeingDestroyed||i[s](o)}}}}var _={name:"RouterView",functional:!0,props:{name:{type:String,default:"default"}},render:function(t,e){var r=e.props,n=e.children,o=e.parent,i=e.data;i.routerView=!0;for(var s=o.$createElement,a=r.name,u=o.$route,c=o._routerViewCache||(o._routerViewCache={}),p=0,l=!1;o&&o._routerRoot!==o;){var h=o.$vnode?o.$vnode.data:{};h.routerView&&p++,h.keepAlive&&o._directInactive&&o._inactive&&(l=!0),o=o.$parent}if(i.routerViewDepth=p,l){var f=c[a],m=f&&f.component;return m?(f.configProps&&L(m,i,f.route,f.configProps),s(m,i,n)):s()}var g=u.matched[p],y=g&&g.components[a];if(!g||!y)return c[a]=null,s();c[a]={component:y},i.registerRouteInstance=function(t,e){var r=g.instances[a];(e&&r!==t||!e&&r===t)&&(g.instances[a]=e)},(i.hook||(i.hook={})).prepatch=function(t,e){g.instances[a]=e.componentInstance},i.hook.init=function(t){t.data.keepAlive&&t.componentInstance&&t.componentInstance!==g.instances[a]&&(g.instances[a]=t.componentInstance),C(u)};var v=g.props&&g.props[a];return v&&(d(c[a],{route:u,configProps:v}),L(y,i,u,v)),s(y,i,n)}};function L(t,e,r,n){var o=e.props=function(t,e){switch(typeof e){case"undefined":return;case"object":return e;case"function":return e(t);case"boolean":return e?t.params:void 0}}(r,n);if(o){o=e.props=d({},o);var i=e.attrs=e.attrs||{};for(var s in o)t.props&&s in t.props||(i[s]=o[s],delete o[s])}}function R(t,e,r){var n=t.charAt(0);if("/"===n)return t;if("?"===n||"#"===n)return e+t;var o=e.split("/");r&&o[o.length-1]||o.pop();for(var i=t.replace(/^\//,"").split("/"),s=0;s<i.length;s++){var a=i[s];".."===a?o.pop():"."!==a&&o.push(a)}return""!==o[0]&&o.unshift(""),o.join("/")}function N(t){return t.replace(/\/(?:\s*\/)+/g,"/")}var k=Array.isArray||function(t){return"[object Array]"==Object.prototype.toString.call(t)},T=function t(e,r,n){return k(r)||(n=r||n,r=[]),n=n||{},e instanceof RegExp?function(t,e){var r=t.source.match(/\((?!\?)/g);if(r)for(var n=0;n<r.length;n++)e.push({name:n,prefix:null,delimiter:null,optional:!1,repeat:!1,partial:!1,asterisk:!1,pattern:null});return V(t,e)}(e,r):k(e)?function(e,r,n){for(var o=[],i=0;i<e.length;i++)o.push(t(e[i],r,n).source);return V(new RegExp("(?:"+o.join("|")+")",z(n)),r)}(e,r,n):function(t,e,r){return H(D(t,r),e,r)}(e,r,n)},j=D,S=q,$=H,F=new RegExp(["(\\\\.)","([\\/.])?(?:(?:\\:(\\w+)(?:\\(((?:\\\\.|[^\\\\()])+)\\))?|\\(((?:\\\\.|[^\\\\()])+)\\))([+*?])?|(\\*))"].join("|"),"g");function D(t,e){for(var r,n=[],o=0,i=0,s="",a=e&&e.delimiter||"/";null!=(r=F.exec(t));){var u=r[0],c=r[1],p=r.index;if(s+=t.slice(i,p),i=p+u.length,c)s+=c[1];else{var d=t[i],l=r[2],h=r[3],f=r[4],m=r[5],g=r[6],y=r[7];s&&(n.push(s),s="");var v=null!=l&&null!=d&&d!==l,b="+"===g||"*"===g,w="?"===g||"*"===g,A=r[2]||a,E=f||m;n.push({name:h||o++,prefix:l||"",delimiter:A,optional:w,repeat:b,partial:v,asterisk:!!y,pattern:E?G(E):y?".*":"[^"+M(A)+"]+?"})}}return i<t.length&&(s+=t.substr(i)),s&&n.push(s),n}function B(t){return encodeURI(t).replace(/[\/?#]/g,(function(t){return"%"+t.charCodeAt(0).toString(16).toUpperCase()}))}function q(t,e){for(var r=new Array(t.length),n=0;n<t.length;n++)"object"==typeof t[n]&&(r[n]=new RegExp("^(?:"+t[n].pattern+")$",z(e)));return function(e,n){for(var o="",i=e||{},s=(n||{}).pretty?B:encodeURIComponent,a=0;a<t.length;a++){var u=t[a];if("string"!=typeof u){var c,p=i[u.name];if(null==p){if(u.optional){u.partial&&(o+=u.prefix);continue}throw new TypeError('Expected "'+u.name+'" to be defined')}if(k(p)){if(!u.repeat)throw new TypeError('Expected "'+u.name+'" to not repeat, but received `'+JSON.stringify(p)+"`");if(0===p.length){if(u.optional)continue;throw new TypeError('Expected "'+u.name+'" to not be empty')}for(var d=0;d<p.length;d++){if(c=s(p[d]),!r[a].test(c))throw new TypeError('Expected all "'+u.name+'" to match "'+u.pattern+'", but received `'+JSON.stringify(c)+"`");o+=(0===d?u.prefix:u.delimiter)+c}}else{if(c=u.asterisk?encodeURI(p).replace(/[?#]/g,(function(t){return"%"+t.charCodeAt(0).toString(16).toUpperCase()})):s(p),!r[a].test(c))throw new TypeError('Expected "'+u.name+'" to match "'+u.pattern+'", but received "'+c+'"');o+=u.prefix+c}}else o+=u}return o}}function M(t){return t.replace(/([.+*?=^!:${}()[\]|\/\\])/g,"\\$1")}function G(t){return t.replace(/([=!:$\/()])/g,"\\$1")}function V(t,e){return t.keys=e,t}function z(t){return t&&t.sensitive?"":"i"}function H(t,e,r){k(e)||(r=e||r,e=[]);for(var n=(r=r||{}).strict,o=!1!==r.end,i="",s=0;s<t.length;s++){var a=t[s];if("string"==typeof a)i+=M(a);else{var u=M(a.prefix),c="(?:"+a.pattern+")";e.push(a),a.repeat&&(c+="(?:"+u+c+")*"),i+=c=a.optional?a.partial?u+"("+c+")?":"(?:"+u+"("+c+"))?":u+"("+c+")"}}var p=M(r.delimiter||"/"),d=i.slice(-p.length)===p;return n||(i=(d?i.slice(0,-p.length):i)+"(?:"+p+"(?=$))?"),i+=o?"$":n&&d?"":"(?="+p+"|$)",V(new RegExp("^"+i,z(r)),e)}T.parse=j,T.compile=function(t,e){return q(D(t,e),e)},T.tokensToFunction=S,T.tokensToRegExp=$;var Z=Object.create(null);function W(t,e,r){e=e||{};try{var n=Z[t]||(Z[t]=T.compile(t));return"string"==typeof e.pathMatch&&(e[0]=e.pathMatch),n(e,{pretty:!0})}catch(t){return""}finally{delete e[0]}}function Y(t,e,r,n){var o="string"==typeof t?{path:t}:t;if(o._normalized)return o;if(o.name){var i=(o=d({},t)).params;return i&&"object"==typeof i&&(o.params=d({},i)),o}if(!o.path&&o.params&&e){(o=d({},o))._normalized=!0;var s=d(d({},e.params),o.params);if(e.name)o.name=e.name,o.params=s;else if(e.matched.length){var a=e.matched[e.matched.length-1].path;o.path=W(a,s,e.path)}return o}var u=function(t){var e="",r="",n=t.indexOf("#");n>=0&&(e=t.slice(n),t=t.slice(0,n));var o=t.indexOf("?");return o>=0&&(r=t.slice(o+1),t=t.slice(0,o)),{path:t,query:r,hash:e}}(o.path||""),c=e&&e.path||"/",p=u.path?R(u.path,c,r||o.append):c,l=function(t,e,r){void 0===e&&(e={});var n,o=r||v;try{n=o(t||"")}catch(t){n={}}for(var i in e){var s=e[i];n[i]=Array.isArray(s)?s.map(y):y(s)}return n}(u.query,o.query,n&&n.options.parseQuery),h=o.hash||u.hash;return h&&"#"!==h.charAt(0)&&(h="#"+h),{_normalized:!0,path:p,query:l,hash:h}}var J,K=function(){},X={name:"RouterLink",props:{to:{type:[String,Object],required:!0},tag:{type:String,default:"a"},custom:Boolean,exact:Boolean,exactPath:Boolean,append:Boolean,replace:Boolean,activeClass:String,exactActiveClass:String,ariaCurrentValue:{type:String,default:"page"},event:{type:[String,Array],default:"click"}},render:function(t){var e=this,r=this.$router,n=this.$route,o=r.resolve(this.to,n,this.append),i=o.location,s=o.route,a=o.href,u={},c=r.options.linkActiveClass,p=r.options.linkExactActiveClass,l=null==c?"router-link-active":c,h=null==p?"router-link-exact-active":p,f=null==this.activeClass?l:this.activeClass,m=null==this.exactActiveClass?h:this.exactActiveClass,g=s.redirectedFrom?A(null,Y(s.redirectedFrom),null,r):s;u[m]=O(n,g,this.exactPath),u[f]=this.exact||this.exactPath?u[m]:function(t,e){return 0===t.path.replace(w,"/").indexOf(e.path.replace(w,"/"))&&(!e.hash||t.hash===e.hash)&&function(t,e){for(var r in e)if(!(r in t))return!1;return!0}(t.query,e.query)}(n,g);var y=u[m]?this.ariaCurrentValue:null,v=function(t){Q(t)&&(e.replace?r.replace(i,K):r.push(i,K))},b={click:Q};Array.isArray(this.event)?this.event.forEach((function(t){b[t]=v})):b[this.event]=v;var E={class:u},x=!this.$scopedSlots.$hasNormal&&this.$scopedSlots.default&&this.$scopedSlots.default({href:a,route:s,navigate:v,isActive:u[f],isExactActive:u[m]});if(x){if(1===x.length)return x[0];if(x.length>1||!x.length)return 0===x.length?t():t("span",{},x)}if("a"===this.tag)E.on=b,E.attrs={href:a,"aria-current":y};else{var U=tt(this.$slots.default);if(U){U.isStatic=!1;var I=U.data=d({},U.data);for(var P in I.on=I.on||{},I.on){var C=I.on[P];P in b&&(I.on[P]=Array.isArray(C)?C:[C])}for(var _ in b)_ in I.on?I.on[_].push(b[_]):I.on[_]=v;var L=U.data.attrs=d({},U.data.attrs);L.href=a,L["aria-current"]=y}else E.on=b}return t(this.tag,E,this.$slots.default)}};function Q(t){if(!(t.metaKey||t.altKey||t.ctrlKey||t.shiftKey||t.defaultPrevented||void 0!==t.button&&0!==t.button)){if(t.currentTarget&&t.currentTarget.getAttribute){var e=t.currentTarget.getAttribute("target");if(/\b_blank\b/i.test(e))return}return t.preventDefault&&t.preventDefault(),!0}}function tt(t){if(t)for(var e,r=0;r<t.length;r++){if("a"===(e=t[r]).tag)return e;if(e.children&&(e=tt(e.children)))return e}}var et="undefined"!=typeof window;function rt(t,e,r,n,o){var i=e||[],s=r||Object.create(null),a=n||Object.create(null);t.forEach((function(t){nt(i,s,a,t,o)}));for(var u=0,c=i.length;u<c;u++)"*"===i[u]&&(i.push(i.splice(u,1)[0]),c--,u--);return{pathList:i,pathMap:s,nameMap:a}}function nt(t,e,r,n,o,i){var s=n.path,a=n.name,u=n.pathToRegexpOptions||{},c=function(t,e,r){return r||(t=t.replace(/\/$/,"")),"/"===t[0]||null==e?t:N(e.path+"/"+t)}(s,o,u.strict);"boolean"==typeof n.caseSensitive&&(u.sensitive=n.caseSensitive);var p={path:c,regex:ot(c,u),components:n.components||{default:n.component},alias:n.alias?"string"==typeof n.alias?[n.alias]:n.alias:[],instances:{},enteredCbs:{},name:a,parent:o,matchAs:i,redirect:n.redirect,beforeEnter:n.beforeEnter,meta:n.meta||{},props:null==n.props?{}:n.components?n.props:{default:n.props}};if(n.children&&n.children.forEach((function(n){var o=i?N(i+"/"+n.path):void 0;nt(t,e,r,n,p,o)})),e[p.path]||(t.push(p.path),e[p.path]=p),void 0!==n.alias)for(var d=Array.isArray(n.alias)?n.alias:[n.alias],l=0;l<d.length;++l){var h={path:d[l],children:n.children};nt(t,e,r,h,o,p.path||"/")}a&&(r[a]||(r[a]=p))}function ot(t,e){return T(t,[],e)}function it(t,e){var r=rt(t),n=r.pathList,o=r.pathMap,i=r.nameMap;function s(t,r,s){var u=Y(t,r,!1,e),c=u.name;if(c){var p=i[c];if(!p)return a(null,u);var d=p.regex.keys.filter((function(t){return!t.optional})).map((function(t){return t.name}));if("object"!=typeof u.params&&(u.params={}),r&&"object"==typeof r.params)for(var l in r.params)!(l in u.params)&&d.indexOf(l)>-1&&(u.params[l]=r.params[l]);return u.path=W(p.path,u.params),a(p,u,s)}if(u.path){u.params={};for(var h=0;h<n.length;h++){var f=n[h],m=o[f];if(st(m.regex,u.path,u.params))return a(m,u,s)}}return a(null,u)}function a(t,r,n){return t&&t.redirect?function(t,r){var n=t.redirect,o="function"==typeof n?n(A(t,r,null,e)):n;if("string"==typeof o&&(o={path:o}),!o||"object"!=typeof o)return a(null,r);var u=o,c=u.name,p=u.path,d=r.query,l=r.hash,h=r.params;if(d=u.hasOwnProperty("query")?u.query:d,l=u.hasOwnProperty("hash")?u.hash:l,h=u.hasOwnProperty("params")?u.params:h,c)return i[c],s({_normalized:!0,name:c,query:d,hash:l,params:h},void 0,r);if(p){var f=function(t,e){return R(t,e.parent?e.parent.path:"/",!0)}(p,t);return s({_normalized:!0,path:W(f,h),query:d,hash:l},void 0,r)}return a(null,r)}(t,n||r):t&&t.matchAs?function(t,e,r){var n=s({_normalized:!0,path:W(r,e.params)});if(n){var o=n.matched,i=o[o.length-1];return e.params=n.params,a(i,e)}return a(null,e)}(0,r,t.matchAs):A(t,r,n,e)}return{match:s,addRoute:function(t,e){var r="object"!=typeof t?i[t]:void 0;rt([e||t],n,o,i,r),r&&r.alias.length&&rt(r.alias.map((function(t){return{path:t,children:[e]}})),n,o,i,r)},getRoutes:function(){return n.map((function(t){return o[t]}))},addRoutes:function(t){rt(t,n,o,i)}}}function st(t,e,r){var n=e.match(t);if(!n)return!1;if(!r)return!0;for(var o=1,i=n.length;o<i;++o){var s=t.keys[o-1];s&&(r[s.name||"pathMatch"]="string"==typeof n[o]?g(n[o]):n[o])}return!0}var at=et&&window.performance&&window.performance.now?window.performance:Date;function ut(){return at.now().toFixed(3)}var ct=ut();function pt(){return ct}function dt(t){return ct=t}var lt=Object.create(null);function ht(){"scrollRestoration"in window.history&&(window.history.scrollRestoration="manual");var t=window.location.protocol+"//"+window.location.host,e=window.location.href.replace(t,""),r=d({},window.history.state);return r.key=pt(),window.history.replaceState(r,"",e),window.addEventListener("popstate",gt),function(){window.removeEventListener("popstate",gt)}}function ft(t,e,r,n){if(t.app){var o=t.options.scrollBehavior;o&&t.app.$nextTick((function(){var i=function(){var t=pt();if(t)return lt[t]}(),s=o.call(t,e,r,n?i:null);s&&("function"==typeof s.then?s.then((function(t){At(t,i)})).catch((function(t){})):At(s,i))}))}}function mt(){var t=pt();t&&(lt[t]={x:window.pageXOffset,y:window.pageYOffset})}function gt(t){mt(),t.state&&t.state.key&&dt(t.state.key)}function yt(t){return bt(t.x)||bt(t.y)}function vt(t){return{x:bt(t.x)?t.x:window.pageXOffset,y:bt(t.y)?t.y:window.pageYOffset}}function bt(t){return"number"==typeof t}var wt=/^#\d/;function At(t,e){var r,n="object"==typeof t;if(n&&"string"==typeof t.selector){var o=wt.test(t.selector)?document.getElementById(t.selector.slice(1)):document.querySelector(t.selector);if(o){var i=t.offset&&"object"==typeof t.offset?t.offset:{};e=function(t,e){var r=document.documentElement.getBoundingClientRect(),n=t.getBoundingClientRect();return{x:n.left-r.left-e.x,y:n.top-r.top-e.y}}(o,i={x:bt((r=i).x)?r.x:0,y:bt(r.y)?r.y:0})}else yt(t)&&(e=vt(t))}else n&&yt(t)&&(e=vt(t));e&&("scrollBehavior"in document.documentElement.style?window.scrollTo({left:e.x,top:e.y,behavior:t.behavior}):window.scrollTo(e.x,e.y))}var Et,xt=et&&(-1===(Et=window.navigator.userAgent).indexOf("Android 2.")&&-1===Et.indexOf("Android 4.0")||-1===Et.indexOf("Mobile Safari")||-1!==Et.indexOf("Chrome")||-1!==Et.indexOf("Windows Phone"))&&window.history&&"function"==typeof window.history.pushState;function Ut(t,e){mt();var r=window.history;try{if(e){var n=d({},r.state);n.key=pt(),r.replaceState(n,"",t)}else r.pushState({key:dt(ut())},"",t)}catch(r){window.location[e?"replace":"assign"](t)}}function It(t){Ut(t,!0)}var Ot={redirected:2,aborted:4,cancelled:8,duplicated:16};function Pt(t,e){return Ct(t,e,Ot.cancelled,'Navigation cancelled from "'+t.fullPath+'" to "'+e.fullPath+'" with a new navigation.')}function Ct(t,e,r,n){var o=new Error(n);return o._isRouter=!0,o.from=t,o.to=e,o.type=r,o}var _t=["params","query","hash"];function Lt(t){return Object.prototype.toString.call(t).indexOf("Error")>-1}function Rt(t,e){return Lt(t)&&t._isRouter&&(null==e||t.type===e)}function Nt(t,e,r){var n=function(o){o>=t.length?r():t[o]?e(t[o],(function(){n(o+1)})):n(o+1)};n(0)}function kt(t,e){return Tt(t.map((function(t){return Object.keys(t.components).map((function(r){return e(t.components[r],t.instances[r],t,r)}))})))}function Tt(t){return Array.prototype.concat.apply([],t)}var jt="function"==typeof Symbol&&"symbol"==typeof Symbol.toStringTag;function St(t){var e=!1;return function(){for(var r=[],n=arguments.length;n--;)r[n]=arguments[n];if(!e)return e=!0,t.apply(this,r)}}var $t=function(t,e){this.router=t,this.base=function(t){if(!t)if(et){var e=document.querySelector("base");t=(t=e&&e.getAttribute("href")||"/").replace(/^https?:\/\/[^\/]+/,"")}else t="/";return"/"!==t.charAt(0)&&(t="/"+t),t.replace(/\/$/,"")}(e),this.current=x,this.pending=null,this.ready=!1,this.readyCbs=[],this.readyErrorCbs=[],this.errorCbs=[],this.listeners=[]};function Ft(t,e,r,n){var o=kt(t,(function(t,n,o,i){var s=function(t,e){return"function"!=typeof t&&(t=J.extend(t)),t.options[e]}(t,e);if(s)return Array.isArray(s)?s.map((function(t){return r(t,n,o,i)})):r(s,n,o,i)}));return Tt(n?o.reverse():o)}function Dt(t,e){if(e)return function(){return t.apply(e,arguments)}}$t.prototype.listen=function(t){this.cb=t},$t.prototype.onReady=function(t,e){this.ready?t():(this.readyCbs.push(t),e&&this.readyErrorCbs.push(e))},$t.prototype.onError=function(t){this.errorCbs.push(t)},$t.prototype.transitionTo=function(t,e,r){var n,o=this;try{n=this.router.match(t,this.current)}catch(t){throw this.errorCbs.forEach((function(e){e(t)})),t}var i=this.current;this.confirmTransition(n,(function(){o.updateRoute(n),e&&e(n),o.ensureURL(),o.router.afterHooks.forEach((function(t){t&&t(n,i)})),o.ready||(o.ready=!0,o.readyCbs.forEach((function(t){t(n)})))}),(function(t){r&&r(t),t&&!o.ready&&(Rt(t,Ot.redirected)&&i===x||(o.ready=!0,o.readyErrorCbs.forEach((function(e){e(t)}))))}))},$t.prototype.confirmTransition=function(t,e,r){var n=this,o=this.current;this.pending=t;var i,s,a=function(t){!Rt(t)&&Lt(t)&&(n.errorCbs.length?n.errorCbs.forEach((function(e){e(t)})):p.error(t)),r&&r(t)},u=t.matched.length-1,c=o.matched.length-1;if(O(t,o)&&u===c&&t.matched[u]===o.matched[c])return this.ensureURL(),t.hash&&ft(this.router,o,t,!1),a(((s=Ct(i=o,t,Ot.duplicated,'Avoided redundant navigation to current location: "'+i.fullPath+'".')).name="NavigationDuplicated",s));var d,l=function(t,e){var r,n=Math.max(t.length,e.length);for(r=0;r<n&&t[r]===e[r];r++);return{updated:e.slice(0,r),activated:e.slice(r),deactivated:t.slice(r)}}(this.current.matched,t.matched),h=l.updated,f=l.deactivated,m=l.activated,g=[].concat(function(t){return Ft(t,"beforeRouteLeave",Dt,!0)}(f),this.router.beforeHooks,function(t){return Ft(t,"beforeRouteUpdate",Dt)}(h),m.map((function(t){return t.beforeEnter})),(d=m,function(t,e,r){var n=!1,o=0,i=null;kt(d,(function(t,e,s,a){if("function"==typeof t&&void 0===t.cid){n=!0,o++;var u,c=St((function(e){var n;((n=e).__esModule||jt&&"Module"===n[Symbol.toStringTag])&&(e=e.default),t.resolved="function"==typeof e?e:J.extend(e),s.components[a]=e,--o<=0&&r()})),p=St((function(t){var e="Failed to resolve async component "+a+": "+t;i||(i=Lt(t)?t:new Error(e),r(i))}));try{u=t(c,p)}catch(t){p(t)}if(u)if("function"==typeof u.then)u.then(c,p);else{var d=u.component;d&&"function"==typeof d.then&&d.then(c,p)}}})),n||r()})),y=function(e,r){if(n.pending!==t)return a(Pt(o,t));try{e(t,o,(function(e){!1===e?(n.ensureURL(!0),a(function(t,e){return Ct(t,e,Ot.aborted,'Navigation aborted from "'+t.fullPath+'" to "'+e.fullPath+'" via a navigation guard.')}(o,t))):Lt(e)?(n.ensureURL(!0),a(e)):"string"==typeof e||"object"==typeof e&&("string"==typeof e.path||"string"==typeof e.name)?(a(function(t,e){return Ct(t,e,Ot.redirected,'Redirected when going from "'+t.fullPath+'" to "'+function(t){if("string"==typeof t)return t;if("path"in t)return t.path;var e={};return _t.forEach((function(r){r in t&&(e[r]=t[r])})),JSON.stringify(e,null,2)}(e)+'" via a navigation guard.')}(o,t)),"object"==typeof e&&e.replace?n.replace(e):n.push(e)):r(e)}))}catch(t){a(t)}};Nt(g,y,(function(){var r=function(t){return Ft(t,"beforeRouteEnter",(function(t,e,r,n){return function(t,e,r){return function(n,o,i){return t(n,o,(function(t){"function"==typeof t&&(e.enteredCbs[r]||(e.enteredCbs[r]=[]),e.enteredCbs[r].push(t)),i(t)}))}}(t,r,n)}))}(m);Nt(r.concat(n.router.resolveHooks),y,(function(){if(n.pending!==t)return a(Pt(o,t));n.pending=null,e(t),n.router.app&&n.router.app.$nextTick((function(){C(t)}))}))}))},$t.prototype.updateRoute=function(t){this.current=t,this.cb&&this.cb(t)},$t.prototype.setupListeners=function(){},$t.prototype.teardown=function(){this.listeners.forEach((function(t){t()})),this.listeners=[],this.current=x,this.pending=null};var Bt=function(t){function e(e,r){t.call(this,e,r),this._startLocation=qt(this.base)}return t&&(e.__proto__=t),e.prototype=Object.create(t&&t.prototype),e.prototype.constructor=e,e.prototype.setupListeners=function(){var t=this;if(!(this.listeners.length>0)){var e=this.router,r=e.options.scrollBehavior,n=xt&&r;n&&this.listeners.push(ht());var o=function(){var r=t.current,o=qt(t.base);t.current===x&&o===t._startLocation||t.transitionTo(o,(function(t){n&&ft(e,t,r,!0)}))};window.addEventListener("popstate",o),this.listeners.push((function(){window.removeEventListener("popstate",o)}))}},e.prototype.go=function(t){window.history.go(t)},e.prototype.push=function(t,e,r){var n=this,o=this.current;this.transitionTo(t,(function(t){Ut(N(n.base+t.fullPath)),ft(n.router,t,o,!1),e&&e(t)}),r)},e.prototype.replace=function(t,e,r){var n=this,o=this.current;this.transitionTo(t,(function(t){It(N(n.base+t.fullPath)),ft(n.router,t,o,!1),e&&e(t)}),r)},e.prototype.ensureURL=function(t){if(qt(this.base)!==this.current.fullPath){var e=N(this.base+this.current.fullPath);t?Ut(e):It(e)}},e.prototype.getCurrentLocation=function(){return qt(this.base)},e}($t);function qt(t){var e=window.location.pathname,r=e.toLowerCase(),n=t.toLowerCase();return!t||r!==n&&0!==r.indexOf(N(n+"/"))||(e=e.slice(t.length)),(e||"/")+window.location.search+window.location.hash}var Mt=function(t){function e(e,r,n){t.call(this,e,r),n&&function(t){var e=qt(t);if(!/^\/#/.test(e))return window.location.replace(N(t+"/#"+e)),!0}(this.base)||Gt()}return t&&(e.__proto__=t),e.prototype=Object.create(t&&t.prototype),e.prototype.constructor=e,e.prototype.setupListeners=function(){var t=this;if(!(this.listeners.length>0)){var e=this.router.options.scrollBehavior,r=xt&&e;r&&this.listeners.push(ht());var n=function(){var e=t.current;Gt()&&t.transitionTo(Vt(),(function(n){r&&ft(t.router,n,e,!0),xt||Zt(n.fullPath)}))},o=xt?"popstate":"hashchange";window.addEventListener(o,n),this.listeners.push((function(){window.removeEventListener(o,n)}))}},e.prototype.push=function(t,e,r){var n=this,o=this.current;this.transitionTo(t,(function(t){Ht(t.fullPath),ft(n.router,t,o,!1),e&&e(t)}),r)},e.prototype.replace=function(t,e,r){var n=this,o=this.current;this.transitionTo(t,(function(t){Zt(t.fullPath),ft(n.router,t,o,!1),e&&e(t)}),r)},e.prototype.go=function(t){window.history.go(t)},e.prototype.ensureURL=function(t){var e=this.current.fullPath;Vt()!==e&&(t?Ht(e):Zt(e))},e.prototype.getCurrentLocation=function(){return Vt()},e}($t);function Gt(){var t=Vt();return"/"===t.charAt(0)||(Zt("/"+t),!1)}function Vt(){var t=window.location.href,e=t.indexOf("#");return e<0?"":t=t.slice(e+1)}function zt(t){var e=window.location.href,r=e.indexOf("#");return(r>=0?e.slice(0,r):e)+"#"+t}function Ht(t){xt?Ut(zt(t)):window.location.hash=t}function Zt(t){xt?It(zt(t)):window.location.replace(zt(t))}var Wt=function(t){function e(e,r){t.call(this,e,r),this.stack=[],this.index=-1}return t&&(e.__proto__=t),e.prototype=Object.create(t&&t.prototype),e.prototype.constructor=e,e.prototype.push=function(t,e,r){var n=this;this.transitionTo(t,(function(t){n.stack=n.stack.slice(0,n.index+1).concat(t),n.index++,e&&e(t)}),r)},e.prototype.replace=function(t,e,r){var n=this;this.transitionTo(t,(function(t){n.stack=n.stack.slice(0,n.index).concat(t),e&&e(t)}),r)},e.prototype.go=function(t){var e=this,r=this.index+t;if(!(r<0||r>=this.stack.length)){var n=this.stack[r];this.confirmTransition(n,(function(){var t=e.current;e.index=r,e.updateRoute(n),e.router.afterHooks.forEach((function(e){e&&e(n,t)}))}),(function(t){Rt(t,Ot.duplicated)&&(e.index=r)}))}},e.prototype.getCurrentLocation=function(){var t=this.stack[this.stack.length-1];return t?t.fullPath:"/"},e.prototype.ensureURL=function(){},e}($t),Yt=function(t){void 0===t&&(t={}),this.app=null,this.apps=[],this.options=t,this.beforeHooks=[],this.resolveHooks=[],this.afterHooks=[],this.matcher=it(t.routes||[],this);var e=t.mode||"hash";switch(this.fallback="history"===e&&!xt&&!1!==t.fallback,this.fallback&&(e="hash"),et||(e="abstract"),this.mode=e,e){case"history":this.history=new Bt(this,t.base);break;case"hash":this.history=new Mt(this,t.base,this.fallback);break;case"abstract":this.history=new Wt(this,t.base)}},Jt={currentRoute:{configurable:!0}};Yt.prototype.match=function(t,e,r){return this.matcher.match(t,e,r)},Jt.currentRoute.get=function(){return this.history&&this.history.current},Yt.prototype.init=function(t){var e=this;if(this.apps.push(t),t.$once("hook:destroyed",(function(){var r=e.apps.indexOf(t);r>-1&&e.apps.splice(r,1),e.app===t&&(e.app=e.apps[0]||null),e.app||e.history.teardown()})),!this.app){this.app=t;var r=this.history;if(r instanceof Bt||r instanceof Mt){var n=function(t){r.setupListeners(),function(t){var n=r.current,o=e.options.scrollBehavior;xt&&o&&"fullPath"in t&&ft(e,t,n,!1)}(t)};r.transitionTo(r.getCurrentLocation(),n,n)}r.listen((function(t){e.apps.forEach((function(e){e._route=t}))}))}},Yt.prototype.beforeEach=function(t){return Xt(this.beforeHooks,t)},Yt.prototype.beforeResolve=function(t){return Xt(this.resolveHooks,t)},Yt.prototype.afterEach=function(t){return Xt(this.afterHooks,t)},Yt.prototype.onReady=function(t,e){this.history.onReady(t,e)},Yt.prototype.onError=function(t){this.history.onError(t)},Yt.prototype.push=function(t,e,r){var n=this;if(!e&&!r&&"undefined"!=typeof Promise)return new Promise((function(e,r){n.history.push(t,e,r)}));this.history.push(t,e,r)},Yt.prototype.replace=function(t,e,r){var n=this;if(!e&&!r&&"undefined"!=typeof Promise)return new Promise((function(e,r){n.history.replace(t,e,r)}));this.history.replace(t,e,r)},Yt.prototype.go=function(t){this.history.go(t)},Yt.prototype.back=function(){this.go(-1)},Yt.prototype.forward=function(){this.go(1)},Yt.prototype.getMatchedComponents=function(t){var e=t?t.matched?t:this.resolve(t).route:this.currentRoute;return e?[].concat.apply([],e.matched.map((function(t){return Object.keys(t.components).map((function(e){return t.components[e]}))}))):[]},Yt.prototype.resolve=function(t,e,r){var n=Y(t,e=e||this.history.current,r,this),o=this.match(n,e),i=o.redirectedFrom||o.fullPath,s=function(t,e,r){var n="hash"===r?"#"+e:e;return t?N(t+"/"+n):n}(this.history.base,i,this.mode);return{location:n,route:o,href:s,normalizedTo:n,resolved:o}},Yt.prototype.getRoutes=function(){return this.matcher.getRoutes()},Yt.prototype.addRoute=function(t,e){this.matcher.addRoute(t,e),this.history.current!==x&&this.history.transitionTo(this.history.getCurrentLocation())},Yt.prototype.addRoutes=function(t){this.matcher.addRoutes(t),this.history.current!==x&&this.history.transitionTo(this.history.getCurrentLocation())},Object.defineProperties(Yt.prototype,Jt);var Kt=Yt;function Xt(t,e){return t.push(e),function(){var r=t.indexOf(e);r>-1&&t.splice(r,1)}}Yt.install=function t(e){if(!t.installed||J!==e){t.installed=!0,J=e;var r=function(t){return void 0!==t},n=function(t,e){var n=t.$options._parentVnode;r(n)&&r(n=n.data)&&r(n=n.registerRouteInstance)&&n(t,e)};e.mixin({beforeCreate:function(){r(this.$options.router)?(this._routerRoot=this,this._router=this.$options.router,this._router.init(this),e.util.defineReactive(this,"_route",this._router.history.current)):this._routerRoot=this.$parent&&this.$parent._routerRoot||this,n(this,this)},destroyed:function(){n(this)}}),Object.defineProperty(e.prototype,"$router",{get:function(){return this._routerRoot._router}}),Object.defineProperty(e.prototype,"$route",{get:function(){return this._routerRoot._route}}),e.component("RouterView",_),e.component("RouterLink",X);var o=e.config.optionMergeStrategies;o.beforeRouteEnter=o.beforeRouteLeave=o.beforeRouteUpdate=o.created}},Yt.version="3.6.5",Yt.isNavigationFailure=Rt,Yt.NavigationFailureType=Ot,Yt.START_LOCATION=x,et&&window.Vue&&window.Vue.use(Yt);var Qt=o(79753),te=o(92652),ee=o(20629),re=o(93664),ne=o(7820);o(65509);const oe=function(t){return t.replace(/\/$/,"")},ie=()=>(0,ne.Z)(),se=(t,e)=>re.Z.get(oe(t),e),ae=(t,e)=>re.Z.post(oe(t),e),ue=(t,e)=>re.Z.put(oe(t),e),ce=(t,e)=>re.Z.delete(oe(t),{params:e});var pe=o(42515),de=o(38605),le=o(5656),he=o(25108);const fe=function(t,e){return 1===e?t.sort(((t,e)=>t.usercount-t.disabled<e.usercount-e.disabled)):t.sort(((t,e)=>t.name.localeCompare(e.name)))},me={id:"",name:"",usercount:0,disabled:0,canAdd:!0,canRemove:!0},ge={appendUsers(t,e){const r=t.users.map((t=>{let{id:e}=t;return e})),n=Object.values(e).filter((t=>{let{id:e}=t;return!r.includes(e)})),o=t.users.concat(n);t.usersOffset+=t.usersLimit,t.users=o},updateDisabledUsers(t,e){t.disabledUsersOffset+=t.disabledUsersLimit},setPasswordPolicyMinLength(t,e){t.minPasswordLength=""!==e?e:0},initGroups(t,e){let{groups:r,orderBy:n,userCount:o}=e;t.groups=r.map((t=>Object.assign({},me,t))),t.orderBy=n,t.userCount=o,t.groups=fe(t.groups,t.orderBy)},addGroup(t,e){let{gid:r,displayName:n}=e;try{if(void 0!==t.groups.find((t=>t.id===r)))return;const e=Object.assign({},me,{id:r,name:n});t.groups.unshift(e),t.groups=fe(t.groups,t.orderBy)}catch(t){he.error("Can't create group",t)}},renameGroup(t,e){let{gid:r,displayName:n}=e;const o=t.groups.findIndex((t=>t.id===r));if(o>=0){const e=t.groups[o];e.name=n,t.groups.splice(o,1,e),t.groups=fe(t.groups,t.orderBy)}},removeGroup(t,e){const r=t.groups.findIndex((t=>t.id===e));r>=0&&t.groups.splice(r,1)},addUserGroup(t,e){let{userid:r,gid:n}=e;const o=t.groups.find((t=>t.id===n)),i=t.users.find((t=>t.id===r));o&&i.enabled&&t.userCount>0&&o.usercount++,i.groups.push(n),t.groups=fe(t.groups,t.orderBy)},removeUserGroup(t,e){let{userid:r,gid:n}=e;const o=t.groups.find((t=>t.id===n)),i=t.users.find((t=>t.id===r));o&&i.enabled&&t.userCount>0&&o.usercount--;const s=i.groups;s.splice(s.indexOf(n),1),t.groups=fe(t.groups,t.orderBy)},addUserSubAdmin(t,e){let{userid:r,gid:n}=e;t.users.find((t=>t.id===r)).subadmin.push(n)},removeUserSubAdmin(t,e){let{userid:r,gid:n}=e;const o=t.users.find((t=>t.id===r)).subadmin;o.splice(o.indexOf(n),1)},deleteUser(t,e){const r=t.users.findIndex((t=>t.id===e));this.commit("updateUserCounts",{user:t.users[r],actionType:"remove"}),t.users.splice(r,1)},addUserData(t,e){const r=e.data.ocs.data;t.users.unshift(r),this.commit("updateUserCounts",{user:r,actionType:"create"})},enableDisableUser(t,e){let{userid:r,enabled:n}=e;const o=t.users.find((t=>t.id===r));o.enabled=n,this.commit("updateUserCounts",{user:o,actionType:n?"enable":"disable"})},updateUserCounts(t,e){let{user:r,actionType:n}=e;if(0===t.userCount)return;const o=t.groups.find((t=>"disabled"===t.id));switch(n){case"enable":case"disable":o.usercount+=r.enabled?-1:1,t.userCount+=r.enabled?1:-1,r.groups.forEach((e=>{t.groups.find((t=>t.id===e)).disabled+=r.enabled?-1:1}));break;case"create":t.userCount++,r.groups.forEach((e=>{t.groups.find((t=>t.id===e)).usercount++}));break;case"remove":r.enabled?(t.userCount--,r.groups.forEach((e=>{const r=t.groups.find((t=>t.id===e));r?r.usercount--:he.warn("User group "+e+" does not exist during user removal")}))):(o.usercount--,r.groups.forEach((e=>{t.groups.find((t=>t.id===e)).disabled--})));break;default:de.Z.error(`Unknown action type in updateUserCounts: '${n}'`)}},setUserData(t,e){let{userid:r,key:n,value:o}=e;if("quota"===n){const e=(0,le.jA)(o,!0);t.users.find((t=>t.id===r))[n][n]=null!==e?e:o}else t.users.find((t=>t.id===r))[n]=o},resetUsers(t){t.users=[],t.usersOffset=0,t.disabledUsersOffset=0},setShowConfig(t,e){let{key:r,value:n}=e;t.showConfig[r]=n}},ye=re.Z.CancelToken;let ve=null;const be={state:{users:[],groups:[],orderBy:1,minPasswordLength:0,usersOffset:0,usersLimit:25,disabledUsersOffset:0,disabledUsersLimit:25,userCount:0,showConfig:{showStoragePath:!1,showUserBackend:!1,showLastLogin:!1,showNewUserForm:!1,showLanguages:!1}},mutations:ge,getters:{getUsers:t=>t.users,getGroups:t=>t.groups,getSubadminGroups:t=>t.groups.filter((t=>"admin"!==t.id&&"disabled"!==t.id)),getPasswordPolicyMinLength:t=>t.minPasswordLength,getUsersOffset:t=>t.usersOffset,getUsersLimit:t=>t.usersLimit,getDisabledUsersOffset:t=>t.disabledUsersOffset,getDisabledUsersLimit:t=>t.disabledUsersLimit,getUserCount:t=>t.userCount,getShowConfig:t=>t.showConfig},actions:{searchUsers(t,e){let{offset:r,limit:n,search:o}=e;return o="string"==typeof o?o:"",se((0,Qt.generateOcsUrl)("cloud/users/details?offset={offset}&limit={limit}&search={search}",{offset:r,limit:n,search:o})).catch((e=>{re.Z.isCancel(e)||t.commit("API_FAILURE",e)}))},getUser:(t,e)=>se((0,Qt.generateOcsUrl)(`cloud/users/${e}`)).catch((e=>{re.Z.isCancel(e)||t.commit("API_FAILURE",e)})),getUsers(t,e){let{offset:r,limit:n,search:o,group:i}=e;return ve&&ve.cancel("Operation canceled by another search request."),ve=ye.source(),o="string"==typeof o?o:"",o=o.replace(/in:[^\s]+/g,"").trim(),i="string"==typeof i?i:"",""!==i?se((0,Qt.generateOcsUrl)("cloud/groups/{group}/users/details?offset={offset}&limit={limit}&search={search}",{group:encodeURIComponent(i),offset:r,limit:n,search:o}),{cancelToken:ve.token}).then((e=>{const r=Object.keys(e.data.ocs.data.users).length;return r>0&&t.commit("appendUsers",e.data.ocs.data.users),r})).catch((e=>{re.Z.isCancel(e)||t.commit("API_FAILURE",e)})):se((0,Qt.generateOcsUrl)("cloud/users/details?offset={offset}&limit={limit}&search={search}",{offset:r,limit:n,search:o}),{cancelToken:ve.token}).then((e=>{const r=Object.keys(e.data.ocs.data.users).length;return r>0&&t.commit("appendUsers",e.data.ocs.data.users),r})).catch((e=>{re.Z.isCancel(e)||t.commit("API_FAILURE",e)}))},async getDisabledUsers(t,e){let{offset:r,limit:n}=e;const o=(0,Qt.generateOcsUrl)("cloud/users/disabled?offset={offset}&limit={limit}",{offset:r,limit:n});try{const e=await se(o),r=Object.keys(e.data.ocs.data.users).length;return r>0&&(t.commit("appendUsers",e.data.ocs.data.users),t.commit("updateDisabledUsers",e.data.ocs.data.users)),r}catch(e){t.commit("API_FAILURE",e)}},getGroups(t,e){let{offset:r,limit:n,search:o}=e;o="string"==typeof o?o:"";const i=-1===n?"":`&limit=${n}`;return se((0,Qt.generateOcsUrl)("cloud/groups?offset={offset}&search={search}",{offset:r,search:o})+i).then((e=>Object.keys(e.data.ocs.data.groups).length>0&&(e.data.ocs.data.groups.forEach((function(e){t.commit("addGroup",{gid:e,displayName:e})})),!0))).catch((e=>t.commit("API_FAILURE",e)))},getUsersFromList(t,e){let{offset:r,limit:n,search:o}=e;return o="string"==typeof o?o:"",se((0,Qt.generateOcsUrl)("cloud/users/details?offset={offset}&limit={limit}&search={search}",{offset:r,limit:n,search:o})).then((e=>Object.keys(e.data.ocs.data.users).length>0&&(t.commit("appendUsers",e.data.ocs.data.users),!0))).catch((e=>t.commit("API_FAILURE",e)))},getUsersFromGroup(t,e){let{groupid:r,offset:n,limit:o}=e;return se((0,Qt.generateOcsUrl)("cloud/users/{groupId}/details?offset={offset}&limit={limit}",{groupId:encodeURIComponent(r),offset:n,limit:o})).then((e=>t.commit("getUsersFromList",e.data.ocs.data.users))).catch((e=>t.commit("API_FAILURE",e)))},getPasswordPolicyMinLength:t=>!(!(0,pe.getCapabilities)().password_policy||!(0,pe.getCapabilities)().password_policy.minLength)&&(t.commit("setPasswordPolicyMinLength",(0,pe.getCapabilities)().password_policy.minLength),(0,pe.getCapabilities)().password_policy.minLength),addGroup:(t,e)=>ie().then((r=>ae((0,Qt.generateOcsUrl)("cloud/groups"),{groupid:e}).then((r=>(t.commit("addGroup",{gid:e,displayName:e}),{gid:e,displayName:e}))).catch((t=>{throw t})))).catch((r=>{throw t.commit("API_FAILURE",{gid:e,error:r}),r})),renameGroup(t,e){let{groupid:r,displayName:n}=e;return ie().then((e=>ue((0,Qt.generateOcsUrl)("cloud/groups/{groupId}",{groupId:encodeURIComponent(r)}),{key:"displayname",value:n}).then((e=>(t.commit("renameGroup",{gid:r,displayName:n}),{groupid:r,displayName:n}))).catch((t=>{throw t})))).catch((e=>{throw t.commit("API_FAILURE",{groupid:r,error:e}),e}))},removeGroup:(t,e)=>ie().then((r=>ce((0,Qt.generateOcsUrl)("cloud/groups/{groupId}",{groupId:encodeURIComponent(e)})).then((r=>t.commit("removeGroup",e))).catch((t=>{throw t})))).catch((r=>t.commit("API_FAILURE",{gid:e,error:r}))),addUserGroup(t,e){let{userid:r,gid:n}=e;return ie().then((e=>ae((0,Qt.generateOcsUrl)("cloud/users/{userid}/groups",{userid:r}),{groupid:n}).then((e=>t.commit("addUserGroup",{userid:r,gid:n}))).catch((t=>{throw t})))).catch((e=>t.commit("API_FAILURE",{userid:r,error:e})))},removeUserGroup(t,e){let{userid:r,gid:n}=e;return ie().then((e=>ce((0,Qt.generateOcsUrl)("cloud/users/{userid}/groups",{userid:r}),{groupid:n}).then((e=>t.commit("removeUserGroup",{userid:r,gid:n}))).catch((t=>{throw t})))).catch((e=>{throw t.commit("API_FAILURE",{userid:r,error:e}),e}))},addUserSubAdmin(t,e){let{userid:r,gid:n}=e;return ie().then((e=>ae((0,Qt.generateOcsUrl)("cloud/users/{userid}/subadmins",{userid:r}),{groupid:n}).then((e=>t.commit("addUserSubAdmin",{userid:r,gid:n}))).catch((t=>{throw t})))).catch((e=>t.commit("API_FAILURE",{userid:r,error:e})))},removeUserSubAdmin(t,e){let{userid:r,gid:n}=e;return ie().then((e=>ce((0,Qt.generateOcsUrl)("cloud/users/{userid}/subadmins",{userid:r}),{groupid:n}).then((e=>t.commit("removeUserSubAdmin",{userid:r,gid:n}))).catch((t=>{throw t})))).catch((e=>t.commit("API_FAILURE",{userid:r,error:e})))},wipeUserDevices:(t,e)=>ie().then((t=>ae((0,Qt.generateOcsUrl)("cloud/users/{userid}/wipe",{userid:e})).catch((t=>{throw t})))).catch((r=>t.commit("API_FAILURE",{userid:e,error:r}))),deleteUser:(t,e)=>ie().then((r=>ce((0,Qt.generateOcsUrl)("cloud/users/{userid}",{userid:e})).then((r=>t.commit("deleteUser",e))).catch((t=>{throw t})))).catch((r=>t.commit("API_FAILURE",{userid:e,error:r}))),addUser(t,e){let{commit:r,dispatch:n}=t,{userid:o,password:i,displayName:s,email:a,groups:u,subadmin:c,quota:p,language:d,manager:l}=e;return ie().then((t=>ae((0,Qt.generateOcsUrl)("cloud/users"),{userid:o,password:i,displayName:s,email:a,groups:u,subadmin:c,quota:p,language:d,manager:l}).then((t=>n("addUserData",o||t.data.ocs.data.id))).catch((t=>{throw t})))).catch((t=>{throw r("API_FAILURE",{userid:o,error:t}),t}))},addUserData:(t,e)=>ie().then((r=>se((0,Qt.generateOcsUrl)("cloud/users/{userid}",{userid:e})).then((e=>t.commit("addUserData",e))).catch((t=>{throw t})))).catch((r=>t.commit("API_FAILURE",{userid:e,error:r}))),enableDisableUser(t,e){let{userid:r,enabled:n=!0}=e;const o=n?"enable":"disable";return ie().then((e=>ue((0,Qt.generateOcsUrl)("cloud/users/{userid}/{userStatus}",{userid:r,userStatus:o})).then((e=>t.commit("enableDisableUser",{userid:r,enabled:n}))).catch((t=>{throw t})))).catch((e=>t.commit("API_FAILURE",{userid:r,error:e})))},setUserData(t,e){let{userid:r,key:n,value:o}=e;const i=["email","displayname","manager"];return-1!==["email","language","quota","displayname","password","manager"].indexOf(n)&&"string"==typeof o&&(-1===i.indexOf(n)&&o.length>0||-1!==i.indexOf(n))?ie().then((e=>ue((0,Qt.generateOcsUrl)("cloud/users/{userid}",{userid:r}),{key:n,value:o}).then((e=>t.commit("setUserData",{userid:r,key:n,value:o}))).catch((t=>{throw t})))).catch((e=>t.commit("API_FAILURE",{userid:r,error:e}))):Promise.reject(new Error("Invalid request data"))},sendWelcomeMail:(t,e)=>ie().then((t=>ae((0,Qt.generateOcsUrl)("cloud/users/{userid}/welcome",{userid:e})).then((t=>!0)).catch((t=>{throw t})))).catch((r=>t.commit("API_FAILURE",{userid:e,error:r})))}};var we=o(64024),Ae=o(25108);const Ee={APPS_API_FAILURE(e,r){(0,we.x2)(t("settings","An error occurred during the request. Unable to proceed.")+"<br>"+r.error.response.data.data.message,{isHTML:!0}),Ae.error(e,r)},initCategories(t,e){let{categories:r,updateCount:n}=e;t.categories=r,t.updateCount=n},updateCategories(t,e){t.gettingCategoriesPromise=e},setUpdateCount(t,e){t.updateCount=e},addCategory(t,e){t.categories.push(e)},appendCategories(t,e){t.categories=e},setAllApps(t,e){t.apps=e},setError(t,e){let{appId:r,error:n}=e;Array.isArray(r)||(r=[r]),r.forEach((e=>{t.apps.find((t=>t.id===e)).error=n}))},clearError(t,e){let{appId:r,error:n}=e;t.apps.find((t=>t.id===r)).error=null},enableApp(t,e){let{appId:r,groups:n}=e;const o=t.apps.find((t=>t.id===r));o.active=!0,o.groups=n},disableApp(t,e){const r=t.apps.find((t=>t.id===e));r.active=!1,r.groups=[],r.removable&&(r.canUnInstall=!0)},uninstallApp(t,e){t.apps.find((t=>t.id===e)).active=!1,t.apps.find((t=>t.id===e)).groups=[],t.apps.find((t=>t.id===e)).needsDownload=!0,t.apps.find((t=>t.id===e)).installed=!1,t.apps.find((t=>t.id===e)).canUnInstall=!1,t.apps.find((t=>t.id===e)).canInstall=!0},updateApp(t,e){const r=t.apps.find((t=>t.id===e)),n=r.update;r.update=null,r.version=n,t.updateCount--},resetApps(t){t.apps=[]},reset(t){t.apps=[],t.categories=[],t.updateCount=0},startLoading(t,e){Array.isArray(e)?e.forEach((e=>{i.default.set(t.loading,e,!0)})):i.default.set(t.loading,e,!0)},stopLoading(t,e){Array.isArray(e)?e.forEach((e=>{i.default.set(t.loading,e,!1)})):i.default.set(t.loading,e,!1)}},xe={enableApp(e,r){let n,{appId:o,groups:i}=r;return n=Array.isArray(o)?o:[o],ie().then((r=>(e.commit("startLoading",n),e.commit("startLoading","install"),ae((0,Qt.generateUrl)("settings/apps/enable"),{appIds:n,groups:i}).then((r=>(e.commit("stopLoading",n),e.commit("stopLoading","install"),n.forEach((t=>{e.commit("enableApp",{appId:t,groups:i})})),se((0,Qt.generateUrl)("apps/files")).then((()=>{r.data.update_required&&((0,we.JQ)(t("settings","The app has been enabled but needs to be updated. You will be redirected to the update page in 5 seconds."),{onClick:()=>window.location.reload(),close:!1}),setTimeout((function(){location.reload()}),5e3))})).catch((()=>{Array.isArray(o)||e.commit("setError",{appId:n,error:t("settings","Error: This app cannot be enabled because it makes the server unstable")})}))))).catch((t=>{e.commit("stopLoading",n),e.commit("stopLoading","install"),e.commit("setError",{appId:n,error:t.response.data.data.message}),e.commit("APPS_API_FAILURE",{appId:o,error:t})}))))).catch((t=>e.commit("API_FAILURE",{appId:o,error:t})))},forceEnableApp(t,e){let r,{appId:n,groups:o}=e;return r=Array.isArray(n)?n:[n],ie().then((()=>(t.commit("startLoading",r),t.commit("startLoading","install"),ae((0,Qt.generateUrl)("settings/apps/force"),{appId:n}).then((t=>{location.reload()})).catch((e=>{t.commit("stopLoading",r),t.commit("stopLoading","install"),t.commit("setError",{appId:r,error:e.response.data.data.message}),t.commit("APPS_API_FAILURE",{appId:n,error:e})}))))).catch((e=>t.commit("API_FAILURE",{appId:n,error:e})))},disableApp(t,e){let r,{appId:n}=e;return r=Array.isArray(n)?n:[n],ie().then((e=>(t.commit("startLoading",r),ae((0,Qt.generateUrl)("settings/apps/disable"),{appIds:r}).then((e=>(t.commit("stopLoading",r),r.forEach((e=>{t.commit("disableApp",e)})),!0))).catch((e=>{t.commit("stopLoading",r),t.commit("APPS_API_FAILURE",{appId:n,error:e})}))))).catch((e=>t.commit("API_FAILURE",{appId:n,error:e})))},uninstallApp(t,e){let{appId:r}=e;return ie().then((e=>(t.commit("startLoading",r),se((0,Qt.generateUrl)(`settings/apps/uninstall/${r}`)).then((e=>(t.commit("stopLoading",r),t.commit("uninstallApp",r),!0))).catch((e=>{t.commit("stopLoading",r),t.commit("APPS_API_FAILURE",{appId:r,error:e})}))))).catch((e=>t.commit("API_FAILURE",{appId:r,error:e})))},updateApp(t,e){let{appId:r}=e;return ie().then((e=>(t.commit("startLoading",r),t.commit("startLoading","install"),se((0,Qt.generateUrl)(`settings/apps/update/${r}`)).then((e=>(t.commit("stopLoading","install"),t.commit("stopLoading",r),t.commit("updateApp",r),!0))).catch((e=>{t.commit("stopLoading",r),t.commit("stopLoading","install"),t.commit("APPS_API_FAILURE",{appId:r,error:e})}))))).catch((e=>t.commit("API_FAILURE",{appId:r,error:e})))},getAllApps:t=>(t.commit("startLoading","list"),se((0,Qt.generateUrl)("settings/apps/list")).then((e=>(t.commit("setAllApps",e.data.apps),t.commit("stopLoading","list"),!0))).catch((e=>t.commit("API_FAILURE",e)))),async getCategories(t){let{shouldRefetchCategories:e=!1}=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};if(e||!t.state.gettingCategoriesPromise){t.commit("startLoading","categories");try{const e=se((0,Qt.generateUrl)("settings/apps/categories"));t.commit("updateCategories",e);const r=await e;return r.data.length>0?(t.commit("appendCategories",r.data),t.commit("stopLoading","categories"),!0):(t.commit("stopLoading","categories"),!1)}catch(e){t.commit("API_FAILURE",e)}}return t.state.gettingCategoriesPromise}},Ue={state:{apps:[],categories:[],updateCount:0,loading:{},loadingList:!1,gettingCategoriesPromise:null},mutations:Ee,getters:{loading:t=>function(e){return t.loading[e]},getCategories:t=>t.categories,getAllApps:t=>t.apps,getUpdateCount:t=>t.updateCount,getCategoryById:t=>e=>t.categories.find((t=>t.id===e))},actions:xe},Ie={state:{serverData:{}},mutations:{setServerData(t,e){t.serverData=e}},getters:{getServerData:t=>t.serverData},actions:{}},Oe={state:{},mutations:{},getters:{},actions:{setAppConfig(t,e){let{app:r,key:n,value:o}=e;return ie().then((t=>ae((0,Qt.generateOcsUrl)("apps/provisioning_api/api/v1/config/apps/{app}/{key}",{app:r,key:n}),{value:o}).catch((t=>{throw t})))).catch((e=>t.commit("API_FAILURE",{app:r,key:n,value:o,error:e})))}}};var Pe=o(25108);i.default.use(ee.ZP);const Ce={API_FAILURE(e,r){try{const e=r.error.response.data.ocs.meta.message;(0,we.x2)(t("settings","An error occurred during the request. Unable to proceed.")+"<br>"+e,{isHTML:!0})}catch(e){(0,we.x2)(t("settings","An error occurred during the request. Unable to proceed."))}Pe.error(e,r)}},_e=new ee.yh({modules:{users:be,apps:Ue,settings:Ie,oc:Oe},strict:!1,mutations:Ce});o(43554);const Le=()=>Promise.all([o.e(7874),o.e(8351)]).then(o.bind(o,13843)),Re=()=>Promise.all([o.e(7874),o.e(7418)]).then(o.bind(o,72767));i.default.use(Kt);const Ne=document.title,ke=new Kt({mode:"history",base:(0,Qt.generateUrl)(""),linkActiveClass:"active",routes:[{path:"/:index(index.php/)?settings/users",component:Le,props:!0,name:"users",meta:{title:()=>t("settings","Active users")},children:[{path:":selectedGroup",name:"group",meta:{title:e=>"admin"===e.params.selectedGroup?t("settings","Admins"):"disabled"===e.params.selectedGroup?t("settings","Disabled users"):decodeURIComponent(e.params.selectedGroup)},component:Le}]},{path:"/:index(index.php/)?settings/apps",component:Re,props:!0,name:"apps",meta:{title:()=>t("settings","Your apps")},children:[{path:":category",name:"apps-category",meta:{title:async e=>{if("apps"===e.name)return t("settings","Your apps");if(te.J[e.params.category])return te.J[e.params.category];await _e.dispatch("getCategories");const r=_e.getters.getCategoryById(e.params.category);return r.displayName?r.displayName:void 0}},component:Re,children:[{path:":id",name:"apps-details",component:Re}]}]}]});ke.afterEach((async t=>{const e=await(t.meta.title?.(t));e?(document.title=`${e} - ${Ne}`,function(t){const e=document.getElementById("page-heading-level-1");e&&(e.textContent=t)}(e)):document.title=Ne}));const Te=ke;i.default.use(s.ZP,{defaultHtml:!1}),(0,a.Z)(_e,Te),o.nc=btoa(OC.requestToken),i.default.prototype.t=t,i.default.prototype.n=n,i.default.prototype.OC=OC,i.default.prototype.OCA=OCA,i.default.prototype.oc_userconfig=oc_userconfig,new i.default({router:Te,store:_e,render:t=>t(c)}).$mount("#content")},83678:(t,e)=>{function r(t,e){var n={name:t.name,path:t.path,hash:t.hash,query:t.query,params:t.params,fullPath:t.fullPath,meta:t.meta};return e&&(n.from=r(e)),Object.freeze(n)}e.Z=function(t,e,n){var o=(n||{}).moduleName||"route";t.registerModule(o,{namespaced:!0,state:r(e.currentRoute),mutations:{ROUTE_CHANGED:function(e,n){t.state[o]=r(n.to,n.from)}}});var i,s=!1,a=t.watch((function(t){return t[o]}),(function(t){var r=t.fullPath;r!==i&&(null!=i&&(s=!0,e.push(t)),i=r)}),{sync:!0}),u=e.afterEach((function(e,r){s?s=!1:(i=e.fullPath,t.commit(o+"/ROUTE_CHANGED",{to:e,from:r}))}));return function(){null!=u&&u(),null!=a&&a(),t.unregisterModule(o)}}},5656:(t,e,r)=>{"use strict";r.d(e,{RL:()=>k,Tv:()=>E,_o:()=>_,h7:()=>w,jA:()=>f,pC:()=>N,rp:()=>R,sS:()=>h,tB:()=>A});var n,o=r(77958),i=r(17499),s=r(31352),a=r(62520),u=r(65358),c=r(79753),p=r(14596);null===(n=(0,o.ts)())?(0,i.IY)().setApp("files").build():(0,i.IY)().setApp("files").setUid(n.uid).build();const d=["B","KB","MB","GB","TB","PB"],l=["B","KiB","MiB","GiB","TiB","PiB"];function h(t,e=!1,r=!1,n=!1){r=r&&!n,"string"==typeof t&&(t=Number(t));let o=t>0?Math.floor(Math.log(t)/Math.log(n?1e3:1024)):0;o=Math.min((r?l.length:d.length)-1,o);const i=r?l[o]:d[o];let a=(t/Math.pow(n?1e3:1024,o)).toFixed(1);return!0===e&&0===o?("0.0"!==a?"< 1 ":"0 ")+(r?l[1]:d[1]):(a=o<2?parseFloat(a).toFixed(0):parseFloat(a).toLocaleString((0,s.aj)()),a+" "+i)}function f(t,e=!1){try{t=`${t}`.toLocaleLowerCase().replaceAll(/\s+/g,"").replaceAll(",",".")}catch{return null}const r=t.match(/^([0-9]*(\.[0-9]*)?)([kmgtp]?)(i?)b?$/);if(null===r||"."===r[1]||""===r[1])return null;const n=`${r[1]}`,o="i"===r[4]||e?1024:1e3;return Math.round(Number.parseFloat(n)*o**{"":0,k:1,m:2,g:3,t:4,p:5,e:6}[r[3]])}var m=(t=>(t[t.NONE=0]="NONE",t[t.CREATE=4]="CREATE",t[t.READ=1]="READ",t[t.UPDATE=2]="UPDATE",t[t.DELETE=8]="DELETE",t[t.SHARE=16]="SHARE",t[t.ALL=31]="ALL",t))(m||{});const g=["d:getcontentlength","d:getcontenttype","d:getetag","d:getlastmodified","d:quota-available-bytes","d:resourcetype","nc:has-preview","nc:is-encrypted","nc:mount-type","nc:share-attributes","oc:comments-unread","oc:favorite","oc:fileid","oc:owner-display-name","oc:owner-id","oc:permissions","oc:share-types","oc:size","ocs:share-permissions"],y={d:"DAV:",nc:"http://nextcloud.org/ns",oc:"http://owncloud.org/ns",ocs:"http://open-collaboration-services.org/ns"},v=function(){return typeof window._nc_dav_properties>"u"&&(window._nc_dav_properties=[...g]),window._nc_dav_properties.map((t=>`<${t} />`)).join(" ")},b=function(){return typeof window._nc_dav_namespaces>"u"&&(window._nc_dav_namespaces={...y}),Object.keys(window._nc_dav_namespaces).map((t=>`xmlns:${t}="${window._nc_dav_namespaces?.[t]}"`)).join(" ")},w=function(){return`<?xml version="1.0"?>\n\t\t<d:propfind ${b()}>\n\t\t\t<d:prop>\n\t\t\t\t${v()}\n\t\t\t</d:prop>\n\t\t</d:propfind>`},A=function(t){return`<?xml version="1.0" encoding="UTF-8"?>\n<d:searchrequest ${b()}\n\txmlns:ns="https://github.com/icewind1991/SearchDAV/ns">\n\t<d:basicsearch>\n\t\t<d:select>\n\t\t\t<d:prop>\n\t\t\t\t${v()}\n\t\t\t</d:prop>\n\t\t</d:select>\n\t\t<d:from>\n\t\t\t<d:scope>\n\t\t\t\t<d:href>/files/${(0,o.ts)()?.uid}/</d:href>\n\t\t\t\t<d:depth>infinity</d:depth>\n\t\t\t</d:scope>\n\t\t</d:from>\n\t\t<d:where>\n\t\t\t<d:and>\n\t\t\t\t<d:or>\n\t\t\t\t\t<d:not>\n\t\t\t\t\t\t<d:eq>\n\t\t\t\t\t\t\t<d:prop>\n\t\t\t\t\t\t\t\t<d:getcontenttype/>\n\t\t\t\t\t\t\t</d:prop>\n\t\t\t\t\t\t\t<d:literal>httpd/unix-directory</d:literal>\n\t\t\t\t\t\t</d:eq>\n\t\t\t\t\t</d:not>\n\t\t\t\t\t<d:eq>\n\t\t\t\t\t\t<d:prop>\n\t\t\t\t\t\t\t<oc:size/>\n\t\t\t\t\t\t</d:prop>\n\t\t\t\t\t\t<d:literal>0</d:literal>\n\t\t\t\t\t</d:eq>\n\t\t\t\t</d:or>\n\t\t\t\t<d:gt>\n\t\t\t\t\t<d:prop>\n\t\t\t\t\t\t<d:getlastmodified/>\n\t\t\t\t\t</d:prop>\n\t\t\t\t\t<d:literal>${t}</d:literal>\n\t\t\t\t</d:gt>\n\t\t\t</d:and>\n\t\t</d:where>\n\t\t<d:orderby>\n\t\t\t<d:order>\n\t\t\t\t<d:prop>\n\t\t\t\t\t<d:getlastmodified/>\n\t\t\t\t</d:prop>\n\t\t\t\t<d:descending/>\n\t\t\t</d:order>\n\t\t</d:orderby>\n\t\t<d:limit>\n\t\t\t<d:nresults>100</d:nresults>\n\t\t\t<ns:firstresult>0</ns:firstresult>\n\t\t</d:limit>\n\t</d:basicsearch>\n</d:searchrequest>`};var E=(t=>(t.Folder="folder",t.File="file",t))(E||{});const x=function(t,e){return null!==t.match(e)},U=(t,e)=>{if(t.id&&"number"!=typeof t.id)throw new Error("Invalid id type of value");if(!t.source)throw new Error("Missing mandatory source");try{new URL(t.source)}catch{throw new Error("Invalid source format, source must be a valid URL")}if(!t.source.startsWith("http"))throw new Error("Invalid source format, only http(s) is supported");if(t.mtime&&!(t.mtime instanceof Date))throw new Error("Invalid mtime type");if(t.crtime&&!(t.crtime instanceof Date))throw new Error("Invalid crtime type");if(!t.mime||"string"!=typeof t.mime||!t.mime.match(/^[-\w.]+\/[-+\w.]+$/gi))throw new Error("Missing or invalid mandatory mime");if("size"in t&&"number"!=typeof t.size&&void 0!==t.size)throw new Error("Invalid size type");if("permissions"in t&&void 0!==t.permissions&&!("number"==typeof t.permissions&&t.permissions>=m.NONE&&t.permissions<=m.ALL))throw new Error("Invalid permissions");if(t.owner&&null!==t.owner&&"string"!=typeof t.owner)throw new Error("Invalid owner type");if(t.attributes&&"object"!=typeof t.attributes)throw new Error("Invalid attributes type");if(t.root&&"string"!=typeof t.root)throw new Error("Invalid root type");if(t.root&&!t.root.startsWith("/"))throw new Error("Root must start with a leading slash");if(t.root&&!t.source.includes(t.root))throw new Error("Root must be part of the source");if(t.root&&x(t.source,e)){const r=t.source.match(e)[0];if(!t.source.includes((0,a.join)(r,t.root)))throw new Error("The root must be relative to the service. e.g /files/emma")}if(t.status&&!Object.values(I).includes(t.status))throw new Error("Status must be a valid NodeStatus")};var I=(t=>(t.NEW="new",t.FAILED="failed",t.LOADING="loading",t.LOCKED="locked",t))(I||{});class O{_data;_attributes;_knownDavService=/(remote|public)\.php\/(web)?dav/i;constructor(t,e){U(t,e||this._knownDavService),this._data=t;const r={set:(t,e,r)=>(this.updateMtime(),Reflect.set(t,e,r)),deleteProperty:(t,e)=>(this.updateMtime(),Reflect.deleteProperty(t,e))};this._attributes=new Proxy(t.attributes||{},r),delete this._data.attributes,e&&(this._knownDavService=e)}get source(){return this._data.source.replace(/\/$/i,"")}get encodedSource(){const{origin:t}=new URL(this.source);return t+(0,u.Ec)(this.source.slice(t.length))}get basename(){return(0,a.basename)(this.source)}get extension(){return(0,a.extname)(this.source)}get dirname(){if(this.root){let t=this.source;this.isDavRessource&&(t=t.split(this._knownDavService).pop());const e=t.indexOf(this.root),r=this.root.replace(/\/$/,"");return(0,a.dirname)(t.slice(e+r.length)||"/")}const t=new URL(this.source);return(0,a.dirname)(t.pathname)}get mime(){return this._data.mime}get mtime(){return this._data.mtime}get crtime(){return this._data.crtime}get size(){return this._data.size}get attributes(){return this._attributes}get permissions(){return null!==this.owner||this.isDavRessource?void 0!==this._data.permissions?this._data.permissions:m.NONE:m.READ}get owner(){return this.isDavRessource?this._data.owner:null}get isDavRessource(){return x(this.source,this._knownDavService)}get root(){return this._data.root?this._data.root.replace(/^(.+)\/$/,"$1"):this.isDavRessource&&(0,a.dirname)(this.source).split(this._knownDavService).pop()||null}get path(){if(this.root){let t=this.source;this.isDavRessource&&(t=t.split(this._knownDavService).pop());const e=t.indexOf(this.root),r=this.root.replace(/\/$/,"");return t.slice(e+r.length)||"/"}return(this.dirname+"/"+this.basename).replace(/\/\//g,"/")}get fileid(){return this._data?.id||this.attributes?.fileid}get status(){return this._data?.status}set status(t){this._data.status=t}move(t){U({...this._data,source:t},this._knownDavService),this._data.source=t,this.updateMtime()}rename(t){if(t.includes("/"))throw new Error("Invalid basename");this.move((0,a.dirname)(this.source)+"/"+t)}updateMtime(){this._data.mtime&&(this._data.mtime=new Date)}}class P extends O{get type(){return E.File}}class C extends O{constructor(t){super({...t,mime:"httpd/unix-directory"})}get type(){return E.Folder}get extension(){return null}get mime(){return"httpd/unix-directory"}}const _=`/files/${(0,o.ts)()?.uid}`,L=(0,c.generateRemoteUrl)("dav"),R=function(t=L,e={}){const r=(0,p.eI)(t,{headers:e});function n(t){r.setHeaders({...e,"X-Requested-With":"XMLHttpRequest",requesttoken:t??""})}return(0,o._S)(n),n((0,o.IH)()),(0,p.lD)().patch("fetch",((t,e)=>{const r=e.headers;return r?.method&&(e.method=r.method,delete r.method),fetch(t,e)})),r},N=async(t,e="/",r=_)=>(await t.getDirectoryContents(`${r}${e}`,{details:!0,data:`<?xml version="1.0"?>\n\t\t<oc:filter-files ${b()}>\n\t\t\t<d:prop>\n\t\t\t\t${v()}\n\t\t\t</d:prop>\n\t\t\t<oc:filter-rules>\n\t\t\t\t<oc:favorite>1</oc:favorite>\n\t\t\t</oc:filter-rules>\n\t\t</oc:filter-files>`,headers:{method:"REPORT"},includeSelf:!0})).data.filter((t=>t.filename!==e)).map((t=>k(t,r))),k=function(t,e=_,r=L){const n=t.props,i=function(t=""){let e=m.NONE;return t&&((t.includes("C")||t.includes("K"))&&(e|=m.CREATE),t.includes("G")&&(e|=m.READ),(t.includes("W")||t.includes("N")||t.includes("V"))&&(e|=m.UPDATE),t.includes("D")&&(e|=m.DELETE),t.includes("R")&&(e|=m.SHARE)),e}(n?.permissions),s=n?.["owner-id"]||(0,o.ts)()?.uid,a={id:n?.fileid||0,source:`${r}${t.filename}`,mtime:new Date(Date.parse(t.lastmod)),mime:t.mime,size:n?.size||Number.parseInt(n.getcontentlength||"0"),permissions:i,owner:s,root:e,attributes:{...t,...n,hasPreview:n?.["has-preview"]}};return delete a.attributes?.props,"file"===t.type?new P(a):new C(a)};var T={};!function(t){const e=":A-Za-z_\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD",r="["+e+"]["+e+"\\-.\\d\\u00B7\\u0300-\\u036F\\u203F-\\u2040]*",n=new RegExp("^"+r+"$");t.isExist=function(t){return typeof t<"u"},t.isEmptyObject=function(t){return 0===Object.keys(t).length},t.merge=function(t,e,r){if(e){const n=Object.keys(e),o=n.length;for(let i=0;i<o;i++)t[n[i]]="strict"===r?[e[n[i]]]:e[n[i]]}},t.getValue=function(e){return t.isExist(e)?e:""},t.isName=function(t){const e=n.exec(t);return!(null===e||typeof e>"u")},t.getAllMatches=function(t,e){const r=[];let n=e.exec(t);for(;n;){const o=[];o.startIndex=e.lastIndex-n[0].length;const i=n.length;for(let t=0;t<i;t++)o.push(n[t]);r.push(o),n=e.exec(t)}return r},t.nameRegexp=r}(T);new RegExp("(\\s*)([^\\s=]+)(\\s*=)?(\\s*(['\"])(([\\s\\S])*?)\\5)?","g");var j={};const S={preserveOrder:!1,attributeNamePrefix:"@_",attributesGroupName:!1,textNodeName:"#text",ignoreAttributes:!0,removeNSPrefix:!1,allowBooleanAttributes:!1,parseTagValue:!0,parseAttributeValue:!1,trimValues:!0,cdataPropName:!1,numberParseOptions:{hex:!0,leadingZeros:!0,eNotation:!0},tagValueProcessor:function(t,e){return e},attributeValueProcessor:function(t,e){return e},stopNodes:[],alwaysCreateTextNode:!1,isArray:()=>!1,commentPropName:!1,unpairedTags:[],processEntities:!0,htmlEntities:!1,ignoreDeclaration:!1,ignorePiTags:!1,transformTagName:!1,transformAttributeName:!1,updateTag:function(t,e,r){return t}};j.buildOptions=function(t){return Object.assign({},S,t)},j.defaultOptions=S,!Number.parseInt&&window.parseInt&&(Number.parseInt=window.parseInt),!Number.parseFloat&&window.parseFloat&&(Number.parseFloat=window.parseFloat);"<((!\\[CDATA\\[([\\s\\S]*?)(]]>))|((NAME:)?(NAME))([^>]*)>|((\\/)(NAME)\\s*>))([^<]*)".replace(/NAME/g,T.nameRegexp),new RegExp("([^\\s=]+)\\s*(=\\s*(['\"])([\\s\\S]*?)\\3)?","gm");var $={};function F(t,e,r){let n;const o={};for(let i=0;i<t.length;i++){const s=t[i],a=D(s);let u="";if(u=void 0===r?a:r+"."+a,a===e.textNodeName)void 0===n?n=s[a]:n+=""+s[a];else{if(void 0===a)continue;if(s[a]){let t=F(s[a],e,u);const r=q(t,e);s[":@"]?B(t,s[":@"],u,e):1!==Object.keys(t).length||void 0===t[e.textNodeName]||e.alwaysCreateTextNode?0===Object.keys(t).length&&(e.alwaysCreateTextNode?t[e.textNodeName]="":t=""):t=t[e.textNodeName],void 0!==o[a]&&o.hasOwnProperty(a)?(Array.isArray(o[a])||(o[a]=[o[a]]),o[a].push(t)):e.isArray(a,u,r)?o[a]=[t]:o[a]=t}}}return"string"==typeof n?n.length>0&&(o[e.textNodeName]=n):void 0!==n&&(o[e.textNodeName]=n),o}function D(t){const e=Object.keys(t);for(let t=0;t<e.length;t++){const r=e[t];if(":@"!==r)return r}}function B(t,e,r,n){if(e){const o=Object.keys(e),i=o.length;for(let s=0;s<i;s++){const i=o[s];n.isArray(i,r+"."+i,!0,!0)?t[i]=[e[i]]:t[i]=e[i]}}}function q(t,e){const{textNodeName:r}=e,n=Object.keys(t).length;return!(0!==n&&(1!==n||!t[r]&&"boolean"!=typeof t[r]&&0!==t[r]))}$.prettify=function(t,e){return F(t,e)};const{buildOptions:M}=j,{prettify:G}=$;function V(t,e,r,n){let o="",i=!1;for(let s=0;s<t.length;s++){const a=t[s],u=z(a);if(void 0===u)continue;let c="";if(c=0===r.length?u:`${r}.${u}`,u===e.textNodeName){let t=a[u];Z(c,e)||(t=e.tagValueProcessor(u,t),t=W(t,e)),i&&(o+=n),o+=t,i=!1;continue}if(u===e.cdataPropName){i&&(o+=n),o+=`<![CDATA[${a[u][0][e.textNodeName]}]]>`,i=!1;continue}if(u===e.commentPropName){o+=n+`\x3c!--${a[u][0][e.textNodeName]}--\x3e`,i=!0;continue}if("?"===u[0]){const t=H(a[":@"],e),r="?xml"===u?"":n;let s=a[u][0][e.textNodeName];s=0!==s.length?" "+s:"",o+=r+`<${u}${s}${t}?>`,i=!0;continue}let p=n;""!==p&&(p+=e.indentBy);const d=n+`<${u}${H(a[":@"],e)}`,l=V(a[u],e,c,p);-1!==e.unpairedTags.indexOf(u)?e.suppressUnpairedNode?o+=d+">":o+=d+"/>":l&&0!==l.length||!e.suppressEmptyNode?l&&l.endsWith(">")?o+=d+`>${l}${n}</${u}>`:(o+=d+">",l&&""!==n&&(l.includes("/>")||l.includes("</"))?o+=n+e.indentBy+l+n:o+=l,o+=`</${u}>`):o+=d+"/>",i=!0}return o}function z(t){const e=Object.keys(t);for(let r=0;r<e.length;r++){const n=e[r];if(t.hasOwnProperty(n)&&":@"!==n)return n}}function H(t,e){let r="";if(t&&!e.ignoreAttributes)for(let n in t){if(!t.hasOwnProperty(n))continue;let o=e.attributeValueProcessor(n,t[n]);o=W(o,e),!0===o&&e.suppressBooleanAttributes?r+=` ${n.substr(e.attributeNamePrefix.length)}`:r+=` ${n.substr(e.attributeNamePrefix.length)}="${o}"`}return r}function Z(t,e){let r=(t=t.substr(0,t.length-e.textNodeName.length-1)).substr(t.lastIndexOf(".")+1);for(let n in e.stopNodes)if(e.stopNodes[n]===t||e.stopNodes[n]==="*."+r)return!0;return!1}function W(t,e){if(t&&t.length>0&&e.processEntities)for(let r=0;r<e.entities.length;r++){const n=e.entities[r];t=t.replace(n.regex,n.val)}return t}const Y=function(t,e){let r="";return e.format&&e.indentBy.length>0&&(r="\n"),V(t,e,"",r)},J={attributeNamePrefix:"@_",attributesGroupName:!1,textNodeName:"#text",ignoreAttributes:!0,cdataPropName:!1,format:!1,indentBy:"  ",suppressEmptyNode:!1,suppressUnpairedNode:!0,suppressBooleanAttributes:!0,tagValueProcessor:function(t,e){return e},attributeValueProcessor:function(t,e){return e},preserveOrder:!1,commentPropName:!1,unpairedTags:[],entities:[{regex:new RegExp("&","g"),val:"&amp;"},{regex:new RegExp(">","g"),val:"&gt;"},{regex:new RegExp("<","g"),val:"&lt;"},{regex:new RegExp("'","g"),val:"&apos;"},{regex:new RegExp('"',"g"),val:"&quot;"}],processEntities:!0,stopNodes:[],oneListGroup:!1};function K(t){this.options=Object.assign({},J,t),this.options.ignoreAttributes||this.options.attributesGroupName?this.isAttribute=function(){return!1}:(this.attrPrefixLen=this.options.attributeNamePrefix.length,this.isAttribute=tt),this.processTextOrObjNode=X,this.options.format?(this.indentate=Q,this.tagEndChar=">\n",this.newLine="\n"):(this.indentate=function(){return""},this.tagEndChar=">",this.newLine="")}function X(t,e,r){const n=this.j2x(t,r+1);return void 0!==t[this.options.textNodeName]&&1===Object.keys(t).length?this.buildTextValNode(t[this.options.textNodeName],e,n.attrStr,r):this.buildObjectNode(n.val,e,n.attrStr,r)}function Q(t){return this.options.indentBy.repeat(t)}function tt(t){return!(!t.startsWith(this.options.attributeNamePrefix)||t===this.options.textNodeName)&&t.substr(this.attrPrefixLen)}K.prototype.build=function(t){return this.options.preserveOrder?Y(t,this.options):(Array.isArray(t)&&this.options.arrayNodeName&&this.options.arrayNodeName.length>1&&(t={[this.options.arrayNodeName]:t}),this.j2x(t,0).val)},K.prototype.j2x=function(t,e){let r="",n="";for(let o in t)if(Object.prototype.hasOwnProperty.call(t,o))if(typeof t[o]>"u")this.isAttribute(o)&&(n+="");else if(null===t[o])this.isAttribute(o)?n+="":"?"===o[0]?n+=this.indentate(e)+"<"+o+"?"+this.tagEndChar:n+=this.indentate(e)+"<"+o+"/"+this.tagEndChar;else if(t[o]instanceof Date)n+=this.buildTextValNode(t[o],o,"",e);else if("object"!=typeof t[o]){const i=this.isAttribute(o);if(i)r+=this.buildAttrPairStr(i,""+t[o]);else if(o===this.options.textNodeName){let e=this.options.tagValueProcessor(o,""+t[o]);n+=this.replaceEntitiesValue(e)}else n+=this.buildTextValNode(t[o],o,"",e)}else if(Array.isArray(t[o])){const r=t[o].length;let i="";for(let s=0;s<r;s++){const r=t[o][s];typeof r>"u"||(null===r?"?"===o[0]?n+=this.indentate(e)+"<"+o+"?"+this.tagEndChar:n+=this.indentate(e)+"<"+o+"/"+this.tagEndChar:"object"==typeof r?this.options.oneListGroup?i+=this.j2x(r,e+1).val:i+=this.processTextOrObjNode(r,o,e):i+=this.buildTextValNode(r,o,"",e))}this.options.oneListGroup&&(i=this.buildObjectNode(i,o,"",e)),n+=i}else if(this.options.attributesGroupName&&o===this.options.attributesGroupName){const e=Object.keys(t[o]),n=e.length;for(let i=0;i<n;i++)r+=this.buildAttrPairStr(e[i],""+t[o][e[i]])}else n+=this.processTextOrObjNode(t[o],o,e);return{attrStr:r,val:n}},K.prototype.buildAttrPairStr=function(t,e){return e=this.options.attributeValueProcessor(t,""+e),e=this.replaceEntitiesValue(e),this.options.suppressBooleanAttributes&&"true"===e?" "+t:" "+t+'="'+e+'"'},K.prototype.buildObjectNode=function(t,e,r,n){if(""===t)return"?"===e[0]?this.indentate(n)+"<"+e+r+"?"+this.tagEndChar:this.indentate(n)+"<"+e+r+this.closeTag(e)+this.tagEndChar;{let o="</"+e+this.tagEndChar,i="";return"?"===e[0]&&(i="?",o=""),!r&&""!==r||-1!==t.indexOf("<")?!1!==this.options.commentPropName&&e===this.options.commentPropName&&0===i.length?this.indentate(n)+`\x3c!--${t}--\x3e`+this.newLine:this.indentate(n)+"<"+e+r+i+this.tagEndChar+t+this.indentate(n)+o:this.indentate(n)+"<"+e+r+i+">"+t+o}},K.prototype.closeTag=function(t){let e="";return-1!==this.options.unpairedTags.indexOf(t)?this.options.suppressUnpairedNode||(e="/"):e=this.options.suppressEmptyNode?"/":`></${t}`,e},K.prototype.buildTextValNode=function(t,e,r,n){if(!1!==this.options.cdataPropName&&e===this.options.cdataPropName)return this.indentate(n)+`<![CDATA[${t}]]>`+this.newLine;if(!1!==this.options.commentPropName&&e===this.options.commentPropName)return this.indentate(n)+`\x3c!--${t}--\x3e`+this.newLine;if("?"===e[0])return this.indentate(n)+"<"+e+r+"?"+this.tagEndChar;{let o=this.options.tagValueProcessor(e,t);return o=this.replaceEntitiesValue(o),""===o?this.indentate(n)+"<"+e+r+this.closeTag(e)+this.tagEndChar:this.indentate(n)+"<"+e+r+">"+o+"</"+e+this.tagEndChar}},K.prototype.replaceEntitiesValue=function(t){if(t&&t.length>0&&this.options.processEntities)for(let e=0;e<this.options.entities.length;e++){const r=this.options.entities[e];t=t.replace(r.regex,r.val)}return t}}},s={};function a(t){var e=s[t];if(void 0!==e)return e.exports;var r=s[t]={id:t,loaded:!1,exports:{}};return i[t].call(r.exports,r,r.exports,a),r.loaded=!0,r.exports}a.m=i,e=[],a.O=(t,r,n,o)=>{if(!r){var i=1/0;for(p=0;p<e.length;p++){r=e[p][0],n=e[p][1],o=e[p][2];for(var s=!0,u=0;u<r.length;u++)(!1&o||i>=o)&&Object.keys(a.O).every((t=>a.O[t](r[u])))?r.splice(u--,1):(s=!1,o<i&&(i=o));if(s){e.splice(p--,1);var c=n();void 0!==c&&(t=c)}}return t}o=o||0;for(var p=e.length;p>0&&e[p-1][2]>o;p--)e[p]=e[p-1];e[p]=[r,n,o]},a.n=t=>{var e=t&&t.__esModule?()=>t.default:()=>t;return a.d(e,{a:e}),e},a.d=(t,e)=>{for(var r in e)a.o(e,r)&&!a.o(t,r)&&Object.defineProperty(t,r,{enumerable:!0,get:e[r]})},a.f={},a.e=t=>Promise.all(Object.keys(a.f).reduce(((e,r)=>(a.f[r](t,e),e)),[])),a.u=t=>(({7418:"settings-apps-view",8351:"settings-users"}[t]||t)+"-"+t+".js?v="+{4720:"bf813bc45f5afa044293",6512:"3167b4aeec698c304c53",7418:"6ff916768215d6f1ccf2",8351:"10a205e2c18219190d43"}[t]),a.g=function(){if("object"==typeof globalThis)return globalThis;try{return this||new Function("return this")()}catch(t){if("object"==typeof window)return window}}(),a.o=(t,e)=>Object.prototype.hasOwnProperty.call(t,e),r={},o="nextcloud:",a.l=(t,e,n,i)=>{if(r[t])r[t].push(e);else{var s,u;if(void 0!==n)for(var c=document.getElementsByTagName("script"),p=0;p<c.length;p++){var d=c[p];if(d.getAttribute("src")==t||d.getAttribute("data-webpack")==o+n){s=d;break}}s||(u=!0,(s=document.createElement("script")).charset="utf-8",s.timeout=120,a.nc&&s.setAttribute("nonce",a.nc),s.setAttribute("data-webpack",o+n),s.src=t),r[t]=[e];var l=(e,n)=>{s.onerror=s.onload=null,clearTimeout(h);var o=r[t];if(delete r[t],s.parentNode&&s.parentNode.removeChild(s),o&&o.forEach((t=>t(n))),e)return e(n)},h=setTimeout(l.bind(null,void 0,{type:"timeout",target:s}),12e4);s.onerror=l.bind(null,s.onerror),s.onload=l.bind(null,s.onload),u&&document.head.appendChild(s)}},a.r=t=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},a.nmd=t=>(t.paths=[],t.children||(t.children=[]),t),a.j=8562,(()=>{var t;a.g.importScripts&&(t=a.g.location+"");var e=a.g.document;if(!t&&e&&(e.currentScript&&(t=e.currentScript.src),!t)){var r=e.getElementsByTagName("script");if(r.length)for(var n=r.length-1;n>-1&&!t;)t=r[n--].src}if(!t)throw new Error("Automatic publicPath is not supported in this browser");t=t.replace(/#.*$/,"").replace(/\?.*$/,"").replace(/\/[^\/]+$/,"/"),a.p=t})(),(()=>{a.b=document.baseURI||self.location.href;var t={8562:0};a.f.j=(e,r)=>{var n=a.o(t,e)?t[e]:void 0;if(0!==n)if(n)r.push(n[2]);else{var o=new Promise(((r,o)=>n=t[e]=[r,o]));r.push(n[2]=o);var i=a.p+a.u(e),s=new Error;a.l(i,(r=>{if(a.o(t,e)&&(0!==(n=t[e])&&(t[e]=void 0),n)){var o=r&&("load"===r.type?"missing":r.type),i=r&&r.target&&r.target.src;s.message="Loading chunk "+e+" failed.\n("+o+": "+i+")",s.name="ChunkLoadError",s.type=o,s.request=i,n[1](s)}}),"chunk-"+e,e)}},a.O.j=e=>0===t[e];var e=(e,r)=>{var n,o,i=r[0],s=r[1],u=r[2],c=0;if(i.some((e=>0!==t[e]))){for(n in s)a.o(s,n)&&(a.m[n]=s[n]);if(u)var p=u(a)}for(e&&e(r);c<i.length;c++)o=i[c],a.o(t,o)&&t[o]&&t[o][0](),t[o]=0;return a.O(p)},r=self.webpackChunknextcloud=self.webpackChunknextcloud||[];r.forEach(e.bind(null,0)),r.push=e.bind(null,r.push.bind(r))})(),a.nc=void 0;var u=a.O(void 0,[7874],(()=>a(40491)));u=a.O(u)})();
-//# sourceMappingURL=settings-vue-settings-apps-users-management.js.map?v=6a357c7f7f380f55099e
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./apps/settings/src/constants/AppsConstants.js":
+/*!******************************************************!*\
+  !*** ./apps/settings/src/constants/AppsConstants.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   APPS_SECTION_ENUM: () => (/* binding */ APPS_SECTION_ENUM)
+/* harmony export */ });
+/* harmony import */ var _nextcloud_l10n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nextcloud/l10n */ "./node_modules/@nextcloud/l10n/dist/index.mjs");
+/**
+ * @copyright 2022, Julia Kirschenheuter <julia.kirschenheuter@nextcloud.com>
+ *
+ * @author Julia Kirschenheuter <julia.kirschenheuter@nextcloud.com>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+
+
+/** Enum of verification constants, according to Apps */
+const APPS_SECTION_ENUM = Object.freeze({
+  installed: (0,_nextcloud_l10n__WEBPACK_IMPORTED_MODULE_0__.translate)('settings', 'Your apps'),
+  enabled: (0,_nextcloud_l10n__WEBPACK_IMPORTED_MODULE_0__.translate)('settings', 'Active apps'),
+  disabled: (0,_nextcloud_l10n__WEBPACK_IMPORTED_MODULE_0__.translate)('settings', 'Disabled apps'),
+  updates: (0,_nextcloud_l10n__WEBPACK_IMPORTED_MODULE_0__.translate)('settings', 'Updates'),
+  'app-bundles': (0,_nextcloud_l10n__WEBPACK_IMPORTED_MODULE_0__.translate)('settings', 'App bundles'),
+  featured: (0,_nextcloud_l10n__WEBPACK_IMPORTED_MODULE_0__.translate)('settings', 'Featured apps'),
+  supported: (0,_nextcloud_l10n__WEBPACK_IMPORTED_MODULE_0__.translate)('settings', 'Supported apps') // From subscription
+});
+
+/***/ }),
+
+/***/ "./apps/settings/src/logger.js":
+/*!*************************************!*\
+  !*** ./apps/settings/src/logger.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _nextcloud_logger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nextcloud/logger */ "./node_modules/@nextcloud/logger/dist/index.js");
+/**
+ * @copyright 2020 Christoph Wurst <christoph@winzerhof-wurst.at>
+ *
+ * @author Roeland Jago Douma <roeland@famdouma.nl>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_nextcloud_logger__WEBPACK_IMPORTED_MODULE_0__.getLoggerBuilder)().setApp('settings').detectUser().build());
+
+/***/ }),
+
+/***/ "./apps/settings/src/main-apps-users-management.js":
+/*!*********************************************************!*\
+  !*** ./apps/settings/src/main-apps-users-management.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   app: () => (/* binding */ app),
+/* harmony export */   router: () => (/* reexport safe */ _router_js__WEBPACK_IMPORTED_MODULE_3__["default"]),
+/* harmony export */   store: () => (/* reexport safe */ _store_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.runtime.esm.js");
+/* harmony import */ var v_tooltip__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-tooltip */ "./node_modules/v-tooltip/dist/v-tooltip.esm.js");
+/* harmony import */ var vuex_router_sync__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex-router-sync */ "./node_modules/vuex-router-sync/index.js");
+/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.vue */ "./apps/settings/src/App.vue");
+/* harmony import */ var _router_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./router.js */ "./apps/settings/src/router.js");
+/* harmony import */ var _store_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store/index.js */ "./apps/settings/src/store/index.js");
+/**
+ * @copyright Copyright (c) 2018 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ * @author rakekniven <mark.ziegler@rakekniven.de>
+ * @author Roeland Jago Douma <roeland@famdouma.nl>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+
+
+
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_5__["default"].use(v_tooltip__WEBPACK_IMPORTED_MODULE_0__["default"], {
+  defaultHtml: false
+});
+(0,vuex_router_sync__WEBPACK_IMPORTED_MODULE_1__.sync)(_store_index_js__WEBPACK_IMPORTED_MODULE_4__["default"], _router_js__WEBPACK_IMPORTED_MODULE_3__["default"]);
+
+// CSP config for webpack dynamic chunk loading
+// eslint-disable-next-line camelcase
+__webpack_require__.nc = btoa(OC.requestToken);
+
+// bind to window
+vue__WEBPACK_IMPORTED_MODULE_5__["default"].prototype.t = t;
+vue__WEBPACK_IMPORTED_MODULE_5__["default"].prototype.n = n;
+vue__WEBPACK_IMPORTED_MODULE_5__["default"].prototype.OC = OC;
+vue__WEBPACK_IMPORTED_MODULE_5__["default"].prototype.OCA = OCA;
+// eslint-disable-next-line camelcase
+vue__WEBPACK_IMPORTED_MODULE_5__["default"].prototype.oc_userconfig = oc_userconfig;
+const app = new vue__WEBPACK_IMPORTED_MODULE_5__["default"]({
+  router: _router_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+  store: _store_index_js__WEBPACK_IMPORTED_MODULE_4__["default"],
+  render: h => h(_App_vue__WEBPACK_IMPORTED_MODULE_2__["default"])
+}).$mount('#content');
+
+
+/***/ }),
+
+/***/ "./apps/settings/src/router.js":
+/*!*************************************!*\
+  !*** ./apps/settings/src/router.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.runtime.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _nextcloud_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nextcloud/router */ "./node_modules/@nextcloud/router/dist/index.js");
+/* harmony import */ var _constants_AppsConstants_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants/AppsConstants.js */ "./apps/settings/src/constants/AppsConstants.js");
+/* harmony import */ var _store_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/index.js */ "./apps/settings/src/store/index.js");
+/* harmony import */ var _core_src_OCP_accessibility_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../core/src/OCP/accessibility.js */ "./core/src/OCP/accessibility.js");
+/**
+ * @copyright Copyright (c) 2018 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ * @author Julius Härtl <jus@bitgrid.net>
+ * @author Roeland Jago Douma <roeland@famdouma.nl>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+
+
+
+
+
+
+
+// Dynamic loading
+const Users = () => Promise.all(/*! import() | settings-users */[__webpack_require__.e("core-common"), __webpack_require__.e("nextcloud-vue_dist_chunks_NcAvatar-hzJg5uL9_mjs"), __webpack_require__.e("nextcloud-vue_dist_chunks_ArrowRight-I5-Rr76L_mjs-nextcloud-vue_dist_chunks_NcSelect-jC7ShD5p_mjs"), __webpack_require__.e("nextcloud-vue_dist_Components_NcActionButton_mjs-nextcloud-vue_dist_chunks_NcUserStatusIcon-_-25c782"), __webpack_require__.e("nextcloud-vue_dist_chunks_NcCheckboxRadioSwitch_vue_vue_type_style_index_0_scoped_2603be83_la-c9fae2"), __webpack_require__.e("nextcloud-vue_dist_chunks_NcCheckboxRadioSwitch-kFWeinsE_mjs"), __webpack_require__.e("nextcloud-vue_dist_Components_NcActionText_mjs-nextcloud-vue_dist_chunks_NcActionInput-Z-VZ4WYV_mjs"), __webpack_require__.e("nextcloud-vue_dist_Components_NcCounterBubble_mjs-nextcloud-vue_dist_Components_NcEmptyConten-9242c8"), __webpack_require__.e("nextcloud-vue_dist_Components_NcAppNavigationNew_mjs-nextcloud-vue_dist_Components_NcAppSetti-03e80a"), __webpack_require__.e("settings-users")]).then(__webpack_require__.bind(__webpack_require__, /*! ./views/Users.vue */ "./apps/settings/src/views/Users.vue"));
+const Apps = () => Promise.all(/*! import() | settings-apps-view */[__webpack_require__.e("core-common"), __webpack_require__.e("nextcloud-vue_dist_chunks_NcAvatar-hzJg5uL9_mjs"), __webpack_require__.e("nextcloud-vue_dist_chunks_ArrowRight-I5-Rr76L_mjs-nextcloud-vue_dist_chunks_NcSelect-jC7ShD5p_mjs"), __webpack_require__.e("nextcloud-vue_dist_Components_NcActionButton_mjs-nextcloud-vue_dist_chunks_NcUserStatusIcon-_-25c782"), __webpack_require__.e("nextcloud-vue_dist_chunks_NcCheckboxRadioSwitch_vue_vue_type_style_index_0_scoped_2603be83_la-c9fae2"), __webpack_require__.e("nextcloud-vue_dist_chunks_NcCheckboxRadioSwitch-kFWeinsE_mjs"), __webpack_require__.e("nextcloud-vue_dist_Components_NcCounterBubble_mjs-nextcloud-vue_dist_Components_NcEmptyConten-9242c8"), __webpack_require__.e("nextcloud-vue_dist_Components_NcAppNavigationSpacer_mjs-nextcloud-vue_dist_Components_NcAppSi-6f4013"), __webpack_require__.e("settings-apps-view")]).then(__webpack_require__.bind(__webpack_require__, /*! ./views/Apps.vue */ "./apps/settings/src/views/Apps.vue"));
+vue__WEBPACK_IMPORTED_MODULE_4__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]);
+
+/*
+ * This is the list of routes where the vuejs app will
+ * take over php to provide data
+ * You need to forward the php routing (routes.php) to
+ * the settings-vue template, where the vue-router will
+ * ensure the proper route.
+ * ⚠️ Routes needs to match the php routes.
+ */
+const baseTitle = document.title;
+const router = new vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]({
+  mode: 'history',
+  // if index.php is in the url AND we got this far, then it's working:
+  // let's keep using index.php in the url
+  base: (0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_0__.generateUrl)(''),
+  linkActiveClass: 'active',
+  routes: [{
+    path: '/:index(index.php/)?settings/users',
+    component: Users,
+    props: true,
+    name: 'users',
+    meta: {
+      title: () => {
+        return t('settings', 'Active users');
+      }
+    },
+    children: [{
+      path: ':selectedGroup',
+      name: 'group',
+      meta: {
+        title: to => {
+          if (to.params.selectedGroup === 'admin') {
+            return t('settings', 'Admins');
+          }
+          if (to.params.selectedGroup === 'disabled') {
+            return t('settings', 'Disabled users');
+          }
+          return decodeURIComponent(to.params.selectedGroup);
+        }
+      },
+      component: Users
+    }]
+  }, {
+    path: '/:index(index.php/)?settings/apps',
+    component: Apps,
+    props: true,
+    name: 'apps',
+    meta: {
+      title: () => {
+        return t('settings', 'Your apps');
+      }
+    },
+    children: [{
+      path: ':category',
+      name: 'apps-category',
+      meta: {
+        title: async to => {
+          if (to.name === 'apps') {
+            return t('settings', 'Your apps');
+          }
+          if (_constants_AppsConstants_js__WEBPACK_IMPORTED_MODULE_1__.APPS_SECTION_ENUM[to.params.category]) {
+            return _constants_AppsConstants_js__WEBPACK_IMPORTED_MODULE_1__.APPS_SECTION_ENUM[to.params.category];
+          }
+          await _store_index_js__WEBPACK_IMPORTED_MODULE_2__["default"].dispatch('getCategories');
+          const category = _store_index_js__WEBPACK_IMPORTED_MODULE_2__["default"].getters.getCategoryById(to.params.category);
+          if (category.displayName) {
+            return category.displayName;
+          }
+        }
+      },
+      component: Apps,
+      children: [{
+        path: ':id',
+        name: 'apps-details',
+        component: Apps
+      }]
+    }]
+  }]
+});
+router.afterEach(async to => {
+  const metaTitle = await to.meta.title?.(to);
+  if (metaTitle) {
+    document.title = `${metaTitle} - ${baseTitle}`;
+    (0,_core_src_OCP_accessibility_js__WEBPACK_IMPORTED_MODULE_3__.setPageHeading)(metaTitle);
+  } else {
+    document.title = baseTitle;
+  }
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
+
+/***/ }),
+
+/***/ "./apps/settings/src/store/api.js":
+/*!****************************************!*\
+  !*** ./apps/settings/src/store/api.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _nextcloud_axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nextcloud/axios */ "./node_modules/@nextcloud/axios/dist/index.es.mjs");
+/* harmony import */ var _nextcloud_password_confirmation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nextcloud/password-confirmation */ "./node_modules/@nextcloud/password-confirmation/dist/index.mjs");
+/* harmony import */ var _nextcloud_password_confirmation_dist_style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nextcloud/password-confirmation/dist/style.css */ "./node_modules/@nextcloud/password-confirmation/dist/style.css");
+/**
+ * @copyright Copyright (c) 2018 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author Christoph Wurst <christoph@winzerhof-wurst.at>
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ * @author Julius Härtl <jus@bitgrid.net>
+ * @author Roeland Jago Douma <roeland@famdouma.nl>
+ * @author Sujith Haridasan <sujith.h@gmail.com>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+
+
+
+const sanitize = function (url) {
+  return url.replace(/\/$/, ''); // Remove last url slash
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  /**
+   * This Promise is used to chain a request that require an admin password confirmation
+   * Since chaining Promise have a very precise behavior concerning catch and then,
+   * you'll need to be careful when using it.
+   * e.g
+   * // store
+   * action(context) {
+   *   return api.requireAdmin().then((response) => {
+   *     return api.get('url')
+   *       .then((response) => {API success})
+   *       .catch((error) => {API failure});
+   *   }).catch((error) => {requireAdmin failure});
+   * }
+   * // vue
+   * this.$store.dispatch('action').then(() => {always executed})
+   *
+   * Since Promise.then().catch().then() will always execute the last then
+   * this.$store.dispatch('action').then will always be executed
+   *
+   * If you want requireAdmin failure to also catch the API request failure
+   * you will need to throw a new error in the api.get.catch()
+   *
+   * e.g
+   * api.requireAdmin().then((response) => {
+   *   api.get('url')
+   *     .then((response) => {API success})
+   *     .catch((error) => {throw error;});
+   * }).catch((error) => {requireAdmin OR API failure});
+   *
+   * @return {Promise}
+   */
+  requireAdmin() {
+    return (0,_nextcloud_password_confirmation__WEBPACK_IMPORTED_MODULE_1__.confirmPassword)();
+  },
+  get(url, options) {
+    return _nextcloud_axios__WEBPACK_IMPORTED_MODULE_0__["default"].get(sanitize(url), options);
+  },
+  post(url, data) {
+    return _nextcloud_axios__WEBPACK_IMPORTED_MODULE_0__["default"].post(sanitize(url), data);
+  },
+  patch(url, data) {
+    return _nextcloud_axios__WEBPACK_IMPORTED_MODULE_0__["default"].patch(sanitize(url), data);
+  },
+  put(url, data) {
+    return _nextcloud_axios__WEBPACK_IMPORTED_MODULE_0__["default"].put(sanitize(url), data);
+  },
+  delete(url, data) {
+    return _nextcloud_axios__WEBPACK_IMPORTED_MODULE_0__["default"].delete(sanitize(url), {
+      params: data
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./apps/settings/src/store/apps.js":
+/*!*****************************************!*\
+  !*** ./apps/settings/src/store/apps.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api.js */ "./apps/settings/src/store/api.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.runtime.esm.js");
+/* harmony import */ var _nextcloud_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nextcloud/router */ "./node_modules/@nextcloud/router/dist/index.js");
+/* harmony import */ var _nextcloud_dialogs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nextcloud/dialogs */ "./node_modules/@nextcloud/dialogs/dist/index.mjs");
+/* provided dependency */ var console = __webpack_require__(/*! ./node_modules/console-browserify/index.js */ "./node_modules/console-browserify/index.js");
+/**
+ * @copyright Copyright (c) 2018 Julius Härtl <jus@bitgrid.net>
+ *
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ * @author Julius Härtl <jus@bitgrid.net>
+ * @author Roeland Jago Douma <roeland@famdouma.nl>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+
+
+
+
+const state = {
+  apps: [],
+  categories: [],
+  updateCount: 0,
+  loading: {},
+  loadingList: false,
+  gettingCategoriesPromise: null
+};
+const mutations = {
+  APPS_API_FAILURE(state, error) {
+    (0,_nextcloud_dialogs__WEBPACK_IMPORTED_MODULE_2__.showError)(t('settings', 'An error occurred during the request. Unable to proceed.') + '<br>' + error.error.response.data.data.message, {
+      isHTML: true
+    });
+    console.error(state, error);
+  },
+  initCategories(state, _ref) {
+    let {
+      categories,
+      updateCount
+    } = _ref;
+    state.categories = categories;
+    state.updateCount = updateCount;
+  },
+  updateCategories(state, categoriesPromise) {
+    state.gettingCategoriesPromise = categoriesPromise;
+  },
+  setUpdateCount(state, updateCount) {
+    state.updateCount = updateCount;
+  },
+  addCategory(state, category) {
+    state.categories.push(category);
+  },
+  appendCategories(state, categoriesArray) {
+    // convert obj to array
+    state.categories = categoriesArray;
+  },
+  setAllApps(state, apps) {
+    state.apps = apps;
+  },
+  setError(state, _ref2) {
+    let {
+      appId,
+      error
+    } = _ref2;
+    if (!Array.isArray(appId)) {
+      appId = [appId];
+    }
+    appId.forEach(_id => {
+      const app = state.apps.find(app => app.id === _id);
+      app.error = error;
+    });
+  },
+  clearError(state, _ref3) {
+    let {
+      appId,
+      error
+    } = _ref3;
+    const app = state.apps.find(app => app.id === appId);
+    app.error = null;
+  },
+  enableApp(state, _ref4) {
+    let {
+      appId,
+      groups
+    } = _ref4;
+    const app = state.apps.find(app => app.id === appId);
+    app.active = true;
+    app.groups = groups;
+  },
+  disableApp(state, appId) {
+    const app = state.apps.find(app => app.id === appId);
+    app.active = false;
+    app.groups = [];
+    if (app.removable) {
+      app.canUnInstall = true;
+    }
+  },
+  uninstallApp(state, appId) {
+    state.apps.find(app => app.id === appId).active = false;
+    state.apps.find(app => app.id === appId).groups = [];
+    state.apps.find(app => app.id === appId).needsDownload = true;
+    state.apps.find(app => app.id === appId).installed = false;
+    state.apps.find(app => app.id === appId).canUnInstall = false;
+    state.apps.find(app => app.id === appId).canInstall = true;
+  },
+  updateApp(state, appId) {
+    const app = state.apps.find(app => app.id === appId);
+    const version = app.update;
+    app.update = null;
+    app.version = version;
+    state.updateCount--;
+  },
+  resetApps(state) {
+    state.apps = [];
+  },
+  reset(state) {
+    state.apps = [];
+    state.categories = [];
+    state.updateCount = 0;
+  },
+  startLoading(state, id) {
+    if (Array.isArray(id)) {
+      id.forEach(_id => {
+        vue__WEBPACK_IMPORTED_MODULE_3__["default"].set(state.loading, _id, true);
+      });
+    } else {
+      vue__WEBPACK_IMPORTED_MODULE_3__["default"].set(state.loading, id, true);
+    }
+  },
+  stopLoading(state, id) {
+    if (Array.isArray(id)) {
+      id.forEach(_id => {
+        vue__WEBPACK_IMPORTED_MODULE_3__["default"].set(state.loading, _id, false);
+      });
+    } else {
+      vue__WEBPACK_IMPORTED_MODULE_3__["default"].set(state.loading, id, false);
+    }
+  }
+};
+const getters = {
+  loading(state) {
+    return function (id) {
+      return state.loading[id];
+    };
+  },
+  getCategories(state) {
+    return state.categories;
+  },
+  getAllApps(state) {
+    return state.apps;
+  },
+  getUpdateCount(state) {
+    return state.updateCount;
+  },
+  getCategoryById: state => selectedCategoryId => {
+    return state.categories.find(category => category.id === selectedCategoryId);
+  }
+};
+const actions = {
+  enableApp(context, _ref5) {
+    let {
+      appId,
+      groups
+    } = _ref5;
+    let apps;
+    if (Array.isArray(appId)) {
+      apps = appId;
+    } else {
+      apps = [appId];
+    }
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+      context.commit('startLoading', apps);
+      context.commit('startLoading', 'install');
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].post((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_1__.generateUrl)('settings/apps/enable'), {
+        appIds: apps,
+        groups
+      }).then(response => {
+        context.commit('stopLoading', apps);
+        context.commit('stopLoading', 'install');
+        apps.forEach(_appId => {
+          context.commit('enableApp', {
+            appId: _appId,
+            groups
+          });
+        });
+
+        // check for server health
+        return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].get((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_1__.generateUrl)('apps/files')).then(() => {
+          if (response.data.update_required) {
+            (0,_nextcloud_dialogs__WEBPACK_IMPORTED_MODULE_2__.showInfo)(t('settings', 'The app has been enabled but needs to be updated. You will be redirected to the update page in 5 seconds.'), {
+              onClick: () => window.location.reload(),
+              close: false
+            });
+            setTimeout(function () {
+              location.reload();
+            }, 5000);
+          }
+        }).catch(() => {
+          if (!Array.isArray(appId)) {
+            context.commit('setError', {
+              appId: apps,
+              error: t('settings', 'Error: This app cannot be enabled because it makes the server unstable')
+            });
+          }
+        });
+      }).catch(error => {
+        context.commit('stopLoading', apps);
+        context.commit('stopLoading', 'install');
+        context.commit('setError', {
+          appId: apps,
+          error: error.response.data.data.message
+        });
+        context.commit('APPS_API_FAILURE', {
+          appId,
+          error
+        });
+      });
+    }).catch(error => context.commit('API_FAILURE', {
+      appId,
+      error
+    }));
+  },
+  forceEnableApp(context, _ref6) {
+    let {
+      appId,
+      groups
+    } = _ref6;
+    let apps;
+    if (Array.isArray(appId)) {
+      apps = appId;
+    } else {
+      apps = [appId];
+    }
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(() => {
+      context.commit('startLoading', apps);
+      context.commit('startLoading', 'install');
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].post((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_1__.generateUrl)('settings/apps/force'), {
+        appId
+      }).then(response => {
+        // TODO: find a cleaner solution
+        location.reload();
+      }).catch(error => {
+        context.commit('stopLoading', apps);
+        context.commit('stopLoading', 'install');
+        context.commit('setError', {
+          appId: apps,
+          error: error.response.data.data.message
+        });
+        context.commit('APPS_API_FAILURE', {
+          appId,
+          error
+        });
+      });
+    }).catch(error => context.commit('API_FAILURE', {
+      appId,
+      error
+    }));
+  },
+  disableApp(context, _ref7) {
+    let {
+      appId
+    } = _ref7;
+    let apps;
+    if (Array.isArray(appId)) {
+      apps = appId;
+    } else {
+      apps = [appId];
+    }
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+      context.commit('startLoading', apps);
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].post((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_1__.generateUrl)('settings/apps/disable'), {
+        appIds: apps
+      }).then(response => {
+        context.commit('stopLoading', apps);
+        apps.forEach(_appId => {
+          context.commit('disableApp', _appId);
+        });
+        return true;
+      }).catch(error => {
+        context.commit('stopLoading', apps);
+        context.commit('APPS_API_FAILURE', {
+          appId,
+          error
+        });
+      });
+    }).catch(error => context.commit('API_FAILURE', {
+      appId,
+      error
+    }));
+  },
+  uninstallApp(context, _ref8) {
+    let {
+      appId
+    } = _ref8;
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+      context.commit('startLoading', appId);
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].get((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_1__.generateUrl)(`settings/apps/uninstall/${appId}`)).then(response => {
+        context.commit('stopLoading', appId);
+        context.commit('uninstallApp', appId);
+        return true;
+      }).catch(error => {
+        context.commit('stopLoading', appId);
+        context.commit('APPS_API_FAILURE', {
+          appId,
+          error
+        });
+      });
+    }).catch(error => context.commit('API_FAILURE', {
+      appId,
+      error
+    }));
+  },
+  updateApp(context, _ref9) {
+    let {
+      appId
+    } = _ref9;
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+      context.commit('startLoading', appId);
+      context.commit('startLoading', 'install');
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].get((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_1__.generateUrl)(`settings/apps/update/${appId}`)).then(response => {
+        context.commit('stopLoading', 'install');
+        context.commit('stopLoading', appId);
+        context.commit('updateApp', appId);
+        return true;
+      }).catch(error => {
+        context.commit('stopLoading', appId);
+        context.commit('stopLoading', 'install');
+        context.commit('APPS_API_FAILURE', {
+          appId,
+          error
+        });
+      });
+    }).catch(error => context.commit('API_FAILURE', {
+      appId,
+      error
+    }));
+  },
+  getAllApps(context) {
+    context.commit('startLoading', 'list');
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].get((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_1__.generateUrl)('settings/apps/list')).then(response => {
+      context.commit('setAllApps', response.data.apps);
+      context.commit('stopLoading', 'list');
+      return true;
+    }).catch(error => context.commit('API_FAILURE', error));
+  },
+  async getCategories(context) {
+    let {
+      shouldRefetchCategories = false
+    } = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    if (shouldRefetchCategories || !context.state.gettingCategoriesPromise) {
+      context.commit('startLoading', 'categories');
+      try {
+        const categoriesPromise = _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].get((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_1__.generateUrl)('settings/apps/categories'));
+        context.commit('updateCategories', categoriesPromise);
+        const categoriesPromiseResponse = await categoriesPromise;
+        if (categoriesPromiseResponse.data.length > 0) {
+          context.commit('appendCategories', categoriesPromiseResponse.data);
+          context.commit('stopLoading', 'categories');
+          return true;
+        }
+        context.commit('stopLoading', 'categories');
+        return false;
+      } catch (error) {
+        context.commit('API_FAILURE', error);
+      }
+    }
+    return context.state.gettingCategoriesPromise;
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state,
+  mutations,
+  getters,
+  actions
+});
+
+/***/ }),
+
+/***/ "./apps/settings/src/store/index.js":
+/*!******************************************!*\
+  !*** ./apps/settings/src/store/index.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.runtime.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _users_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./users.js */ "./apps/settings/src/store/users.js");
+/* harmony import */ var _apps_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./apps.js */ "./apps/settings/src/store/apps.js");
+/* harmony import */ var _settings_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./settings.js */ "./apps/settings/src/store/settings.js");
+/* harmony import */ var _oc_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./oc.js */ "./apps/settings/src/store/oc.js");
+/* harmony import */ var _nextcloud_dialogs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @nextcloud/dialogs */ "./node_modules/@nextcloud/dialogs/dist/index.mjs");
+/* provided dependency */ var console = __webpack_require__(/*! ./node_modules/console-browserify/index.js */ "./node_modules/console-browserify/index.js");
+/**
+ * @copyright Copyright (c) 2018 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ * @author Julius Härtl <jus@bitgrid.net>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+
+
+
+
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_5__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_6__["default"]);
+const debug = "development" !== 'production';
+const mutations = {
+  API_FAILURE(state, error) {
+    try {
+      const message = error.error.response.data.ocs.meta.message;
+      (0,_nextcloud_dialogs__WEBPACK_IMPORTED_MODULE_4__.showError)(t('settings', 'An error occurred during the request. Unable to proceed.') + '<br>' + message, {
+        isHTML: true
+      });
+    } catch (e) {
+      (0,_nextcloud_dialogs__WEBPACK_IMPORTED_MODULE_4__.showError)(t('settings', 'An error occurred during the request. Unable to proceed.'));
+    }
+    console.error(state, error);
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_6__.Store({
+  modules: {
+    users: _users_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+    apps: _apps_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+    settings: _settings_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+    oc: _oc_js__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  strict: debug,
+  mutations
+}));
+
+/***/ }),
+
+/***/ "./apps/settings/src/store/oc.js":
+/*!***************************************!*\
+  !*** ./apps/settings/src/store/oc.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api.js */ "./apps/settings/src/store/api.js");
+/* harmony import */ var _nextcloud_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nextcloud/router */ "./node_modules/@nextcloud/router/dist/index.js");
+/**
+ * @copyright Copyright (c) 2018 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ * @author Roeland Jago Douma <roeland@famdouma.nl>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+
+
+const state = {};
+const mutations = {};
+const getters = {};
+const actions = {
+  /**
+   * Set application config in database
+   *
+   * @param {object} context store context
+   * @param {object} options destructuring object
+   * @param {string} options.app Application name
+   * @param {boolean} options.key Config key
+   * @param {boolean} options.value Value to set
+   * @return {Promise}
+   */
+  setAppConfig(context, _ref) {
+    let {
+      app,
+      key,
+      value
+    } = _ref;
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].post((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_1__.generateOcsUrl)('apps/provisioning_api/api/v1/config/apps/{app}/{key}', {
+        app,
+        key
+      }), {
+        value
+      }).catch(error => {
+        throw error;
+      });
+    }).catch(error => context.commit('API_FAILURE', {
+      app,
+      key,
+      value,
+      error
+    }));
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state,
+  mutations,
+  getters,
+  actions
+});
+
+/***/ }),
+
+/***/ "./apps/settings/src/store/settings.js":
+/*!*********************************************!*\
+  !*** ./apps/settings/src/store/settings.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**
+ * @copyright Copyright (c) 2018 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+const state = {
+  serverData: {}
+};
+const mutations = {
+  setServerData(state, data) {
+    state.serverData = data;
+  }
+};
+const getters = {
+  getServerData(state) {
+    return state.serverData;
+  }
+};
+const actions = {};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state,
+  mutations,
+  getters,
+  actions
+});
+
+/***/ }),
+
+/***/ "./apps/settings/src/store/users.js":
+/*!******************************************!*\
+  !*** ./apps/settings/src/store/users.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api.js */ "./apps/settings/src/store/api.js");
+/* harmony import */ var _nextcloud_axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nextcloud/axios */ "./node_modules/@nextcloud/axios/dist/index.es.mjs");
+/* harmony import */ var _nextcloud_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nextcloud/router */ "./node_modules/@nextcloud/router/dist/index.js");
+/* harmony import */ var _nextcloud_capabilities__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @nextcloud/capabilities */ "./node_modules/@nextcloud/capabilities/dist/index.js");
+/* harmony import */ var _logger_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../logger.js */ "./apps/settings/src/logger.js");
+/* harmony import */ var _nextcloud_files__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @nextcloud/files */ "./node_modules/@nextcloud/files/dist/index.mjs");
+/* provided dependency */ var console = __webpack_require__(/*! ./node_modules/console-browserify/index.js */ "./node_modules/console-browserify/index.js");
+/**
+ * @copyright Copyright (c) 2018 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author Arthur Schiwon <blizzz@arthur-schiwon.de>
+ * @author Christoph Wurst <christoph@winzerhof-wurst.at>
+ * @author Daniel Calviño Sánchez <danxuliu@gmail.com>
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ * @author Julius Härtl <jus@bitgrid.net>
+ * @author Roeland Jago Douma <roeland@famdouma.nl>
+ * @author Vincent Petry <vincent@nextcloud.com>
+ * @author Stephan Orbaugh <stephan.orbaugh@nextcloud.com>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+
+
+
+
+
+
+const orderGroups = function (groups, orderBy) {
+  /* const SORT_USERCOUNT = 1;
+   * const SORT_GROUPNAME = 2;
+   * https://github.com/nextcloud/server/blob/208e38e84e1a07a49699aa90dc5b7272d24489f0/lib/private/Group/MetaData.php#L34
+   */
+  if (orderBy === 1) {
+    return groups.sort((a, b) => a.usercount - a.disabled < b.usercount - b.disabled);
+  } else {
+    return groups.sort((a, b) => a.name.localeCompare(b.name));
+  }
+};
+const defaults = {
+  group: {
+    id: '',
+    name: '',
+    usercount: 0,
+    disabled: 0,
+    canAdd: true,
+    canRemove: true
+  }
+};
+const state = {
+  users: [],
+  groups: [],
+  orderBy: 1,
+  minPasswordLength: 0,
+  usersOffset: 0,
+  usersLimit: 25,
+  disabledUsersOffset: 0,
+  disabledUsersLimit: 25,
+  userCount: 0,
+  showConfig: {
+    showStoragePath: false,
+    showUserBackend: false,
+    showLastLogin: false,
+    showNewUserForm: false,
+    showLanguages: false
+  }
+};
+const mutations = {
+  appendUsers(state, usersObj) {
+    const existingUsers = state.users.map(_ref => {
+      let {
+        id
+      } = _ref;
+      return id;
+    });
+    const newUsers = Object.values(usersObj).filter(_ref2 => {
+      let {
+        id
+      } = _ref2;
+      return !existingUsers.includes(id);
+    });
+    const users = state.users.concat(newUsers);
+    state.usersOffset += state.usersLimit;
+    state.users = users;
+  },
+  updateDisabledUsers(state, _usersObj) {
+    state.disabledUsersOffset += state.disabledUsersLimit;
+  },
+  setPasswordPolicyMinLength(state, length) {
+    state.minPasswordLength = length !== '' ? length : 0;
+  },
+  initGroups(state, _ref3) {
+    let {
+      groups,
+      orderBy,
+      userCount
+    } = _ref3;
+    state.groups = groups.map(group => Object.assign({}, defaults.group, group));
+    state.orderBy = orderBy;
+    state.userCount = userCount;
+    state.groups = orderGroups(state.groups, state.orderBy);
+  },
+  addGroup(state, _ref4) {
+    let {
+      gid,
+      displayName
+    } = _ref4;
+    try {
+      if (typeof state.groups.find(group => group.id === gid) !== 'undefined') {
+        return;
+      }
+      // extend group to default values
+      const group = Object.assign({}, defaults.group, {
+        id: gid,
+        name: displayName
+      });
+      state.groups.unshift(group);
+      state.groups = orderGroups(state.groups, state.orderBy);
+    } catch (e) {
+      console.error('Can\'t create group', e);
+    }
+  },
+  renameGroup(state, _ref5) {
+    let {
+      gid,
+      displayName
+    } = _ref5;
+    const groupIndex = state.groups.findIndex(groupSearch => groupSearch.id === gid);
+    if (groupIndex >= 0) {
+      const updatedGroup = state.groups[groupIndex];
+      updatedGroup.name = displayName;
+      state.groups.splice(groupIndex, 1, updatedGroup);
+      state.groups = orderGroups(state.groups, state.orderBy);
+    }
+  },
+  removeGroup(state, gid) {
+    const groupIndex = state.groups.findIndex(groupSearch => groupSearch.id === gid);
+    if (groupIndex >= 0) {
+      state.groups.splice(groupIndex, 1);
+    }
+  },
+  addUserGroup(state, _ref6) {
+    let {
+      userid,
+      gid
+    } = _ref6;
+    const group = state.groups.find(groupSearch => groupSearch.id === gid);
+    const user = state.users.find(user => user.id === userid);
+    // increase count if user is enabled
+    if (group && user.enabled && state.userCount > 0) {
+      group.usercount++;
+    }
+    const groups = user.groups;
+    groups.push(gid);
+    state.groups = orderGroups(state.groups, state.orderBy);
+  },
+  removeUserGroup(state, _ref7) {
+    let {
+      userid,
+      gid
+    } = _ref7;
+    const group = state.groups.find(groupSearch => groupSearch.id === gid);
+    const user = state.users.find(user => user.id === userid);
+    // lower count if user is enabled
+    if (group && user.enabled && state.userCount > 0) {
+      group.usercount--;
+    }
+    const groups = user.groups;
+    groups.splice(groups.indexOf(gid), 1);
+    state.groups = orderGroups(state.groups, state.orderBy);
+  },
+  addUserSubAdmin(state, _ref8) {
+    let {
+      userid,
+      gid
+    } = _ref8;
+    const groups = state.users.find(user => user.id === userid).subadmin;
+    groups.push(gid);
+  },
+  removeUserSubAdmin(state, _ref9) {
+    let {
+      userid,
+      gid
+    } = _ref9;
+    const groups = state.users.find(user => user.id === userid).subadmin;
+    groups.splice(groups.indexOf(gid), 1);
+  },
+  deleteUser(state, userid) {
+    const userIndex = state.users.findIndex(user => user.id === userid);
+    this.commit('updateUserCounts', {
+      user: state.users[userIndex],
+      actionType: 'remove'
+    });
+    state.users.splice(userIndex, 1);
+  },
+  addUserData(state, response) {
+    const user = response.data.ocs.data;
+    state.users.unshift(user);
+    this.commit('updateUserCounts', {
+      user,
+      actionType: 'create'
+    });
+  },
+  enableDisableUser(state, _ref10) {
+    let {
+      userid,
+      enabled
+    } = _ref10;
+    const user = state.users.find(user => user.id === userid);
+    user.enabled = enabled;
+    this.commit('updateUserCounts', {
+      user,
+      actionType: enabled ? 'enable' : 'disable'
+    });
+  },
+  // update active/disabled counts, groups counts
+  updateUserCounts(state, _ref11) {
+    let {
+      user,
+      actionType
+    } = _ref11;
+    // 0 is a special value
+    if (state.userCount === 0) {
+      return;
+    }
+    const disabledGroup = state.groups.find(group => group.id === 'disabled');
+    switch (actionType) {
+      case 'enable':
+      case 'disable':
+        disabledGroup.usercount += user.enabled ? -1 : 1; // update Disabled Users count
+        state.userCount += user.enabled ? 1 : -1; // update Active Users count
+        user.groups.forEach(userGroup => {
+          const group = state.groups.find(groupSearch => groupSearch.id === userGroup);
+          group.disabled += user.enabled ? -1 : 1; // update group disabled count
+        });
+
+        break;
+      case 'create':
+        state.userCount++; // increment Active Users count
+
+        user.groups.forEach(userGroup => {
+          state.groups.find(groupSearch => groupSearch.id === userGroup).usercount++; // increment group total count
+        });
+
+        break;
+      case 'remove':
+        if (user.enabled) {
+          state.userCount--; // decrement Active Users count
+          user.groups.forEach(userGroup => {
+            const group = state.groups.find(groupSearch => groupSearch.id === userGroup);
+            if (!group) {
+              console.warn('User group ' + userGroup + ' does not exist during user removal');
+              return;
+            }
+            group.usercount--; // decrement group total count
+          });
+        } else {
+          disabledGroup.usercount--; // decrement Disabled Users count
+          user.groups.forEach(userGroup => {
+            const group = state.groups.find(groupSearch => groupSearch.id === userGroup);
+            group.disabled--; // decrement group disabled count
+          });
+        }
+
+        break;
+      default:
+        _logger_js__WEBPACK_IMPORTED_MODULE_4__["default"].error(`Unknown action type in updateUserCounts: '${actionType}'`);
+      // not throwing error to interrupt execution as this is not fatal
+    }
+  },
+
+  setUserData(state, _ref12) {
+    let {
+      userid,
+      key,
+      value
+    } = _ref12;
+    if (key === 'quota') {
+      const humanValue = (0,_nextcloud_files__WEBPACK_IMPORTED_MODULE_5__.parseFileSize)(value, true);
+      state.users.find(user => user.id === userid)[key][key] = humanValue !== null ? humanValue : value;
+    } else {
+      state.users.find(user => user.id === userid)[key] = value;
+    }
+  },
+  /**
+   * Reset users list
+   *
+   * @param {object} state the store state
+   */
+  resetUsers(state) {
+    state.users = [];
+    state.usersOffset = 0;
+    state.disabledUsersOffset = 0;
+  },
+  setShowConfig(state, _ref13) {
+    let {
+      key,
+      value
+    } = _ref13;
+    state.showConfig[key] = value;
+  }
+};
+const getters = {
+  getUsers(state) {
+    return state.users;
+  },
+  getGroups(state) {
+    return state.groups;
+  },
+  getSubadminGroups(state) {
+    // Can't be subadmin of admin or disabled
+    return state.groups.filter(group => group.id !== 'admin' && group.id !== 'disabled');
+  },
+  getPasswordPolicyMinLength(state) {
+    return state.minPasswordLength;
+  },
+  getUsersOffset(state) {
+    return state.usersOffset;
+  },
+  getUsersLimit(state) {
+    return state.usersLimit;
+  },
+  getDisabledUsersOffset(state) {
+    return state.disabledUsersOffset;
+  },
+  getDisabledUsersLimit(state) {
+    return state.disabledUsersLimit;
+  },
+  getUserCount(state) {
+    return state.userCount;
+  },
+  getShowConfig(state) {
+    return state.showConfig;
+  }
+};
+const CancelToken = _nextcloud_axios__WEBPACK_IMPORTED_MODULE_1__["default"].CancelToken;
+let searchRequestCancelSource = null;
+const actions = {
+  /**
+   * search users
+   *
+   * @param {object} context store context
+   * @param {object} options destructuring object
+   * @param {number} options.offset List offset to request
+   * @param {number} options.limit List number to return from offset
+   * @param {string} options.search Search amongst users
+   * @return {Promise}
+   */
+  searchUsers(context, _ref14) {
+    let {
+      offset,
+      limit,
+      search
+    } = _ref14;
+    search = typeof search === 'string' ? search : '';
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].get((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/users/details?offset={offset}&limit={limit}&search={search}', {
+      offset,
+      limit,
+      search
+    })).catch(error => {
+      if (!_nextcloud_axios__WEBPACK_IMPORTED_MODULE_1__["default"].isCancel(error)) {
+        context.commit('API_FAILURE', error);
+      }
+    });
+  },
+  /**
+   * Get user details
+   *
+   * @param {object} context store context
+   * @param {string} userId user id
+   * @return {Promise}
+   */
+  getUser(context, userId) {
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].get((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)(`cloud/users/${userId}`)).catch(error => {
+      if (!_nextcloud_axios__WEBPACK_IMPORTED_MODULE_1__["default"].isCancel(error)) {
+        context.commit('API_FAILURE', error);
+      }
+    });
+  },
+  /**
+   * Get all users with full details
+   *
+   * @param {object} context store context
+   * @param {object} options destructuring object
+   * @param {number} options.offset List offset to request
+   * @param {number} options.limit List number to return from offset
+   * @param {string} options.search Search amongst users
+   * @param {string} options.group Get users from group
+   * @return {Promise}
+   */
+  getUsers(context, _ref15) {
+    let {
+      offset,
+      limit,
+      search,
+      group
+    } = _ref15;
+    if (searchRequestCancelSource) {
+      searchRequestCancelSource.cancel('Operation canceled by another search request.');
+    }
+    searchRequestCancelSource = CancelToken.source();
+    search = typeof search === 'string' ? search : '';
+
+    /**
+     * Adding filters in the search bar such as in:files, in:users, etc.
+     * collides with this particular search, so we need to remove them
+     * here and leave only the original search query
+     */
+    search = search.replace(/in:[^\s]+/g, '').trim();
+    group = typeof group === 'string' ? group : '';
+    if (group !== '') {
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].get((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/groups/{group}/users/details?offset={offset}&limit={limit}&search={search}', {
+        group: encodeURIComponent(group),
+        offset,
+        limit,
+        search
+      }), {
+        cancelToken: searchRequestCancelSource.token
+      }).then(response => {
+        const usersCount = Object.keys(response.data.ocs.data.users).length;
+        if (usersCount > 0) {
+          context.commit('appendUsers', response.data.ocs.data.users);
+        }
+        return usersCount;
+      }).catch(error => {
+        if (!_nextcloud_axios__WEBPACK_IMPORTED_MODULE_1__["default"].isCancel(error)) {
+          context.commit('API_FAILURE', error);
+        }
+      });
+    }
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].get((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/users/details?offset={offset}&limit={limit}&search={search}', {
+      offset,
+      limit,
+      search
+    }), {
+      cancelToken: searchRequestCancelSource.token
+    }).then(response => {
+      const usersCount = Object.keys(response.data.ocs.data.users).length;
+      if (usersCount > 0) {
+        context.commit('appendUsers', response.data.ocs.data.users);
+      }
+      return usersCount;
+    }).catch(error => {
+      if (!_nextcloud_axios__WEBPACK_IMPORTED_MODULE_1__["default"].isCancel(error)) {
+        context.commit('API_FAILURE', error);
+      }
+    });
+  },
+  /**
+   * Get disabled users with full details
+   *
+   * @param {object} context store context
+   * @param {object} options destructuring object
+   * @param {number} options.offset List offset to request
+   * @param {number} options.limit List number to return from offset
+   * @return {Promise<number>}
+   */
+  async getDisabledUsers(context, _ref16) {
+    let {
+      offset,
+      limit
+    } = _ref16;
+    const url = (0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/users/disabled?offset={offset}&limit={limit}', {
+      offset,
+      limit
+    });
+    try {
+      const response = await _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].get(url);
+      const usersCount = Object.keys(response.data.ocs.data.users).length;
+      if (usersCount > 0) {
+        context.commit('appendUsers', response.data.ocs.data.users);
+        context.commit('updateDisabledUsers', response.data.ocs.data.users);
+      }
+      return usersCount;
+    } catch (error) {
+      context.commit('API_FAILURE', error);
+    }
+  },
+  getGroups(context, _ref17) {
+    let {
+      offset,
+      limit,
+      search
+    } = _ref17;
+    search = typeof search === 'string' ? search : '';
+    const limitParam = limit === -1 ? '' : `&limit=${limit}`;
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].get((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/groups?offset={offset}&search={search}', {
+      offset,
+      search
+    }) + limitParam).then(response => {
+      if (Object.keys(response.data.ocs.data.groups).length > 0) {
+        response.data.ocs.data.groups.forEach(function (group) {
+          context.commit('addGroup', {
+            gid: group,
+            displayName: group
+          });
+        });
+        return true;
+      }
+      return false;
+    }).catch(error => context.commit('API_FAILURE', error));
+  },
+  /**
+   * Get all users with full details
+   *
+   * @param {object} context store context
+   * @param {object} options destructuring object
+   * @param {number} options.offset List offset to request
+   * @param {number} options.limit List number to return from offset
+   * @param {string} options.search -
+   * @return {Promise}
+   */
+  getUsersFromList(context, _ref18) {
+    let {
+      offset,
+      limit,
+      search
+    } = _ref18;
+    search = typeof search === 'string' ? search : '';
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].get((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/users/details?offset={offset}&limit={limit}&search={search}', {
+      offset,
+      limit,
+      search
+    })).then(response => {
+      if (Object.keys(response.data.ocs.data.users).length > 0) {
+        context.commit('appendUsers', response.data.ocs.data.users);
+        return true;
+      }
+      return false;
+    }).catch(error => context.commit('API_FAILURE', error));
+  },
+  /**
+   * Get all users with full details from a groupid
+   *
+   * @param {object} context store context
+   * @param {object} options destructuring object
+   * @param {number} options.offset List offset to request
+   * @param {number} options.limit List number to return from offset
+   * @param {string} options.groupid -
+   * @return {Promise}
+   */
+  getUsersFromGroup(context, _ref19) {
+    let {
+      groupid,
+      offset,
+      limit
+    } = _ref19;
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].get((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/users/{groupId}/details?offset={offset}&limit={limit}', {
+      groupId: encodeURIComponent(groupid),
+      offset,
+      limit
+    })).then(response => context.commit('getUsersFromList', response.data.ocs.data.users)).catch(error => context.commit('API_FAILURE', error));
+  },
+  getPasswordPolicyMinLength(context) {
+    if ((0,_nextcloud_capabilities__WEBPACK_IMPORTED_MODULE_3__.getCapabilities)().password_policy && (0,_nextcloud_capabilities__WEBPACK_IMPORTED_MODULE_3__.getCapabilities)().password_policy.minLength) {
+      context.commit('setPasswordPolicyMinLength', (0,_nextcloud_capabilities__WEBPACK_IMPORTED_MODULE_3__.getCapabilities)().password_policy.minLength);
+      return (0,_nextcloud_capabilities__WEBPACK_IMPORTED_MODULE_3__.getCapabilities)().password_policy.minLength;
+    }
+    return false;
+  },
+  /**
+   * Add group
+   *
+   * @param {object} context store context
+   * @param {string} gid Group id
+   * @return {Promise}
+   */
+  addGroup(context, gid) {
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].post((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/groups'), {
+        groupid: gid
+      }).then(response => {
+        context.commit('addGroup', {
+          gid,
+          displayName: gid
+        });
+        return {
+          gid,
+          displayName: gid
+        };
+      }).catch(error => {
+        throw error;
+      });
+    }).catch(error => {
+      context.commit('API_FAILURE', {
+        gid,
+        error
+      });
+      // let's throw one more time to prevent the view
+      // from adding the user to a group that doesn't exists
+      throw error;
+    });
+  },
+  /**
+   * Rename group
+   *
+   * @param {object} context store context
+   * @param {string} groupid Group id
+   * @param {string} displayName Group display name
+   * @return {Promise}
+   */
+  renameGroup(context, _ref20) {
+    let {
+      groupid,
+      displayName
+    } = _ref20;
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].put((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/groups/{groupId}', {
+        groupId: encodeURIComponent(groupid)
+      }), {
+        key: 'displayname',
+        value: displayName
+      }).then(response => {
+        context.commit('renameGroup', {
+          gid: groupid,
+          displayName
+        });
+        return {
+          groupid,
+          displayName
+        };
+      }).catch(error => {
+        throw error;
+      });
+    }).catch(error => {
+      context.commit('API_FAILURE', {
+        groupid,
+        error
+      });
+      // let's throw one more time to prevent the view
+      // from renaming the group
+      throw error;
+    });
+  },
+  /**
+   * Remove group
+   *
+   * @param {object} context store context
+   * @param {string} gid Group id
+   * @return {Promise}
+   */
+  removeGroup(context, gid) {
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].delete((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/groups/{groupId}', {
+        groupId: encodeURIComponent(gid)
+      })).then(response => context.commit('removeGroup', gid)).catch(error => {
+        throw error;
+      });
+    }).catch(error => context.commit('API_FAILURE', {
+      gid,
+      error
+    }));
+  },
+  /**
+   * Add user to group
+   *
+   * @param {object} context store context
+   * @param {object} options destructuring object
+   * @param {string} options.userid User id
+   * @param {string} options.gid Group id
+   * @return {Promise}
+   */
+  addUserGroup(context, _ref21) {
+    let {
+      userid,
+      gid
+    } = _ref21;
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].post((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/users/{userid}/groups', {
+        userid
+      }), {
+        groupid: gid
+      }).then(response => context.commit('addUserGroup', {
+        userid,
+        gid
+      })).catch(error => {
+        throw error;
+      });
+    }).catch(error => context.commit('API_FAILURE', {
+      userid,
+      error
+    }));
+  },
+  /**
+   * Remove user from group
+   *
+   * @param {object} context store context
+   * @param {object} options destructuring object
+   * @param {string} options.userid User id
+   * @param {string} options.gid Group id
+   * @return {Promise}
+   */
+  removeUserGroup(context, _ref22) {
+    let {
+      userid,
+      gid
+    } = _ref22;
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].delete((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/users/{userid}/groups', {
+        userid
+      }), {
+        groupid: gid
+      }).then(response => context.commit('removeUserGroup', {
+        userid,
+        gid
+      })).catch(error => {
+        throw error;
+      });
+    }).catch(error => {
+      context.commit('API_FAILURE', {
+        userid,
+        error
+      });
+      // let's throw one more time to prevent
+      // the view from removing the user row on failure
+      throw error;
+    });
+  },
+  /**
+   * Add user to group admin
+   *
+   * @param {object} context store context
+   * @param {object} options destructuring object
+   * @param {string} options.userid User id
+   * @param {string} options.gid Group id
+   * @return {Promise}
+   */
+  addUserSubAdmin(context, _ref23) {
+    let {
+      userid,
+      gid
+    } = _ref23;
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].post((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/users/{userid}/subadmins', {
+        userid
+      }), {
+        groupid: gid
+      }).then(response => context.commit('addUserSubAdmin', {
+        userid,
+        gid
+      })).catch(error => {
+        throw error;
+      });
+    }).catch(error => context.commit('API_FAILURE', {
+      userid,
+      error
+    }));
+  },
+  /**
+   * Remove user from group admin
+   *
+   * @param {object} context store context
+   * @param {object} options destructuring object
+   * @param {string} options.userid User id
+   * @param {string} options.gid Group id
+   * @return {Promise}
+   */
+  removeUserSubAdmin(context, _ref24) {
+    let {
+      userid,
+      gid
+    } = _ref24;
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].delete((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/users/{userid}/subadmins', {
+        userid
+      }), {
+        groupid: gid
+      }).then(response => context.commit('removeUserSubAdmin', {
+        userid,
+        gid
+      })).catch(error => {
+        throw error;
+      });
+    }).catch(error => context.commit('API_FAILURE', {
+      userid,
+      error
+    }));
+  },
+  /**
+   * Mark all user devices for remote wipe
+   *
+   * @param {object} context store context
+   * @param {string} userid User id
+   * @return {Promise}
+   */
+  wipeUserDevices(context, userid) {
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].post((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/users/{userid}/wipe', {
+        userid
+      })).catch(error => {
+        throw error;
+      });
+    }).catch(error => context.commit('API_FAILURE', {
+      userid,
+      error
+    }));
+  },
+  /**
+   * Delete a user
+   *
+   * @param {object} context store context
+   * @param {string} userid User id
+   * @return {Promise}
+   */
+  deleteUser(context, userid) {
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].delete((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/users/{userid}', {
+        userid
+      })).then(response => context.commit('deleteUser', userid)).catch(error => {
+        throw error;
+      });
+    }).catch(error => context.commit('API_FAILURE', {
+      userid,
+      error
+    }));
+  },
+  /**
+   * Add a user
+   *
+   * @param {object} context store context
+   * @param {Function} context.commit -
+   * @param {Function} context.dispatch -
+   * @param {object} options destructuring object
+   * @param {string} options.userid User id
+   * @param {string} options.password User password
+   * @param {string} options.displayName User display name
+   * @param {string} options.email User email
+   * @param {string} options.groups User groups
+   * @param {string} options.subadmin User subadmin groups
+   * @param {string} options.quota User email
+   * @param {string} options.language User language
+   * @param {string} options.manager User manager
+   * @return {Promise}
+   */
+  addUser(_ref25, _ref26) {
+    let {
+      commit,
+      dispatch
+    } = _ref25;
+    let {
+      userid,
+      password,
+      displayName,
+      email,
+      groups,
+      subadmin,
+      quota,
+      language,
+      manager
+    } = _ref26;
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].post((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/users'), {
+        userid,
+        password,
+        displayName,
+        email,
+        groups,
+        subadmin,
+        quota,
+        language,
+        manager
+      }).then(response => dispatch('addUserData', userid || response.data.ocs.data.id)).catch(error => {
+        throw error;
+      });
+    }).catch(error => {
+      commit('API_FAILURE', {
+        userid,
+        error
+      });
+      throw error;
+    });
+  },
+  /**
+   * Get user data and commit addition
+   *
+   * @param {object} context store context
+   * @param {string} userid User id
+   * @return {Promise}
+   */
+  addUserData(context, userid) {
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].get((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/users/{userid}', {
+        userid
+      })).then(response => context.commit('addUserData', response)).catch(error => {
+        throw error;
+      });
+    }).catch(error => context.commit('API_FAILURE', {
+      userid,
+      error
+    }));
+  },
+  /**
+   * Enable or disable user
+   *
+   * @param {object} context store context
+   * @param {object} options destructuring object
+   * @param {string} options.userid User id
+   * @param {boolean} options.enabled User enablement status
+   * @return {Promise}
+   */
+  enableDisableUser(context, _ref27) {
+    let {
+      userid,
+      enabled = true
+    } = _ref27;
+    const userStatus = enabled ? 'enable' : 'disable';
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].put((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/users/{userid}/{userStatus}', {
+        userid,
+        userStatus
+      })).then(response => context.commit('enableDisableUser', {
+        userid,
+        enabled
+      })).catch(error => {
+        throw error;
+      });
+    }).catch(error => context.commit('API_FAILURE', {
+      userid,
+      error
+    }));
+  },
+  /**
+   * Edit user data
+   *
+   * @param {object} context store context
+   * @param {object} options destructuring object
+   * @param {string} options.userid User id
+   * @param {string} options.key User field to edit
+   * @param {string} options.value Value of the change
+   * @return {Promise}
+   */
+  setUserData(context, _ref28) {
+    let {
+      userid,
+      key,
+      value
+    } = _ref28;
+    const allowedEmpty = ['email', 'displayname', 'manager'];
+    if (['email', 'language', 'quota', 'displayname', 'password', 'manager'].indexOf(key) !== -1) {
+      // We allow empty email or displayname
+      if (typeof value === 'string' && (allowedEmpty.indexOf(key) === -1 && value.length > 0 || allowedEmpty.indexOf(key) !== -1)) {
+        return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+          return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].put((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/users/{userid}', {
+            userid
+          }), {
+            key,
+            value
+          }).then(response => context.commit('setUserData', {
+            userid,
+            key,
+            value
+          })).catch(error => {
+            throw error;
+          });
+        }).catch(error => context.commit('API_FAILURE', {
+          userid,
+          error
+        }));
+      }
+    }
+    return Promise.reject(new Error('Invalid request data'));
+  },
+  /**
+   * Send welcome mail
+   *
+   * @param {object} context store context
+   * @param {string} userid User id
+   * @return {Promise}
+   */
+  sendWelcomeMail(context, userid) {
+    return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].requireAdmin().then(response => {
+      return _api_js__WEBPACK_IMPORTED_MODULE_0__["default"].post((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_2__.generateOcsUrl)('cloud/users/{userid}/welcome', {
+        userid
+      })).then(response => true).catch(error => {
+        throw error;
+      });
+    }).catch(error => context.commit('API_FAILURE', {
+      userid,
+      error
+    }));
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  state,
+  mutations,
+  getters,
+  actions
+});
+
+/***/ }),
+
+/***/ "./core/src/OCP/accessibility.js":
+/*!***************************************!*\
+  !*** ./core/src/OCP/accessibility.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   setPageHeading: () => (/* binding */ setPageHeading)
+/* harmony export */ });
+/* harmony import */ var _nextcloud_initial_state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nextcloud/initial-state */ "./node_modules/@nextcloud/initial-state/dist/index.es.mjs");
+/**
+ * @copyright Copyright (c) 2022 Joas Schilling <coding@schilljs.com>
+ *
+ * @author Joas Schilling <coding@schilljs.com>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+
+
+/**
+ * Set the page heading
+ *
+ * @param {string} heading page title from the history api
+ * @since 27.0.0
+ */
+function setPageHeading(heading) {
+  const headingEl = document.getElementById('page-heading-level-1');
+  if (headingEl) {
+    headingEl.textContent = heading;
+  }
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  /**
+   * @return {boolean} Whether the user opted-out of shortcuts so that they should not be registered
+   */
+  disableKeyboardShortcuts() {
+    return (0,_nextcloud_initial_state__WEBPACK_IMPORTED_MODULE_0__.loadState)('theming', 'shortcutsDisabled', false);
+  },
+  setPageHeading
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./apps/settings/src/App.vue?vue&type=script&lang=js":
+/*!***************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./apps/settings/src/App.vue?vue&type=script&lang=js ***!
+  \***************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'App',
+  beforeMount() {
+    // importing server data into the store
+    const serverDataElmt = document.getElementById('serverData');
+    if (serverDataElmt !== null) {
+      this.$store.commit('setServerData', JSON.parse(document.getElementById('serverData').dataset.server));
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./apps/settings/src/App.vue?vue&type=template&id=f468116e":
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./apps/settings/src/App.vue?vue&type=template&id=f468116e ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("router-view");
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!../nextcloud-vue/dist/assets/NcActions-KraINfs1.css":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!../nextcloud-vue/dist/assets/NcActions-KraINfs1.css ***!
+  \*************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../server/node_modules/css-loader/dist/runtime/noSourceMaps.js */ "./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../server/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `@charset "UTF-8";
+/**
+ * @copyright Copyright (c) 2019 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @license GNU AGPL version 3 or any later version
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+/*
+* Ensure proper alignment of the vue material icons
+*/
+.material-design-icon[data-v-0d636de9] {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+  justify-content: center;
+}
+.action-items[data-v-0d636de9] {
+  display: flex;
+  align-items: center;
+}
+.action-items > button[data-v-0d636de9] {
+  margin-right: 7px;
+}
+.action-item[data-v-0d636de9] {
+  --open-background-color: var(--color-background-hover, \$action-background-hover);
+  position: relative;
+  display: inline-block;
+}
+.action-item.action-item--primary[data-v-0d636de9] {
+  --open-background-color: var(--color-primary-element-hover);
+}
+.action-item.action-item--secondary[data-v-0d636de9] {
+  --open-background-color: var(--color-primary-element-light-hover);
+}
+.action-item.action-item--error[data-v-0d636de9] {
+  --open-background-color: var(--color-error-hover);
+}
+.action-item.action-item--warning[data-v-0d636de9] {
+  --open-background-color: var(--color-warning-hover);
+}
+.action-item.action-item--success[data-v-0d636de9] {
+  --open-background-color: var(--color-success-hover);
+}
+.action-item.action-item--tertiary-no-background[data-v-0d636de9] {
+  --open-background-color: transparent;
+}
+.action-item.action-item--open .action-item__menutoggle[data-v-0d636de9] {
+  background-color: var(--open-background-color);
+}
+.action-item__menutoggle__icon[data-v-0d636de9] {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+/**
+ * @copyright Copyright (c) 2019 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @license GNU AGPL version 3 or any later version
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+/*
+* Ensure proper alignment of the vue material icons
+*/
+.material-design-icon {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+  justify-content: center;
+}
+.v-popper--theme-dropdown.v-popper__popper.action-item__popper .v-popper__wrapper {
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+}
+.v-popper--theme-dropdown.v-popper__popper.action-item__popper .v-popper__wrapper .v-popper__inner {
+  border-radius: var(--border-radius-large);
+  padding: 4px;
+  max-height: calc(50vh - 16px);
+  overflow: auto;
+}`, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!../nextcloud-vue/dist/assets/NcButton--B8Z7HCp.css":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!../nextcloud-vue/dist/assets/NcButton--B8Z7HCp.css ***!
+  \************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../server/node_modules/css-loader/dist/runtime/noSourceMaps.js */ "./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../server/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `@charset "UTF-8";
+/**
+ * @copyright Copyright (c) 2019 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @license GNU AGPL version 3 or any later version
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+/*
+* Ensure proper alignment of the vue material icons
+*/
+.material-design-icon[data-v-fe3b5af5] {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+  justify-content: center;
+}
+.button-vue[data-v-fe3b5af5] {
+  position: relative;
+  width: fit-content;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  font-size: var(--default-font-size);
+  font-weight: bold;
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 22px;
+  transition-property: color, border-color, background-color;
+  transition-duration: 0.1s;
+  transition-timing-function: linear;
+  color: var(--color-primary-element-light-text);
+  background-color: var(--color-primary-element-light);
+}
+.button-vue *[data-v-fe3b5af5],
+.button-vue span[data-v-fe3b5af5] {
+  cursor: pointer;
+}
+.button-vue[data-v-fe3b5af5]:focus {
+  outline: none;
+}
+.button-vue[data-v-fe3b5af5]:disabled {
+  cursor: default;
+  opacity: 0.5;
+  filter: saturate(0.7);
+}
+.button-vue:disabled *[data-v-fe3b5af5] {
+  cursor: default;
+}
+.button-vue[data-v-fe3b5af5]:hover:not(:disabled) {
+  background-color: var(--color-primary-element-light-hover);
+}
+.button-vue[data-v-fe3b5af5]:active {
+  background-color: var(--color-primary-element-light);
+}
+.button-vue__wrapper[data-v-fe3b5af5] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.button-vue--end .button-vue__wrapper[data-v-fe3b5af5] {
+  justify-content: end;
+}
+.button-vue--start .button-vue__wrapper[data-v-fe3b5af5] {
+  justify-content: start;
+}
+.button-vue--reverse .button-vue__wrapper[data-v-fe3b5af5] {
+  flex-direction: row-reverse;
+}
+.button-vue--reverse.button-vue--icon-and-text[data-v-fe3b5af5] {
+  padding-inline: calc(var(--default-grid-baseline) * 4) var(--default-grid-baseline);
+}
+.button-vue__icon[data-v-fe3b5af5] {
+  height: 44px;
+  width: 44px;
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-vue__text[data-v-fe3b5af5] {
+  font-weight: bold;
+  margin-bottom: 1px;
+  padding: 2px 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.button-vue--icon-only[data-v-fe3b5af5] {
+  width: 44px !important;
+}
+.button-vue--text-only[data-v-fe3b5af5] {
+  padding: 0 12px;
+}
+.button-vue--text-only .button-vue__text[data-v-fe3b5af5] {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.button-vue--icon-and-text[data-v-fe3b5af5] {
+  padding-block: 0;
+  padding-inline: var(--default-grid-baseline) calc(var(--default-grid-baseline) * 4);
+}
+.button-vue--wide[data-v-fe3b5af5] {
+  width: 100%;
+}
+.button-vue[data-v-fe3b5af5]:focus-visible {
+  outline: 2px solid var(--color-main-text) !important;
+  box-shadow: 0 0 0 4px var(--color-main-background) !important;
+}
+.button-vue:focus-visible.button-vue--vue-tertiary-on-primary[data-v-fe3b5af5] {
+  outline: 2px solid var(--color-primary-element-text);
+  border-radius: var(--border-radius);
+  background-color: transparent;
+}
+.button-vue--vue-primary[data-v-fe3b5af5] {
+  background-color: var(--color-primary-element);
+  color: var(--color-primary-element-text);
+}
+.button-vue--vue-primary[data-v-fe3b5af5]:hover:not(:disabled) {
+  background-color: var(--color-primary-element-hover);
+}
+.button-vue--vue-primary[data-v-fe3b5af5]:active {
+  background-color: var(--color-primary-element);
+}
+.button-vue--vue-secondary[data-v-fe3b5af5] {
+  color: var(--color-primary-element-light-text);
+  background-color: var(--color-primary-element-light);
+}
+.button-vue--vue-secondary[data-v-fe3b5af5]:hover:not(:disabled) {
+  color: var(--color-primary-element-light-text);
+  background-color: var(--color-primary-element-light-hover);
+}
+.button-vue--vue-tertiary[data-v-fe3b5af5] {
+  color: var(--color-main-text);
+  background-color: transparent;
+}
+.button-vue--vue-tertiary[data-v-fe3b5af5]:hover:not(:disabled) {
+  background-color: var(--color-background-hover);
+}
+.button-vue--vue-tertiary-no-background[data-v-fe3b5af5] {
+  color: var(--color-main-text);
+  background-color: transparent;
+}
+.button-vue--vue-tertiary-no-background[data-v-fe3b5af5]:hover:not(:disabled) {
+  background-color: transparent;
+}
+.button-vue--vue-tertiary-on-primary[data-v-fe3b5af5] {
+  color: var(--color-primary-element-text);
+  background-color: transparent;
+}
+.button-vue--vue-tertiary-on-primary[data-v-fe3b5af5]:hover:not(:disabled) {
+  background-color: transparent;
+}
+.button-vue--vue-success[data-v-fe3b5af5] {
+  background-color: var(--color-success);
+  color: white;
+}
+.button-vue--vue-success[data-v-fe3b5af5]:hover:not(:disabled) {
+  background-color: var(--color-success-hover);
+}
+.button-vue--vue-success[data-v-fe3b5af5]:active {
+  background-color: var(--color-success);
+}
+.button-vue--vue-warning[data-v-fe3b5af5] {
+  background-color: var(--color-warning);
+  color: white;
+}
+.button-vue--vue-warning[data-v-fe3b5af5]:hover:not(:disabled) {
+  background-color: var(--color-warning-hover);
+}
+.button-vue--vue-warning[data-v-fe3b5af5]:active {
+  background-color: var(--color-warning);
+}
+.button-vue--vue-error[data-v-fe3b5af5] {
+  background-color: var(--color-error);
+  color: white;
+}
+.button-vue--vue-error[data-v-fe3b5af5]:hover:not(:disabled) {
+  background-color: var(--color-error-hover);
+}
+.button-vue--vue-error[data-v-fe3b5af5]:active {
+  background-color: var(--color-error);
+}`, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!../nextcloud-vue/dist/assets/NcInputField-Al6E6hfU.css":
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!../nextcloud-vue/dist/assets/NcInputField-Al6E6hfU.css ***!
+  \****************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../server/node_modules/css-loader/dist/runtime/noSourceMaps.js */ "./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../server/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `@charset "UTF-8";
+/**
+ * @copyright Copyright (c) 2019 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @license GNU AGPL version 3 or any later version
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+/*
+* Ensure proper alignment of the vue material icons
+*/
+.material-design-icon[data-v-b312d183] {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+  justify-content: center;
+}
+.input-field[data-v-b312d183] {
+  position: relative;
+  width: 100%;
+  border-radius: var(--border-radius-large);
+  margin-block-start: 6px;
+}
+.input-field__main-wrapper[data-v-b312d183] {
+  height: var(--default-clickable-area);
+  position: relative;
+}
+.input-field--disabled[data-v-b312d183] {
+  opacity: 0.4;
+  filter: saturate(0.4);
+}
+.input-field__input[data-v-b312d183] {
+  margin: 0;
+  padding-inline: 12px 6px;
+  height: var(--default-clickable-area) !important;
+  width: 100%;
+  font-size: var(--default-font-size);
+  text-overflow: ellipsis;
+  background-color: var(--color-main-background);
+  color: var(--color-main-text);
+  border: 2px solid var(--color-border-maxcontrast);
+  border-radius: var(--border-radius-large);
+  cursor: pointer;
+  -webkit-appearance: textfield !important;
+  -moz-appearance: textfield !important;
+}
+.input-field__input--label-outside[data-v-b312d183] {
+  padding-block: 0;
+}
+.input-field__input[data-v-b312d183]:active:not([disabled]), .input-field__input[data-v-b312d183]:hover:not([disabled]), .input-field__input[data-v-b312d183]:focus:not([disabled]) {
+  border-color: 2px solid var(--color-main-text) !important;
+  box-shadow: 0 0 0 2px var(--color-main-background) !important;
+}
+.input-field__input:focus + .input-field__label[data-v-b312d183], .input-field__input:hover:not(:placeholder-shown) + .input-field__label[data-v-b312d183] {
+  color: var(--color-main-text);
+}
+.input-field__input[data-v-b312d183]:not(:focus, .input-field__input--label-outside)::placeholder {
+  opacity: 0;
+}
+.input-field__input[data-v-b312d183]:focus {
+  cursor: text;
+}
+.input-field__input[data-v-b312d183]:disabled {
+  cursor: default;
+}
+.input-field__input[data-v-b312d183]:focus-visible {
+  box-shadow: unset !important;
+}
+.input-field__input--leading-icon[data-v-b312d183] {
+  padding-inline-start: var(--default-clickable-area);
+}
+.input-field__input--trailing-icon[data-v-b312d183] {
+  padding-inline-end: var(--default-clickable-area);
+}
+.input-field__input--success[data-v-b312d183] {
+  border-color: var(--color-success) !important;
+}
+.input-field__input--success[data-v-b312d183]:focus-visible {
+  box-shadow: rgb(248, 250, 252) 0px 0px 0px 2px, var(--color-primary-element) 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+.input-field__input--error[data-v-b312d183] {
+  border-color: var(--color-error) !important;
+}
+.input-field__input--error[data-v-b312d183]:focus-visible {
+  box-shadow: rgb(248, 250, 252) 0px 0px 0px 2px, var(--color-primary-element) 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+.input-field__input--pill[data-v-b312d183] {
+  border-radius: var(--border-radius-pill);
+}
+.input-field__label[data-v-b312d183] {
+  position: absolute;
+  margin-inline: 14px 0;
+  max-width: fit-content;
+  inset-block-start: 11px;
+  inset-inline: 0;
+  color: var(--color-text-maxcontrast);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  transition: height var(--animation-quick), inset-block-start var(--animation-quick), font-size var(--animation-quick), color var(--animation-quick), background-color var(--animation-quick) var(--animation-slow);
+}
+.input-field__label--leading-icon[data-v-b312d183] {
+  margin-inline-start: var(--default-clickable-area);
+}
+.input-field__label--trailing-icon[data-v-b312d183] {
+  margin-inline-end: var(--default-clickable-area);
+}
+.input-field__input:focus + .input-field__label[data-v-b312d183], .input-field__input:not(:placeholder-shown) + .input-field__label[data-v-b312d183] {
+  inset-block-start: -10px;
+  line-height: 1.5;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: var(--default-grid-baseline) var(--default-grid-baseline) 0 0;
+  background-color: var(--color-main-background);
+  padding-inline: 5px;
+  margin-inline-start: 9px;
+  transition: height var(--animation-quick), inset-block-start var(--animation-quick), font-size var(--animation-quick), color var(--animation-quick);
+}
+.input-field__input:focus + .input-field__label--leading-icon[data-v-b312d183], .input-field__input:not(:placeholder-shown) + .input-field__label--leading-icon[data-v-b312d183] {
+  margin-inline-start: 41px;
+}
+.input-field__icon[data-v-b312d183] {
+  position: absolute;
+  height: var(--default-clickable-area);
+  width: var(--default-clickable-area);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+}
+.input-field__icon--leading[data-v-b312d183] {
+  inset-block-end: 0;
+  inset-inline-start: 2px;
+}
+.input-field__icon--trailing[data-v-b312d183] {
+  inset-block-end: 0;
+  inset-inline-end: 2px;
+}
+.input-field__trailing-button.button-vue[data-v-b312d183] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: var(--border-radius-large);
+}
+.input-field__trailing-button--pill.button-vue[data-v-b312d183] {
+  border-radius: var(--border-radius-pill);
+}
+.input-field__helper-text-message[data-v-b312d183] {
+  padding-block: 4px;
+  display: flex;
+  align-items: center;
+}
+.input-field__helper-text-message__icon[data-v-b312d183] {
+  margin-inline-end: 8px;
+}
+.input-field__helper-text-message--error[data-v-b312d183] {
+  color: var(--color-error-text);
+}
+.input-field__helper-text-message--success[data-v-b312d183] {
+  color: var(--color-success-text);
+}`, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!../nextcloud-vue/dist/assets/NcModal-ecigA_hy.css":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!../nextcloud-vue/dist/assets/NcModal-ecigA_hy.css ***!
+  \***********************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../server/node_modules/css-loader/dist/runtime/noSourceMaps.js */ "./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../server/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `@charset "UTF-8";
+/**
+ * @copyright Copyright (c) 2019 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @license GNU AGPL version 3 or any later version
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+/*
+* Ensure proper alignment of the vue material icons
+*/
+.material-design-icon[data-v-bbeb5a25] {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+  justify-content: center;
+}
+.modal-mask[data-v-bbeb5a25] {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-mask--dark[data-v-bbeb5a25] {
+  background-color: rgba(0, 0, 0, 0.92);
+}
+.modal-header[data-v-bbeb5a25] {
+  position: absolute;
+  z-index: 10001;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  transition: opacity 250ms, visibility 250ms;
+}
+.modal-header .modal-name[data-v-bbeb5a25] {
+  overflow-x: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 132px 0 12px;
+  transition: padding ease 100ms;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+@media only screen and (min-width: 1024px) {
+.modal-header .modal-name[data-v-bbeb5a25] {
+    padding-left: 132px;
+    text-align: center;
+}
+}
+.modal-header .icons-menu[data-v-bbeb5a25] {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.modal-header .icons-menu .header-close[data-v-bbeb5a25] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 3px;
+  padding: 0;
+}
+.modal-header .icons-menu .play-pause-icons[data-v-bbeb5a25] {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+.modal-header .icons-menu .play-pause-icons:hover .play-pause-icons__play[data-v-bbeb5a25],
+.modal-header .icons-menu .play-pause-icons:hover .play-pause-icons__pause[data-v-bbeb5a25], .modal-header .icons-menu .play-pause-icons:focus .play-pause-icons__play[data-v-bbeb5a25],
+.modal-header .icons-menu .play-pause-icons:focus .play-pause-icons__pause[data-v-bbeb5a25] {
+  opacity: 1;
+  border-radius: 22px;
+  background-color: rgba(127, 127, 127, 0.25);
+}
+.modal-header .icons-menu .play-pause-icons__play[data-v-bbeb5a25], .modal-header .icons-menu .play-pause-icons__pause[data-v-bbeb5a25] {
+  box-sizing: border-box;
+  width: 44px;
+  height: 44px;
+  margin: 3px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.modal-header .icons-menu .header-actions[data-v-bbeb5a25] {
+  color: white;
+}
+.modal-header .icons-menu[data-v-bbeb5a25]  .action-item {
+  margin: 3px;
+}
+.modal-header .icons-menu[data-v-bbeb5a25]  .action-item--single {
+  box-sizing: border-box;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  background-position: center;
+  background-size: 22px;
+}
+.modal-header .icons-menu[data-v-bbeb5a25] button {
+  color: #fff;
+}
+.modal-header .icons-menu[data-v-bbeb5a25] .action-item__menutoggle {
+  padding: 0;
+}
+.modal-header .icons-menu[data-v-bbeb5a25] .action-item__menutoggle span, .modal-header .icons-menu[data-v-bbeb5a25] .action-item__menutoggle svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+.modal-wrapper[data-v-bbeb5a25] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  /* Navigation buttons */
+  /* Content */
+}
+.modal-wrapper .prev[data-v-bbeb5a25],
+.modal-wrapper .next[data-v-bbeb5a25] {
+  z-index: 10000;
+  height: 35vh;
+  min-height: 300px;
+  position: absolute;
+  transition: opacity 250ms;
+  color: white;
+}
+.modal-wrapper .prev[data-v-bbeb5a25]:focus-visible,
+.modal-wrapper .next[data-v-bbeb5a25]:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-primary-element-text);
+  background-color: var(--color-box-shadow);
+}
+.modal-wrapper .prev[data-v-bbeb5a25] {
+  left: 2px;
+}
+.modal-wrapper .next[data-v-bbeb5a25] {
+  right: 2px;
+}
+.modal-wrapper .modal-container[data-v-bbeb5a25] {
+  position: relative;
+  display: flex;
+  padding: 0;
+  transition: transform 300ms ease;
+  border-radius: var(--border-radius-large);
+  background-color: var(--color-main-background);
+  color: var(--color-main-text);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+}
+.modal-wrapper .modal-container__close[data-v-bbeb5a25] {
+  z-index: 1;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}
+.modal-wrapper .modal-container__content[data-v-bbeb5a25] {
+  width: 100%;
+  min-height: 52px;
+  overflow: auto;
+}
+.modal-wrapper--small .modal-container[data-v-bbeb5a25] {
+  width: 400px;
+  max-width: 90%;
+  max-height: min(90%, 100% - 100px);
+}
+.modal-wrapper--normal .modal-container[data-v-bbeb5a25] {
+  max-width: 90%;
+  width: 600px;
+  max-height: min(90%, 100% - 100px);
+}
+.modal-wrapper--large .modal-container[data-v-bbeb5a25] {
+  max-width: 90%;
+  width: 900px;
+  max-height: min(90%, 100% - 100px);
+}
+.modal-wrapper--full .modal-container[data-v-bbeb5a25] {
+  width: 100%;
+  height: calc(100% - var(--header-height));
+  position: absolute;
+  top: 50px;
+  border-radius: 0;
+}
+@media only screen and ((max-width: 512px) or (max-height: 400px)) {
+.modal-wrapper .modal-container[data-v-bbeb5a25] {
+    max-width: initial;
+    width: 100%;
+    max-height: initial;
+    height: calc(100% - var(--header-height));
+    position: absolute;
+    top: 50px;
+    border-radius: 0;
+}
+}
+
+/* TRANSITIONS */
+.fade-enter-active[data-v-bbeb5a25],
+.fade-leave-active[data-v-bbeb5a25] {
+  transition: opacity 250ms;
+}
+.fade-enter[data-v-bbeb5a25],
+.fade-leave-to[data-v-bbeb5a25] {
+  opacity: 0;
+}
+.fade-visibility-enter[data-v-bbeb5a25],
+.fade-visibility-leave-to[data-v-bbeb5a25] {
+  visibility: hidden;
+  opacity: 0;
+}
+.modal-in-enter-active[data-v-bbeb5a25],
+.modal-in-leave-active[data-v-bbeb5a25],
+.modal-out-enter-active[data-v-bbeb5a25],
+.modal-out-leave-active[data-v-bbeb5a25] {
+  transition: opacity 250ms;
+}
+.modal-in-enter[data-v-bbeb5a25],
+.modal-in-leave-to[data-v-bbeb5a25],
+.modal-out-enter[data-v-bbeb5a25],
+.modal-out-leave-to[data-v-bbeb5a25] {
+  opacity: 0;
+}
+.modal-in-enter .modal-container[data-v-bbeb5a25],
+.modal-in-leave-to .modal-container[data-v-bbeb5a25] {
+  transform: scale(0.9);
+}
+.modal-out-enter .modal-container[data-v-bbeb5a25],
+.modal-out-leave-to .modal-container[data-v-bbeb5a25] {
+  transform: scale(1.1);
+}
+.modal-mask .play-pause-icons .progress-ring[data-v-bbeb5a25] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+}
+.modal-mask .play-pause-icons .progress-ring .progress-ring__circle[data-v-bbeb5a25] {
+  transition: 100ms stroke-dashoffset;
+  transform-origin: 50% 50%;
+  animation: progressring-bbeb5a25 linear var(--slideshow-duration) infinite;
+  stroke-linecap: round;
+  stroke-dashoffset: 94.2477796077;
+  stroke-dasharray: 94.2477796077;
+}
+.modal-mask .play-pause-icons--paused .icon-pause[data-v-bbeb5a25] {
+  animation: breath-bbeb5a25 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.modal-mask .play-pause-icons--paused .progress-ring__circle[data-v-bbeb5a25] {
+  animation-play-state: paused !important;
+}
+@keyframes progressring-bbeb5a25 {
+from {
+    stroke-dashoffset: 94.2477796077;
+}
+to {
+    stroke-dashoffset: 0;
+}
+}
+@keyframes breath-bbeb5a25 {
+0% {
+    opacity: 1;
+}
+50% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}`, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!../nextcloud-vue/dist/assets/NcPopover-cCNYT88q.css":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!../nextcloud-vue/dist/assets/NcPopover-cCNYT88q.css ***!
+  \*************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../server/node_modules/css-loader/dist/runtime/noSourceMaps.js */ "./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../server/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `@charset "UTF-8";
+/**
+ * @copyright Copyright (c) 2019 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @license GNU AGPL version 3 or any later version
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+/*
+* Ensure proper alignment of the vue material icons
+*/
+.material-design-icon {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+  justify-content: center;
+}
+.resize-observer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  pointer-events: none;
+  display: block;
+  overflow: hidden;
+  opacity: 0;
+}
+.resize-observer object {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+.v-popper--theme-dropdown.v-popper__popper {
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  display: block !important;
+  filter: drop-shadow(0 1px 10px var(--color-box-shadow));
+}
+.v-popper--theme-dropdown.v-popper__popper .v-popper__inner {
+  padding: 0;
+  color: var(--color-main-text);
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+  background: var(--color-main-background);
+}
+.v-popper--theme-dropdown.v-popper__popper .v-popper__arrow-container {
+  position: absolute;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 10px;
+}
+.v-popper--theme-dropdown.v-popper__popper[data-popper-placement^=top] .v-popper__arrow-container {
+  bottom: -10px;
+  border-bottom-width: 0;
+  border-top-color: var(--color-main-background);
+}
+.v-popper--theme-dropdown.v-popper__popper[data-popper-placement^=bottom] .v-popper__arrow-container {
+  top: -10px;
+  border-top-width: 0;
+  border-bottom-color: var(--color-main-background);
+}
+.v-popper--theme-dropdown.v-popper__popper[data-popper-placement^=right] .v-popper__arrow-container {
+  left: -10px;
+  border-left-width: 0;
+  border-right-color: var(--color-main-background);
+}
+.v-popper--theme-dropdown.v-popper__popper[data-popper-placement^=left] .v-popper__arrow-container {
+  right: -10px;
+  border-right-width: 0;
+  border-left-color: var(--color-main-background);
+}
+.v-popper--theme-dropdown.v-popper__popper[aria-hidden=true] {
+  visibility: hidden;
+  transition: opacity var(--animation-quick), visibility var(--animation-quick);
+  opacity: 0;
+}
+.v-popper--theme-dropdown.v-popper__popper[aria-hidden=false] {
+  visibility: visible;
+  transition: opacity var(--animation-quick);
+  opacity: 1;
+}`, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!../nextcloud-vue/dist/assets/Tooltip-Ix4LeJvl.css":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!../nextcloud-vue/dist/assets/Tooltip-Ix4LeJvl.css ***!
+  \***********************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../server/node_modules/css-loader/dist/runtime/noSourceMaps.js */ "./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../server/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _server_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_server_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `@charset "UTF-8";
+/**
+ * @copyright Copyright (c) 2019 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @license GNU AGPL version 3 or any later version
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+/*
+* Ensure proper alignment of the vue material icons
+*/
+.material-design-icon {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+  justify-content: center;
+}
+
+/**
+* @copyright Copyright (c) 2016, John Molakvoæ <skjnldsv@protonmail.com>
+* @copyright Copyright (c) 2016, Robin Appelman <robin@icewind.nl>
+* @copyright Copyright (c) 2016, Jan-Christoph Borchardt <hey@jancborchardt.net>
+* @copyright Copyright (c) 2016, Erik Pellikka <erik@pellikka.org>
+* @copyright Copyright (c) 2015, Vincent Petry <pvince81@owncloud.com>
+*
+* Bootstrap (http://getbootstrap.com)
+* SCSS copied from version 3.3.5
+* Copyright 2011-2015 Twitter, Inc.
+* Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+*/
+.v-popper--theme-tooltip.v-popper__popper {
+  position: absolute;
+  z-index: 100000;
+  top: 0;
+  right: auto;
+  left: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  text-align: start;
+  opacity: 0;
+  line-height: 1.6;
+  line-break: auto;
+  filter: drop-shadow(0 1px 10px var(--color-box-shadow));
+}
+.v-popper--theme-tooltip.v-popper__popper[data-popper-placement^=top] .v-popper__arrow-container {
+  bottom: -10px;
+  border-bottom-width: 0;
+  border-top-color: var(--color-main-background);
+}
+.v-popper--theme-tooltip.v-popper__popper[data-popper-placement^=bottom] .v-popper__arrow-container {
+  top: -10px;
+  border-top-width: 0;
+  border-bottom-color: var(--color-main-background);
+}
+.v-popper--theme-tooltip.v-popper__popper[data-popper-placement^=right] .v-popper__arrow-container {
+  right: 100%;
+  border-left-width: 0;
+  border-right-color: var(--color-main-background);
+}
+.v-popper--theme-tooltip.v-popper__popper[data-popper-placement^=left] .v-popper__arrow-container {
+  left: 100%;
+  border-right-width: 0;
+  border-left-color: var(--color-main-background);
+}
+.v-popper--theme-tooltip.v-popper__popper[aria-hidden=true] {
+  visibility: hidden;
+  transition: opacity 0.15s, visibility 0.15s;
+  opacity: 0;
+}
+.v-popper--theme-tooltip.v-popper__popper[aria-hidden=false] {
+  visibility: visible;
+  transition: opacity 0.15s;
+  opacity: 1;
+}
+.v-popper--theme-tooltip .v-popper__inner {
+  max-width: 350px;
+  padding: 5px 8px;
+  text-align: center;
+  color: var(--color-main-text);
+  border-radius: var(--border-radius);
+  background-color: var(--color-main-background);
+}
+.v-popper--theme-tooltip .v-popper__arrow-container {
+  position: absolute;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  margin: 0;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 10px;
+}`, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/assets/NcActions-KraINfs1.css":
+/*!***********************************************************!*\
+  !*** ../nextcloud-vue/dist/assets/NcActions-KraINfs1.css ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _server_node_modules_css_loader_dist_cjs_js_NcActions_KraINfs1_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../server/node_modules/css-loader/dist/cjs.js!./NcActions-KraINfs1.css */ "./node_modules/css-loader/dist/cjs.js!../nextcloud-vue/dist/assets/NcActions-KraINfs1.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_server_node_modules_css_loader_dist_cjs_js_NcActions_KraINfs1_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_server_node_modules_css_loader_dist_cjs_js_NcActions_KraINfs1_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _server_node_modules_css_loader_dist_cjs_js_NcActions_KraINfs1_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _server_node_modules_css_loader_dist_cjs_js_NcActions_KraINfs1_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/assets/NcButton--B8Z7HCp.css":
+/*!**********************************************************!*\
+  !*** ../nextcloud-vue/dist/assets/NcButton--B8Z7HCp.css ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _server_node_modules_css_loader_dist_cjs_js_NcButton_B8Z7HCp_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../server/node_modules/css-loader/dist/cjs.js!./NcButton--B8Z7HCp.css */ "./node_modules/css-loader/dist/cjs.js!../nextcloud-vue/dist/assets/NcButton--B8Z7HCp.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_server_node_modules_css_loader_dist_cjs_js_NcButton_B8Z7HCp_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_server_node_modules_css_loader_dist_cjs_js_NcButton_B8Z7HCp_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _server_node_modules_css_loader_dist_cjs_js_NcButton_B8Z7HCp_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _server_node_modules_css_loader_dist_cjs_js_NcButton_B8Z7HCp_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/assets/NcInputField-Al6E6hfU.css":
+/*!**************************************************************!*\
+  !*** ../nextcloud-vue/dist/assets/NcInputField-Al6E6hfU.css ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _server_node_modules_css_loader_dist_cjs_js_NcInputField_Al6E6hfU_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../server/node_modules/css-loader/dist/cjs.js!./NcInputField-Al6E6hfU.css */ "./node_modules/css-loader/dist/cjs.js!../nextcloud-vue/dist/assets/NcInputField-Al6E6hfU.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_server_node_modules_css_loader_dist_cjs_js_NcInputField_Al6E6hfU_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_server_node_modules_css_loader_dist_cjs_js_NcInputField_Al6E6hfU_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _server_node_modules_css_loader_dist_cjs_js_NcInputField_Al6E6hfU_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _server_node_modules_css_loader_dist_cjs_js_NcInputField_Al6E6hfU_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/assets/NcModal-ecigA_hy.css":
+/*!*********************************************************!*\
+  !*** ../nextcloud-vue/dist/assets/NcModal-ecigA_hy.css ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _server_node_modules_css_loader_dist_cjs_js_NcModal_ecigA_hy_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../server/node_modules/css-loader/dist/cjs.js!./NcModal-ecigA_hy.css */ "./node_modules/css-loader/dist/cjs.js!../nextcloud-vue/dist/assets/NcModal-ecigA_hy.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_server_node_modules_css_loader_dist_cjs_js_NcModal_ecigA_hy_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_server_node_modules_css_loader_dist_cjs_js_NcModal_ecigA_hy_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _server_node_modules_css_loader_dist_cjs_js_NcModal_ecigA_hy_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _server_node_modules_css_loader_dist_cjs_js_NcModal_ecigA_hy_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/assets/NcPopover-cCNYT88q.css":
+/*!***********************************************************!*\
+  !*** ../nextcloud-vue/dist/assets/NcPopover-cCNYT88q.css ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _server_node_modules_css_loader_dist_cjs_js_NcPopover_cCNYT88q_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../server/node_modules/css-loader/dist/cjs.js!./NcPopover-cCNYT88q.css */ "./node_modules/css-loader/dist/cjs.js!../nextcloud-vue/dist/assets/NcPopover-cCNYT88q.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_server_node_modules_css_loader_dist_cjs_js_NcPopover_cCNYT88q_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_server_node_modules_css_loader_dist_cjs_js_NcPopover_cCNYT88q_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _server_node_modules_css_loader_dist_cjs_js_NcPopover_cCNYT88q_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _server_node_modules_css_loader_dist_cjs_js_NcPopover_cCNYT88q_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/assets/Tooltip-Ix4LeJvl.css":
+/*!*********************************************************!*\
+  !*** ../nextcloud-vue/dist/assets/Tooltip-Ix4LeJvl.css ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../server/node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _server_node_modules_css_loader_dist_cjs_js_Tooltip_Ix4LeJvl_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../server/node_modules/css-loader/dist/cjs.js!./Tooltip-Ix4LeJvl.css */ "./node_modules/css-loader/dist/cjs.js!../nextcloud-vue/dist/assets/Tooltip-Ix4LeJvl.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_server_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_server_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _server_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_server_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_server_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _server_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_server_node_modules_css_loader_dist_cjs_js_Tooltip_Ix4LeJvl_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_server_node_modules_css_loader_dist_cjs_js_Tooltip_Ix4LeJvl_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _server_node_modules_css_loader_dist_cjs_js_Tooltip_Ix4LeJvl_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _server_node_modules_css_loader_dist_cjs_js_Tooltip_Ix4LeJvl_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./apps/settings/src/App.vue":
+/*!***********************************!*\
+  !*** ./apps/settings/src/App.vue ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _App_vue_vue_type_template_id_f468116e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=f468116e */ "./apps/settings/src/App.vue?vue&type=template&id=f468116e");
+/* harmony import */ var _App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js */ "./apps/settings/src/App.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _App_vue_vue_type_template_id_f468116e__WEBPACK_IMPORTED_MODULE_0__.render,
+  _App_vue_vue_type_template_id_f468116e__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "apps/settings/src/App.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./apps/settings/src/App.vue?vue&type=script&lang=js":
+/*!***********************************************************!*\
+  !*** ./apps/settings/src/App.vue?vue&type=script&lang=js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./App.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./apps/settings/src/App.vue?vue&type=script&lang=js");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./apps/settings/src/App.vue?vue&type=template&id=f468116e":
+/*!*****************************************************************!*\
+  !*** ./apps/settings/src/App.vue?vue&type=template&id=f468116e ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_3_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_f468116e__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_3_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_f468116e__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_3_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_f468116e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./App.vue?vue&type=template&id=f468116e */ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./apps/settings/src/App.vue?vue&type=template&id=f468116e");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-router/dist/vue-router.esm.js":
+/*!********************************************************!*\
+  !*** ./node_modules/vue-router/dist/vue-router.esm.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   NavigationFailureType: () => (/* binding */ NavigationFailureType),
+/* harmony export */   RouterLink: () => (/* binding */ Link),
+/* harmony export */   RouterView: () => (/* binding */ View),
+/* harmony export */   START_LOCATION: () => (/* binding */ START),
+/* harmony export */   "default": () => (/* binding */ VueRouter$1),
+/* harmony export */   isNavigationFailure: () => (/* binding */ isNavigationFailure),
+/* harmony export */   version: () => (/* binding */ version)
+/* harmony export */ });
+/* provided dependency */ var console = __webpack_require__(/*! ./node_modules/console-browserify/index.js */ "./node_modules/console-browserify/index.js");
+/*!
+  * vue-router v3.6.5
+  * (c) 2022 Evan You
+  * @license MIT
+  */
+/*  */
+
+function assert (condition, message) {
+  if (!condition) {
+    throw new Error(("[vue-router] " + message))
+  }
+}
+
+function warn (condition, message) {
+  if (!condition) {
+    typeof console !== 'undefined' && console.warn(("[vue-router] " + message));
+  }
+}
+
+function extend (a, b) {
+  for (var key in b) {
+    a[key] = b[key];
+  }
+  return a
+}
+
+/*  */
+
+var encodeReserveRE = /[!'()*]/g;
+var encodeReserveReplacer = function (c) { return '%' + c.charCodeAt(0).toString(16); };
+var commaRE = /%2C/g;
+
+// fixed encodeURIComponent which is more conformant to RFC3986:
+// - escapes [!'()*]
+// - preserve commas
+var encode = function (str) { return encodeURIComponent(str)
+    .replace(encodeReserveRE, encodeReserveReplacer)
+    .replace(commaRE, ','); };
+
+function decode (str) {
+  try {
+    return decodeURIComponent(str)
+  } catch (err) {
+    if (true) {
+      warn(false, ("Error decoding \"" + str + "\". Leaving it intact."));
+    }
+  }
+  return str
+}
+
+function resolveQuery (
+  query,
+  extraQuery,
+  _parseQuery
+) {
+  if ( extraQuery === void 0 ) extraQuery = {};
+
+  var parse = _parseQuery || parseQuery;
+  var parsedQuery;
+  try {
+    parsedQuery = parse(query || '');
+  } catch (e) {
+     true && warn(false, e.message);
+    parsedQuery = {};
+  }
+  for (var key in extraQuery) {
+    var value = extraQuery[key];
+    parsedQuery[key] = Array.isArray(value)
+      ? value.map(castQueryParamValue)
+      : castQueryParamValue(value);
+  }
+  return parsedQuery
+}
+
+var castQueryParamValue = function (value) { return (value == null || typeof value === 'object' ? value : String(value)); };
+
+function parseQuery (query) {
+  var res = {};
+
+  query = query.trim().replace(/^(\?|#|&)/, '');
+
+  if (!query) {
+    return res
+  }
+
+  query.split('&').forEach(function (param) {
+    var parts = param.replace(/\+/g, ' ').split('=');
+    var key = decode(parts.shift());
+    var val = parts.length > 0 ? decode(parts.join('=')) : null;
+
+    if (res[key] === undefined) {
+      res[key] = val;
+    } else if (Array.isArray(res[key])) {
+      res[key].push(val);
+    } else {
+      res[key] = [res[key], val];
+    }
+  });
+
+  return res
+}
+
+function stringifyQuery (obj) {
+  var res = obj
+    ? Object.keys(obj)
+      .map(function (key) {
+        var val = obj[key];
+
+        if (val === undefined) {
+          return ''
+        }
+
+        if (val === null) {
+          return encode(key)
+        }
+
+        if (Array.isArray(val)) {
+          var result = [];
+          val.forEach(function (val2) {
+            if (val2 === undefined) {
+              return
+            }
+            if (val2 === null) {
+              result.push(encode(key));
+            } else {
+              result.push(encode(key) + '=' + encode(val2));
+            }
+          });
+          return result.join('&')
+        }
+
+        return encode(key) + '=' + encode(val)
+      })
+      .filter(function (x) { return x.length > 0; })
+      .join('&')
+    : null;
+  return res ? ("?" + res) : ''
+}
+
+/*  */
+
+var trailingSlashRE = /\/?$/;
+
+function createRoute (
+  record,
+  location,
+  redirectedFrom,
+  router
+) {
+  var stringifyQuery = router && router.options.stringifyQuery;
+
+  var query = location.query || {};
+  try {
+    query = clone(query);
+  } catch (e) {}
+
+  var route = {
+    name: location.name || (record && record.name),
+    meta: (record && record.meta) || {},
+    path: location.path || '/',
+    hash: location.hash || '',
+    query: query,
+    params: location.params || {},
+    fullPath: getFullPath(location, stringifyQuery),
+    matched: record ? formatMatch(record) : []
+  };
+  if (redirectedFrom) {
+    route.redirectedFrom = getFullPath(redirectedFrom, stringifyQuery);
+  }
+  return Object.freeze(route)
+}
+
+function clone (value) {
+  if (Array.isArray(value)) {
+    return value.map(clone)
+  } else if (value && typeof value === 'object') {
+    var res = {};
+    for (var key in value) {
+      res[key] = clone(value[key]);
+    }
+    return res
+  } else {
+    return value
+  }
+}
+
+// the starting route that represents the initial state
+var START = createRoute(null, {
+  path: '/'
+});
+
+function formatMatch (record) {
+  var res = [];
+  while (record) {
+    res.unshift(record);
+    record = record.parent;
+  }
+  return res
+}
+
+function getFullPath (
+  ref,
+  _stringifyQuery
+) {
+  var path = ref.path;
+  var query = ref.query; if ( query === void 0 ) query = {};
+  var hash = ref.hash; if ( hash === void 0 ) hash = '';
+
+  var stringify = _stringifyQuery || stringifyQuery;
+  return (path || '/') + stringify(query) + hash
+}
+
+function isSameRoute (a, b, onlyPath) {
+  if (b === START) {
+    return a === b
+  } else if (!b) {
+    return false
+  } else if (a.path && b.path) {
+    return a.path.replace(trailingSlashRE, '') === b.path.replace(trailingSlashRE, '') && (onlyPath ||
+      a.hash === b.hash &&
+      isObjectEqual(a.query, b.query))
+  } else if (a.name && b.name) {
+    return (
+      a.name === b.name &&
+      (onlyPath || (
+        a.hash === b.hash &&
+      isObjectEqual(a.query, b.query) &&
+      isObjectEqual(a.params, b.params))
+      )
+    )
+  } else {
+    return false
+  }
+}
+
+function isObjectEqual (a, b) {
+  if ( a === void 0 ) a = {};
+  if ( b === void 0 ) b = {};
+
+  // handle null value #1566
+  if (!a || !b) { return a === b }
+  var aKeys = Object.keys(a).sort();
+  var bKeys = Object.keys(b).sort();
+  if (aKeys.length !== bKeys.length) {
+    return false
+  }
+  return aKeys.every(function (key, i) {
+    var aVal = a[key];
+    var bKey = bKeys[i];
+    if (bKey !== key) { return false }
+    var bVal = b[key];
+    // query values can be null and undefined
+    if (aVal == null || bVal == null) { return aVal === bVal }
+    // check nested equality
+    if (typeof aVal === 'object' && typeof bVal === 'object') {
+      return isObjectEqual(aVal, bVal)
+    }
+    return String(aVal) === String(bVal)
+  })
+}
+
+function isIncludedRoute (current, target) {
+  return (
+    current.path.replace(trailingSlashRE, '/').indexOf(
+      target.path.replace(trailingSlashRE, '/')
+    ) === 0 &&
+    (!target.hash || current.hash === target.hash) &&
+    queryIncludes(current.query, target.query)
+  )
+}
+
+function queryIncludes (current, target) {
+  for (var key in target) {
+    if (!(key in current)) {
+      return false
+    }
+  }
+  return true
+}
+
+function handleRouteEntered (route) {
+  for (var i = 0; i < route.matched.length; i++) {
+    var record = route.matched[i];
+    for (var name in record.instances) {
+      var instance = record.instances[name];
+      var cbs = record.enteredCbs[name];
+      if (!instance || !cbs) { continue }
+      delete record.enteredCbs[name];
+      for (var i$1 = 0; i$1 < cbs.length; i$1++) {
+        if (!instance._isBeingDestroyed) { cbs[i$1](instance); }
+      }
+    }
+  }
+}
+
+var View = {
+  name: 'RouterView',
+  functional: true,
+  props: {
+    name: {
+      type: String,
+      default: 'default'
+    }
+  },
+  render: function render (_, ref) {
+    var props = ref.props;
+    var children = ref.children;
+    var parent = ref.parent;
+    var data = ref.data;
+
+    // used by devtools to display a router-view badge
+    data.routerView = true;
+
+    // directly use parent context's createElement() function
+    // so that components rendered by router-view can resolve named slots
+    var h = parent.$createElement;
+    var name = props.name;
+    var route = parent.$route;
+    var cache = parent._routerViewCache || (parent._routerViewCache = {});
+
+    // determine current view depth, also check to see if the tree
+    // has been toggled inactive but kept-alive.
+    var depth = 0;
+    var inactive = false;
+    while (parent && parent._routerRoot !== parent) {
+      var vnodeData = parent.$vnode ? parent.$vnode.data : {};
+      if (vnodeData.routerView) {
+        depth++;
+      }
+      if (vnodeData.keepAlive && parent._directInactive && parent._inactive) {
+        inactive = true;
+      }
+      parent = parent.$parent;
+    }
+    data.routerViewDepth = depth;
+
+    // render previous view if the tree is inactive and kept-alive
+    if (inactive) {
+      var cachedData = cache[name];
+      var cachedComponent = cachedData && cachedData.component;
+      if (cachedComponent) {
+        // #2301
+        // pass props
+        if (cachedData.configProps) {
+          fillPropsinData(cachedComponent, data, cachedData.route, cachedData.configProps);
+        }
+        return h(cachedComponent, data, children)
+      } else {
+        // render previous empty view
+        return h()
+      }
+    }
+
+    var matched = route.matched[depth];
+    var component = matched && matched.components[name];
+
+    // render empty node if no matched route or no config component
+    if (!matched || !component) {
+      cache[name] = null;
+      return h()
+    }
+
+    // cache component
+    cache[name] = { component: component };
+
+    // attach instance registration hook
+    // this will be called in the instance's injected lifecycle hooks
+    data.registerRouteInstance = function (vm, val) {
+      // val could be undefined for unregistration
+      var current = matched.instances[name];
+      if (
+        (val && current !== vm) ||
+        (!val && current === vm)
+      ) {
+        matched.instances[name] = val;
+      }
+    }
+
+    // also register instance in prepatch hook
+    // in case the same component instance is reused across different routes
+    ;(data.hook || (data.hook = {})).prepatch = function (_, vnode) {
+      matched.instances[name] = vnode.componentInstance;
+    };
+
+    // register instance in init hook
+    // in case kept-alive component be actived when routes changed
+    data.hook.init = function (vnode) {
+      if (vnode.data.keepAlive &&
+        vnode.componentInstance &&
+        vnode.componentInstance !== matched.instances[name]
+      ) {
+        matched.instances[name] = vnode.componentInstance;
+      }
+
+      // if the route transition has already been confirmed then we weren't
+      // able to call the cbs during confirmation as the component was not
+      // registered yet, so we call it here.
+      handleRouteEntered(route);
+    };
+
+    var configProps = matched.props && matched.props[name];
+    // save route and configProps in cache
+    if (configProps) {
+      extend(cache[name], {
+        route: route,
+        configProps: configProps
+      });
+      fillPropsinData(component, data, route, configProps);
+    }
+
+    return h(component, data, children)
+  }
+};
+
+function fillPropsinData (component, data, route, configProps) {
+  // resolve props
+  var propsToPass = data.props = resolveProps(route, configProps);
+  if (propsToPass) {
+    // clone to prevent mutation
+    propsToPass = data.props = extend({}, propsToPass);
+    // pass non-declared props as attrs
+    var attrs = data.attrs = data.attrs || {};
+    for (var key in propsToPass) {
+      if (!component.props || !(key in component.props)) {
+        attrs[key] = propsToPass[key];
+        delete propsToPass[key];
+      }
+    }
+  }
+}
+
+function resolveProps (route, config) {
+  switch (typeof config) {
+    case 'undefined':
+      return
+    case 'object':
+      return config
+    case 'function':
+      return config(route)
+    case 'boolean':
+      return config ? route.params : undefined
+    default:
+      if (true) {
+        warn(
+          false,
+          "props in \"" + (route.path) + "\" is a " + (typeof config) + ", " +
+          "expecting an object, function or boolean."
+        );
+      }
+  }
+}
+
+/*  */
+
+function resolvePath (
+  relative,
+  base,
+  append
+) {
+  var firstChar = relative.charAt(0);
+  if (firstChar === '/') {
+    return relative
+  }
+
+  if (firstChar === '?' || firstChar === '#') {
+    return base + relative
+  }
+
+  var stack = base.split('/');
+
+  // remove trailing segment if:
+  // - not appending
+  // - appending to trailing slash (last segment is empty)
+  if (!append || !stack[stack.length - 1]) {
+    stack.pop();
+  }
+
+  // resolve relative path
+  var segments = relative.replace(/^\//, '').split('/');
+  for (var i = 0; i < segments.length; i++) {
+    var segment = segments[i];
+    if (segment === '..') {
+      stack.pop();
+    } else if (segment !== '.') {
+      stack.push(segment);
+    }
+  }
+
+  // ensure leading slash
+  if (stack[0] !== '') {
+    stack.unshift('');
+  }
+
+  return stack.join('/')
+}
+
+function parsePath (path) {
+  var hash = '';
+  var query = '';
+
+  var hashIndex = path.indexOf('#');
+  if (hashIndex >= 0) {
+    hash = path.slice(hashIndex);
+    path = path.slice(0, hashIndex);
+  }
+
+  var queryIndex = path.indexOf('?');
+  if (queryIndex >= 0) {
+    query = path.slice(queryIndex + 1);
+    path = path.slice(0, queryIndex);
+  }
+
+  return {
+    path: path,
+    query: query,
+    hash: hash
+  }
+}
+
+function cleanPath (path) {
+  return path.replace(/\/(?:\s*\/)+/g, '/')
+}
+
+var isarray = Array.isArray || function (arr) {
+  return Object.prototype.toString.call(arr) == '[object Array]';
+};
+
+/**
+ * Expose `pathToRegexp`.
+ */
+var pathToRegexp_1 = pathToRegexp;
+var parse_1 = parse;
+var compile_1 = compile;
+var tokensToFunction_1 = tokensToFunction;
+var tokensToRegExp_1 = tokensToRegExp;
+
+/**
+ * The main path matching regexp utility.
+ *
+ * @type {RegExp}
+ */
+var PATH_REGEXP = new RegExp([
+  // Match escaped characters that would otherwise appear in future matches.
+  // This allows the user to escape special characters that won't transform.
+  '(\\\\.)',
+  // Match Express-style parameters and un-named parameters with a prefix
+  // and optional suffixes. Matches appear as:
+  //
+  // "/:test(\\d+)?" => ["/", "test", "\d+", undefined, "?", undefined]
+  // "/route(\\d+)"  => [undefined, undefined, undefined, "\d+", undefined, undefined]
+  // "/*"            => ["/", undefined, undefined, undefined, undefined, "*"]
+  '([\\/.])?(?:(?:\\:(\\w+)(?:\\(((?:\\\\.|[^\\\\()])+)\\))?|\\(((?:\\\\.|[^\\\\()])+)\\))([+*?])?|(\\*))'
+].join('|'), 'g');
+
+/**
+ * Parse a string for the raw tokens.
+ *
+ * @param  {string}  str
+ * @param  {Object=} options
+ * @return {!Array}
+ */
+function parse (str, options) {
+  var tokens = [];
+  var key = 0;
+  var index = 0;
+  var path = '';
+  var defaultDelimiter = options && options.delimiter || '/';
+  var res;
+
+  while ((res = PATH_REGEXP.exec(str)) != null) {
+    var m = res[0];
+    var escaped = res[1];
+    var offset = res.index;
+    path += str.slice(index, offset);
+    index = offset + m.length;
+
+    // Ignore already escaped sequences.
+    if (escaped) {
+      path += escaped[1];
+      continue
+    }
+
+    var next = str[index];
+    var prefix = res[2];
+    var name = res[3];
+    var capture = res[4];
+    var group = res[5];
+    var modifier = res[6];
+    var asterisk = res[7];
+
+    // Push the current path onto the tokens.
+    if (path) {
+      tokens.push(path);
+      path = '';
+    }
+
+    var partial = prefix != null && next != null && next !== prefix;
+    var repeat = modifier === '+' || modifier === '*';
+    var optional = modifier === '?' || modifier === '*';
+    var delimiter = res[2] || defaultDelimiter;
+    var pattern = capture || group;
+
+    tokens.push({
+      name: name || key++,
+      prefix: prefix || '',
+      delimiter: delimiter,
+      optional: optional,
+      repeat: repeat,
+      partial: partial,
+      asterisk: !!asterisk,
+      pattern: pattern ? escapeGroup(pattern) : (asterisk ? '.*' : '[^' + escapeString(delimiter) + ']+?')
+    });
+  }
+
+  // Match any characters still remaining.
+  if (index < str.length) {
+    path += str.substr(index);
+  }
+
+  // If the path exists, push it onto the end.
+  if (path) {
+    tokens.push(path);
+  }
+
+  return tokens
+}
+
+/**
+ * Compile a string to a template function for the path.
+ *
+ * @param  {string}             str
+ * @param  {Object=}            options
+ * @return {!function(Object=, Object=)}
+ */
+function compile (str, options) {
+  return tokensToFunction(parse(str, options), options)
+}
+
+/**
+ * Prettier encoding of URI path segments.
+ *
+ * @param  {string}
+ * @return {string}
+ */
+function encodeURIComponentPretty (str) {
+  return encodeURI(str).replace(/[\/?#]/g, function (c) {
+    return '%' + c.charCodeAt(0).toString(16).toUpperCase()
+  })
+}
+
+/**
+ * Encode the asterisk parameter. Similar to `pretty`, but allows slashes.
+ *
+ * @param  {string}
+ * @return {string}
+ */
+function encodeAsterisk (str) {
+  return encodeURI(str).replace(/[?#]/g, function (c) {
+    return '%' + c.charCodeAt(0).toString(16).toUpperCase()
+  })
+}
+
+/**
+ * Expose a method for transforming tokens into the path function.
+ */
+function tokensToFunction (tokens, options) {
+  // Compile all the tokens into regexps.
+  var matches = new Array(tokens.length);
+
+  // Compile all the patterns before compilation.
+  for (var i = 0; i < tokens.length; i++) {
+    if (typeof tokens[i] === 'object') {
+      matches[i] = new RegExp('^(?:' + tokens[i].pattern + ')$', flags(options));
+    }
+  }
+
+  return function (obj, opts) {
+    var path = '';
+    var data = obj || {};
+    var options = opts || {};
+    var encode = options.pretty ? encodeURIComponentPretty : encodeURIComponent;
+
+    for (var i = 0; i < tokens.length; i++) {
+      var token = tokens[i];
+
+      if (typeof token === 'string') {
+        path += token;
+
+        continue
+      }
+
+      var value = data[token.name];
+      var segment;
+
+      if (value == null) {
+        if (token.optional) {
+          // Prepend partial segment prefixes.
+          if (token.partial) {
+            path += token.prefix;
+          }
+
+          continue
+        } else {
+          throw new TypeError('Expected "' + token.name + '" to be defined')
+        }
+      }
+
+      if (isarray(value)) {
+        if (!token.repeat) {
+          throw new TypeError('Expected "' + token.name + '" to not repeat, but received `' + JSON.stringify(value) + '`')
+        }
+
+        if (value.length === 0) {
+          if (token.optional) {
+            continue
+          } else {
+            throw new TypeError('Expected "' + token.name + '" to not be empty')
+          }
+        }
+
+        for (var j = 0; j < value.length; j++) {
+          segment = encode(value[j]);
+
+          if (!matches[i].test(segment)) {
+            throw new TypeError('Expected all "' + token.name + '" to match "' + token.pattern + '", but received `' + JSON.stringify(segment) + '`')
+          }
+
+          path += (j === 0 ? token.prefix : token.delimiter) + segment;
+        }
+
+        continue
+      }
+
+      segment = token.asterisk ? encodeAsterisk(value) : encode(value);
+
+      if (!matches[i].test(segment)) {
+        throw new TypeError('Expected "' + token.name + '" to match "' + token.pattern + '", but received "' + segment + '"')
+      }
+
+      path += token.prefix + segment;
+    }
+
+    return path
+  }
+}
+
+/**
+ * Escape a regular expression string.
+ *
+ * @param  {string} str
+ * @return {string}
+ */
+function escapeString (str) {
+  return str.replace(/([.+*?=^!:${}()[\]|\/\\])/g, '\\$1')
+}
+
+/**
+ * Escape the capturing group by escaping special characters and meaning.
+ *
+ * @param  {string} group
+ * @return {string}
+ */
+function escapeGroup (group) {
+  return group.replace(/([=!:$\/()])/g, '\\$1')
+}
+
+/**
+ * Attach the keys as a property of the regexp.
+ *
+ * @param  {!RegExp} re
+ * @param  {Array}   keys
+ * @return {!RegExp}
+ */
+function attachKeys (re, keys) {
+  re.keys = keys;
+  return re
+}
+
+/**
+ * Get the flags for a regexp from the options.
+ *
+ * @param  {Object} options
+ * @return {string}
+ */
+function flags (options) {
+  return options && options.sensitive ? '' : 'i'
+}
+
+/**
+ * Pull out keys from a regexp.
+ *
+ * @param  {!RegExp} path
+ * @param  {!Array}  keys
+ * @return {!RegExp}
+ */
+function regexpToRegexp (path, keys) {
+  // Use a negative lookahead to match only capturing groups.
+  var groups = path.source.match(/\((?!\?)/g);
+
+  if (groups) {
+    for (var i = 0; i < groups.length; i++) {
+      keys.push({
+        name: i,
+        prefix: null,
+        delimiter: null,
+        optional: false,
+        repeat: false,
+        partial: false,
+        asterisk: false,
+        pattern: null
+      });
+    }
+  }
+
+  return attachKeys(path, keys)
+}
+
+/**
+ * Transform an array into a regexp.
+ *
+ * @param  {!Array}  path
+ * @param  {Array}   keys
+ * @param  {!Object} options
+ * @return {!RegExp}
+ */
+function arrayToRegexp (path, keys, options) {
+  var parts = [];
+
+  for (var i = 0; i < path.length; i++) {
+    parts.push(pathToRegexp(path[i], keys, options).source);
+  }
+
+  var regexp = new RegExp('(?:' + parts.join('|') + ')', flags(options));
+
+  return attachKeys(regexp, keys)
+}
+
+/**
+ * Create a path regexp from string input.
+ *
+ * @param  {string}  path
+ * @param  {!Array}  keys
+ * @param  {!Object} options
+ * @return {!RegExp}
+ */
+function stringToRegexp (path, keys, options) {
+  return tokensToRegExp(parse(path, options), keys, options)
+}
+
+/**
+ * Expose a function for taking tokens and returning a RegExp.
+ *
+ * @param  {!Array}          tokens
+ * @param  {(Array|Object)=} keys
+ * @param  {Object=}         options
+ * @return {!RegExp}
+ */
+function tokensToRegExp (tokens, keys, options) {
+  if (!isarray(keys)) {
+    options = /** @type {!Object} */ (keys || options);
+    keys = [];
+  }
+
+  options = options || {};
+
+  var strict = options.strict;
+  var end = options.end !== false;
+  var route = '';
+
+  // Iterate over the tokens and create our regexp string.
+  for (var i = 0; i < tokens.length; i++) {
+    var token = tokens[i];
+
+    if (typeof token === 'string') {
+      route += escapeString(token);
+    } else {
+      var prefix = escapeString(token.prefix);
+      var capture = '(?:' + token.pattern + ')';
+
+      keys.push(token);
+
+      if (token.repeat) {
+        capture += '(?:' + prefix + capture + ')*';
+      }
+
+      if (token.optional) {
+        if (!token.partial) {
+          capture = '(?:' + prefix + '(' + capture + '))?';
+        } else {
+          capture = prefix + '(' + capture + ')?';
+        }
+      } else {
+        capture = prefix + '(' + capture + ')';
+      }
+
+      route += capture;
+    }
+  }
+
+  var delimiter = escapeString(options.delimiter || '/');
+  var endsWithDelimiter = route.slice(-delimiter.length) === delimiter;
+
+  // In non-strict mode we allow a slash at the end of match. If the path to
+  // match already ends with a slash, we remove it for consistency. The slash
+  // is valid at the end of a path match, not in the middle. This is important
+  // in non-ending mode, where "/test/" shouldn't match "/test//route".
+  if (!strict) {
+    route = (endsWithDelimiter ? route.slice(0, -delimiter.length) : route) + '(?:' + delimiter + '(?=$))?';
+  }
+
+  if (end) {
+    route += '$';
+  } else {
+    // In non-ending mode, we need the capturing groups to match as much as
+    // possible by using a positive lookahead to the end or next path segment.
+    route += strict && endsWithDelimiter ? '' : '(?=' + delimiter + '|$)';
+  }
+
+  return attachKeys(new RegExp('^' + route, flags(options)), keys)
+}
+
+/**
+ * Normalize the given path string, returning a regular expression.
+ *
+ * An empty array can be passed in for the keys, which will hold the
+ * placeholder key descriptions. For example, using `/user/:id`, `keys` will
+ * contain `[{ name: 'id', delimiter: '/', optional: false, repeat: false }]`.
+ *
+ * @param  {(string|RegExp|Array)} path
+ * @param  {(Array|Object)=}       keys
+ * @param  {Object=}               options
+ * @return {!RegExp}
+ */
+function pathToRegexp (path, keys, options) {
+  if (!isarray(keys)) {
+    options = /** @type {!Object} */ (keys || options);
+    keys = [];
+  }
+
+  options = options || {};
+
+  if (path instanceof RegExp) {
+    return regexpToRegexp(path, /** @type {!Array} */ (keys))
+  }
+
+  if (isarray(path)) {
+    return arrayToRegexp(/** @type {!Array} */ (path), /** @type {!Array} */ (keys), options)
+  }
+
+  return stringToRegexp(/** @type {string} */ (path), /** @type {!Array} */ (keys), options)
+}
+pathToRegexp_1.parse = parse_1;
+pathToRegexp_1.compile = compile_1;
+pathToRegexp_1.tokensToFunction = tokensToFunction_1;
+pathToRegexp_1.tokensToRegExp = tokensToRegExp_1;
+
+/*  */
+
+// $flow-disable-line
+var regexpCompileCache = Object.create(null);
+
+function fillParams (
+  path,
+  params,
+  routeMsg
+) {
+  params = params || {};
+  try {
+    var filler =
+      regexpCompileCache[path] ||
+      (regexpCompileCache[path] = pathToRegexp_1.compile(path));
+
+    // Fix #2505 resolving asterisk routes { name: 'not-found', params: { pathMatch: '/not-found' }}
+    // and fix #3106 so that you can work with location descriptor object having params.pathMatch equal to empty string
+    if (typeof params.pathMatch === 'string') { params[0] = params.pathMatch; }
+
+    return filler(params, { pretty: true })
+  } catch (e) {
+    if (true) {
+      // Fix #3072 no warn if `pathMatch` is string
+      warn(typeof params.pathMatch === 'string', ("missing param for " + routeMsg + ": " + (e.message)));
+    }
+    return ''
+  } finally {
+    // delete the 0 if it was added
+    delete params[0];
+  }
+}
+
+/*  */
+
+function normalizeLocation (
+  raw,
+  current,
+  append,
+  router
+) {
+  var next = typeof raw === 'string' ? { path: raw } : raw;
+  // named target
+  if (next._normalized) {
+    return next
+  } else if (next.name) {
+    next = extend({}, raw);
+    var params = next.params;
+    if (params && typeof params === 'object') {
+      next.params = extend({}, params);
+    }
+    return next
+  }
+
+  // relative params
+  if (!next.path && next.params && current) {
+    next = extend({}, next);
+    next._normalized = true;
+    var params$1 = extend(extend({}, current.params), next.params);
+    if (current.name) {
+      next.name = current.name;
+      next.params = params$1;
+    } else if (current.matched.length) {
+      var rawPath = current.matched[current.matched.length - 1].path;
+      next.path = fillParams(rawPath, params$1, ("path " + (current.path)));
+    } else if (true) {
+      warn(false, "relative params navigation requires a current route.");
+    }
+    return next
+  }
+
+  var parsedPath = parsePath(next.path || '');
+  var basePath = (current && current.path) || '/';
+  var path = parsedPath.path
+    ? resolvePath(parsedPath.path, basePath, append || next.append)
+    : basePath;
+
+  var query = resolveQuery(
+    parsedPath.query,
+    next.query,
+    router && router.options.parseQuery
+  );
+
+  var hash = next.hash || parsedPath.hash;
+  if (hash && hash.charAt(0) !== '#') {
+    hash = "#" + hash;
+  }
+
+  return {
+    _normalized: true,
+    path: path,
+    query: query,
+    hash: hash
+  }
+}
+
+/*  */
+
+// work around weird flow bug
+var toTypes = [String, Object];
+var eventTypes = [String, Array];
+
+var noop = function () {};
+
+var warnedCustomSlot;
+var warnedTagProp;
+var warnedEventProp;
+
+var Link = {
+  name: 'RouterLink',
+  props: {
+    to: {
+      type: toTypes,
+      required: true
+    },
+    tag: {
+      type: String,
+      default: 'a'
+    },
+    custom: Boolean,
+    exact: Boolean,
+    exactPath: Boolean,
+    append: Boolean,
+    replace: Boolean,
+    activeClass: String,
+    exactActiveClass: String,
+    ariaCurrentValue: {
+      type: String,
+      default: 'page'
+    },
+    event: {
+      type: eventTypes,
+      default: 'click'
+    }
+  },
+  render: function render (h) {
+    var this$1$1 = this;
+
+    var router = this.$router;
+    var current = this.$route;
+    var ref = router.resolve(
+      this.to,
+      current,
+      this.append
+    );
+    var location = ref.location;
+    var route = ref.route;
+    var href = ref.href;
+
+    var classes = {};
+    var globalActiveClass = router.options.linkActiveClass;
+    var globalExactActiveClass = router.options.linkExactActiveClass;
+    // Support global empty active class
+    var activeClassFallback =
+      globalActiveClass == null ? 'router-link-active' : globalActiveClass;
+    var exactActiveClassFallback =
+      globalExactActiveClass == null
+        ? 'router-link-exact-active'
+        : globalExactActiveClass;
+    var activeClass =
+      this.activeClass == null ? activeClassFallback : this.activeClass;
+    var exactActiveClass =
+      this.exactActiveClass == null
+        ? exactActiveClassFallback
+        : this.exactActiveClass;
+
+    var compareTarget = route.redirectedFrom
+      ? createRoute(null, normalizeLocation(route.redirectedFrom), null, router)
+      : route;
+
+    classes[exactActiveClass] = isSameRoute(current, compareTarget, this.exactPath);
+    classes[activeClass] = this.exact || this.exactPath
+      ? classes[exactActiveClass]
+      : isIncludedRoute(current, compareTarget);
+
+    var ariaCurrentValue = classes[exactActiveClass] ? this.ariaCurrentValue : null;
+
+    var handler = function (e) {
+      if (guardEvent(e)) {
+        if (this$1$1.replace) {
+          router.replace(location, noop);
+        } else {
+          router.push(location, noop);
+        }
+      }
+    };
+
+    var on = { click: guardEvent };
+    if (Array.isArray(this.event)) {
+      this.event.forEach(function (e) {
+        on[e] = handler;
+      });
+    } else {
+      on[this.event] = handler;
+    }
+
+    var data = { class: classes };
+
+    var scopedSlot =
+      !this.$scopedSlots.$hasNormal &&
+      this.$scopedSlots.default &&
+      this.$scopedSlots.default({
+        href: href,
+        route: route,
+        navigate: handler,
+        isActive: classes[activeClass],
+        isExactActive: classes[exactActiveClass]
+      });
+
+    if (scopedSlot) {
+      if ( true && !this.custom) {
+        !warnedCustomSlot && warn(false, 'In Vue Router 4, the v-slot API will by default wrap its content with an <a> element. Use the custom prop to remove this warning:\n<router-link v-slot="{ navigate, href }" custom></router-link>\n');
+        warnedCustomSlot = true;
+      }
+      if (scopedSlot.length === 1) {
+        return scopedSlot[0]
+      } else if (scopedSlot.length > 1 || !scopedSlot.length) {
+        if (true) {
+          warn(
+            false,
+            ("<router-link> with to=\"" + (this.to) + "\" is trying to use a scoped slot but it didn't provide exactly one child. Wrapping the content with a span element.")
+          );
+        }
+        return scopedSlot.length === 0 ? h() : h('span', {}, scopedSlot)
+      }
+    }
+
+    if (true) {
+      if ('tag' in this.$options.propsData && !warnedTagProp) {
+        warn(
+          false,
+          "<router-link>'s tag prop is deprecated and has been removed in Vue Router 4. Use the v-slot API to remove this warning: https://next.router.vuejs.org/guide/migration/#removal-of-event-and-tag-props-in-router-link."
+        );
+        warnedTagProp = true;
+      }
+      if ('event' in this.$options.propsData && !warnedEventProp) {
+        warn(
+          false,
+          "<router-link>'s event prop is deprecated and has been removed in Vue Router 4. Use the v-slot API to remove this warning: https://next.router.vuejs.org/guide/migration/#removal-of-event-and-tag-props-in-router-link."
+        );
+        warnedEventProp = true;
+      }
+    }
+
+    if (this.tag === 'a') {
+      data.on = on;
+      data.attrs = { href: href, 'aria-current': ariaCurrentValue };
+    } else {
+      // find the first <a> child and apply listener and href
+      var a = findAnchor(this.$slots.default);
+      if (a) {
+        // in case the <a> is a static node
+        a.isStatic = false;
+        var aData = (a.data = extend({}, a.data));
+        aData.on = aData.on || {};
+        // transform existing events in both objects into arrays so we can push later
+        for (var event in aData.on) {
+          var handler$1 = aData.on[event];
+          if (event in on) {
+            aData.on[event] = Array.isArray(handler$1) ? handler$1 : [handler$1];
+          }
+        }
+        // append new listeners for router-link
+        for (var event$1 in on) {
+          if (event$1 in aData.on) {
+            // on[event] is always a function
+            aData.on[event$1].push(on[event$1]);
+          } else {
+            aData.on[event$1] = handler;
+          }
+        }
+
+        var aAttrs = (a.data.attrs = extend({}, a.data.attrs));
+        aAttrs.href = href;
+        aAttrs['aria-current'] = ariaCurrentValue;
+      } else {
+        // doesn't have <a> child, apply listener to self
+        data.on = on;
+      }
+    }
+
+    return h(this.tag, data, this.$slots.default)
+  }
+};
+
+function guardEvent (e) {
+  // don't redirect with control keys
+  if (e.metaKey || e.altKey || e.ctrlKey || e.shiftKey) { return }
+  // don't redirect when preventDefault called
+  if (e.defaultPrevented) { return }
+  // don't redirect on right click
+  if (e.button !== undefined && e.button !== 0) { return }
+  // don't redirect if `target="_blank"`
+  if (e.currentTarget && e.currentTarget.getAttribute) {
+    var target = e.currentTarget.getAttribute('target');
+    if (/\b_blank\b/i.test(target)) { return }
+  }
+  // this may be a Weex event which doesn't have this method
+  if (e.preventDefault) {
+    e.preventDefault();
+  }
+  return true
+}
+
+function findAnchor (children) {
+  if (children) {
+    var child;
+    for (var i = 0; i < children.length; i++) {
+      child = children[i];
+      if (child.tag === 'a') {
+        return child
+      }
+      if (child.children && (child = findAnchor(child.children))) {
+        return child
+      }
+    }
+  }
+}
+
+var _Vue;
+
+function install (Vue) {
+  if (install.installed && _Vue === Vue) { return }
+  install.installed = true;
+
+  _Vue = Vue;
+
+  var isDef = function (v) { return v !== undefined; };
+
+  var registerInstance = function (vm, callVal) {
+    var i = vm.$options._parentVnode;
+    if (isDef(i) && isDef(i = i.data) && isDef(i = i.registerRouteInstance)) {
+      i(vm, callVal);
+    }
+  };
+
+  Vue.mixin({
+    beforeCreate: function beforeCreate () {
+      if (isDef(this.$options.router)) {
+        this._routerRoot = this;
+        this._router = this.$options.router;
+        this._router.init(this);
+        Vue.util.defineReactive(this, '_route', this._router.history.current);
+      } else {
+        this._routerRoot = (this.$parent && this.$parent._routerRoot) || this;
+      }
+      registerInstance(this, this);
+    },
+    destroyed: function destroyed () {
+      registerInstance(this);
+    }
+  });
+
+  Object.defineProperty(Vue.prototype, '$router', {
+    get: function get () { return this._routerRoot._router }
+  });
+
+  Object.defineProperty(Vue.prototype, '$route', {
+    get: function get () { return this._routerRoot._route }
+  });
+
+  Vue.component('RouterView', View);
+  Vue.component('RouterLink', Link);
+
+  var strats = Vue.config.optionMergeStrategies;
+  // use the same hook merging strategy for route hooks
+  strats.beforeRouteEnter = strats.beforeRouteLeave = strats.beforeRouteUpdate = strats.created;
+}
+
+/*  */
+
+var inBrowser = typeof window !== 'undefined';
+
+/*  */
+
+function createRouteMap (
+  routes,
+  oldPathList,
+  oldPathMap,
+  oldNameMap,
+  parentRoute
+) {
+  // the path list is used to control path matching priority
+  var pathList = oldPathList || [];
+  // $flow-disable-line
+  var pathMap = oldPathMap || Object.create(null);
+  // $flow-disable-line
+  var nameMap = oldNameMap || Object.create(null);
+
+  routes.forEach(function (route) {
+    addRouteRecord(pathList, pathMap, nameMap, route, parentRoute);
+  });
+
+  // ensure wildcard routes are always at the end
+  for (var i = 0, l = pathList.length; i < l; i++) {
+    if (pathList[i] === '*') {
+      pathList.push(pathList.splice(i, 1)[0]);
+      l--;
+      i--;
+    }
+  }
+
+  if (true) {
+    // warn if routes do not include leading slashes
+    var found = pathList
+    // check for missing leading slash
+      .filter(function (path) { return path && path.charAt(0) !== '*' && path.charAt(0) !== '/'; });
+
+    if (found.length > 0) {
+      var pathNames = found.map(function (path) { return ("- " + path); }).join('\n');
+      warn(false, ("Non-nested routes must include a leading slash character. Fix the following routes: \n" + pathNames));
+    }
+  }
+
+  return {
+    pathList: pathList,
+    pathMap: pathMap,
+    nameMap: nameMap
+  }
+}
+
+function addRouteRecord (
+  pathList,
+  pathMap,
+  nameMap,
+  route,
+  parent,
+  matchAs
+) {
+  var path = route.path;
+  var name = route.name;
+  if (true) {
+    assert(path != null, "\"path\" is required in a route configuration.");
+    assert(
+      typeof route.component !== 'string',
+      "route config \"component\" for path: " + (String(
+        path || name
+      )) + " cannot be a " + "string id. Use an actual component instead."
+    );
+
+    warn(
+      // eslint-disable-next-line no-control-regex
+      !/[^\u0000-\u007F]+/.test(path),
+      "Route with path \"" + path + "\" contains unencoded characters, make sure " +
+        "your path is correctly encoded before passing it to the router. Use " +
+        "encodeURI to encode static segments of your path."
+    );
+  }
+
+  var pathToRegexpOptions =
+    route.pathToRegexpOptions || {};
+  var normalizedPath = normalizePath(path, parent, pathToRegexpOptions.strict);
+
+  if (typeof route.caseSensitive === 'boolean') {
+    pathToRegexpOptions.sensitive = route.caseSensitive;
+  }
+
+  var record = {
+    path: normalizedPath,
+    regex: compileRouteRegex(normalizedPath, pathToRegexpOptions),
+    components: route.components || { default: route.component },
+    alias: route.alias
+      ? typeof route.alias === 'string'
+        ? [route.alias]
+        : route.alias
+      : [],
+    instances: {},
+    enteredCbs: {},
+    name: name,
+    parent: parent,
+    matchAs: matchAs,
+    redirect: route.redirect,
+    beforeEnter: route.beforeEnter,
+    meta: route.meta || {},
+    props:
+      route.props == null
+        ? {}
+        : route.components
+          ? route.props
+          : { default: route.props }
+  };
+
+  if (route.children) {
+    // Warn if route is named, does not redirect and has a default child route.
+    // If users navigate to this route by name, the default child will
+    // not be rendered (GH Issue #629)
+    if (true) {
+      if (
+        route.name &&
+        !route.redirect &&
+        route.children.some(function (child) { return /^\/?$/.test(child.path); })
+      ) {
+        warn(
+          false,
+          "Named Route '" + (route.name) + "' has a default child route. " +
+            "When navigating to this named route (:to=\"{name: '" + (route.name) + "'}\"), " +
+            "the default child route will not be rendered. Remove the name from " +
+            "this route and use the name of the default child route for named " +
+            "links instead."
+        );
+      }
+    }
+    route.children.forEach(function (child) {
+      var childMatchAs = matchAs
+        ? cleanPath((matchAs + "/" + (child.path)))
+        : undefined;
+      addRouteRecord(pathList, pathMap, nameMap, child, record, childMatchAs);
+    });
+  }
+
+  if (!pathMap[record.path]) {
+    pathList.push(record.path);
+    pathMap[record.path] = record;
+  }
+
+  if (route.alias !== undefined) {
+    var aliases = Array.isArray(route.alias) ? route.alias : [route.alias];
+    for (var i = 0; i < aliases.length; ++i) {
+      var alias = aliases[i];
+      if ( true && alias === path) {
+        warn(
+          false,
+          ("Found an alias with the same value as the path: \"" + path + "\". You have to remove that alias. It will be ignored in development.")
+        );
+        // skip in dev to make it work
+        continue
+      }
+
+      var aliasRoute = {
+        path: alias,
+        children: route.children
+      };
+      addRouteRecord(
+        pathList,
+        pathMap,
+        nameMap,
+        aliasRoute,
+        parent,
+        record.path || '/' // matchAs
+      );
+    }
+  }
+
+  if (name) {
+    if (!nameMap[name]) {
+      nameMap[name] = record;
+    } else if ( true && !matchAs) {
+      warn(
+        false,
+        "Duplicate named routes definition: " +
+          "{ name: \"" + name + "\", path: \"" + (record.path) + "\" }"
+      );
+    }
+  }
+}
+
+function compileRouteRegex (
+  path,
+  pathToRegexpOptions
+) {
+  var regex = pathToRegexp_1(path, [], pathToRegexpOptions);
+  if (true) {
+    var keys = Object.create(null);
+    regex.keys.forEach(function (key) {
+      warn(
+        !keys[key.name],
+        ("Duplicate param keys in route with path: \"" + path + "\"")
+      );
+      keys[key.name] = true;
+    });
+  }
+  return regex
+}
+
+function normalizePath (
+  path,
+  parent,
+  strict
+) {
+  if (!strict) { path = path.replace(/\/$/, ''); }
+  if (path[0] === '/') { return path }
+  if (parent == null) { return path }
+  return cleanPath(((parent.path) + "/" + path))
+}
+
+/*  */
+
+
+
+function createMatcher (
+  routes,
+  router
+) {
+  var ref = createRouteMap(routes);
+  var pathList = ref.pathList;
+  var pathMap = ref.pathMap;
+  var nameMap = ref.nameMap;
+
+  function addRoutes (routes) {
+    createRouteMap(routes, pathList, pathMap, nameMap);
+  }
+
+  function addRoute (parentOrRoute, route) {
+    var parent = (typeof parentOrRoute !== 'object') ? nameMap[parentOrRoute] : undefined;
+    // $flow-disable-line
+    createRouteMap([route || parentOrRoute], pathList, pathMap, nameMap, parent);
+
+    // add aliases of parent
+    if (parent && parent.alias.length) {
+      createRouteMap(
+        // $flow-disable-line route is defined if parent is
+        parent.alias.map(function (alias) { return ({ path: alias, children: [route] }); }),
+        pathList,
+        pathMap,
+        nameMap,
+        parent
+      );
+    }
+  }
+
+  function getRoutes () {
+    return pathList.map(function (path) { return pathMap[path]; })
+  }
+
+  function match (
+    raw,
+    currentRoute,
+    redirectedFrom
+  ) {
+    var location = normalizeLocation(raw, currentRoute, false, router);
+    var name = location.name;
+
+    if (name) {
+      var record = nameMap[name];
+      if (true) {
+        warn(record, ("Route with name '" + name + "' does not exist"));
+      }
+      if (!record) { return _createRoute(null, location) }
+      var paramNames = record.regex.keys
+        .filter(function (key) { return !key.optional; })
+        .map(function (key) { return key.name; });
+
+      if (typeof location.params !== 'object') {
+        location.params = {};
+      }
+
+      if (currentRoute && typeof currentRoute.params === 'object') {
+        for (var key in currentRoute.params) {
+          if (!(key in location.params) && paramNames.indexOf(key) > -1) {
+            location.params[key] = currentRoute.params[key];
+          }
+        }
+      }
+
+      location.path = fillParams(record.path, location.params, ("named route \"" + name + "\""));
+      return _createRoute(record, location, redirectedFrom)
+    } else if (location.path) {
+      location.params = {};
+      for (var i = 0; i < pathList.length; i++) {
+        var path = pathList[i];
+        var record$1 = pathMap[path];
+        if (matchRoute(record$1.regex, location.path, location.params)) {
+          return _createRoute(record$1, location, redirectedFrom)
+        }
+      }
+    }
+    // no match
+    return _createRoute(null, location)
+  }
+
+  function redirect (
+    record,
+    location
+  ) {
+    var originalRedirect = record.redirect;
+    var redirect = typeof originalRedirect === 'function'
+      ? originalRedirect(createRoute(record, location, null, router))
+      : originalRedirect;
+
+    if (typeof redirect === 'string') {
+      redirect = { path: redirect };
+    }
+
+    if (!redirect || typeof redirect !== 'object') {
+      if (true) {
+        warn(
+          false, ("invalid redirect option: " + (JSON.stringify(redirect)))
+        );
+      }
+      return _createRoute(null, location)
+    }
+
+    var re = redirect;
+    var name = re.name;
+    var path = re.path;
+    var query = location.query;
+    var hash = location.hash;
+    var params = location.params;
+    query = re.hasOwnProperty('query') ? re.query : query;
+    hash = re.hasOwnProperty('hash') ? re.hash : hash;
+    params = re.hasOwnProperty('params') ? re.params : params;
+
+    if (name) {
+      // resolved named direct
+      var targetRecord = nameMap[name];
+      if (true) {
+        assert(targetRecord, ("redirect failed: named route \"" + name + "\" not found."));
+      }
+      return match({
+        _normalized: true,
+        name: name,
+        query: query,
+        hash: hash,
+        params: params
+      }, undefined, location)
+    } else if (path) {
+      // 1. resolve relative redirect
+      var rawPath = resolveRecordPath(path, record);
+      // 2. resolve params
+      var resolvedPath = fillParams(rawPath, params, ("redirect route with path \"" + rawPath + "\""));
+      // 3. rematch with existing query and hash
+      return match({
+        _normalized: true,
+        path: resolvedPath,
+        query: query,
+        hash: hash
+      }, undefined, location)
+    } else {
+      if (true) {
+        warn(false, ("invalid redirect option: " + (JSON.stringify(redirect))));
+      }
+      return _createRoute(null, location)
+    }
+  }
+
+  function alias (
+    record,
+    location,
+    matchAs
+  ) {
+    var aliasedPath = fillParams(matchAs, location.params, ("aliased route with path \"" + matchAs + "\""));
+    var aliasedMatch = match({
+      _normalized: true,
+      path: aliasedPath
+    });
+    if (aliasedMatch) {
+      var matched = aliasedMatch.matched;
+      var aliasedRecord = matched[matched.length - 1];
+      location.params = aliasedMatch.params;
+      return _createRoute(aliasedRecord, location)
+    }
+    return _createRoute(null, location)
+  }
+
+  function _createRoute (
+    record,
+    location,
+    redirectedFrom
+  ) {
+    if (record && record.redirect) {
+      return redirect(record, redirectedFrom || location)
+    }
+    if (record && record.matchAs) {
+      return alias(record, location, record.matchAs)
+    }
+    return createRoute(record, location, redirectedFrom, router)
+  }
+
+  return {
+    match: match,
+    addRoute: addRoute,
+    getRoutes: getRoutes,
+    addRoutes: addRoutes
+  }
+}
+
+function matchRoute (
+  regex,
+  path,
+  params
+) {
+  var m = path.match(regex);
+
+  if (!m) {
+    return false
+  } else if (!params) {
+    return true
+  }
+
+  for (var i = 1, len = m.length; i < len; ++i) {
+    var key = regex.keys[i - 1];
+    if (key) {
+      // Fix #1994: using * with props: true generates a param named 0
+      params[key.name || 'pathMatch'] = typeof m[i] === 'string' ? decode(m[i]) : m[i];
+    }
+  }
+
+  return true
+}
+
+function resolveRecordPath (path, record) {
+  return resolvePath(path, record.parent ? record.parent.path : '/', true)
+}
+
+/*  */
+
+// use User Timing api (if present) for more accurate key precision
+var Time =
+  inBrowser && window.performance && window.performance.now
+    ? window.performance
+    : Date;
+
+function genStateKey () {
+  return Time.now().toFixed(3)
+}
+
+var _key = genStateKey();
+
+function getStateKey () {
+  return _key
+}
+
+function setStateKey (key) {
+  return (_key = key)
+}
+
+/*  */
+
+var positionStore = Object.create(null);
+
+function setupScroll () {
+  // Prevent browser scroll behavior on History popstate
+  if ('scrollRestoration' in window.history) {
+    window.history.scrollRestoration = 'manual';
+  }
+  // Fix for #1585 for Firefox
+  // Fix for #2195 Add optional third attribute to workaround a bug in safari https://bugs.webkit.org/show_bug.cgi?id=182678
+  // Fix for #2774 Support for apps loaded from Windows file shares not mapped to network drives: replaced location.origin with
+  // window.location.protocol + '//' + window.location.host
+  // location.host contains the port and location.hostname doesn't
+  var protocolAndPath = window.location.protocol + '//' + window.location.host;
+  var absolutePath = window.location.href.replace(protocolAndPath, '');
+  // preserve existing history state as it could be overriden by the user
+  var stateCopy = extend({}, window.history.state);
+  stateCopy.key = getStateKey();
+  window.history.replaceState(stateCopy, '', absolutePath);
+  window.addEventListener('popstate', handlePopState);
+  return function () {
+    window.removeEventListener('popstate', handlePopState);
+  }
+}
+
+function handleScroll (
+  router,
+  to,
+  from,
+  isPop
+) {
+  if (!router.app) {
+    return
+  }
+
+  var behavior = router.options.scrollBehavior;
+  if (!behavior) {
+    return
+  }
+
+  if (true) {
+    assert(typeof behavior === 'function', "scrollBehavior must be a function");
+  }
+
+  // wait until re-render finishes before scrolling
+  router.app.$nextTick(function () {
+    var position = getScrollPosition();
+    var shouldScroll = behavior.call(
+      router,
+      to,
+      from,
+      isPop ? position : null
+    );
+
+    if (!shouldScroll) {
+      return
+    }
+
+    if (typeof shouldScroll.then === 'function') {
+      shouldScroll
+        .then(function (shouldScroll) {
+          scrollToPosition((shouldScroll), position);
+        })
+        .catch(function (err) {
+          if (true) {
+            assert(false, err.toString());
+          }
+        });
+    } else {
+      scrollToPosition(shouldScroll, position);
+    }
+  });
+}
+
+function saveScrollPosition () {
+  var key = getStateKey();
+  if (key) {
+    positionStore[key] = {
+      x: window.pageXOffset,
+      y: window.pageYOffset
+    };
+  }
+}
+
+function handlePopState (e) {
+  saveScrollPosition();
+  if (e.state && e.state.key) {
+    setStateKey(e.state.key);
+  }
+}
+
+function getScrollPosition () {
+  var key = getStateKey();
+  if (key) {
+    return positionStore[key]
+  }
+}
+
+function getElementPosition (el, offset) {
+  var docEl = document.documentElement;
+  var docRect = docEl.getBoundingClientRect();
+  var elRect = el.getBoundingClientRect();
+  return {
+    x: elRect.left - docRect.left - offset.x,
+    y: elRect.top - docRect.top - offset.y
+  }
+}
+
+function isValidPosition (obj) {
+  return isNumber(obj.x) || isNumber(obj.y)
+}
+
+function normalizePosition (obj) {
+  return {
+    x: isNumber(obj.x) ? obj.x : window.pageXOffset,
+    y: isNumber(obj.y) ? obj.y : window.pageYOffset
+  }
+}
+
+function normalizeOffset (obj) {
+  return {
+    x: isNumber(obj.x) ? obj.x : 0,
+    y: isNumber(obj.y) ? obj.y : 0
+  }
+}
+
+function isNumber (v) {
+  return typeof v === 'number'
+}
+
+var hashStartsWithNumberRE = /^#\d/;
+
+function scrollToPosition (shouldScroll, position) {
+  var isObject = typeof shouldScroll === 'object';
+  if (isObject && typeof shouldScroll.selector === 'string') {
+    // getElementById would still fail if the selector contains a more complicated query like #main[data-attr]
+    // but at the same time, it doesn't make much sense to select an element with an id and an extra selector
+    var el = hashStartsWithNumberRE.test(shouldScroll.selector) // $flow-disable-line
+      ? document.getElementById(shouldScroll.selector.slice(1)) // $flow-disable-line
+      : document.querySelector(shouldScroll.selector);
+
+    if (el) {
+      var offset =
+        shouldScroll.offset && typeof shouldScroll.offset === 'object'
+          ? shouldScroll.offset
+          : {};
+      offset = normalizeOffset(offset);
+      position = getElementPosition(el, offset);
+    } else if (isValidPosition(shouldScroll)) {
+      position = normalizePosition(shouldScroll);
+    }
+  } else if (isObject && isValidPosition(shouldScroll)) {
+    position = normalizePosition(shouldScroll);
+  }
+
+  if (position) {
+    // $flow-disable-line
+    if ('scrollBehavior' in document.documentElement.style) {
+      window.scrollTo({
+        left: position.x,
+        top: position.y,
+        // $flow-disable-line
+        behavior: shouldScroll.behavior
+      });
+    } else {
+      window.scrollTo(position.x, position.y);
+    }
+  }
+}
+
+/*  */
+
+var supportsPushState =
+  inBrowser &&
+  (function () {
+    var ua = window.navigator.userAgent;
+
+    if (
+      (ua.indexOf('Android 2.') !== -1 || ua.indexOf('Android 4.0') !== -1) &&
+      ua.indexOf('Mobile Safari') !== -1 &&
+      ua.indexOf('Chrome') === -1 &&
+      ua.indexOf('Windows Phone') === -1
+    ) {
+      return false
+    }
+
+    return window.history && typeof window.history.pushState === 'function'
+  })();
+
+function pushState (url, replace) {
+  saveScrollPosition();
+  // try...catch the pushState call to get around Safari
+  // DOM Exception 18 where it limits to 100 pushState calls
+  var history = window.history;
+  try {
+    if (replace) {
+      // preserve existing history state as it could be overriden by the user
+      var stateCopy = extend({}, history.state);
+      stateCopy.key = getStateKey();
+      history.replaceState(stateCopy, '', url);
+    } else {
+      history.pushState({ key: setStateKey(genStateKey()) }, '', url);
+    }
+  } catch (e) {
+    window.location[replace ? 'replace' : 'assign'](url);
+  }
+}
+
+function replaceState (url) {
+  pushState(url, true);
+}
+
+// When changing thing, also edit router.d.ts
+var NavigationFailureType = {
+  redirected: 2,
+  aborted: 4,
+  cancelled: 8,
+  duplicated: 16
+};
+
+function createNavigationRedirectedError (from, to) {
+  return createRouterError(
+    from,
+    to,
+    NavigationFailureType.redirected,
+    ("Redirected when going from \"" + (from.fullPath) + "\" to \"" + (stringifyRoute(
+      to
+    )) + "\" via a navigation guard.")
+  )
+}
+
+function createNavigationDuplicatedError (from, to) {
+  var error = createRouterError(
+    from,
+    to,
+    NavigationFailureType.duplicated,
+    ("Avoided redundant navigation to current location: \"" + (from.fullPath) + "\".")
+  );
+  // backwards compatible with the first introduction of Errors
+  error.name = 'NavigationDuplicated';
+  return error
+}
+
+function createNavigationCancelledError (from, to) {
+  return createRouterError(
+    from,
+    to,
+    NavigationFailureType.cancelled,
+    ("Navigation cancelled from \"" + (from.fullPath) + "\" to \"" + (to.fullPath) + "\" with a new navigation.")
+  )
+}
+
+function createNavigationAbortedError (from, to) {
+  return createRouterError(
+    from,
+    to,
+    NavigationFailureType.aborted,
+    ("Navigation aborted from \"" + (from.fullPath) + "\" to \"" + (to.fullPath) + "\" via a navigation guard.")
+  )
+}
+
+function createRouterError (from, to, type, message) {
+  var error = new Error(message);
+  error._isRouter = true;
+  error.from = from;
+  error.to = to;
+  error.type = type;
+
+  return error
+}
+
+var propertiesToLog = ['params', 'query', 'hash'];
+
+function stringifyRoute (to) {
+  if (typeof to === 'string') { return to }
+  if ('path' in to) { return to.path }
+  var location = {};
+  propertiesToLog.forEach(function (key) {
+    if (key in to) { location[key] = to[key]; }
+  });
+  return JSON.stringify(location, null, 2)
+}
+
+function isError (err) {
+  return Object.prototype.toString.call(err).indexOf('Error') > -1
+}
+
+function isNavigationFailure (err, errorType) {
+  return (
+    isError(err) &&
+    err._isRouter &&
+    (errorType == null || err.type === errorType)
+  )
+}
+
+/*  */
+
+function runQueue (queue, fn, cb) {
+  var step = function (index) {
+    if (index >= queue.length) {
+      cb();
+    } else {
+      if (queue[index]) {
+        fn(queue[index], function () {
+          step(index + 1);
+        });
+      } else {
+        step(index + 1);
+      }
+    }
+  };
+  step(0);
+}
+
+/*  */
+
+function resolveAsyncComponents (matched) {
+  return function (to, from, next) {
+    var hasAsync = false;
+    var pending = 0;
+    var error = null;
+
+    flatMapComponents(matched, function (def, _, match, key) {
+      // if it's a function and doesn't have cid attached,
+      // assume it's an async component resolve function.
+      // we are not using Vue's default async resolving mechanism because
+      // we want to halt the navigation until the incoming component has been
+      // resolved.
+      if (typeof def === 'function' && def.cid === undefined) {
+        hasAsync = true;
+        pending++;
+
+        var resolve = once(function (resolvedDef) {
+          if (isESModule(resolvedDef)) {
+            resolvedDef = resolvedDef.default;
+          }
+          // save resolved on async factory in case it's used elsewhere
+          def.resolved = typeof resolvedDef === 'function'
+            ? resolvedDef
+            : _Vue.extend(resolvedDef);
+          match.components[key] = resolvedDef;
+          pending--;
+          if (pending <= 0) {
+            next();
+          }
+        });
+
+        var reject = once(function (reason) {
+          var msg = "Failed to resolve async component " + key + ": " + reason;
+           true && warn(false, msg);
+          if (!error) {
+            error = isError(reason)
+              ? reason
+              : new Error(msg);
+            next(error);
+          }
+        });
+
+        var res;
+        try {
+          res = def(resolve, reject);
+        } catch (e) {
+          reject(e);
+        }
+        if (res) {
+          if (typeof res.then === 'function') {
+            res.then(resolve, reject);
+          } else {
+            // new syntax in Vue 2.3
+            var comp = res.component;
+            if (comp && typeof comp.then === 'function') {
+              comp.then(resolve, reject);
+            }
+          }
+        }
+      }
+    });
+
+    if (!hasAsync) { next(); }
+  }
+}
+
+function flatMapComponents (
+  matched,
+  fn
+) {
+  return flatten(matched.map(function (m) {
+    return Object.keys(m.components).map(function (key) { return fn(
+      m.components[key],
+      m.instances[key],
+      m, key
+    ); })
+  }))
+}
+
+function flatten (arr) {
+  return Array.prototype.concat.apply([], arr)
+}
+
+var hasSymbol =
+  typeof Symbol === 'function' &&
+  typeof Symbol.toStringTag === 'symbol';
+
+function isESModule (obj) {
+  return obj.__esModule || (hasSymbol && obj[Symbol.toStringTag] === 'Module')
+}
+
+// in Webpack 2, require.ensure now also returns a Promise
+// so the resolve/reject functions may get called an extra time
+// if the user uses an arrow function shorthand that happens to
+// return that Promise.
+function once (fn) {
+  var called = false;
+  return function () {
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+
+    if (called) { return }
+    called = true;
+    return fn.apply(this, args)
+  }
+}
+
+/*  */
+
+var History = function History (router, base) {
+  this.router = router;
+  this.base = normalizeBase(base);
+  // start with a route object that stands for "nowhere"
+  this.current = START;
+  this.pending = null;
+  this.ready = false;
+  this.readyCbs = [];
+  this.readyErrorCbs = [];
+  this.errorCbs = [];
+  this.listeners = [];
+};
+
+History.prototype.listen = function listen (cb) {
+  this.cb = cb;
+};
+
+History.prototype.onReady = function onReady (cb, errorCb) {
+  if (this.ready) {
+    cb();
+  } else {
+    this.readyCbs.push(cb);
+    if (errorCb) {
+      this.readyErrorCbs.push(errorCb);
+    }
+  }
+};
+
+History.prototype.onError = function onError (errorCb) {
+  this.errorCbs.push(errorCb);
+};
+
+History.prototype.transitionTo = function transitionTo (
+  location,
+  onComplete,
+  onAbort
+) {
+    var this$1$1 = this;
+
+  var route;
+  // catch redirect option https://github.com/vuejs/vue-router/issues/3201
+  try {
+    route = this.router.match(location, this.current);
+  } catch (e) {
+    this.errorCbs.forEach(function (cb) {
+      cb(e);
+    });
+    // Exception should still be thrown
+    throw e
+  }
+  var prev = this.current;
+  this.confirmTransition(
+    route,
+    function () {
+      this$1$1.updateRoute(route);
+      onComplete && onComplete(route);
+      this$1$1.ensureURL();
+      this$1$1.router.afterHooks.forEach(function (hook) {
+        hook && hook(route, prev);
+      });
+
+      // fire ready cbs once
+      if (!this$1$1.ready) {
+        this$1$1.ready = true;
+        this$1$1.readyCbs.forEach(function (cb) {
+          cb(route);
+        });
+      }
+    },
+    function (err) {
+      if (onAbort) {
+        onAbort(err);
+      }
+      if (err && !this$1$1.ready) {
+        // Initial redirection should not mark the history as ready yet
+        // because it's triggered by the redirection instead
+        // https://github.com/vuejs/vue-router/issues/3225
+        // https://github.com/vuejs/vue-router/issues/3331
+        if (!isNavigationFailure(err, NavigationFailureType.redirected) || prev !== START) {
+          this$1$1.ready = true;
+          this$1$1.readyErrorCbs.forEach(function (cb) {
+            cb(err);
+          });
+        }
+      }
+    }
+  );
+};
+
+History.prototype.confirmTransition = function confirmTransition (route, onComplete, onAbort) {
+    var this$1$1 = this;
+
+  var current = this.current;
+  this.pending = route;
+  var abort = function (err) {
+    // changed after adding errors with
+    // https://github.com/vuejs/vue-router/pull/3047 before that change,
+    // redirect and aborted navigation would produce an err == null
+    if (!isNavigationFailure(err) && isError(err)) {
+      if (this$1$1.errorCbs.length) {
+        this$1$1.errorCbs.forEach(function (cb) {
+          cb(err);
+        });
+      } else {
+        if (true) {
+          warn(false, 'uncaught error during route navigation:');
+        }
+        console.error(err);
+      }
+    }
+    onAbort && onAbort(err);
+  };
+  var lastRouteIndex = route.matched.length - 1;
+  var lastCurrentIndex = current.matched.length - 1;
+  if (
+    isSameRoute(route, current) &&
+    // in the case the route map has been dynamically appended to
+    lastRouteIndex === lastCurrentIndex &&
+    route.matched[lastRouteIndex] === current.matched[lastCurrentIndex]
+  ) {
+    this.ensureURL();
+    if (route.hash) {
+      handleScroll(this.router, current, route, false);
+    }
+    return abort(createNavigationDuplicatedError(current, route))
+  }
+
+  var ref = resolveQueue(
+    this.current.matched,
+    route.matched
+  );
+    var updated = ref.updated;
+    var deactivated = ref.deactivated;
+    var activated = ref.activated;
+
+  var queue = [].concat(
+    // in-component leave guards
+    extractLeaveGuards(deactivated),
+    // global before hooks
+    this.router.beforeHooks,
+    // in-component update hooks
+    extractUpdateHooks(updated),
+    // in-config enter guards
+    activated.map(function (m) { return m.beforeEnter; }),
+    // async components
+    resolveAsyncComponents(activated)
+  );
+
+  var iterator = function (hook, next) {
+    if (this$1$1.pending !== route) {
+      return abort(createNavigationCancelledError(current, route))
+    }
+    try {
+      hook(route, current, function (to) {
+        if (to === false) {
+          // next(false) -> abort navigation, ensure current URL
+          this$1$1.ensureURL(true);
+          abort(createNavigationAbortedError(current, route));
+        } else if (isError(to)) {
+          this$1$1.ensureURL(true);
+          abort(to);
+        } else if (
+          typeof to === 'string' ||
+          (typeof to === 'object' &&
+            (typeof to.path === 'string' || typeof to.name === 'string'))
+        ) {
+          // next('/') or next({ path: '/' }) -> redirect
+          abort(createNavigationRedirectedError(current, route));
+          if (typeof to === 'object' && to.replace) {
+            this$1$1.replace(to);
+          } else {
+            this$1$1.push(to);
+          }
+        } else {
+          // confirm transition and pass on the value
+          next(to);
+        }
+      });
+    } catch (e) {
+      abort(e);
+    }
+  };
+
+  runQueue(queue, iterator, function () {
+    // wait until async components are resolved before
+    // extracting in-component enter guards
+    var enterGuards = extractEnterGuards(activated);
+    var queue = enterGuards.concat(this$1$1.router.resolveHooks);
+    runQueue(queue, iterator, function () {
+      if (this$1$1.pending !== route) {
+        return abort(createNavigationCancelledError(current, route))
+      }
+      this$1$1.pending = null;
+      onComplete(route);
+      if (this$1$1.router.app) {
+        this$1$1.router.app.$nextTick(function () {
+          handleRouteEntered(route);
+        });
+      }
+    });
+  });
+};
+
+History.prototype.updateRoute = function updateRoute (route) {
+  this.current = route;
+  this.cb && this.cb(route);
+};
+
+History.prototype.setupListeners = function setupListeners () {
+  // Default implementation is empty
+};
+
+History.prototype.teardown = function teardown () {
+  // clean up event listeners
+  // https://github.com/vuejs/vue-router/issues/2341
+  this.listeners.forEach(function (cleanupListener) {
+    cleanupListener();
+  });
+  this.listeners = [];
+
+  // reset current history route
+  // https://github.com/vuejs/vue-router/issues/3294
+  this.current = START;
+  this.pending = null;
+};
+
+function normalizeBase (base) {
+  if (!base) {
+    if (inBrowser) {
+      // respect <base> tag
+      var baseEl = document.querySelector('base');
+      base = (baseEl && baseEl.getAttribute('href')) || '/';
+      // strip full URL origin
+      base = base.replace(/^https?:\/\/[^\/]+/, '');
+    } else {
+      base = '/';
+    }
+  }
+  // make sure there's the starting slash
+  if (base.charAt(0) !== '/') {
+    base = '/' + base;
+  }
+  // remove trailing slash
+  return base.replace(/\/$/, '')
+}
+
+function resolveQueue (
+  current,
+  next
+) {
+  var i;
+  var max = Math.max(current.length, next.length);
+  for (i = 0; i < max; i++) {
+    if (current[i] !== next[i]) {
+      break
+    }
+  }
+  return {
+    updated: next.slice(0, i),
+    activated: next.slice(i),
+    deactivated: current.slice(i)
+  }
+}
+
+function extractGuards (
+  records,
+  name,
+  bind,
+  reverse
+) {
+  var guards = flatMapComponents(records, function (def, instance, match, key) {
+    var guard = extractGuard(def, name);
+    if (guard) {
+      return Array.isArray(guard)
+        ? guard.map(function (guard) { return bind(guard, instance, match, key); })
+        : bind(guard, instance, match, key)
+    }
+  });
+  return flatten(reverse ? guards.reverse() : guards)
+}
+
+function extractGuard (
+  def,
+  key
+) {
+  if (typeof def !== 'function') {
+    // extend now so that global mixins are applied.
+    def = _Vue.extend(def);
+  }
+  return def.options[key]
+}
+
+function extractLeaveGuards (deactivated) {
+  return extractGuards(deactivated, 'beforeRouteLeave', bindGuard, true)
+}
+
+function extractUpdateHooks (updated) {
+  return extractGuards(updated, 'beforeRouteUpdate', bindGuard)
+}
+
+function bindGuard (guard, instance) {
+  if (instance) {
+    return function boundRouteGuard () {
+      return guard.apply(instance, arguments)
+    }
+  }
+}
+
+function extractEnterGuards (
+  activated
+) {
+  return extractGuards(
+    activated,
+    'beforeRouteEnter',
+    function (guard, _, match, key) {
+      return bindEnterGuard(guard, match, key)
+    }
+  )
+}
+
+function bindEnterGuard (
+  guard,
+  match,
+  key
+) {
+  return function routeEnterGuard (to, from, next) {
+    return guard(to, from, function (cb) {
+      if (typeof cb === 'function') {
+        if (!match.enteredCbs[key]) {
+          match.enteredCbs[key] = [];
+        }
+        match.enteredCbs[key].push(cb);
+      }
+      next(cb);
+    })
+  }
+}
+
+/*  */
+
+var HTML5History = /*@__PURE__*/(function (History) {
+  function HTML5History (router, base) {
+    History.call(this, router, base);
+
+    this._startLocation = getLocation(this.base);
+  }
+
+  if ( History ) HTML5History.__proto__ = History;
+  HTML5History.prototype = Object.create( History && History.prototype );
+  HTML5History.prototype.constructor = HTML5History;
+
+  HTML5History.prototype.setupListeners = function setupListeners () {
+    var this$1$1 = this;
+
+    if (this.listeners.length > 0) {
+      return
+    }
+
+    var router = this.router;
+    var expectScroll = router.options.scrollBehavior;
+    var supportsScroll = supportsPushState && expectScroll;
+
+    if (supportsScroll) {
+      this.listeners.push(setupScroll());
+    }
+
+    var handleRoutingEvent = function () {
+      var current = this$1$1.current;
+
+      // Avoiding first `popstate` event dispatched in some browsers but first
+      // history route not updated since async guard at the same time.
+      var location = getLocation(this$1$1.base);
+      if (this$1$1.current === START && location === this$1$1._startLocation) {
+        return
+      }
+
+      this$1$1.transitionTo(location, function (route) {
+        if (supportsScroll) {
+          handleScroll(router, route, current, true);
+        }
+      });
+    };
+    window.addEventListener('popstate', handleRoutingEvent);
+    this.listeners.push(function () {
+      window.removeEventListener('popstate', handleRoutingEvent);
+    });
+  };
+
+  HTML5History.prototype.go = function go (n) {
+    window.history.go(n);
+  };
+
+  HTML5History.prototype.push = function push (location, onComplete, onAbort) {
+    var this$1$1 = this;
+
+    var ref = this;
+    var fromRoute = ref.current;
+    this.transitionTo(location, function (route) {
+      pushState(cleanPath(this$1$1.base + route.fullPath));
+      handleScroll(this$1$1.router, route, fromRoute, false);
+      onComplete && onComplete(route);
+    }, onAbort);
+  };
+
+  HTML5History.prototype.replace = function replace (location, onComplete, onAbort) {
+    var this$1$1 = this;
+
+    var ref = this;
+    var fromRoute = ref.current;
+    this.transitionTo(location, function (route) {
+      replaceState(cleanPath(this$1$1.base + route.fullPath));
+      handleScroll(this$1$1.router, route, fromRoute, false);
+      onComplete && onComplete(route);
+    }, onAbort);
+  };
+
+  HTML5History.prototype.ensureURL = function ensureURL (push) {
+    if (getLocation(this.base) !== this.current.fullPath) {
+      var current = cleanPath(this.base + this.current.fullPath);
+      push ? pushState(current) : replaceState(current);
+    }
+  };
+
+  HTML5History.prototype.getCurrentLocation = function getCurrentLocation () {
+    return getLocation(this.base)
+  };
+
+  return HTML5History;
+}(History));
+
+function getLocation (base) {
+  var path = window.location.pathname;
+  var pathLowerCase = path.toLowerCase();
+  var baseLowerCase = base.toLowerCase();
+  // base="/a" shouldn't turn path="/app" into "/a/pp"
+  // https://github.com/vuejs/vue-router/issues/3555
+  // so we ensure the trailing slash in the base
+  if (base && ((pathLowerCase === baseLowerCase) ||
+    (pathLowerCase.indexOf(cleanPath(baseLowerCase + '/')) === 0))) {
+    path = path.slice(base.length);
+  }
+  return (path || '/') + window.location.search + window.location.hash
+}
+
+/*  */
+
+var HashHistory = /*@__PURE__*/(function (History) {
+  function HashHistory (router, base, fallback) {
+    History.call(this, router, base);
+    // check history fallback deeplinking
+    if (fallback && checkFallback(this.base)) {
+      return
+    }
+    ensureSlash();
+  }
+
+  if ( History ) HashHistory.__proto__ = History;
+  HashHistory.prototype = Object.create( History && History.prototype );
+  HashHistory.prototype.constructor = HashHistory;
+
+  // this is delayed until the app mounts
+  // to avoid the hashchange listener being fired too early
+  HashHistory.prototype.setupListeners = function setupListeners () {
+    var this$1$1 = this;
+
+    if (this.listeners.length > 0) {
+      return
+    }
+
+    var router = this.router;
+    var expectScroll = router.options.scrollBehavior;
+    var supportsScroll = supportsPushState && expectScroll;
+
+    if (supportsScroll) {
+      this.listeners.push(setupScroll());
+    }
+
+    var handleRoutingEvent = function () {
+      var current = this$1$1.current;
+      if (!ensureSlash()) {
+        return
+      }
+      this$1$1.transitionTo(getHash(), function (route) {
+        if (supportsScroll) {
+          handleScroll(this$1$1.router, route, current, true);
+        }
+        if (!supportsPushState) {
+          replaceHash(route.fullPath);
+        }
+      });
+    };
+    var eventType = supportsPushState ? 'popstate' : 'hashchange';
+    window.addEventListener(
+      eventType,
+      handleRoutingEvent
+    );
+    this.listeners.push(function () {
+      window.removeEventListener(eventType, handleRoutingEvent);
+    });
+  };
+
+  HashHistory.prototype.push = function push (location, onComplete, onAbort) {
+    var this$1$1 = this;
+
+    var ref = this;
+    var fromRoute = ref.current;
+    this.transitionTo(
+      location,
+      function (route) {
+        pushHash(route.fullPath);
+        handleScroll(this$1$1.router, route, fromRoute, false);
+        onComplete && onComplete(route);
+      },
+      onAbort
+    );
+  };
+
+  HashHistory.prototype.replace = function replace (location, onComplete, onAbort) {
+    var this$1$1 = this;
+
+    var ref = this;
+    var fromRoute = ref.current;
+    this.transitionTo(
+      location,
+      function (route) {
+        replaceHash(route.fullPath);
+        handleScroll(this$1$1.router, route, fromRoute, false);
+        onComplete && onComplete(route);
+      },
+      onAbort
+    );
+  };
+
+  HashHistory.prototype.go = function go (n) {
+    window.history.go(n);
+  };
+
+  HashHistory.prototype.ensureURL = function ensureURL (push) {
+    var current = this.current.fullPath;
+    if (getHash() !== current) {
+      push ? pushHash(current) : replaceHash(current);
+    }
+  };
+
+  HashHistory.prototype.getCurrentLocation = function getCurrentLocation () {
+    return getHash()
+  };
+
+  return HashHistory;
+}(History));
+
+function checkFallback (base) {
+  var location = getLocation(base);
+  if (!/^\/#/.test(location)) {
+    window.location.replace(cleanPath(base + '/#' + location));
+    return true
+  }
+}
+
+function ensureSlash () {
+  var path = getHash();
+  if (path.charAt(0) === '/') {
+    return true
+  }
+  replaceHash('/' + path);
+  return false
+}
+
+function getHash () {
+  // We can't use window.location.hash here because it's not
+  // consistent across browsers - Firefox will pre-decode it!
+  var href = window.location.href;
+  var index = href.indexOf('#');
+  // empty path
+  if (index < 0) { return '' }
+
+  href = href.slice(index + 1);
+
+  return href
+}
+
+function getUrl (path) {
+  var href = window.location.href;
+  var i = href.indexOf('#');
+  var base = i >= 0 ? href.slice(0, i) : href;
+  return (base + "#" + path)
+}
+
+function pushHash (path) {
+  if (supportsPushState) {
+    pushState(getUrl(path));
+  } else {
+    window.location.hash = path;
+  }
+}
+
+function replaceHash (path) {
+  if (supportsPushState) {
+    replaceState(getUrl(path));
+  } else {
+    window.location.replace(getUrl(path));
+  }
+}
+
+/*  */
+
+var AbstractHistory = /*@__PURE__*/(function (History) {
+  function AbstractHistory (router, base) {
+    History.call(this, router, base);
+    this.stack = [];
+    this.index = -1;
+  }
+
+  if ( History ) AbstractHistory.__proto__ = History;
+  AbstractHistory.prototype = Object.create( History && History.prototype );
+  AbstractHistory.prototype.constructor = AbstractHistory;
+
+  AbstractHistory.prototype.push = function push (location, onComplete, onAbort) {
+    var this$1$1 = this;
+
+    this.transitionTo(
+      location,
+      function (route) {
+        this$1$1.stack = this$1$1.stack.slice(0, this$1$1.index + 1).concat(route);
+        this$1$1.index++;
+        onComplete && onComplete(route);
+      },
+      onAbort
+    );
+  };
+
+  AbstractHistory.prototype.replace = function replace (location, onComplete, onAbort) {
+    var this$1$1 = this;
+
+    this.transitionTo(
+      location,
+      function (route) {
+        this$1$1.stack = this$1$1.stack.slice(0, this$1$1.index).concat(route);
+        onComplete && onComplete(route);
+      },
+      onAbort
+    );
+  };
+
+  AbstractHistory.prototype.go = function go (n) {
+    var this$1$1 = this;
+
+    var targetIndex = this.index + n;
+    if (targetIndex < 0 || targetIndex >= this.stack.length) {
+      return
+    }
+    var route = this.stack[targetIndex];
+    this.confirmTransition(
+      route,
+      function () {
+        var prev = this$1$1.current;
+        this$1$1.index = targetIndex;
+        this$1$1.updateRoute(route);
+        this$1$1.router.afterHooks.forEach(function (hook) {
+          hook && hook(route, prev);
+        });
+      },
+      function (err) {
+        if (isNavigationFailure(err, NavigationFailureType.duplicated)) {
+          this$1$1.index = targetIndex;
+        }
+      }
+    );
+  };
+
+  AbstractHistory.prototype.getCurrentLocation = function getCurrentLocation () {
+    var current = this.stack[this.stack.length - 1];
+    return current ? current.fullPath : '/'
+  };
+
+  AbstractHistory.prototype.ensureURL = function ensureURL () {
+    // noop
+  };
+
+  return AbstractHistory;
+}(History));
+
+/*  */
+
+
+
+var VueRouter = function VueRouter (options) {
+  if ( options === void 0 ) options = {};
+
+  if (true) {
+    warn(this instanceof VueRouter, "Router must be called with the new operator.");
+  }
+  this.app = null;
+  this.apps = [];
+  this.options = options;
+  this.beforeHooks = [];
+  this.resolveHooks = [];
+  this.afterHooks = [];
+  this.matcher = createMatcher(options.routes || [], this);
+
+  var mode = options.mode || 'hash';
+  this.fallback =
+    mode === 'history' && !supportsPushState && options.fallback !== false;
+  if (this.fallback) {
+    mode = 'hash';
+  }
+  if (!inBrowser) {
+    mode = 'abstract';
+  }
+  this.mode = mode;
+
+  switch (mode) {
+    case 'history':
+      this.history = new HTML5History(this, options.base);
+      break
+    case 'hash':
+      this.history = new HashHistory(this, options.base, this.fallback);
+      break
+    case 'abstract':
+      this.history = new AbstractHistory(this, options.base);
+      break
+    default:
+      if (true) {
+        assert(false, ("invalid mode: " + mode));
+      }
+  }
+};
+
+var prototypeAccessors = { currentRoute: { configurable: true } };
+
+VueRouter.prototype.match = function match (raw, current, redirectedFrom) {
+  return this.matcher.match(raw, current, redirectedFrom)
+};
+
+prototypeAccessors.currentRoute.get = function () {
+  return this.history && this.history.current
+};
+
+VueRouter.prototype.init = function init (app /* Vue component instance */) {
+    var this$1$1 = this;
+
+   true &&
+    assert(
+      install.installed,
+      "not installed. Make sure to call `Vue.use(VueRouter)` " +
+        "before creating root instance."
+    );
+
+  this.apps.push(app);
+
+  // set up app destroyed handler
+  // https://github.com/vuejs/vue-router/issues/2639
+  app.$once('hook:destroyed', function () {
+    // clean out app from this.apps array once destroyed
+    var index = this$1$1.apps.indexOf(app);
+    if (index > -1) { this$1$1.apps.splice(index, 1); }
+    // ensure we still have a main app or null if no apps
+    // we do not release the router so it can be reused
+    if (this$1$1.app === app) { this$1$1.app = this$1$1.apps[0] || null; }
+
+    if (!this$1$1.app) { this$1$1.history.teardown(); }
+  });
+
+  // main app previously initialized
+  // return as we don't need to set up new history listener
+  if (this.app) {
+    return
+  }
+
+  this.app = app;
+
+  var history = this.history;
+
+  if (history instanceof HTML5History || history instanceof HashHistory) {
+    var handleInitialScroll = function (routeOrError) {
+      var from = history.current;
+      var expectScroll = this$1$1.options.scrollBehavior;
+      var supportsScroll = supportsPushState && expectScroll;
+
+      if (supportsScroll && 'fullPath' in routeOrError) {
+        handleScroll(this$1$1, routeOrError, from, false);
+      }
+    };
+    var setupListeners = function (routeOrError) {
+      history.setupListeners();
+      handleInitialScroll(routeOrError);
+    };
+    history.transitionTo(
+      history.getCurrentLocation(),
+      setupListeners,
+      setupListeners
+    );
+  }
+
+  history.listen(function (route) {
+    this$1$1.apps.forEach(function (app) {
+      app._route = route;
+    });
+  });
+};
+
+VueRouter.prototype.beforeEach = function beforeEach (fn) {
+  return registerHook(this.beforeHooks, fn)
+};
+
+VueRouter.prototype.beforeResolve = function beforeResolve (fn) {
+  return registerHook(this.resolveHooks, fn)
+};
+
+VueRouter.prototype.afterEach = function afterEach (fn) {
+  return registerHook(this.afterHooks, fn)
+};
+
+VueRouter.prototype.onReady = function onReady (cb, errorCb) {
+  this.history.onReady(cb, errorCb);
+};
+
+VueRouter.prototype.onError = function onError (errorCb) {
+  this.history.onError(errorCb);
+};
+
+VueRouter.prototype.push = function push (location, onComplete, onAbort) {
+    var this$1$1 = this;
+
+  // $flow-disable-line
+  if (!onComplete && !onAbort && typeof Promise !== 'undefined') {
+    return new Promise(function (resolve, reject) {
+      this$1$1.history.push(location, resolve, reject);
+    })
+  } else {
+    this.history.push(location, onComplete, onAbort);
+  }
+};
+
+VueRouter.prototype.replace = function replace (location, onComplete, onAbort) {
+    var this$1$1 = this;
+
+  // $flow-disable-line
+  if (!onComplete && !onAbort && typeof Promise !== 'undefined') {
+    return new Promise(function (resolve, reject) {
+      this$1$1.history.replace(location, resolve, reject);
+    })
+  } else {
+    this.history.replace(location, onComplete, onAbort);
+  }
+};
+
+VueRouter.prototype.go = function go (n) {
+  this.history.go(n);
+};
+
+VueRouter.prototype.back = function back () {
+  this.go(-1);
+};
+
+VueRouter.prototype.forward = function forward () {
+  this.go(1);
+};
+
+VueRouter.prototype.getMatchedComponents = function getMatchedComponents (to) {
+  var route = to
+    ? to.matched
+      ? to
+      : this.resolve(to).route
+    : this.currentRoute;
+  if (!route) {
+    return []
+  }
+  return [].concat.apply(
+    [],
+    route.matched.map(function (m) {
+      return Object.keys(m.components).map(function (key) {
+        return m.components[key]
+      })
+    })
+  )
+};
+
+VueRouter.prototype.resolve = function resolve (
+  to,
+  current,
+  append
+) {
+  current = current || this.history.current;
+  var location = normalizeLocation(to, current, append, this);
+  var route = this.match(location, current);
+  var fullPath = route.redirectedFrom || route.fullPath;
+  var base = this.history.base;
+  var href = createHref(base, fullPath, this.mode);
+  return {
+    location: location,
+    route: route,
+    href: href,
+    // for backwards compat
+    normalizedTo: location,
+    resolved: route
+  }
+};
+
+VueRouter.prototype.getRoutes = function getRoutes () {
+  return this.matcher.getRoutes()
+};
+
+VueRouter.prototype.addRoute = function addRoute (parentOrRoute, route) {
+  this.matcher.addRoute(parentOrRoute, route);
+  if (this.history.current !== START) {
+    this.history.transitionTo(this.history.getCurrentLocation());
+  }
+};
+
+VueRouter.prototype.addRoutes = function addRoutes (routes) {
+  if (true) {
+    warn(false, 'router.addRoutes() is deprecated and has been removed in Vue Router 4. Use router.addRoute() instead.');
+  }
+  this.matcher.addRoutes(routes);
+  if (this.history.current !== START) {
+    this.history.transitionTo(this.history.getCurrentLocation());
+  }
+};
+
+Object.defineProperties( VueRouter.prototype, prototypeAccessors );
+
+var VueRouter$1 = VueRouter;
+
+function registerHook (list, fn) {
+  list.push(fn);
+  return function () {
+    var i = list.indexOf(fn);
+    if (i > -1) { list.splice(i, 1); }
+  }
+}
+
+function createHref (base, fullPath, mode) {
+  var path = mode === 'hash' ? '#' + fullPath : fullPath;
+  return base ? cleanPath(base + '/' + path) : path
+}
+
+// We cannot remove this as it would be a breaking change
+VueRouter.install = install;
+VueRouter.version = '3.6.5';
+VueRouter.isNavigationFailure = isNavigationFailure;
+VueRouter.NavigationFailureType = NavigationFailureType;
+VueRouter.START_LOCATION = START;
+
+if (inBrowser && window.Vue) {
+  window.Vue.use(VueRouter);
+}
+
+var version = '3.6.5';
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vuex-router-sync/index.js":
+/*!************************************************!*\
+  !*** ./node_modules/vuex-router-sync/index.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+exports.sync = function (store, router, options) {
+  var moduleName = (options || {}).moduleName || 'route'
+
+  store.registerModule(moduleName, {
+    namespaced: true,
+    state: cloneRoute(router.currentRoute),
+    mutations: {
+      'ROUTE_CHANGED': function ROUTE_CHANGED (state, transition) {
+        store.state[moduleName] = cloneRoute(transition.to, transition.from)
+      }
+    }
+  })
+
+  var isTimeTraveling = false
+  var currentPath
+
+  // sync router on store change
+  var storeUnwatch = store.watch(
+    function (state) { return state[moduleName]; },
+    function (route) {
+      var fullPath = route.fullPath;
+      if (fullPath === currentPath) {
+        return
+      }
+      if (currentPath != null) {
+        isTimeTraveling = true
+        router.push(route)
+      }
+      currentPath = fullPath
+    },
+    { sync: true }
+  )
+
+  // sync store on router navigation
+  var afterEachUnHook = router.afterEach(function (to, from) {
+    if (isTimeTraveling) {
+      isTimeTraveling = false
+      return
+    }
+    currentPath = to.fullPath
+    store.commit(moduleName + '/ROUTE_CHANGED', { to: to, from: from })
+  })
+
+  return function unsync () {
+    // On unsync, remove router hook
+    if (afterEachUnHook != null) {
+      afterEachUnHook()
+    }
+
+    // On unsync, remove store watch
+    if (storeUnwatch != null) {
+      storeUnwatch()
+    }
+
+    // On unsync, unregister Module with store
+    store.unregisterModule(moduleName)
+  }
+}
+
+function cloneRoute (to, from) {
+  var clone = {
+    name: to.name,
+    path: to.path,
+    hash: to.hash,
+    query: to.query,
+    params: to.params,
+    fullPath: to.fullPath,
+    meta: to.meta
+  }
+  if (from) {
+    clone.from = cloneRoute(from)
+  }
+  return Object.freeze(clone)
+}
+
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/Components/NcButton.mjs":
+/*!*****************************************************!*\
+  !*** ../nextcloud-vue/dist/Components/NcButton.mjs ***!
+  \*****************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ NcButton)
+/* harmony export */ });
+/* harmony import */ var _assets_NcButton_B8Z7HCp_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/NcButton--B8Z7HCp.css */ "../nextcloud-vue/dist/assets/NcButton--B8Z7HCp.css");
+/* harmony import */ var _chunks_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../chunks/_plugin-vue2_normalizer-Ewhtj4Do.mjs */ "../nextcloud-vue/dist/chunks/_plugin-vue2_normalizer-Ewhtj4Do.mjs");
+/* provided dependency */ var console = __webpack_require__(/*! ./node_modules/console-browserify/index.js */ "./node_modules/console-browserify/index.js");
+
+
+const _sfc_main = {
+  name: "NcButton",
+  inject: {
+    getNcPopoverTriggerAttrs: {
+      from: "NcPopover:trigger:attrs",
+      default: () => () => ({})
+    }
+  },
+  props: {
+    /**
+     * Set the text and icon alignment
+     *
+     * @default 'center'
+     */
+    alignment: {
+      type: String,
+      default: "center",
+      validator: (alignment) => ["start", "start-reverse", "center", "center-reverse", "end", "end-reverse"].includes(alignment)
+    },
+    /**
+     * Toggles the disabled state of the button on and off.
+     */
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Specifies the button type
+     * Accepted values: primary, secondary, tertiary, tertiary-no-background, tertiary-on-primary, error, warning, success. If left empty,
+     * the default button style will be applied.
+     */
+    type: {
+      type: String,
+      validator(value) {
+        return ["primary", "secondary", "tertiary", "tertiary-no-background", "tertiary-on-primary", "error", "warning", "success"].indexOf(value) !== -1;
+      },
+      default: "secondary"
+    },
+    /**
+     * Specifies the button native type
+     * Accepted values: submit, reset, button. If left empty,
+     * the default "button" type will be used.
+     */
+    nativeType: {
+      type: String,
+      validator(value) {
+        return ["submit", "reset", "button"].indexOf(value) !== -1;
+      },
+      default: "button"
+    },
+    /**
+     * Specifies whether the button should span all the available width.
+     * By default, buttons span the whole width of the container.
+     */
+    wide: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Always try to provide an aria-label to your button. Make it more
+     * specific than the button's name by provide some more context. E.g. if
+     * the name of the button is "send" in the Mail app, the aria label could
+     * be "Send email".
+     */
+    ariaLabel: {
+      type: String,
+      default: null
+    },
+    /**
+     * Providing the href attribute turns the button component into an `a`
+     * element.
+     */
+    href: {
+      type: String,
+      default: null
+    },
+    /**
+     * Providing the download attribute with href downloads file when clicking.
+     */
+    download: {
+      type: String,
+      default: null
+    },
+    /**
+     * Providing the to attribute turns the button component into a `router-link`
+     * element. Takes precedence over the href attribute.
+     */
+    to: {
+      type: [String, Object],
+      default: null
+    },
+    /**
+     * Pass in `true` if you want the matching behaviour of `router-link` to
+     * be non-inclusive: https://router.vuejs.org/api/#exact
+     */
+    exact: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * @deprecated To be removed in @nextcloud/vue 9. Migration guide: remove ariaHidden prop from NcAction* components.
+     * @todo Add a check in @nextcloud/vue 9 that this prop is not provided,
+     * otherwise root element will inherit incorrect aria-hidden.
+     */
+    ariaHidden: {
+      type: Boolean,
+      default: null
+    },
+    /**
+     * The pressed state of the button if it has a checked state
+     * This will add the `aria-pressed` attribute and for the button to have the primary style in checked state.
+     *
+     * Pressed state is not supported for links
+     */
+    pressed: {
+      type: Boolean,
+      default: null
+    }
+  },
+  emits: ["update:pressed", "click"],
+  computed: {
+    /**
+     * The real type to be used for the button, enforces `primary` for pressed state and, if stateful button, any other type for not pressed state
+     * Otherwise the type property is used.
+     */
+    realType() {
+      if (this.pressed) {
+        return "primary";
+      }
+      if (this.pressed === false && this.type === "primary") {
+        return "secondary";
+      }
+      return this.type;
+    },
+    /**
+     * The flexbox alignment of the button content
+     */
+    flexAlignment() {
+      return this.alignment.split("-")[0];
+    },
+    /**
+     * If the button content should be reversed (icon on the end)
+     */
+    isReverseAligned() {
+      return this.alignment.includes("-");
+    },
+    ncPopoverTriggerAttrs() {
+      return this.getNcPopoverTriggerAttrs();
+    }
+  },
+  /**
+   * The render function to display the component
+   *
+   * @param {Function} h The function to create VNodes
+   * @return {object|undefined} The created VNode
+   */
+  render(h) {
+    const hasText = !!this.$slots.default;
+    const hasIcon = this.$slots?.icon;
+    if (!hasText && !this.ariaLabel) {
+      console.warn(
+        "You need to fill either the text or the ariaLabel props in the button component.",
+        {
+          text: this.$slots.default?.[0]?.text,
+          ariaLabel: this.ariaLabel
+        },
+        this
+      );
+    }
+    const isLink = this.to || this.href;
+    const hasPressed = !isLink && typeof this.pressed === "boolean";
+    const renderButton = ({ href, navigate, isActive, isExactActive } = {}) => h(
+      isLink ? "a" : "button",
+      {
+        class: [
+          "button-vue",
+          {
+            "button-vue--icon-only": hasIcon && !hasText,
+            "button-vue--text-only": hasText && !hasIcon,
+            "button-vue--icon-and-text": hasIcon && hasText,
+            [`button-vue--vue-${this.realType}`]: this.realType,
+            "button-vue--wide": this.wide,
+            [`button-vue--${this.flexAlignment}`]: this.flexAlignment !== "center",
+            "button-vue--reverse": this.isReverseAligned,
+            active: isActive,
+            "router-link-exact-active": isExactActive
+          }
+        ],
+        attrs: {
+          "aria-label": this.ariaLabel,
+          "aria-pressed": hasPressed ? this.pressed.toString() : void 0,
+          disabled: this.disabled,
+          type: isLink ? null : this.nativeType,
+          role: isLink ? "button" : null,
+          href: this.to ? href : this.href || null,
+          target: isLink ? "_self" : null,
+          rel: isLink ? "nofollow noreferrer noopener" : null,
+          download: !this.to && this.href && this.download ? this.download : null,
+          // If this button is used as a popover trigger, we need to apply trigger attrs, e.g. aria attributes
+          ...this.ncPopoverTriggerAttrs,
+          // Inherit all the component attrs
+          ...this.$attrs
+        },
+        on: {
+          ...this.$listeners,
+          click: ($event) => {
+            if (hasPressed) {
+              this.$emit("update:pressed", !this.pressed);
+            }
+            this.$emit("click", $event);
+            navigate?.($event);
+          }
+        }
+      },
+      [
+        h("span", { class: "button-vue__wrapper" }, [
+          hasIcon ? h(
+            "span",
+            {
+              class: "button-vue__icon",
+              attrs: {
+                "aria-hidden": "true"
+              }
+            },
+            [this.$slots.icon]
+          ) : null,
+          hasText ? h("span", { class: "button-vue__text" }, [this.$slots.default]) : null
+        ])
+      ]
+    );
+    if (this.to) {
+      return h("router-link", {
+        props: {
+          custom: true,
+          to: this.to,
+          exact: this.exact
+        },
+        scopedSlots: {
+          default: renderButton
+        }
+      });
+    }
+    return renderButton();
+  }
+};
+const _sfc_render = null;
+const _sfc_staticRenderFns = null;
+var __component__ = /* @__PURE__ */ (0,_chunks_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_1__.n)(
+  _sfc_main,
+  _sfc_render,
+  _sfc_staticRenderFns,
+  false,
+  null,
+  "fe3b5af5",
+  null,
+  null
+);
+const NcButton = __component__.exports;
+
+//# sourceMappingURL=NcButton.mjs.map
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/Components/NcInputField.mjs":
+/*!*********************************************************!*\
+  !*** ../nextcloud-vue/dist/Components/NcInputField.mjs ***!
+  \*********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ NcInputField)
+/* harmony export */ });
+/* harmony import */ var _assets_NcInputField_Al6E6hfU_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/NcInputField-Al6E6hfU.css */ "../nextcloud-vue/dist/assets/NcInputField-Al6E6hfU.css");
+/* harmony import */ var _NcButton_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NcButton.mjs */ "../nextcloud-vue/dist/Components/NcButton.mjs");
+/* harmony import */ var _chunks_GenRandomId_bekVfSd8_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../chunks/GenRandomId-bekVfSd8.mjs */ "../nextcloud-vue/dist/chunks/GenRandomId-bekVfSd8.mjs");
+/* harmony import */ var _chunks_AlertCircleOutline_cfiE2eFa_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../chunks/AlertCircleOutline-cfiE2eFa.mjs */ "../nextcloud-vue/dist/chunks/AlertCircleOutline-cfiE2eFa.mjs");
+/* harmony import */ var _chunks_Check_0ovJb_fA_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../chunks/Check-0ovJb_fA.mjs */ "../nextcloud-vue/dist/chunks/Check-0ovJb_fA.mjs");
+/* harmony import */ var _chunks_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../chunks/_plugin-vue2_normalizer-Ewhtj4Do.mjs */ "../nextcloud-vue/dist/chunks/_plugin-vue2_normalizer-Ewhtj4Do.mjs");
+/* provided dependency */ var console = __webpack_require__(/*! ./node_modules/console-browserify/index.js */ "./node_modules/console-browserify/index.js");
+
+
+
+
+
+
+const _sfc_main = {
+  name: "NcInputField",
+  components: {
+    NcButton: _NcButton_mjs__WEBPACK_IMPORTED_MODULE_1__["default"],
+    AlertCircle: _chunks_AlertCircleOutline_cfiE2eFa_mjs__WEBPACK_IMPORTED_MODULE_3__.A,
+    Check: _chunks_Check_0ovJb_fA_mjs__WEBPACK_IMPORTED_MODULE_4__.C
+  },
+  inheritAttrs: false,
+  props: {
+    /**
+     * The value of the input field
+     * If type is 'number' and a number is passed as value than the type of `update:value` will also be 'number'
+     */
+    value: {
+      type: [String, Number],
+      required: true
+    },
+    /**
+     * The type of the input element
+     */
+    type: {
+      type: String,
+      default: "text",
+      validator: (value) => [
+        "text",
+        "password",
+        "email",
+        "tel",
+        "url",
+        "search",
+        "number"
+      ].includes(value)
+    },
+    /**
+     * The input label, always provide one for accessibility purposes.
+     * This will also be used as a placeholder unless the placeholder
+     * prop is populated with a different string.
+     *
+     * Note: If the background color is not `--color-main-background` consider using an external label instead (see `labelOutside`).
+     */
+    label: {
+      type: String,
+      default: void 0
+    },
+    /**
+     * Pass in true if you want to use an external label. This is useful
+     * if you need a label that looks different from the one provided by
+     * this component
+     */
+    labelOutside: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * The placeholder of the input. This defaults as the string that's
+     * passed into the label prop. In order to remove the placeholder,
+     * pass in an empty string.
+     */
+    placeholder: {
+      type: String,
+      default: void 0
+    },
+    /**
+     * Controls whether to display the trailing button.
+     */
+    showTrailingButton: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Label of the trailing button
+     *
+     * Required when showTrailingButton is set
+     */
+    trailingButtonLabel: {
+      type: String,
+      default: ""
+    },
+    /**
+     * Toggles the success state of the component. Adds a checkmark icon.
+     * this cannot be used together with canClear.
+     */
+    success: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Toggles the error state of the component. Adds an error icon.
+     * this cannot be used together with canClear.
+     */
+    error: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Additional helper text message
+     *
+     * This will be displayed beneath the input field. In case the field is
+     * also marked as having an error, the text will be displayed in red.
+     */
+    helperText: {
+      type: String,
+      default: ""
+    },
+    /**
+     * Disable the input field
+     */
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Specifies whether the input should have a pill form.
+     * By default, input has rounded corners.
+     */
+    pill: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Class to add to the input field.
+     * Necessary to use NcInputField in the NcActionInput component.
+     */
+    inputClass: {
+      type: [Object, String],
+      default: ""
+    }
+  },
+  emits: [
+    "update:value",
+    "trailing-button-click"
+  ],
+  computed: {
+    computedId() {
+      return this.$attrs.id && this.$attrs.id !== "" ? this.$attrs.id : this.inputName;
+    },
+    inputName() {
+      return "input" + (0,_chunks_GenRandomId_bekVfSd8_mjs__WEBPACK_IMPORTED_MODULE_2__.G)();
+    },
+    hasLeadingIcon() {
+      return this.$slots.default;
+    },
+    hasTrailingIcon() {
+      return this.success;
+    },
+    hasPlaceholder() {
+      return this.placeholder !== "" && this.placeholder !== void 0;
+    },
+    computedPlaceholder() {
+      return this.hasPlaceholder ? this.placeholder : this.label;
+    },
+    isValidLabel() {
+      const isValidLabel = this.label || this.labelOutside;
+      if (!isValidLabel) {
+        console.warn("You need to add a label to the NcInputField component. Either use the prop label or use an external one, as per the example in the documentation.");
+      }
+      return isValidLabel;
+    },
+    ariaDescribedby() {
+      const ariaDescribedby = [];
+      if (this.helperText.length > 0) {
+        ariaDescribedby.push(`${this.inputName}-helper-text`);
+      }
+      if (this.$attrs["aria-describedby"]) {
+        ariaDescribedby.push(this.$attrs["aria-describedby"]);
+      }
+      return ariaDescribedby.join(" ") || null;
+    }
+  },
+  methods: {
+    /**
+     * Focus the input element
+     *
+     * @public
+     */
+    focus() {
+      this.$refs.input.focus();
+    },
+    /**
+     * Select all the text in the input
+     *
+     * @public
+     */
+    select() {
+      this.$refs.input.select();
+    },
+    handleInput(event) {
+      this.$emit("update:value", this.type === "number" && typeof this.value === "number" ? parseFloat(event.target.value, 10) : event.target.value);
+    },
+    handleTrailingButtonClick(event) {
+      this.$emit("trailing-button-click", event);
+    }
+  }
+};
+var _sfc_render = function render() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("div", { staticClass: "input-field", class: { "input-field--disabled": _vm.disabled } }, [_c("div", { staticClass: "input-field__main-wrapper" }, [_c("input", _vm._g(_vm._b({ ref: "input", staticClass: "input-field__input", class: [
+    _vm.inputClass,
+    {
+      "input-field__input--trailing-icon": _vm.showTrailingButton || _vm.hasTrailingIcon,
+      "input-field__input--leading-icon": _vm.hasLeadingIcon,
+      "input-field__input--label-outside": _vm.labelOutside,
+      "input-field__input--success": _vm.success,
+      "input-field__input--error": _vm.error,
+      "input-field__input--pill": _vm.pill
+    }
+  ], attrs: { "id": _vm.computedId, "type": _vm.type, "disabled": _vm.disabled, "placeholder": _vm.computedPlaceholder, "aria-describedby": _vm.ariaDescribedby, "aria-live": "polite" }, domProps: { "value": _vm.value.toString() }, on: { "input": _vm.handleInput } }, "input", _vm.$attrs, false), _vm.$listeners)), !_vm.labelOutside && _vm.isValidLabel ? _c("label", { staticClass: "input-field__label", class: [{
+    "input-field__label--trailing-icon": _vm.showTrailingButton || _vm.hasTrailingIcon,
+    "input-field__label--leading-icon": _vm.hasLeadingIcon
+  }], attrs: { "for": _vm.computedId } }, [_vm._v(" " + _vm._s(_vm.label) + " ")]) : _vm._e(), _c("div", { directives: [{ name: "show", rawName: "v-show", value: _vm.hasLeadingIcon, expression: "hasLeadingIcon" }], staticClass: "input-field__icon input-field__icon--leading" }, [_vm._t("default")], 2), _vm.showTrailingButton ? _c("NcButton", { staticClass: "input-field__trailing-button", class: [{
+    "input-field__trailing-button--pill": _vm.pill
+  }], attrs: { "type": "tertiary-no-background", "aria-label": _vm.trailingButtonLabel, "disabled": _vm.disabled }, on: { "click": _vm.handleTrailingButtonClick }, scopedSlots: _vm._u([{ key: "icon", fn: function() {
+    return [_vm._t("trailing-button-icon")];
+  }, proxy: true }], null, true) }) : _vm.success || _vm.error ? _c("div", { staticClass: "input-field__icon input-field__icon--trailing" }, [_vm.success ? _c("Check", { staticStyle: { "color": "var(--color-success-text)" }, attrs: { "size": 20 } }) : _vm.error ? _c("AlertCircle", { staticStyle: { "color": "var(--color-error-text)" }, attrs: { "size": 20 } }) : _vm._e()], 1) : _vm._e()], 1), _vm.helperText.length > 0 ? _c("p", { staticClass: "input-field__helper-text-message", class: {
+    "input-field__helper-text-message--error": _vm.error,
+    "input-field__helper-text-message--success": _vm.success
+  }, attrs: { "id": `${_vm.inputName}-helper-text` } }, [_vm.success ? _c("Check", { staticClass: "input-field__helper-text-message__icon", attrs: { "size": 18 } }) : _vm.error ? _c("AlertCircle", { staticClass: "input-field__helper-text-message__icon", attrs: { "size": 18 } }) : _vm._e(), _vm._v(" " + _vm._s(_vm.helperText) + " ")], 1) : _vm._e()]);
+};
+var _sfc_staticRenderFns = [];
+var __component__ = /* @__PURE__ */ (0,_chunks_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_5__.n)(
+  _sfc_main,
+  _sfc_render,
+  _sfc_staticRenderFns,
+  false,
+  null,
+  "b312d183",
+  null,
+  null
+);
+const NcInputField = __component__.exports;
+
+//# sourceMappingURL=NcInputField.mjs.map
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/Components/NcModal.mjs":
+/*!****************************************************!*\
+  !*** ../nextcloud-vue/dist/Components/NcModal.mjs ***!
+  \****************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ NcModal)
+/* harmony export */ });
+/* harmony import */ var _assets_NcModal_ecigA_hy_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/NcModal-ecigA_hy.css */ "../nextcloud-vue/dist/assets/NcModal-ecigA_hy.css");
+/* harmony import */ var _chunks_ScopeComponent_f6Z_CQtX_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../chunks/ScopeComponent-f6Z-CQtX.mjs */ "../nextcloud-vue/dist/chunks/ScopeComponent-f6Z-CQtX.mjs");
+/* harmony import */ var _chunks_focusTrap_Mgj6f_TI_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../chunks/focusTrap-Mgj6f-TI.mjs */ "../nextcloud-vue/dist/chunks/focusTrap-Mgj6f-TI.mjs");
+/* harmony import */ var _chunks_l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../chunks/_l10n-Au_T0Ikx.mjs */ "../nextcloud-vue/dist/chunks/_l10n-Au_T0Ikx.mjs");
+/* harmony import */ var _chunks_GenRandomId_bekVfSd8_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../chunks/GenRandomId-bekVfSd8.mjs */ "../nextcloud-vue/dist/chunks/GenRandomId-bekVfSd8.mjs");
+/* harmony import */ var _chunks_NcActions_J2kuH7GX_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../chunks/NcActions-J2kuH7GX.mjs */ "../nextcloud-vue/dist/chunks/NcActions-J2kuH7GX.mjs");
+/* harmony import */ var _NcButton_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./NcButton.mjs */ "../nextcloud-vue/dist/Components/NcButton.mjs");
+/* harmony import */ var _Directives_Tooltip_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Directives/Tooltip.mjs */ "../nextcloud-vue/dist/Directives/Tooltip.mjs");
+/* harmony import */ var _chunks_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../chunks/_plugin-vue2_normalizer-Ewhtj4Do.mjs */ "../nextcloud-vue/dist/chunks/_plugin-vue2_normalizer-Ewhtj4Do.mjs");
+/* harmony import */ var _chunks_ChevronRight_BZsZ7HN_mjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../chunks/ChevronRight-BZsZ7HN-.mjs */ "../nextcloud-vue/dist/chunks/ChevronRight-BZsZ7HN-.mjs");
+/* harmony import */ var _chunks_Close_x3DvlfYA_mjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../chunks/Close-x3DvlfYA.mjs */ "../nextcloud-vue/dist/chunks/Close-x3DvlfYA.mjs");
+/* harmony import */ var focus_trap__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! focus-trap */ "../nextcloud-vue/node_modules/focus-trap/dist/focus-trap.esm.js");
+/* harmony import */ var _vueuse_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @vueuse/core */ "../nextcloud-vue/node_modules/@vueuse/core/index.mjs");
+/* harmony import */ var floating_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! floating-vue */ "../nextcloud-vue/node_modules/floating-vue/dist/floating-vue.es.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(0,_chunks_l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_3__.r)(_chunks_l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_3__.G, _chunks_l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_3__.F);
+/**
+ * @copyright Copyright (c) 2019 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+function timer(callback, delay) {
+  let id;
+  let started;
+  let remaining = delay;
+  let running;
+  this.start = function() {
+    running = true;
+    started = /* @__PURE__ */ new Date();
+    id = setTimeout(callback, remaining);
+  };
+  this.pause = function() {
+    running = false;
+    clearTimeout(id);
+    remaining -= /* @__PURE__ */ new Date() - started;
+  };
+  this.clear = function() {
+    running = false;
+    clearTimeout(id);
+    remaining = 0;
+  };
+  this.getTimeLeft = function() {
+    if (running) {
+      this.pause();
+      this.start();
+    }
+    return remaining;
+  };
+  this.getStateRunning = function() {
+    return running;
+  };
+  this.start();
+}
+const _sfc_main$3 = {
+  name: "ChevronLeftIcon",
+  emits: ["click"],
+  props: {
+    title: {
+      type: String
+    },
+    fillColor: {
+      type: String,
+      default: "currentColor"
+    },
+    size: {
+      type: Number,
+      default: 24
+    }
+  }
+};
+var _sfc_render$3 = function render() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("span", _vm._b({ staticClass: "material-design-icon chevron-left-icon", attrs: { "aria-hidden": !_vm.title, "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
+    return _vm.$emit("click", $event);
+  } } }, "span", _vm.$attrs, false), [_c("svg", { staticClass: "material-design-icon__svg", attrs: { "fill": _vm.fillColor, "width": _vm.size, "height": _vm.size, "viewBox": "0 0 24 24" } }, [_c("path", { attrs: { "d": "M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" } }, [_vm.title ? _c("title", [_vm._v(_vm._s(_vm.title))]) : _vm._e()])])]);
+};
+var _sfc_staticRenderFns$3 = [];
+var __component__$3 = /* @__PURE__ */ (0,_chunks_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_8__.n)(
+  _sfc_main$3,
+  _sfc_render$3,
+  _sfc_staticRenderFns$3,
+  false,
+  null,
+  null,
+  null,
+  null
+);
+const ChevronLeft = __component__$3.exports;
+const _sfc_main$2 = {
+  name: "PauseIcon",
+  emits: ["click"],
+  props: {
+    title: {
+      type: String
+    },
+    fillColor: {
+      type: String,
+      default: "currentColor"
+    },
+    size: {
+      type: Number,
+      default: 24
+    }
+  }
+};
+var _sfc_render$2 = function render2() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("span", _vm._b({ staticClass: "material-design-icon pause-icon", attrs: { "aria-hidden": !_vm.title, "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
+    return _vm.$emit("click", $event);
+  } } }, "span", _vm.$attrs, false), [_c("svg", { staticClass: "material-design-icon__svg", attrs: { "fill": _vm.fillColor, "width": _vm.size, "height": _vm.size, "viewBox": "0 0 24 24" } }, [_c("path", { attrs: { "d": "M14,19H18V5H14M6,19H10V5H6V19Z" } }, [_vm.title ? _c("title", [_vm._v(_vm._s(_vm.title))]) : _vm._e()])])]);
+};
+var _sfc_staticRenderFns$2 = [];
+var __component__$2 = /* @__PURE__ */ (0,_chunks_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_8__.n)(
+  _sfc_main$2,
+  _sfc_render$2,
+  _sfc_staticRenderFns$2,
+  false,
+  null,
+  null,
+  null,
+  null
+);
+const Pause = __component__$2.exports;
+const _sfc_main$1 = {
+  name: "PlayIcon",
+  emits: ["click"],
+  props: {
+    title: {
+      type: String
+    },
+    fillColor: {
+      type: String,
+      default: "currentColor"
+    },
+    size: {
+      type: Number,
+      default: 24
+    }
+  }
+};
+var _sfc_render$1 = function render3() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("span", _vm._b({ staticClass: "material-design-icon play-icon", attrs: { "aria-hidden": !_vm.title, "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
+    return _vm.$emit("click", $event);
+  } } }, "span", _vm.$attrs, false), [_c("svg", { staticClass: "material-design-icon__svg", attrs: { "fill": _vm.fillColor, "width": _vm.size, "height": _vm.size, "viewBox": "0 0 24 24" } }, [_c("path", { attrs: { "d": "M8,5.14V19.14L19,12.14L8,5.14Z" } }, [_vm.title ? _c("title", [_vm._v(_vm._s(_vm.title))]) : _vm._e()])])]);
+};
+var _sfc_staticRenderFns$1 = [];
+var __component__$1 = /* @__PURE__ */ (0,_chunks_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_8__.n)(
+  _sfc_main$1,
+  _sfc_render$1,
+  _sfc_staticRenderFns$1,
+  false,
+  null,
+  null,
+  null,
+  null
+);
+const Play = __component__$1.exports;
+const _sfc_main = {
+  name: "NcModal",
+  components: {
+    NcActions: _chunks_NcActions_J2kuH7GX_mjs__WEBPACK_IMPORTED_MODULE_5__.N,
+    ChevronLeft,
+    ChevronRight: _chunks_ChevronRight_BZsZ7HN_mjs__WEBPACK_IMPORTED_MODULE_9__.C,
+    Close: _chunks_Close_x3DvlfYA_mjs__WEBPACK_IMPORTED_MODULE_10__.C,
+    Pause,
+    Play,
+    NcButton: _NcButton_mjs__WEBPACK_IMPORTED_MODULE_6__["default"]
+  },
+  directives: {
+    tooltip: floating_vue__WEBPACK_IMPORTED_MODULE_11__.VTooltip
+  },
+  props: {
+    /**
+     * Name to be shown with the modal
+     */
+    name: {
+      type: String,
+      default: ""
+    },
+    /**
+     * Declare if a previous slide is available
+     */
+    hasPrevious: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Declare if a next slide is available
+     */
+    hasNext: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Declare if hiding the modal should be animated
+     */
+    outTransition: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Declare if the slideshow functionality should be enabled
+     */
+    enableSlideshow: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Declare the slide interval
+     */
+    slideshowDelay: {
+      type: Number,
+      default: 5e3
+    },
+    /**
+     * Allow to pause an ongoing slideshow
+     */
+    slideshowPaused: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Enable swipe between slides
+     */
+    enableSwipe: {
+      type: Boolean,
+      default: true
+    },
+    spreadNavigation: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Defines the modal size.
+     * Default is 'normal'.
+     * Available are 'small', 'normal', 'large' and 'full'.
+     * All sizes except 'small' change automatically to full-screen on mobile.
+     */
+    size: {
+      type: String,
+      default: "normal",
+      validator: (size) => {
+        return ["small", "normal", "large", "full"].includes(size);
+      }
+    },
+    /**
+     * Declare if the modal can be closed
+     */
+    canClose: {
+      type: Boolean,
+      default: true
+    },
+    /**
+     * Close the modal if the user clicked outside of the modal
+     * Only relevant if `canClose` is set to true.
+     */
+    closeOnClickOutside: {
+      type: Boolean,
+      default: true
+    },
+    /**
+     * Makes the modal backdrop black if true
+     * Will be overwritten if some buttons are shown outside
+     */
+    dark: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Selector for the modal container, pass `null` to prevent automatic container mounting
+     */
+    container: {
+      type: [String, null],
+      default: "body"
+    },
+    /**
+     * Pass in false if you want the modal 'close' button to be displayed
+     * outside the modal boundaries, in the top right corner of the window
+     */
+    closeButtonContained: {
+      type: Boolean,
+      default: true
+    },
+    /**
+     * Additional elements to add to the focus trap
+     */
+    additionalTrapElements: {
+      type: Array,
+      default: () => []
+    },
+    /**
+     * Display x items inline
+     *
+     * @see Actions component usage
+     */
+    inlineActions: {
+      type: Number,
+      default: 0
+    },
+    show: {
+      type: Boolean,
+      default: void 0
+    },
+    /**
+     * Set element to return focus to after focus trap deactivation
+     *
+     * @type {import('focus-trap').FocusTargetValueOrFalse}
+     */
+    setReturnFocus: {
+      default: void 0,
+      type: [HTMLElement, SVGElement, String, Boolean]
+    }
+  },
+  emits: [
+    "previous",
+    "next",
+    "close",
+    "update:show"
+  ],
+  data() {
+    return {
+      mc: null,
+      playing: false,
+      slideshowTimeout: null,
+      iconSize: 24,
+      focusTrap: null,
+      randId: (0,_chunks_GenRandomId_bekVfSd8_mjs__WEBPACK_IMPORTED_MODULE_4__.G)(),
+      internalShow: true
+    };
+  },
+  computed: {
+    showModal() {
+      return this.show === void 0 ? this.internalShow : this.show;
+    },
+    modalTransitionName() {
+      return `modal-${this.outTransition ? "out" : "in"}`;
+    },
+    playPauseName() {
+      return this.playing ? (0,_chunks_l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_3__.a)("Pause slideshow") : (0,_chunks_l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_3__.a)("Start slideshow");
+    },
+    cssVariables() {
+      return {
+        "--slideshow-duration": this.slideshowDelay + "ms",
+        "--icon-size": this.iconSize + "px"
+      };
+    },
+    closeButtonAriaLabel() {
+      return (0,_chunks_l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_3__.a)("Close");
+    },
+    prevButtonAriaLabel() {
+      return (0,_chunks_l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_3__.a)("Previous");
+    },
+    nextButtonAriaLabel() {
+      return (0,_chunks_l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_3__.a)("Next");
+    }
+  },
+  watch: {
+    /**
+     * Handle play/pause of an ongoing slideshow
+     *
+     * @param {boolean} paused is the player paused
+     */
+    slideshowPaused(paused) {
+      if (this.slideshowTimeout) {
+        if (paused) {
+          this.slideshowTimeout.pause();
+        } else {
+          this.slideshowTimeout.start();
+        }
+      }
+    },
+    additionalTrapElements(elements) {
+      if (this.focusTrap) {
+        const contentContainer = this.$refs.mask;
+        this.focusTrap.updateContainerElements([contentContainer, ...elements]);
+      }
+    }
+  },
+  beforeMount() {
+    window.addEventListener("keydown", this.handleKeydown);
+  },
+  beforeDestroy() {
+    window.removeEventListener("keydown", this.handleKeydown);
+    this.mc.stop();
+  },
+  mounted() {
+    this.useFocusTrap();
+    this.mc = (0,_vueuse_core__WEBPACK_IMPORTED_MODULE_12__.useSwipe)(this.$refs.mask, {
+      onSwipeEnd: this.handleSwipe
+    });
+    if (this.container) {
+      if (this.container === "body") {
+        document.body.insertBefore(this.$el, document.body.lastChild);
+      } else {
+        const container = document.querySelector(this.container);
+        container.appendChild(this.$el);
+      }
+    }
+  },
+  destroyed() {
+    this.clearFocusTrap();
+    this.$el.remove();
+  },
+  methods: {
+    t: _chunks_l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_3__.a,
+    // Events emitters
+    previous(event) {
+      if (this.hasPrevious) {
+        if (event) {
+          this.resetSlideshow();
+        }
+        this.$emit("previous", event);
+      }
+    },
+    next(event) {
+      if (this.hasNext) {
+        if (event) {
+          this.resetSlideshow();
+        }
+        this.$emit("next", event);
+      }
+    },
+    close(data) {
+      if (this.canClose) {
+        this.internalShow = false;
+        this.$emit("update:show", false);
+        setTimeout(() => {
+          this.$emit("close", data);
+        }, 300);
+      }
+    },
+    /**
+     * Handle click on modal wrapper
+     * If `closeOnClickOutside` is set the modal will be closed
+     *
+     * @param {MouseEvent} event The click event
+     */
+    handleClickModalWrapper(event) {
+      if (this.closeOnClickOutside) {
+        this.close(event);
+      }
+    },
+    /**
+     * @param {KeyboardEvent} event - keyboard event
+     */
+    handleKeydown(event) {
+      if (event.key === "Escape") {
+        const trapStack = (0,_chunks_focusTrap_Mgj6f_TI_mjs__WEBPACK_IMPORTED_MODULE_2__.g)();
+        if (trapStack.length > 0 && trapStack[trapStack.length - 1] !== this.focusTrap) {
+          return;
+        }
+        return this.close(event);
+      }
+      const arrowHandlers = {
+        ArrowLeft: this.previous,
+        ArrowRight: this.next
+      };
+      if (arrowHandlers[event.key]) {
+        if (document.activeElement && !this.$el.contains(document.activeElement)) {
+          return;
+        }
+        return arrowHandlers[event.key](event);
+      }
+    },
+    /**
+     * handle the swipe event
+     *
+     * @param {TouchEvent} e The touch event
+     * @param {import('@vueuse/core').SwipeDirection} direction Swipe direction
+     */
+    handleSwipe(e, direction) {
+      if (this.enableSwipe) {
+        if (direction === "left") {
+          this.next(e);
+        } else if (direction === "right") {
+          this.previous(e);
+        }
+      }
+    },
+    /**
+     * Toggle the slideshow state
+     */
+    togglePlayPause() {
+      this.playing = !this.playing;
+      if (this.playing) {
+        this.handleSlideshow();
+      } else {
+        this.clearSlideshowTimeout();
+      }
+    },
+    /**
+     * Reset the slideshow timer and keep going if it was on
+     */
+    resetSlideshow() {
+      this.playing = !this.playing;
+      this.clearSlideshowTimeout();
+      this.$nextTick(function() {
+        this.togglePlayPause();
+      });
+    },
+    /**
+     * Handle the slideshow timer and next event
+     */
+    handleSlideshow() {
+      this.playing = true;
+      if (this.hasNext) {
+        this.slideshowTimeout = new timer(() => {
+          this.next();
+          this.handleSlideshow();
+        }, this.slideshowDelay);
+      } else {
+        this.playing = false;
+        this.clearSlideshowTimeout();
+      }
+    },
+    /**
+     * Clear slideshowTimeout if ongoing
+     */
+    clearSlideshowTimeout() {
+      if (this.slideshowTimeout) {
+        this.slideshowTimeout.clear();
+      }
+    },
+    /**
+     * Add focus trap for accessibility.
+     */
+    async useFocusTrap() {
+      if (!this.showModal || this.focusTrap) {
+        return;
+      }
+      const contentContainer = this.$refs.mask;
+      await this.$nextTick();
+      const options = {
+        allowOutsideClick: true,
+        fallbackFocus: contentContainer,
+        trapStack: (0,_chunks_focusTrap_Mgj6f_TI_mjs__WEBPACK_IMPORTED_MODULE_2__.g)(),
+        // Esc can be used without stop in content or additionalTrapElements where it should not deacxtivate modal's focus trap.
+        // Focus trap is deactivated on modal close anyway.
+        escapeDeactivates: false,
+        setReturnFocus: this.setReturnFocus
+      };
+      this.focusTrap = (0,focus_trap__WEBPACK_IMPORTED_MODULE_13__.createFocusTrap)([contentContainer, ...this.additionalTrapElements], options);
+      this.focusTrap.activate();
+    },
+    clearFocusTrap() {
+      if (!this.focusTrap) {
+        return;
+      }
+      this.focusTrap?.deactivate();
+      this.focusTrap = null;
+    }
+  }
+};
+var _sfc_render = function render4() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("transition", { attrs: { "name": "fade", "appear": "" }, on: { "after-enter": _vm.useFocusTrap, "before-leave": _vm.clearFocusTrap } }, [_c("div", { directives: [{ name: "show", rawName: "v-show", value: _vm.showModal, expression: "showModal" }], ref: "mask", staticClass: "modal-mask", class: { "modal-mask--dark": _vm.dark || !_vm.closeButtonContained || _vm.hasPrevious || _vm.hasNext }, style: _vm.cssVariables, attrs: { "role": "dialog", "aria-modal": "true", "aria-labelledby": "modal-name-" + _vm.randId, "aria-describedby": "modal-description-" + _vm.randId, "tabindex": "-1" } }, [_c("transition", { attrs: { "name": "fade-visibility", "appear": "" } }, [_c("div", { staticClass: "modal-header" }, [_vm.name.trim() !== "" ? _c("h2", { staticClass: "modal-name", attrs: { "id": "modal-name-" + _vm.randId } }, [_vm._v(" " + _vm._s(_vm.name) + " ")]) : _vm._e(), _c("div", { staticClass: "icons-menu" }, [_vm.hasNext && _vm.enableSlideshow ? _c("button", { directives: [{ name: "tooltip", rawName: "v-tooltip.auto", value: _vm.playPauseName, expression: "playPauseName", modifiers: { "auto": true } }], staticClass: "play-pause-icons", class: { "play-pause-icons--paused": _vm.slideshowPaused }, attrs: { "type": "button" }, on: { "click": _vm.togglePlayPause } }, [!_vm.playing ? _c("Play", { staticClass: "play-pause-icons__play", attrs: { "size": _vm.iconSize } }) : _c("Pause", { staticClass: "play-pause-icons__pause", attrs: { "size": _vm.iconSize } }), _c("span", { staticClass: "hidden-visually" }, [_vm._v(" " + _vm._s(_vm.playPauseName) + " ")]), _vm.playing ? _c("svg", { staticClass: "progress-ring", attrs: { "height": "50", "width": "50" } }, [_c("circle", { staticClass: "progress-ring__circle", attrs: { "stroke": "white", "stroke-width": "2", "fill": "transparent", "r": "15", "cx": "25", "cy": "25" } })]) : _vm._e()], 1) : _vm._e(), _c("NcActions", { staticClass: "header-actions", attrs: { "inline": _vm.inlineActions } }, [_vm._t("actions")], 2), _vm.canClose && !_vm.closeButtonContained ? _c("NcButton", { staticClass: "header-close", attrs: { "aria-label": _vm.closeButtonAriaLabel, "type": "tertiary" }, on: { "click": _vm.close }, scopedSlots: _vm._u([{ key: "icon", fn: function() {
+    return [_c("Close", { attrs: { "size": _vm.iconSize } })];
+  }, proxy: true }], null, false, 1841713362) }) : _vm._e()], 1)])]), _c("transition", { attrs: { "name": _vm.modalTransitionName, "appear": "" } }, [_c("div", { directives: [{ name: "show", rawName: "v-show", value: _vm.showModal, expression: "showModal" }], staticClass: "modal-wrapper", class: [
+    `modal-wrapper--${_vm.size}`,
+    { "modal-wrapper--spread-navigation": _vm.spreadNavigation }
+  ], on: { "mousedown": function($event) {
+    if ($event.target !== $event.currentTarget)
+      return null;
+    return _vm.handleClickModalWrapper.apply(null, arguments);
+  } } }, [_c("transition", { attrs: { "name": "fade-visibility", "appear": "" } }, [_c("NcButton", { directives: [{ name: "show", rawName: "v-show", value: _vm.hasPrevious, expression: "hasPrevious" }], staticClass: "prev", attrs: { "type": "tertiary-no-background", "aria-label": _vm.prevButtonAriaLabel }, on: { "click": _vm.previous }, scopedSlots: _vm._u([{ key: "icon", fn: function() {
+    return [_c("ChevronLeft", { attrs: { "size": 40 } })];
+  }, proxy: true }]) })], 1), _c("div", { staticClass: "modal-container", attrs: { "id": "modal-description-" + _vm.randId } }, [_vm.canClose && _vm.closeButtonContained ? _c("NcButton", { staticClass: "modal-container__close", attrs: { "type": "tertiary", "aria-label": _vm.closeButtonAriaLabel }, on: { "click": _vm.close }, scopedSlots: _vm._u([{ key: "icon", fn: function() {
+    return [_c("Close", { attrs: { "size": 20 } })];
+  }, proxy: true }], null, false, 2121748766) }) : _vm._e(), _c("div", { staticClass: "modal-container__content" }, [_vm._t("default")], 2)], 1), _c("transition", { attrs: { "name": "fade-visibility", "appear": "" } }, [_c("NcButton", { directives: [{ name: "show", rawName: "v-show", value: _vm.hasNext, expression: "hasNext" }], staticClass: "next", attrs: { "type": "tertiary-no-background", "aria-label": _vm.nextButtonAriaLabel }, on: { "click": _vm.next }, scopedSlots: _vm._u([{ key: "icon", fn: function() {
+    return [_c("ChevronRight", { attrs: { "size": 40 } })];
+  }, proxy: true }]) })], 1)], 1)])], 1)]);
+};
+var _sfc_staticRenderFns = [];
+var __component__ = /* @__PURE__ */ (0,_chunks_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_8__.n)(
+  _sfc_main,
+  _sfc_render,
+  _sfc_staticRenderFns,
+  false,
+  null,
+  "bbeb5a25",
+  null,
+  null
+);
+const NcModal = __component__.exports;
+/**
+ * @copyright Copyright (c) 2019 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+(0,_chunks_ScopeComponent_f6Z_CQtX_mjs__WEBPACK_IMPORTED_MODULE_1__.S)(NcModal);
+
+//# sourceMappingURL=NcModal.mjs.map
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/Components/NcPasswordField.mjs":
+/*!************************************************************!*\
+  !*** ../nextcloud-vue/dist/Components/NcPasswordField.mjs ***!
+  \************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _chunks_NcPasswordField_ebuH_Hkx_mjs__WEBPACK_IMPORTED_MODULE_0__.N)
+/* harmony export */ });
+/* harmony import */ var _chunks_NcPasswordField_ebuH_Hkx_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../chunks/NcPasswordField-ebuH_Hkx.mjs */ "../nextcloud-vue/dist/chunks/NcPasswordField-ebuH_Hkx.mjs");
+
+
+//# sourceMappingURL=NcPasswordField.mjs.map
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/Directives/Tooltip.mjs":
+/*!****************************************************!*\
+  !*** ../nextcloud-vue/dist/Directives/Tooltip.mjs ***!
+  \****************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ floating_vue__WEBPACK_IMPORTED_MODULE_1__.VTooltip),
+/* harmony export */   options: () => (/* reexport safe */ floating_vue__WEBPACK_IMPORTED_MODULE_1__.options)
+/* harmony export */ });
+/* harmony import */ var _assets_Tooltip_Ix4LeJvl_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/Tooltip-Ix4LeJvl.css */ "../nextcloud-vue/dist/assets/Tooltip-Ix4LeJvl.css");
+/* harmony import */ var floating_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! floating-vue */ "../nextcloud-vue/node_modules/floating-vue/dist/floating-vue.es.js");
+
+
+
+/**
+ * @copyright Copyright (c) 2019 Julius Härtl <jus@bitgrid.net>
+ *
+ * @author Julius Härtl <jus@bitgrid.net>
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+floating_vue__WEBPACK_IMPORTED_MODULE_1__.options.themes.tooltip.html = false;
+floating_vue__WEBPACK_IMPORTED_MODULE_1__.options.themes.tooltip.delay = { show: 500, hide: 200 };
+floating_vue__WEBPACK_IMPORTED_MODULE_1__.options.themes.tooltip.distance = 10;
+floating_vue__WEBPACK_IMPORTED_MODULE_1__.options.themes.tooltip["arrow-padding"] = 3;
+
+//# sourceMappingURL=Tooltip.mjs.map
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/chunks/AlertCircleOutline-cfiE2eFa.mjs":
+/*!********************************************************************!*\
+  !*** ../nextcloud-vue/dist/chunks/AlertCircleOutline-cfiE2eFa.mjs ***!
+  \********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (/* binding */ AlertCircle)
+/* harmony export */ });
+/* harmony import */ var _plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_plugin-vue2_normalizer-Ewhtj4Do.mjs */ "../nextcloud-vue/dist/chunks/_plugin-vue2_normalizer-Ewhtj4Do.mjs");
+
+const _sfc_main = {
+  name: "AlertCircleOutlineIcon",
+  emits: ["click"],
+  props: {
+    title: {
+      type: String
+    },
+    fillColor: {
+      type: String,
+      default: "currentColor"
+    },
+    size: {
+      type: Number,
+      default: 24
+    }
+  }
+};
+var _sfc_render = function render() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("span", _vm._b({ staticClass: "material-design-icon alert-circle-outline-icon", attrs: { "aria-hidden": !_vm.title, "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
+    return _vm.$emit("click", $event);
+  } } }, "span", _vm.$attrs, false), [_c("svg", { staticClass: "material-design-icon__svg", attrs: { "fill": _vm.fillColor, "width": _vm.size, "height": _vm.size, "viewBox": "0 0 24 24" } }, [_c("path", { attrs: { "d": "M11,15H13V17H11V15M11,7H13V13H11V7M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20Z" } }, [_vm.title ? _c("title", [_vm._v(_vm._s(_vm.title))]) : _vm._e()])])]);
+};
+var _sfc_staticRenderFns = [];
+var __component__ = /* @__PURE__ */ (0,_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_0__.n)(
+  _sfc_main,
+  _sfc_render,
+  _sfc_staticRenderFns,
+  false,
+  null,
+  null,
+  null,
+  null
+);
+const AlertCircle = __component__.exports;
+
+//# sourceMappingURL=AlertCircleOutline-cfiE2eFa.mjs.map
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/chunks/Check-0ovJb_fA.mjs":
+/*!*******************************************************!*\
+  !*** ../nextcloud-vue/dist/chunks/Check-0ovJb_fA.mjs ***!
+  \*******************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   C: () => (/* binding */ Check)
+/* harmony export */ });
+/* harmony import */ var _plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_plugin-vue2_normalizer-Ewhtj4Do.mjs */ "../nextcloud-vue/dist/chunks/_plugin-vue2_normalizer-Ewhtj4Do.mjs");
+
+const _sfc_main = {
+  name: "CheckIcon",
+  emits: ["click"],
+  props: {
+    title: {
+      type: String
+    },
+    fillColor: {
+      type: String,
+      default: "currentColor"
+    },
+    size: {
+      type: Number,
+      default: 24
+    }
+  }
+};
+var _sfc_render = function render() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("span", _vm._b({ staticClass: "material-design-icon check-icon", attrs: { "aria-hidden": !_vm.title, "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
+    return _vm.$emit("click", $event);
+  } } }, "span", _vm.$attrs, false), [_c("svg", { staticClass: "material-design-icon__svg", attrs: { "fill": _vm.fillColor, "width": _vm.size, "height": _vm.size, "viewBox": "0 0 24 24" } }, [_c("path", { attrs: { "d": "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" } }, [_vm.title ? _c("title", [_vm._v(_vm._s(_vm.title))]) : _vm._e()])])]);
+};
+var _sfc_staticRenderFns = [];
+var __component__ = /* @__PURE__ */ (0,_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_0__.n)(
+  _sfc_main,
+  _sfc_render,
+  _sfc_staticRenderFns,
+  false,
+  null,
+  null,
+  null,
+  null
+);
+const Check = __component__.exports;
+
+//# sourceMappingURL=Check-0ovJb_fA.mjs.map
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/chunks/ChevronRight-BZsZ7HN-.mjs":
+/*!**************************************************************!*\
+  !*** ../nextcloud-vue/dist/chunks/ChevronRight-BZsZ7HN-.mjs ***!
+  \**************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   C: () => (/* binding */ ChevronRight)
+/* harmony export */ });
+/* harmony import */ var _plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_plugin-vue2_normalizer-Ewhtj4Do.mjs */ "../nextcloud-vue/dist/chunks/_plugin-vue2_normalizer-Ewhtj4Do.mjs");
+
+const _sfc_main = {
+  name: "ChevronRightIcon",
+  emits: ["click"],
+  props: {
+    title: {
+      type: String
+    },
+    fillColor: {
+      type: String,
+      default: "currentColor"
+    },
+    size: {
+      type: Number,
+      default: 24
+    }
+  }
+};
+var _sfc_render = function render() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("span", _vm._b({ staticClass: "material-design-icon chevron-right-icon", attrs: { "aria-hidden": !_vm.title, "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
+    return _vm.$emit("click", $event);
+  } } }, "span", _vm.$attrs, false), [_c("svg", { staticClass: "material-design-icon__svg", attrs: { "fill": _vm.fillColor, "width": _vm.size, "height": _vm.size, "viewBox": "0 0 24 24" } }, [_c("path", { attrs: { "d": "M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" } }, [_vm.title ? _c("title", [_vm._v(_vm._s(_vm.title))]) : _vm._e()])])]);
+};
+var _sfc_staticRenderFns = [];
+var __component__ = /* @__PURE__ */ (0,_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_0__.n)(
+  _sfc_main,
+  _sfc_render,
+  _sfc_staticRenderFns,
+  false,
+  null,
+  null,
+  null,
+  null
+);
+const ChevronRight = __component__.exports;
+
+//# sourceMappingURL=ChevronRight-BZsZ7HN-.mjs.map
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/chunks/Close-x3DvlfYA.mjs":
+/*!*******************************************************!*\
+  !*** ../nextcloud-vue/dist/chunks/Close-x3DvlfYA.mjs ***!
+  \*******************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   C: () => (/* binding */ Close)
+/* harmony export */ });
+/* harmony import */ var _plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_plugin-vue2_normalizer-Ewhtj4Do.mjs */ "../nextcloud-vue/dist/chunks/_plugin-vue2_normalizer-Ewhtj4Do.mjs");
+
+const _sfc_main = {
+  name: "CloseIcon",
+  emits: ["click"],
+  props: {
+    title: {
+      type: String
+    },
+    fillColor: {
+      type: String,
+      default: "currentColor"
+    },
+    size: {
+      type: Number,
+      default: 24
+    }
+  }
+};
+var _sfc_render = function render() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("span", _vm._b({ staticClass: "material-design-icon close-icon", attrs: { "aria-hidden": !_vm.title, "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
+    return _vm.$emit("click", $event);
+  } } }, "span", _vm.$attrs, false), [_c("svg", { staticClass: "material-design-icon__svg", attrs: { "fill": _vm.fillColor, "width": _vm.size, "height": _vm.size, "viewBox": "0 0 24 24" } }, [_c("path", { attrs: { "d": "M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" } }, [_vm.title ? _c("title", [_vm._v(_vm._s(_vm.title))]) : _vm._e()])])]);
+};
+var _sfc_staticRenderFns = [];
+var __component__ = /* @__PURE__ */ (0,_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_0__.n)(
+  _sfc_main,
+  _sfc_render,
+  _sfc_staticRenderFns,
+  false,
+  null,
+  null,
+  null,
+  null
+);
+const Close = __component__.exports;
+
+//# sourceMappingURL=Close-x3DvlfYA.mjs.map
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/chunks/DotsHorizontal-Zd3Cm1TN.mjs":
+/*!****************************************************************!*\
+  !*** ../nextcloud-vue/dist/chunks/DotsHorizontal-Zd3Cm1TN.mjs ***!
+  \****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   D: () => (/* binding */ DotsHorizontal)
+/* harmony export */ });
+/* harmony import */ var _plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_plugin-vue2_normalizer-Ewhtj4Do.mjs */ "../nextcloud-vue/dist/chunks/_plugin-vue2_normalizer-Ewhtj4Do.mjs");
+
+const _sfc_main = {
+  name: "DotsHorizontalIcon",
+  emits: ["click"],
+  props: {
+    title: {
+      type: String
+    },
+    fillColor: {
+      type: String,
+      default: "currentColor"
+    },
+    size: {
+      type: Number,
+      default: 24
+    }
+  }
+};
+var _sfc_render = function render() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("span", _vm._b({ staticClass: "material-design-icon dots-horizontal-icon", attrs: { "aria-hidden": !_vm.title, "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
+    return _vm.$emit("click", $event);
+  } } }, "span", _vm.$attrs, false), [_c("svg", { staticClass: "material-design-icon__svg", attrs: { "fill": _vm.fillColor, "width": _vm.size, "height": _vm.size, "viewBox": "0 0 24 24" } }, [_c("path", { attrs: { "d": "M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" } }, [_vm.title ? _c("title", [_vm._v(_vm._s(_vm.title))]) : _vm._e()])])]);
+};
+var _sfc_staticRenderFns = [];
+var __component__ = /* @__PURE__ */ (0,_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_0__.n)(
+  _sfc_main,
+  _sfc_render,
+  _sfc_staticRenderFns,
+  false,
+  null,
+  null,
+  null,
+  null
+);
+const DotsHorizontal = __component__.exports;
+
+//# sourceMappingURL=DotsHorizontal-Zd3Cm1TN.mjs.map
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/chunks/GenRandomId-bekVfSd8.mjs":
+/*!*************************************************************!*\
+  !*** ../nextcloud-vue/dist/chunks/GenRandomId-bekVfSd8.mjs ***!
+  \*************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   G: () => (/* binding */ GenRandomId)
+/* harmony export */ });
+/**
+ * @copyright Copyright (c) 2018 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+const GenRandomId = (length) => {
+  return Math.random().toString(36).replace(/[^a-z]+/g, "").slice(0, length || 5);
+};
+
+//# sourceMappingURL=GenRandomId-bekVfSd8.mjs.map
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/chunks/NcActions-J2kuH7GX.mjs":
+/*!***********************************************************!*\
+  !*** ../nextcloud-vue/dist/chunks/NcActions-J2kuH7GX.mjs ***!
+  \***********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   N: () => (/* binding */ NcActions)
+/* harmony export */ });
+/* harmony import */ var _assets_NcActions_KraINfs1_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/NcActions-KraINfs1.css */ "../nextcloud-vue/dist/assets/NcActions-KraINfs1.css");
+/* harmony import */ var _Components_NcButton_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/NcButton.mjs */ "../nextcloud-vue/dist/Components/NcButton.mjs");
+/* harmony import */ var _NcPopover_bHEdiq4K_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NcPopover-bHEdiq4K.mjs */ "../nextcloud-vue/dist/chunks/NcPopover-bHEdiq4K.mjs");
+/* harmony import */ var _GenRandomId_bekVfSd8_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GenRandomId-bekVfSd8.mjs */ "../nextcloud-vue/dist/chunks/GenRandomId-bekVfSd8.mjs");
+/* harmony import */ var _focusTrap_Mgj6f_TI_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./focusTrap-Mgj6f-TI.mjs */ "../nextcloud-vue/dist/chunks/focusTrap-Mgj6f-TI.mjs");
+/* harmony import */ var _l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./_l10n-Au_T0Ikx.mjs */ "../nextcloud-vue/dist/chunks/_l10n-Au_T0Ikx.mjs");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.runtime.esm.js");
+/* harmony import */ var _DotsHorizontal_Zd3Cm1TN_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DotsHorizontal-Zd3Cm1TN.mjs */ "../nextcloud-vue/dist/chunks/DotsHorizontal-Zd3Cm1TN.mjs");
+/* harmony import */ var _plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./_plugin-vue2_normalizer-Ewhtj4Do.mjs */ "../nextcloud-vue/dist/chunks/_plugin-vue2_normalizer-Ewhtj4Do.mjs");
+
+
+
+
+
+
+
+
+
+(0,_l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_5__.r)(_l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_5__.o);
+const focusableSelector = ".focusable";
+const _sfc_main = {
+  name: "NcActions",
+  components: {
+    NcButton: _Components_NcButton_mjs__WEBPACK_IMPORTED_MODULE_1__["default"],
+    DotsHorizontal: _DotsHorizontal_Zd3Cm1TN_mjs__WEBPACK_IMPORTED_MODULE_6__.D,
+    NcPopover: _NcPopover_bHEdiq4K_mjs__WEBPACK_IMPORTED_MODULE_2__.N
+  },
+  provide() {
+    return {
+      /**
+       * NcActions can be used as:
+       * - Application menu (has menu role)
+       * - Navigation (has no specific role, should be used an element with navigation role)
+       * - Popover with plain text or text inputs (has no specific role)
+       * Depending on the usage (used items), the menu and its items should have different roles for a11y.
+       * Provide the role for NcAction* components in the NcActions content.
+       * @type {import('vue').ComputedRef<boolean>}
+       */
+      "NcActions:isSemanticMenu": (0,vue__WEBPACK_IMPORTED_MODULE_8__.computed)(() => this.actionsMenuSemanticType === "menu")
+    };
+  },
+  props: {
+    /**
+     * Specify the open state of the popover menu
+     */
+    open: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * This disables the internal open management,
+     * so the actions menu only respects the `open` prop.
+     * This is e.g. necessary for the NcAvatar component
+     * to only open the actions menu after loading it's entries has finished.
+     */
+    manualOpen: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Force the actions to display in a three dot menu
+     */
+    forceMenu: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Force the name to show for single actions
+     */
+    forceName: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Specify the menu name
+     */
+    menuName: {
+      type: String,
+      default: null
+    },
+    /**
+     * Apply primary styling for this menu
+     */
+    primary: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Specifies the button type used for trigger and single actions buttons
+     * Accepted values: primary, secondary, tertiary, tertiary-no-background, tertiary-on-primary, error, warning, success. If left empty,
+     * the default button style will be applied.
+     */
+    type: {
+      type: String,
+      validator(value) {
+        return ["primary", "secondary", "tertiary", "tertiary-no-background", "tertiary-on-primary", "error", "warning", "success"].indexOf(value) !== -1;
+      },
+      default: null
+    },
+    /**
+     * Icon to show for the toggle menu button
+     * when more than one action is inside the actions component.
+     * Only replace the default three-dot icon if really necessary.
+     */
+    defaultIcon: {
+      type: String,
+      default: ""
+    },
+    /**
+     * Aria label for the actions menu.
+     *
+     * If `menuName` is defined this will not be used to prevent
+     * any accessible name conflicts. This ensures that the
+     * element can be activated via voice input.
+     */
+    ariaLabel: {
+      type: String,
+      default: (0,_l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_5__.a)("Actions")
+    },
+    /**
+     * @deprecated To be removed in @nextcloud/vue 9. Migration guide: remove ariaHidden prop from NcAction* components.
+     * @todo Add a check in @nextcloud/vue 9 that this prop is not provided,
+     * otherwise root element will inherit incorrect aria-hidden.
+     */
+    ariaHidden: {
+      type: Boolean,
+      default: null
+    },
+    /**
+     * Wanted direction of the menu
+     */
+    placement: {
+      type: String,
+      default: "bottom"
+    },
+    /**
+     * DOM element for the actions' popover boundaries
+     */
+    boundariesElement: {
+      type: Element,
+      default: () => document.querySelector("body")
+    },
+    /**
+     * Selector for the actions' popover container
+     */
+    container: {
+      type: [String, Object, Element, Boolean],
+      default: "body"
+    },
+    /**
+     * Disabled state of the main button (single action or menu toggle)
+     */
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Display x items inline out of the dropdown menu
+     * Will be ignored if `forceMenu` is set
+     */
+    inline: {
+      type: Number,
+      default: 0
+    }
+  },
+  emits: [
+    "open",
+    "update:open",
+    "close",
+    "focus",
+    "blur",
+    "click"
+  ],
+  data() {
+    return {
+      opened: this.open,
+      focusIndex: 0,
+      randomId: `menu-${(0,_GenRandomId_bekVfSd8_mjs__WEBPACK_IMPORTED_MODULE_3__.G)()}`,
+      /**
+       * @type {'menu'|'navigation'|'dialog'|'tooltip'|''}
+       */
+      actionsMenuSemanticType: "",
+      externalFocusTrapStack: []
+    };
+  },
+  computed: {
+    triggerBtnType() {
+      return this.type || (this.primary ? "primary" : this.menuName ? "secondary" : "tertiary");
+    },
+    withFocusTrap() {
+      return this.actionsMenuSemanticType === "dialog";
+    }
+  },
+  watch: {
+    // Watch parent prop
+    open(state) {
+      if (state === this.opened) {
+        return;
+      }
+      this.opened = state;
+    },
+    opened() {
+      this.intersectIntoCurrentFocusTrapStack();
+    }
+  },
+  methods: {
+    /**
+     * Get the name of the action component
+     *
+     * @param {import('vue').VNode} action - a vnode with a NcAction* component instance
+     * @return {string} the name of the action component
+     */
+    getActionName(action) {
+      return action?.componentOptions?.Ctor?.extendOptions?.name ?? action?.componentOptions?.tag;
+    },
+    /**
+     * When the component has its own focus trap, then it is managed by global trap stack by focus-trap.
+     *
+     * However if the component has no focus trap and is used inside another focus trap - there is an issue.
+     * By default popover content is rendered in body or other container, which is likely outside the current focus trap containers.
+     * It results in broken behavior from focus-trap.
+     *
+     * We need to pause all the focus traps for opening popover and then unpause them back after closing.
+     */
+    intersectIntoCurrentFocusTrapStack() {
+      if (this.withFocusTrap) {
+        return;
+      }
+      if (this.opened) {
+        this.externalFocusTrapStack = [...(0,_focusTrap_Mgj6f_TI_mjs__WEBPACK_IMPORTED_MODULE_4__.g)()];
+        for (const trap of this.externalFocusTrapStack) {
+          trap.pause();
+        }
+      } else {
+        for (const trap of this.externalFocusTrapStack) {
+          trap.unpause();
+        }
+        this.externalFocusTrapStack = [];
+      }
+    },
+    /**
+     * Do we have exactly one Action and
+     * is it allowed as a standalone element?
+     *
+     * @param {import('vue').VNode} action The action to check
+     * @return {boolean}
+     */
+    isValidSingleAction(action) {
+      return ["NcActionButton", "NcActionLink", "NcActionRouter"].includes(this.getActionName(action));
+    },
+    /**
+     * Check whether a icon prop value is an URL or not
+     * @param {string} url The icon prop value
+     */
+    isIconUrl(url) {
+      try {
+        return !!new URL(url, url.startsWith("/") ? window.location.origin : void 0);
+      } catch (error) {
+        return false;
+      }
+    },
+    // MENU STATE MANAGEMENT
+    openMenu(e) {
+      if (this.opened) {
+        return;
+      }
+      this.opened = true;
+      this.$emit("update:open", true);
+      this.$emit("open");
+    },
+    closeMenu(returnFocus = true) {
+      if (!this.opened) {
+        return;
+      }
+      this.opened = false;
+      this.$refs.popover.clearFocusTrap({ returnFocus });
+      this.$emit("update:open", false);
+      this.$emit("close");
+      this.focusIndex = 0;
+      if (returnFocus) {
+        this.$refs.menuButton.$el.focus();
+      }
+    },
+    onOpen(event) {
+      this.$nextTick(() => {
+        this.focusFirstAction(event);
+      });
+    },
+    // MENU KEYS & FOCUS MANAGEMENT
+    // focus nearest focusable item on mouse move
+    // DO NOT change the focus if the target is already focused
+    // this will prevent issues with input being unfocused
+    // on mouse move
+    onMouseFocusAction(event) {
+      if (document.activeElement === event.target) {
+        return;
+      }
+      const menuItem = event.target.closest("li");
+      if (menuItem && this.$refs.menu.contains(menuItem)) {
+        const focusableItem = menuItem.querySelector(focusableSelector);
+        if (focusableItem) {
+          const focusList = this.$refs.menu.querySelectorAll(focusableSelector);
+          const focusIndex = [...focusList].indexOf(focusableItem);
+          if (focusIndex > -1) {
+            this.focusIndex = focusIndex;
+            this.focusAction();
+          }
+        }
+      }
+    },
+    /**
+     * Dispatches the keydown listener to different handlers
+     *
+     * @param {object} event The keydown event
+     */
+    onKeydown(event) {
+      if (event.key === "Tab" && !this.withFocusTrap) {
+        this.closeMenu(true);
+      }
+      if (event.key === "ArrowUp") {
+        this.focusPreviousAction(event);
+      }
+      if (event.key === "ArrowDown") {
+        this.focusNextAction(event);
+      }
+      if (event.key === "PageUp") {
+        this.focusFirstAction(event);
+      }
+      if (event.key === "PageDown") {
+        this.focusLastAction(event);
+      }
+      if (event.key === "Escape") {
+        this.closeMenu();
+        event.preventDefault();
+      }
+    },
+    removeCurrentActive() {
+      const currentActiveElement = this.$refs.menu.querySelector("li.active");
+      if (currentActiveElement) {
+        currentActiveElement.classList.remove("active");
+      }
+    },
+    focusAction() {
+      const focusElement = this.$refs.menu.querySelectorAll(focusableSelector)[this.focusIndex];
+      if (focusElement) {
+        this.removeCurrentActive();
+        const liMenuParent = focusElement.closest("li.action");
+        focusElement.focus();
+        if (liMenuParent) {
+          liMenuParent.classList.add("active");
+        }
+      }
+    },
+    focusPreviousAction(event) {
+      if (this.opened) {
+        if (this.focusIndex === 0) {
+          this.focusLastAction(event);
+        } else {
+          this.preventIfEvent(event);
+          this.focusIndex = this.focusIndex - 1;
+        }
+        this.focusAction();
+      }
+    },
+    focusNextAction(event) {
+      if (this.opened) {
+        const indexLength = this.$refs.menu.querySelectorAll(focusableSelector).length - 1;
+        if (this.focusIndex === indexLength) {
+          this.focusFirstAction(event);
+        } else {
+          this.preventIfEvent(event);
+          this.focusIndex = this.focusIndex + 1;
+        }
+        this.focusAction();
+      }
+    },
+    focusFirstAction(event) {
+      if (this.opened) {
+        this.preventIfEvent(event);
+        const firstSelectedIndex = [...this.$refs.menu.querySelectorAll(focusableSelector)].findIndex((button) => {
+          return button.parentElement.getAttribute("aria-selected");
+        });
+        this.focusIndex = firstSelectedIndex > -1 ? firstSelectedIndex : 0;
+        this.focusAction();
+      }
+    },
+    focusLastAction(event) {
+      if (this.opened) {
+        this.preventIfEvent(event);
+        this.focusIndex = this.$refs.menu.querySelectorAll(focusableSelector).length - 1;
+        this.focusAction();
+      }
+    },
+    preventIfEvent(event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    },
+    onFocus(event) {
+      this.$emit("focus", event);
+    },
+    onBlur(event) {
+      this.$emit("blur", event);
+      if (this.actionsMenuSemanticType === "tooltip") {
+        if (this.$refs.menu && this.$refs.menu.querySelectorAll(focusableSelector).length === 0) {
+          this.closeMenu(false);
+        }
+      }
+    },
+    onClick(event) {
+      this.$emit("click", event);
+    }
+  },
+  /**
+   * The render function to display the component
+   *
+   * @param {Function} h The function to create VNodes
+   * @return {object|undefined} The created VNode
+   */
+  render(h) {
+    const actions = (this.$slots.default || []).filter((action) => this.getActionName(action));
+    if (actions.length === 0) {
+      return;
+    }
+    let validInlineActions = actions.filter(this.isValidSingleAction);
+    if (this.forceMenu && validInlineActions.length > 0 && this.inline > 0) {
+      vue__WEBPACK_IMPORTED_MODULE_8__["default"].util.warn("Specifying forceMenu will ignore any inline actions rendering.");
+      validInlineActions = [];
+    }
+    const inlineActions = validInlineActions.slice(0, this.inline);
+    const menuActions = actions.filter((action) => !inlineActions.includes(action));
+    const menuItemsActions = ["NcActionButton", "NcActionButtonGroup", "NcActionCheckbox", "NcActionRadio"];
+    const textInputActions = ["NcActionInput", "NcActionTextEditable"];
+    const linkActions = ["NcActionLink", "NcActionRouter"];
+    const hasTextInputAction = menuActions.some((action) => textInputActions.includes(this.getActionName(action)));
+    const hasMenuItemAction = menuActions.some((action) => menuItemsActions.includes(this.getActionName(action)));
+    const hasLinkAction = menuActions.some((action) => linkActions.includes(this.getActionName(action)));
+    if (hasTextInputAction) {
+      this.actionsMenuSemanticType = "dialog";
+    } else if (hasMenuItemAction) {
+      this.actionsMenuSemanticType = "menu";
+    } else if (hasLinkAction) {
+      this.actionsMenuSemanticType = "navigation";
+    } else {
+      const ncActions = actions.filter((action) => this.getActionName(action).startsWith("NcAction"));
+      if (ncActions.length === actions.length) {
+        this.actionsMenuSemanticType = "tooltip";
+      } else {
+        this.actionsMenuSemanticType = "dialog";
+      }
+    }
+    const actionsRoleToHtmlPopupRole = {
+      dialog: "dialog",
+      menu: "menu",
+      navigation: "true",
+      tooltip: "true"
+    };
+    const popupRole = actionsRoleToHtmlPopupRole[this.actionsMenuSemanticType];
+    const renderInlineAction = (action) => {
+      const iconProp = action?.componentOptions?.propsData?.icon;
+      const icon = action?.data?.scopedSlots?.icon()?.[0] ?? (this.isIconUrl(iconProp) ? h("img", { class: "action-item__menutoggle__icon", attrs: { src: iconProp, alt: "" } }) : h("span", { class: ["icon", iconProp] }));
+      const attrs = action?.data?.attrs || {};
+      const clickListener = action?.componentOptions?.listeners?.click;
+      const text = action?.componentOptions?.children?.[0]?.text?.trim?.();
+      const ariaLabel = action?.componentOptions?.propsData?.ariaLabel || text;
+      const buttonText = this.forceName ? text : "";
+      let title = action?.componentOptions?.propsData?.title;
+      if (!(this.forceName || title)) {
+        title = text;
+      }
+      const propsToForward = { ...action?.componentOptions?.propsData ?? {} };
+      const nativeType = ["submit", "reset"].includes(propsToForward.type) ? propsToForward.modelValue : "button";
+      delete propsToForward.modelValue;
+      delete propsToForward.type;
+      return h(
+        "NcButton",
+        {
+          class: [
+            "action-item action-item--single",
+            action?.data?.staticClass,
+            action?.data?.class
+          ],
+          attrs: {
+            ...attrs,
+            "aria-label": ariaLabel,
+            title
+          },
+          ref: action?.data?.ref,
+          props: {
+            // If it has a menuName, we use a secondary button
+            type: this.type || (buttonText ? "secondary" : "tertiary"),
+            disabled: this.disabled || action?.componentOptions?.propsData?.disabled,
+            pressed: action?.componentOptions?.propsData?.modelValue,
+            nativeType,
+            ...propsToForward
+          },
+          on: {
+            focus: this.onFocus,
+            blur: this.onBlur,
+            // forward any pressed state from NcButton just like NcActionButton does
+            "update:pressed": action?.componentOptions?.listeners?.["update:modelValue"] ?? (() => {
+            }),
+            // If we have a click listener,
+            // we bind it to execute on click and forward the click event
+            ...!!clickListener && {
+              click: (event) => {
+                if (clickListener) {
+                  clickListener(event);
+                }
+              }
+            }
+          }
+        },
+        [
+          h("template", { slot: "icon" }, [icon]),
+          buttonText
+        ]
+      );
+    };
+    const renderActionsPopover = (actions2) => {
+      const triggerIcon = this.$slots.icon?.[0] || (this.defaultIcon ? h("span", { class: ["icon", this.defaultIcon] }) : h("DotsHorizontal", {
+        props: {
+          size: 20
+        }
+      }));
+      return h(
+        "NcPopover",
+        {
+          ref: "popover",
+          props: {
+            delay: 0,
+            handleResize: true,
+            shown: this.opened,
+            placement: this.placement,
+            boundary: this.boundariesElement,
+            container: this.container,
+            popoverBaseClass: "action-item__popper",
+            popupRole,
+            setReturnFocus: this.withFocusTrap ? this.$refs.menuButton?.$el : null,
+            focusTrap: this.withFocusTrap
+          },
+          // For some reason the popover component
+          // does not react to props given under the 'props' key,
+          // so we use both 'attrs' and 'props'
+          attrs: {
+            delay: 0,
+            handleResize: true,
+            shown: this.opened,
+            placement: this.placement,
+            boundary: this.boundariesElement,
+            container: this.container,
+            ...this.manualOpen && { triggers: [] }
+          },
+          on: {
+            show: this.openMenu,
+            "after-show": this.onOpen,
+            hide: this.closeMenu
+          }
+        },
+        [
+          h("NcButton", {
+            class: "action-item__menutoggle",
+            props: {
+              type: this.triggerBtnType,
+              disabled: this.disabled
+            },
+            slot: "trigger",
+            ref: "menuButton",
+            attrs: {
+              "aria-label": this.menuName ? null : this.ariaLabel,
+              "aria-controls": this.opened ? this.randomId : null
+            },
+            on: {
+              focus: this.onFocus,
+              blur: this.onBlur,
+              click: this.onClick
+            }
+          }, [
+            h("template", { slot: "icon" }, [triggerIcon]),
+            this.menuName
+          ]),
+          h("div", {
+            class: {
+              open: this.opened
+            },
+            attrs: {
+              tabindex: "-1"
+            },
+            on: {
+              keydown: this.onKeydown,
+              mousemove: this.onMouseFocusAction
+            },
+            ref: "menu"
+          }, [
+            h("ul", {
+              attrs: {
+                id: this.randomId,
+                tabindex: "-1",
+                role: popupRole !== "true" ? popupRole : void 0
+                // TODO: allow to provide dialog aria-label
+              }
+            }, [
+              actions2
+            ])
+          ])
+        ]
+      );
+    };
+    if (actions.length === 1 && validInlineActions.length === 1 && !this.forceMenu) {
+      return renderInlineAction(actions[0]);
+    }
+    this.$nextTick(() => {
+      if (this.opened && this.$refs.menu) {
+        const isAnyActive = this.$refs.menu.querySelector("li.active") || [];
+        if (isAnyActive.length === 0) {
+          this.focusFirstAction();
+        }
+      }
+    });
+    if (inlineActions.length > 0 && this.inline > 0) {
+      return h(
+        "div",
+        {
+          class: [
+            "action-items",
+            `action-item--${this.triggerBtnType}`
+          ]
+        },
+        [
+          // Render inline actions
+          ...inlineActions.map(renderInlineAction),
+          // render the rest within the popover menu
+          menuActions.length > 0 ? h(
+            "div",
+            {
+              class: [
+                "action-item",
+                {
+                  "action-item--open": this.opened
+                }
+              ]
+            },
+            [
+              renderActionsPopover(menuActions)
+            ]
+          ) : null
+        ]
+      );
+    }
+    return h(
+      "div",
+      {
+        class: [
+          "action-item action-item--default-popover",
+          `action-item--${this.triggerBtnType}`,
+          {
+            "action-item--open": this.opened
+          }
+        ]
+      },
+      [
+        renderActionsPopover(actions)
+      ]
+    );
+  }
+};
+const _sfc_render = null;
+const _sfc_staticRenderFns = null;
+var __component__ = /* @__PURE__ */ (0,_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_7__.n)(
+  _sfc_main,
+  _sfc_render,
+  _sfc_staticRenderFns,
+  false,
+  null,
+  "0d636de9",
+  null,
+  null
+);
+const NcActions = __component__.exports;
+
+//# sourceMappingURL=NcActions-J2kuH7GX.mjs.map
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/chunks/NcPasswordField-ebuH_Hkx.mjs":
+/*!*****************************************************************!*\
+  !*** ../nextcloud-vue/dist/chunks/NcPasswordField-ebuH_Hkx.mjs ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   N: () => (/* binding */ NcPasswordField)
+/* harmony export */ });
+/* harmony import */ var _plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_plugin-vue2_normalizer-Ewhtj4Do.mjs */ "../nextcloud-vue/dist/chunks/_plugin-vue2_normalizer-Ewhtj4Do.mjs");
+/* harmony import */ var _Components_NcInputField_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/NcInputField.mjs */ "../nextcloud-vue/dist/Components/NcInputField.mjs");
+/* harmony import */ var debounce__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! debounce */ "../nextcloud-vue/node_modules/debounce/index.js");
+/* harmony import */ var _nextcloud_axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nextcloud/axios */ "../nextcloud-vue/node_modules/@nextcloud/axios/dist/index.es.mjs");
+/* harmony import */ var _nextcloud_initial_state__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @nextcloud/initial-state */ "../nextcloud-vue/node_modules/@nextcloud/initial-state/dist/index.es.mjs");
+/* harmony import */ var _nextcloud_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @nextcloud/router */ "../nextcloud-vue/node_modules/@nextcloud/router/dist/index.js");
+/* harmony import */ var _l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./_l10n-Au_T0Ikx.mjs */ "../nextcloud-vue/dist/chunks/_l10n-Au_T0Ikx.mjs");
+/* harmony import */ var _logger_NqlBlfJu_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./logger-NqlBlfJu.mjs */ "../nextcloud-vue/dist/chunks/logger-NqlBlfJu.mjs");
+
+
+
+
+
+
+
+
+const _sfc_main$2 = {
+  name: "EyeIcon",
+  emits: ["click"],
+  props: {
+    title: {
+      type: String
+    },
+    fillColor: {
+      type: String,
+      default: "currentColor"
+    },
+    size: {
+      type: Number,
+      default: 24
+    }
+  }
+};
+var _sfc_render$2 = function render() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("span", _vm._b({ staticClass: "material-design-icon eye-icon", attrs: { "aria-hidden": !_vm.title, "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
+    return _vm.$emit("click", $event);
+  } } }, "span", _vm.$attrs, false), [_c("svg", { staticClass: "material-design-icon__svg", attrs: { "fill": _vm.fillColor, "width": _vm.size, "height": _vm.size, "viewBox": "0 0 24 24" } }, [_c("path", { attrs: { "d": "M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" } }, [_vm.title ? _c("title", [_vm._v(_vm._s(_vm.title))]) : _vm._e()])])]);
+};
+var _sfc_staticRenderFns$2 = [];
+var __component__$2 = /* @__PURE__ */ (0,_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_0__.n)(
+  _sfc_main$2,
+  _sfc_render$2,
+  _sfc_staticRenderFns$2,
+  false,
+  null,
+  null,
+  null,
+  null
+);
+const Eye = __component__$2.exports;
+const _sfc_main$1 = {
+  name: "EyeOffIcon",
+  emits: ["click"],
+  props: {
+    title: {
+      type: String
+    },
+    fillColor: {
+      type: String,
+      default: "currentColor"
+    },
+    size: {
+      type: Number,
+      default: 24
+    }
+  }
+};
+var _sfc_render$1 = function render2() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("span", _vm._b({ staticClass: "material-design-icon eye-off-icon", attrs: { "aria-hidden": !_vm.title, "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
+    return _vm.$emit("click", $event);
+  } } }, "span", _vm.$attrs, false), [_c("svg", { staticClass: "material-design-icon__svg", attrs: { "fill": _vm.fillColor, "width": _vm.size, "height": _vm.size, "viewBox": "0 0 24 24" } }, [_c("path", { attrs: { "d": "M11.83,9L15,12.16C15,12.11 15,12.05 15,12A3,3 0 0,0 12,9C11.94,9 11.89,9 11.83,9M7.53,9.8L9.08,11.35C9.03,11.56 9,11.77 9,12A3,3 0 0,0 12,15C12.22,15 12.44,14.97 12.65,14.92L14.2,16.47C13.53,16.8 12.79,17 12,17A5,5 0 0,1 7,12C7,11.21 7.2,10.47 7.53,9.8M2,4.27L4.28,6.55L4.73,7C3.08,8.3 1.78,10 1,12C2.73,16.39 7,19.5 12,19.5C13.55,19.5 15.03,19.2 16.38,18.66L16.81,19.08L19.73,22L21,20.73L3.27,3M12,7A5,5 0 0,1 17,12C17,12.64 16.87,13.26 16.64,13.82L19.57,16.75C21.07,15.5 22.27,13.86 23,12C21.27,7.61 17,4.5 12,4.5C10.6,4.5 9.26,4.75 8,5.2L10.17,7.35C10.74,7.13 11.35,7 12,7Z" } }, [_vm.title ? _c("title", [_vm._v(_vm._s(_vm.title))]) : _vm._e()])])]);
+};
+var _sfc_staticRenderFns$1 = [];
+var __component__$1 = /* @__PURE__ */ (0,_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_0__.n)(
+  _sfc_main$1,
+  _sfc_render$1,
+  _sfc_staticRenderFns$1,
+  false,
+  null,
+  null,
+  null,
+  null
+);
+const EyeOff = __component__$1.exports;
+(0,_l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_5__.r)(_l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_5__.q);
+const passwordPolicy = (0,_nextcloud_initial_state__WEBPACK_IMPORTED_MODULE_3__.loadState)("core", "capabilities", {}).password_policy || null;
+const NcInputFieldProps = new Set(Object.keys(_Components_NcInputField_mjs__WEBPACK_IMPORTED_MODULE_1__["default"].props));
+const _sfc_main = {
+  name: "NcPasswordField",
+  components: {
+    NcInputField: _Components_NcInputField_mjs__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Eye,
+    EyeOff
+  },
+  // Allow forwarding all attributes
+  inheritAttrs: false,
+  props: {
+    /**
+     * Any [NcInputField](#/Components/NcFields?id=ncinputfield) props
+     */
+    // Not an actual prop but needed to show in vue-styleguidist docs
+    // eslint-disable-next-line
+    " ": {},
+    // Reuse all the props from NcInputField for better typing and documentation
+    ..._Components_NcInputField_mjs__WEBPACK_IMPORTED_MODULE_1__["default"].props,
+    // Redefined props
+    /**
+     * Controls whether to display the trailing button.
+     */
+    showTrailingButton: {
+      type: Boolean,
+      default: true
+    },
+    // Removed NcInputField props, defined only by this component
+    trailingButtonLabel: void 0,
+    // Custom props
+    /**
+     * Check if the user entered a valid password using the password_policy
+     * app if available.
+     *
+     * Warning: this doesn't replace server side checking and will do nothing
+     * if the password_policy app is disabled.
+     */
+    checkPasswordStrength: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * The minlength property defines the minimum number of characters
+     * (as UTF-16 code units) the user can enter
+     */
+    minlength: {
+      type: Number,
+      default: 0
+    },
+    /**
+     * The maxlength property defines the maximum number of characters
+     * (as UTF-16 code units) the user can enter
+     */
+    maxlength: {
+      type: Number,
+      default: null
+    }
+  },
+  emits: [
+    "valid",
+    "invalid",
+    "update:value"
+  ],
+  data() {
+    return {
+      isPasswordHidden: true,
+      internalHelpMessage: "",
+      isValid: null
+    };
+  },
+  computed: {
+    computedError() {
+      return this.error || this.isValid === false;
+    },
+    computedSuccess() {
+      return this.success || this.isValid === true;
+    },
+    computedHelperText() {
+      if (this.helperText.length > 0) {
+        return this.helperText;
+      }
+      return this.internalHelpMessage;
+    },
+    rules() {
+      const { minlength } = this;
+      return {
+        minlength: minlength ?? passwordPolicy?.minLength
+      };
+    },
+    trailingButtonLabelPassword() {
+      return this.isPasswordHidden ? (0,_l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_5__.a)("Show password") : (0,_l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_5__.a)("Hide password");
+    },
+    propsAndAttrsToForward() {
+      return {
+        // Proxy all the HTML attributes
+        ...this.$attrs,
+        // Proxy original NcInputField's props
+        ...Object.fromEntries(
+          Object.entries(this.$props).filter(([key]) => NcInputFieldProps.has(key))
+        )
+      };
+    }
+  },
+  watch: {
+    value(newValue) {
+      if (this.checkPasswordStrength) {
+        if (passwordPolicy === null) {
+          return;
+        }
+        this.checkPassword(newValue);
+      }
+    }
+  },
+  methods: {
+    /**
+     * Focus the input element
+     *
+     * @public
+     */
+    focus() {
+      this.$refs.inputField.focus();
+    },
+    /**
+     * Select all the text in the input
+     *
+     * @public
+     */
+    select() {
+      this.$refs.inputField.select();
+    },
+    handleInput(event) {
+      this.$emit("update:value", event.target.value);
+    },
+    togglePasswordVisibility() {
+      this.isPasswordHidden = !this.isPasswordHidden;
+    },
+    checkPassword: debounce__WEBPACK_IMPORTED_MODULE_7__(async function(password) {
+      try {
+        const { data } = await _nextcloud_axios__WEBPACK_IMPORTED_MODULE_2__["default"].post((0,_nextcloud_router__WEBPACK_IMPORTED_MODULE_4__.generateOcsUrl)("apps/password_policy/api/v1/validate"), { password });
+        this.isValid = data.ocs.data.passed;
+        if (data.ocs.data.passed) {
+          this.internalHelpMessage = (0,_l10n_Au_T0Ikx_mjs__WEBPACK_IMPORTED_MODULE_5__.a)("Password is secure");
+          this.$emit("valid");
+          return;
+        }
+        this.internalHelpMessage = data.ocs.data.reason;
+        this.$emit("invalid");
+      } catch (e) {
+        _logger_NqlBlfJu_mjs__WEBPACK_IMPORTED_MODULE_6__.l.error("Password policy returned an error", e);
+      }
+    }, 500)
+  }
+};
+var _sfc_render = function render3() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("NcInputField", _vm._g(_vm._b({ ref: "inputField", attrs: { "type": _vm.isPasswordHidden ? "password" : "text", "trailing-button-label": _vm.trailingButtonLabelPassword, "helper-text": _vm.computedHelperText, "error": _vm.computedError, "success": _vm.computedSuccess, "minlength": _vm.rules.minlength }, on: { "trailing-button-click": _vm.togglePasswordVisibility, "input": _vm.handleInput }, scopedSlots: _vm._u([{ key: "trailing-button-icon", fn: function() {
+    return [_vm.isPasswordHidden ? _c("Eye", { attrs: { "size": 18 } }) : _c("EyeOff", { attrs: { "size": 18 } })];
+  }, proxy: true }]) }, "NcInputField", _vm.propsAndAttrsToForward, false), _vm.$listeners), [_vm._t("default")], 2);
+};
+var _sfc_staticRenderFns = [];
+var __component__ = /* @__PURE__ */ (0,_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_0__.n)(
+  _sfc_main,
+  _sfc_render,
+  _sfc_staticRenderFns,
+  false,
+  null,
+  null,
+  null,
+  null
+);
+const NcPasswordField = __component__.exports;
+
+//# sourceMappingURL=NcPasswordField-ebuH_Hkx.mjs.map
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/chunks/NcPopover-bHEdiq4K.mjs":
+/*!***********************************************************!*\
+  !*** ../nextcloud-vue/dist/chunks/NcPopover-bHEdiq4K.mjs ***!
+  \***********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   N: () => (/* binding */ NcPopover)
+/* harmony export */ });
+/* harmony import */ var _assets_NcPopover_cCNYT88q_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/NcPopover-cCNYT88q.css */ "../nextcloud-vue/dist/assets/NcPopover-cCNYT88q.css");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.runtime.esm.js");
+/* harmony import */ var floating_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! floating-vue */ "../nextcloud-vue/node_modules/floating-vue/dist/floating-vue.es.js");
+/* harmony import */ var focus_trap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! focus-trap */ "../nextcloud-vue/node_modules/focus-trap/dist/focus-trap.esm.js");
+/* harmony import */ var _focusTrap_Mgj6f_TI_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./focusTrap-Mgj6f-TI.mjs */ "../nextcloud-vue/dist/chunks/focusTrap-Mgj6f-TI.mjs");
+/* harmony import */ var _plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_plugin-vue2_normalizer-Ewhtj4Do.mjs */ "../nextcloud-vue/dist/chunks/_plugin-vue2_normalizer-Ewhtj4Do.mjs");
+/* provided dependency */ var console = __webpack_require__(/*! ./node_modules/console-browserify/index.js */ "./node_modules/console-browserify/index.js");
+
+
+
+
+
+
+const _sfc_main$1 = (0,vue__WEBPACK_IMPORTED_MODULE_4__.defineComponent)({
+  name: "NcPopoverTriggerProvider",
+  provide() {
+    return {
+      "NcPopover:trigger:shown": () => this.shown,
+      "NcPopover:trigger:attrs": () => this.triggerAttrs
+    };
+  },
+  props: {
+    shown: {
+      type: Boolean,
+      required: true
+    },
+    popupRole: {
+      type: String,
+      required: true
+    }
+  },
+  computed: {
+    triggerAttrs() {
+      return {
+        "aria-haspopup": this.popupRole,
+        "aria-expanded": this.shown.toString()
+      };
+    }
+  },
+  render() {
+    return this.$scopedSlots.default?.({
+      attrs: this.triggerAttrs
+    });
+  }
+});
+const _sfc_render$1 = null;
+const _sfc_staticRenderFns$1 = null;
+var __component__$1 = /* @__PURE__ */ (0,_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_3__.n)(
+  _sfc_main$1,
+  _sfc_render$1,
+  _sfc_staticRenderFns$1,
+  false,
+  null,
+  null,
+  null,
+  null
+);
+const NcPopoverTriggerProvider = __component__$1.exports;
+const _sfc_main = {
+  name: "NcPopover",
+  components: {
+    Dropdown: floating_vue__WEBPACK_IMPORTED_MODULE_1__.Dropdown,
+    NcPopoverTriggerProvider
+  },
+  inheritAttrs: false,
+  props: {
+    /**
+     * Show or hide the popper
+     * @see https://floating-vue.starpad.dev/api/#shown
+     */
+    shown: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Popup role
+     * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup#values
+     */
+    popupRole: {
+      type: String,
+      default: "true",
+      validator: (value) => ["menu", "listbox", "tree", "grid", "dialog", "true"].includes(value)
+    },
+    popoverBaseClass: {
+      type: String,
+      default: ""
+    },
+    /**
+     * Enable popover focus trap
+     */
+    focusTrap: {
+      type: Boolean,
+      default: true
+    },
+    /**
+     * Set element to return focus to after focus trap deactivation
+     *
+     * @type {import('focus-trap').FocusTargetValueOrFalse}
+     */
+    setReturnFocus: {
+      default: void 0,
+      type: [HTMLElement, SVGElement, String, Boolean]
+    }
+  },
+  emits: [
+    "after-show",
+    "after-hide",
+    /**
+     * @see https://floating-vue.starpad.dev/api/#update-shown
+     */
+    "update:shown"
+  ],
+  data() {
+    return {
+      internalShown: this.shown
+    };
+  },
+  watch: {
+    shown(value) {
+      this.internalShown = value;
+    },
+    internalShown(value) {
+      this.$emit("update:shown", value);
+    }
+  },
+  mounted() {
+    this.checkTriggerA11y();
+  },
+  beforeDestroy() {
+    this.clearFocusTrap();
+    this.clearEscapeStopPropagation();
+  },
+  methods: {
+    /**
+     * Check if the trigger has all required a11y attributes.
+     * Important to check custom trigger button.
+     */
+    checkTriggerA11y() {
+      if (window.OC?.debug) {
+        const triggerContainer = this.$refs.popover.$refs.reference;
+        const requiredTriggerButton = triggerContainer.querySelector("[aria-expanded][aria-haspopup]");
+        if (!requiredTriggerButton) {
+          vue__WEBPACK_IMPORTED_MODULE_4__["default"].util.warn("It looks like you are using a custom button as a <NcPopover> or other popover #trigger. If you are not using <NcButton> as a trigger, you need to bind attrs from the #trigger slot props to your custom button. See <NcPopover> docs for an example.");
+        }
+      }
+    },
+    /**
+     * @return {HTMLElement|undefined}
+     */
+    getPopoverContentElement() {
+      return this.$refs.popover?.$refs.popperContent?.$el;
+    },
+    /**
+     * Add focus trap for accessibility.
+     */
+    async useFocusTrap() {
+      await this.$nextTick();
+      if (!this.focusTrap) {
+        return;
+      }
+      const el = this.getPopoverContentElement();
+      if (!el) {
+        return;
+      }
+      this.$focusTrap = (0,focus_trap__WEBPACK_IMPORTED_MODULE_5__.createFocusTrap)(el, {
+        // Prevents to lose focus using esc key
+        // Focus will be release when popover be hide
+        escapeDeactivates: false,
+        allowOutsideClick: true,
+        setReturnFocus: this.setReturnFocus,
+        trapStack: (0,_focusTrap_Mgj6f_TI_mjs__WEBPACK_IMPORTED_MODULE_2__.g)()
+      });
+      this.$focusTrap.activate();
+    },
+    /**
+     * Remove focus trap
+     *
+     * @param {object} options The configuration options for focusTrap
+     */
+    clearFocusTrap(options = {}) {
+      try {
+        this.$focusTrap?.deactivate(options);
+        this.$focusTrap = null;
+      } catch (err) {
+        console.warn(err);
+      }
+    },
+    /**
+     * Add stopPropagation for Escape.
+     * It prevents global Escape handling after closing popover.
+     *
+     * Manual event handling is used here instead of v-on because there is no direct access to the node.
+     * Alternative - wrap <template #popover> in a div wrapper.
+     */
+    addEscapeStopPropagation() {
+      const el = this.getPopoverContentElement();
+      el?.addEventListener("keydown", this.stopKeydownEscapeHandler);
+    },
+    /**
+     * Remove stop Escape handler
+     */
+    clearEscapeStopPropagation() {
+      const el = this.getPopoverContentElement();
+      el?.removeEventListener("keydown", this.stopKeydownEscapeHandler);
+    },
+    /**
+     * @param {KeyboardEvent} event - native keydown event
+     */
+    stopKeydownEscapeHandler(event) {
+      if (event.type === "keydown" && event.key === "Escape") {
+        event.stopPropagation();
+      }
+    },
+    afterShow() {
+      this.$nextTick(() => {
+        this.$emit("after-show");
+        this.useFocusTrap();
+        this.addEscapeStopPropagation();
+      });
+    },
+    afterHide() {
+      this.$emit("after-hide");
+      this.clearFocusTrap();
+      this.clearEscapeStopPropagation();
+    }
+  }
+};
+var _sfc_render = function render() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("Dropdown", _vm._g(_vm._b({ ref: "popover", attrs: { "distance": 10, "arrow-padding": 10, "no-auto-focus": true, "popper-class": _vm.popoverBaseClass, "shown": _vm.internalShown }, on: { "update:shown": function($event) {
+    _vm.internalShown = $event;
+  }, "apply-show": _vm.afterShow, "apply-hide": _vm.afterHide }, scopedSlots: _vm._u([{ key: "popper", fn: function() {
+    return [_vm._t("default")];
+  }, proxy: true }], null, true) }, "Dropdown", _vm.$attrs, false), _vm.$listeners), [_c("NcPopoverTriggerProvider", { attrs: { "shown": _vm.internalShown, "popup-role": _vm.popupRole }, scopedSlots: _vm._u([{ key: "default", fn: function(slotProps) {
+    return [_vm._t("trigger", null, null, slotProps)];
+  } }], null, true) })], 1);
+};
+var _sfc_staticRenderFns = [];
+var __component__ = /* @__PURE__ */ (0,_plugin_vue2_normalizer_Ewhtj4Do_mjs__WEBPACK_IMPORTED_MODULE_3__.n)(
+  _sfc_main,
+  _sfc_render,
+  _sfc_staticRenderFns,
+  false,
+  null,
+  null,
+  null,
+  null
+);
+const NcPopover = __component__.exports;
+
+//# sourceMappingURL=NcPopover-bHEdiq4K.mjs.map
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/chunks/ScopeComponent-f6Z-CQtX.mjs":
+/*!****************************************************************!*\
+  !*** ../nextcloud-vue/dist/chunks/ScopeComponent-f6Z-CQtX.mjs ***!
+  \****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   S: () => (/* binding */ ScopeComponent)
+/* harmony export */ });
+/**
+ * @copyright Copyright (c) 2018 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+const ScopeComponent = (Component) => {
+  if (!Component.mounted) {
+    Component.mounted = [];
+  } else if (!Array.isArray(Component.mounted)) {
+    Component.mounted = [Component.mounted];
+  }
+  Component.mounted.push(function() {
+    this.$el.setAttribute(`data-v-${"d0ee684"}`, "");
+  });
+};
+
+//# sourceMappingURL=ScopeComponent-f6Z-CQtX.mjs.map
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/chunks/_l10n-Au_T0Ikx.mjs":
+/*!*******************************************************!*\
+  !*** ../nextcloud-vue/dist/chunks/_l10n-Au_T0Ikx.mjs ***!
+  \*******************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (/* binding */ t35),
+/* harmony export */   B: () => (/* binding */ t27),
+/* harmony export */   C: () => (/* binding */ t31),
+/* harmony export */   D: () => (/* binding */ t8),
+/* harmony export */   E: () => (/* binding */ t25),
+/* harmony export */   F: () => (/* binding */ t29),
+/* harmony export */   G: () => (/* binding */ t16),
+/* harmony export */   H: () => (/* binding */ t32),
+/* harmony export */   I: () => (/* binding */ t13),
+/* harmony export */   J: () => (/* binding */ t10),
+/* harmony export */   K: () => (/* binding */ t42),
+/* harmony export */   L: () => (/* binding */ n),
+/* harmony export */   M: () => (/* binding */ t18),
+/* harmony export */   N: () => (/* binding */ t19),
+/* harmony export */   O: () => (/* binding */ t7),
+/* harmony export */   P: () => (/* binding */ t36),
+/* harmony export */   Q: () => (/* binding */ t33),
+/* harmony export */   R: () => (/* binding */ t20),
+/* harmony export */   S: () => (/* binding */ t26),
+/* harmony export */   T: () => (/* binding */ t11),
+/* harmony export */   a: () => (/* binding */ t),
+/* harmony export */   b: () => (/* binding */ t14),
+/* harmony export */   c: () => (/* binding */ t41),
+/* harmony export */   d: () => (/* binding */ t15),
+/* harmony export */   e: () => (/* binding */ t40),
+/* harmony export */   f: () => (/* binding */ t39),
+/* harmony export */   g: () => (/* binding */ t0),
+/* harmony export */   h: () => (/* binding */ t5),
+/* harmony export */   i: () => (/* binding */ t1),
+/* harmony export */   j: () => (/* binding */ t2),
+/* harmony export */   k: () => (/* binding */ t28),
+/* harmony export */   l: () => (/* binding */ t38),
+/* harmony export */   m: () => (/* binding */ t12),
+/* harmony export */   n: () => (/* binding */ t9),
+/* harmony export */   o: () => (/* binding */ t4),
+/* harmony export */   p: () => (/* binding */ t21),
+/* harmony export */   q: () => (/* binding */ t24),
+/* harmony export */   r: () => (/* binding */ register),
+/* harmony export */   s: () => (/* binding */ t37),
+/* harmony export */   t: () => (/* binding */ t3),
+/* harmony export */   u: () => (/* binding */ t34),
+/* harmony export */   v: () => (/* binding */ t30),
+/* harmony export */   w: () => (/* binding */ t6),
+/* harmony export */   x: () => (/* binding */ t17),
+/* harmony export */   y: () => (/* binding */ t23),
+/* harmony export */   z: () => (/* binding */ t22)
+/* harmony export */ });
+/* harmony import */ var _nextcloud_l10n_gettext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nextcloud/l10n/gettext */ "../nextcloud-vue/node_modules/@nextcloud/l10n/dist/gettext.mjs");
+
+const gettext = (0,_nextcloud_l10n_gettext__WEBPACK_IMPORTED_MODULE_0__.getGettextBuilder)().detectLocale().build();
+const n = gettext.ngettext.bind(gettext);
+const t = gettext.gettext.bind(gettext);
+const register = (...chunks) => {
+  chunks.forEach((chunk) => {
+    if (!chunk.registered) {
+      chunk.forEach(({ l: locale, t: translations }) => {
+        const decompressed = Object.fromEntries(
+          Object.entries(translations).map(([id, value]) => [
+            id,
+            {
+              msgid: id,
+              msgid_plural: value.p,
+              msgstr: value.v
+            }
+          ])
+        );
+        if (!gettext.gt.catalogs[locale]) {
+          gettext.gt.catalogs[locale] = { messages: { translations: {} } };
+        }
+        gettext.gt.catalogs[locale].messages.translations[""] = { ...gettext.gt.catalogs[locale].messages.translations[""], ...decompressed };
+      });
+      chunk.registered = true;
+    }
+  });
+};
+const t0 = [{ "l": "af", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "ar", "t": { "{tag} (restricted)": { "v": ["{tag} (مُقيّد)"] }, "Select a tag": { "v": ["إختَر سِمَةً tag"] } } }, { "l": "ast", "t": { "{tag} (restricted)": { "v": ["{tag} (restrinxóse)"] }, "Select a tag": { "v": ["Seleicionar una etiqueta"] } } }, { "l": "az", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "be", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "bg", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "bn_BD", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "br", "t": { "{tag} (restricted)": { "v": ["{tag} (bevennet)"] }, "Select a tag": { "v": ["Choaz ur c'hlav"] } } }, { "l": "bs", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "ca", "t": { "{tag} (restricted)": { "v": ["{tag} (restringit)"] }, "Select a tag": { "v": ["Seleccioneu una etiqueta"] } } }, { "l": "cs", "t": { "{tag} (restricted)": { "v": ["{tag} (omezené)"] }, "Select a tag": { "v": ["Vybrat štítek"] } } }, { "l": "cs_CZ", "t": { "{tag} (restricted)": { "v": ["{tag} (omezené)"] }, "Select a tag": { "v": ["Vybrat štítek"] } } }, { "l": "cy_GB", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "da", "t": { "{tag} (restricted)": { "v": ["{tag} (begrænset)"] }, "Select a tag": { "v": ["Vælg et mærke"] } } }, { "l": "de", "t": { "{tag} (restricted)": { "v": ["{tag} (eingeschränkt)"] }, "Select a tag": { "v": ["Schlagwort auswählen"] } } }, { "l": "de_DE", "t": { "{tag} (restricted)": { "v": ["{tag} (eingeschränkt)"] }, "Select a tag": { "v": ["Schlagwort auswählen"] } } }, { "l": "el", "t": { "{tag} (restricted)": { "v": ["{tag} (περιορισμένο)"] }, "Select a tag": { "v": ["Επιλογή ετικέτας"] } } }, { "l": "en_GB", "t": { "{tag} (restricted)": { "v": ["{tag} (restricted)"] }, "Select a tag": { "v": ["Select a tag"] } } }, { "l": "eo", "t": { "{tag} (restricted)": { "v": ["{tag} (limigita)"] }, "Select a tag": { "v": ["Elektu etikedon"] } } }, { "l": "es", "t": { "{tag} (restricted)": { "v": ["{tag} (restringido)"] }, "Select a tag": { "v": ["Seleccione una etiqueta"] } } }, { "l": "es_419", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "es_AR", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "es_CL", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "es_CO", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "es_CR", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "es_DO", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "es_EC", "t": { "{tag} (restricted)": { "v": ["{tag} (restricted)"] }, "Select a tag": { "v": ["Seleccionar una etiqueta"] } } }, { "l": "es_GT", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "es_HN", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "es_MX", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "es_NI", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "es_PA", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "es_PE", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "es_PR", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "es_PY", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "es_SV", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "es_UY", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "et_EE", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "eu", "t": { "{tag} (restricted)": { "v": ["{tag} (mugatua)"] }, "Select a tag": { "v": ["Hautatu etiketa bat"] } } }, { "l": "fa", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "fi", "t": { "{tag} (restricted)": { "v": ["{tag} (rajoitettu)"] }, "Select a tag": { "v": ["Valitse tagi"] } } }, { "l": "fo", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "fr", "t": { "{tag} (restricted)": { "v": ["{tag} (restreint)"] }, "Select a tag": { "v": ["Sélectionnez une balise"] } } }, { "l": "gd", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "gl", "t": { "{tag} (restricted)": { "v": ["{tag} (restrinxido)"] }, "Select a tag": { "v": ["Seleccione unha etiqueta"] } } }, { "l": "he", "t": { "{tag} (restricted)": { "v": ["{tag} (מוגבל)"] }, "Select a tag": { "v": ["בחירת תגית"] } } }, { "l": "hi_IN", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "hr", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "hsb", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "hu", "t": { "{tag} (restricted)": { "v": ["{tag} (korlátozott)"] }, "Select a tag": { "v": ["Válasszon címkét"] } } }, { "l": "hy", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "ia", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "id", "t": { "{tag} (restricted)": { "v": ["{tag} (dibatasi)"] }, "Select a tag": { "v": ["Pilih tag"] } } }, { "l": "ig", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "is", "t": { "{tag} (restricted)": { "v": ["{tag} (takmarkað)"] }, "Select a tag": { "v": ["Veldu merki"] } } }, { "l": "it", "t": { "{tag} (restricted)": { "v": ["{tag} (limitato)"] }, "Select a tag": { "v": ["Seleziona un'etichetta"] } } }, { "l": "ja", "t": { "{tag} (restricted)": { "v": ["{タグ} (制限付)"] }, "Select a tag": { "v": ["タグを選択"] } } }, { "l": "ka", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "ka_GE", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "kab", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "kk", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "km", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "kn", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "ko", "t": { "{tag} (restricted)": { "v": ["{tag}(제한)"] }, "Select a tag": { "v": [""] } } }, { "l": "la", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "lb", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "lo", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "lt_LT", "t": { "{tag} (restricted)": { "v": ["{tag} (apribota)"] }, "Select a tag": { "v": ["Pasirinkti žymę"] } } }, { "l": "lv", "t": { "{tag} (restricted)": { "v": ["{tag} (ierobežots)"] }, "Select a tag": { "v": ["Izvēlēties birku"] } } }, { "l": "mk", "t": { "{tag} (restricted)": { "v": ["{tag} (ограничено)"] }, "Select a tag": { "v": ["Избери ознака"] } } }, { "l": "mn", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "mr", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "ms_MY", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "my", "t": { "{tag} (restricted)": { "v": ["{tag} (ကန့်သတ်)"] }, "Select a tag": { "v": ["tag ရွေးချယ်ရန်"] } } }, { "l": "nb", "t": { "{tag} (restricted)": { "v": ["{tag} (beskyttet)"] }, "Select a tag": { "v": ["Velg en merkelapp"] } } }, { "l": "ne", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "nl", "t": { "{tag} (restricted)": { "v": ["{tag} (beperkt)"] }, "Select a tag": { "v": ["Selecteer een label"] } } }, { "l": "nn_NO", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "oc", "t": { "{tag} (restricted)": { "v": ["{tag} (limit)"] }, "Select a tag": { "v": ["Seleccionar una etiqueta"] } } }, { "l": "pl", "t": { "{tag} (restricted)": { "v": ["{tag} (ograniczona)"] }, "Select a tag": { "v": ["Wybierz etykietę"] } } }, { "l": "ps", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "pt_BR", "t": { "{tag} (restricted)": { "v": ["{tag} (restrito) "] }, "Select a tag": { "v": ["Selecionar uma tag"] } } }, { "l": "pt_PT", "t": { "{tag} (restricted)": { "v": ["{tag} (restrito)"] }, "Select a tag": { "v": ["Selecionar uma etiqueta"] } } }, { "l": "ro", "t": { "{tag} (restricted)": { "v": ["{tag} (restricționat)"] }, "Select a tag": { "v": ["Selectați o etichetă"] } } }, { "l": "ru", "t": { "{tag} (restricted)": { "v": ["{tag} (ограниченное)"] }, "Select a tag": { "v": ["Выберите метку"] } } }, { "l": "sc", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "si", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "sk", "t": { "{tag} (restricted)": { "v": ["{tag} (obmedzený)"] }, "Select a tag": { "v": ["Vybrať štítok"] } } }, { "l": "sl", "t": { "{tag} (restricted)": { "v": ["{tag} (omejeno)"] }, "Select a tag": { "v": ["Izbor oznake"] } } }, { "l": "sq", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "sr", "t": { "{tag} (restricted)": { "v": ["{tag} (ограничено)"] }, "Select a tag": { "v": ["Изаберите ознаку"] } } }, { "l": "sr@latin", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "sv", "t": { "{tag} (restricted)": { "v": ["{tag} (begränsad)"] }, "Select a tag": { "v": ["Välj en tag"] } } }, { "l": "sw", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "ta", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "th", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "tk", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "tr", "t": { "{tag} (restricted)": { "v": ["{tag} (kısıtlı)"] }, "Select a tag": { "v": ["Bir etiket seçin"] } } }, { "l": "ug", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "uk", "t": { "{tag} (restricted)": { "v": ["{tag} (обмежений)"] }, "Select a tag": { "v": ["Виберіть позначку"] } } }, { "l": "ur_PK", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "uz", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "vi", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }, { "l": "zh_CN", "t": { "{tag} (restricted)": { "v": ["{tag} （受限）"] }, "Select a tag": { "v": ["选择一个标签"] } } }, { "l": "zh_HK", "t": { "{tag} (restricted)": { "v": ["{tag} (受限)"] }, "Select a tag": { "v": ["選擇標籤"] } } }, { "l": "zh_TW", "t": { "{tag} (restricted)": { "v": ["{tag}（受限）"] }, "Select a tag": { "v": ["選擇標籤"] } } }, { "l": "zu_ZA", "t": { "{tag} (restricted)": { "v": [""] }, "Select a tag": { "v": [""] } } }];
+const t1 = [{ "l": "af", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "ar", "t": { "A color with a HEX value {hex}": { "v": ["لون بالقيمة الست عشرية {hex}"] }, "Back": { "v": ["عودة"] }, "Choose": { "v": ["إختَر"] }, "More options": { "v": ["خيارات أخرى ..."] } } }, { "l": "ast", "t": { "A color with a HEX value {hex}": { "v": ["Un color con un valor HEX {hex}"] }, "Back": { "v": ["Atrás"] }, "Choose": { "v": ["Escoyer"] }, "More options": { "v": ["Más opciones"] } } }, { "l": "az", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "be", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "bg", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "bn_BD", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "br", "t": { "Back": { "v": [""] }, "Choose": { "v": ["Dibab"] }, "More options": { "v": [""] } } }, { "l": "bs", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "ca", "t": { "Back": { "v": [""] }, "Choose": { "v": ["Tria"] }, "More options": { "v": [""] } } }, { "l": "cs", "t": { "Back": { "v": ["Zpět"] }, "Choose": { "v": ["Zvolit"] }, "More options": { "v": ["Další volby"] } } }, { "l": "cs_CZ", "t": { "A color with a HEX value {hex}": { "v": ["Barva vyjádřená HEX hodnotou {hex}"] }, "Back": { "v": ["Zpět"] }, "Choose": { "v": ["Zvolit"] }, "Color picker": { "v": ["Výběr barev"] }, "More options": { "v": ["Další volby"] } } }, { "l": "cy_GB", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "da", "t": { "Back": { "v": ["Tilbage"] }, "Choose": { "v": ["Vælg"] }, "More options": { "v": [""] } } }, { "l": "de", "t": { "A color with a HEX value {hex}": { "v": ["Eine Farbe mit einem HEX-Wert {hex}"] }, "Back": { "v": ["Zurück"] }, "Choose": { "v": ["Auswählen"] }, "More options": { "v": ["Weitere Optionen"] } } }, { "l": "de_DE", "t": { "A color with a HEX value {hex}": { "v": ["Eine Farbe mit einem HEX-Wert {hex}"] }, "Back": { "v": ["Zurück"] }, "Choose": { "v": ["Auswählen"] }, "Color picker": { "v": ["Farbauswahl"] }, "More options": { "v": ["Mehr Optionen"] } } }, { "l": "el", "t": { "Back": { "v": [""] }, "Choose": { "v": ["Επιλογή"] }, "More options": { "v": [""] } } }, { "l": "en_GB", "t": { "Back": { "v": ["Back"] }, "Choose": { "v": ["Choose"] }, "More options": { "v": ["More options"] } } }, { "l": "eo", "t": { "Back": { "v": [""] }, "Choose": { "v": ["Elektu"] }, "More options": { "v": [""] } } }, { "l": "es", "t": { "A color with a HEX value {hex}": { "v": ["Un color con un valor HEX {hex}"] }, "Back": { "v": ["Atrás"] }, "Choose": { "v": ["Escoger"] }, "Color picker": { "v": ["Selector de color"] }, "More options": { "v": ["Más opciones"] } } }, { "l": "es_419", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "es_AR", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "es_CL", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "es_CO", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "es_CR", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "es_DO", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "es_EC", "t": { "Back": { "v": ["Atrás"] }, "Choose": { "v": ["Elegir"] }, "More options": { "v": ["Más opciones"] } } }, { "l": "es_GT", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "es_HN", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "es_MX", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "es_NI", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "es_PA", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "es_PE", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "es_PR", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "es_PY", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "es_SV", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "es_UY", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "et_EE", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "eu", "t": { "Back": { "v": ["Atzera"] }, "Choose": { "v": ["Aukeratu"] }, "More options": { "v": ["Aukera gehiago"] } } }, { "l": "fa", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "fi", "t": { "Back": { "v": [""] }, "Choose": { "v": ["Valitse"] }, "More options": { "v": [""] } } }, { "l": "fo", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "fr", "t": { "A color with a HEX value {hex}": { "v": ["Une couleur de valeur HEX {hex}"] }, "Back": { "v": ["Retour"] }, "Choose": { "v": ["Choisir"] }, "More options": { "v": ["Plus d'options"] } } }, { "l": "gd", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "gl", "t": { "A color with a HEX value {hex}": { "v": ["Unha cor cun valor HEX {hex}"] }, "Back": { "v": ["Atrás"] }, "Choose": { "v": ["Escoller"] }, "Color picker": { "v": ["Selector de cores"] }, "More options": { "v": ["Máis opcións"] } } }, { "l": "he", "t": { "Back": { "v": ["חזרה"] }, "Choose": { "v": ["בחירה"] }, "More options": { "v": ["אפשרויות נוספות"] } } }, { "l": "hi_IN", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "hr", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "hsb", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "hu", "t": { "Back": { "v": [""] }, "Choose": { "v": ["Válassszon"] }, "More options": { "v": [""] } } }, { "l": "hy", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "ia", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "id", "t": { "A color with a HEX value {hex}": { "v": ["Warna dengan nilai HEX {hex}"] }, "Back": { "v": ["Kembali"] }, "Choose": { "v": ["Pilih"] }, "More options": { "v": ["Opsi lainnya"] } } }, { "l": "ig", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "is", "t": { "A color with a HEX value {hex}": { "v": ["Litur með HEX-gildi {hex}"] }, "Back": { "v": ["Til baka"] }, "Choose": { "v": ["Velja"] }, "More options": { "v": ["Fleiri valkostir"] } } }, { "l": "it", "t": { "A color with a HEX value {hex}": { "v": ["Un colore con un valore HEX {hex}"] }, "Back": { "v": ["Indietro"] }, "Choose": { "v": ["Scegli"] }, "More options": { "v": ["Altre opzioni"] } } }, { "l": "ja", "t": { "Back": { "v": [""] }, "Choose": { "v": ["選択"] }, "More options": { "v": [""] } } }, { "l": "ka", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "ka_GE", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "kab", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "kk", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "km", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "kn", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "ko", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "la", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "lb", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "lo", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "lt_LT", "t": { "Back": { "v": [""] }, "Choose": { "v": ["Pasirinkti"] }, "More options": { "v": [""] } } }, { "l": "lv", "t": { "Back": { "v": [""] }, "Choose": { "v": ["Izvēlēties"] }, "More options": { "v": [""] } } }, { "l": "mk", "t": { "Back": { "v": [""] }, "Choose": { "v": ["Избери"] }, "More options": { "v": [""] } } }, { "l": "mn", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "mr", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "ms_MY", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "my", "t": { "Back": { "v": [""] }, "Choose": { "v": ["ရွေးချယ်ရန်"] }, "More options": { "v": [""] } } }, { "l": "nb", "t": { "Back": { "v": [""] }, "Choose": { "v": ["Velg"] }, "More options": { "v": [""] } } }, { "l": "ne", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "nl", "t": { "Back": { "v": ["Terug"] }, "Choose": { "v": ["Kies"] }, "More options": { "v": ["Meer opties"] } } }, { "l": "nn_NO", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "oc", "t": { "Back": { "v": [""] }, "Choose": { "v": ["Causir"] }, "More options": { "v": [""] } } }, { "l": "pl", "t": { "A color with a HEX value {hex}": { "v": ["Kolor o wartości HEX {hex}"] }, "Back": { "v": ["Wstecz"] }, "Choose": { "v": ["Wybierz"] }, "More options": { "v": ["Więcej opcji"] } } }, { "l": "ps", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "pt_BR", "t": { "A color with a HEX value {hex}": { "v": ["Uma cor com valor HEX {hex}"] }, "Back": { "v": ["Voltar"] }, "Choose": { "v": ["Escolher"] }, "More options": { "v": ["Mais opções"] } } }, { "l": "pt_PT", "t": { "Back": { "v": ["Voltar atrás"] }, "Choose": { "v": ["Escolher"] }, "More options": { "v": ["Mais opções"] } } }, { "l": "ro", "t": { "A color with a HEX value {hex}": { "v": ["O culoare în HEX value {hex}"] }, "Back": { "v": ["Înapoi"] }, "Choose": { "v": ["Alegeți"] }, "More options": { "v": ["Mai multe opțiuni"] } } }, { "l": "ru", "t": { "Back": { "v": ["Назад"] }, "Choose": { "v": ["Выберите"] }, "More options": { "v": ["Больше опций"] } } }, { "l": "sc", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "si", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "sk", "t": { "Back": { "v": [""] }, "Choose": { "v": ["Vybrať"] }, "More options": { "v": [""] } } }, { "l": "sl", "t": { "Back": { "v": [""] }, "Choose": { "v": ["Izbor"] }, "More options": { "v": [""] } } }, { "l": "sq", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "sr", "t": { "A color with a HEX value {hex}": { "v": ["Боја са HEX вредности {hex}"] }, "Back": { "v": ["Назад"] }, "Choose": { "v": ["Изаберите"] }, "Color picker": { "v": ["Бирач боје"] }, "More options": { "v": ["Још опција"] } } }, { "l": "sr@latin", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "sv", "t": { "A color with a HEX value {hex}": { "v": ["En färg med ett HEX-värde {hex}"] }, "Back": { "v": ["Tillbaka"] }, "Choose": { "v": ["Välj"] }, "Color picker": { "v": ["Färgväljare"] }, "More options": { "v": ["Fler alternativ"] } } }, { "l": "sw", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "ta", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "th", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "tk", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "tr", "t": { "A color with a HEX value {hex}": { "v": ["{hex} onaltılık değeri ile bir renk "] }, "Back": { "v": ["Geri"] }, "Choose": { "v": ["Seçin"] }, "Color picker": { "v": ["Renk seçici"] }, "More options": { "v": ["Diğer seçenekler"] } } }, { "l": "ug", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "uk", "t": { "A color with a HEX value {hex}": { "v": ["Колір у форматі HEX {hex}"] }, "Back": { "v": ["Назад"] }, "Choose": { "v": ["Виберіть"] }, "More options": { "v": ["Більше об'єктів"] } } }, { "l": "ur_PK", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "uz", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "vi", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }, { "l": "zh_CN", "t": { "Back": { "v": [""] }, "Choose": { "v": ["选择"] }, "More options": { "v": [""] } } }, { "l": "zh_HK", "t": { "Back": { "v": ["返回"] }, "Choose": { "v": ["選擇"] }, "More options": { "v": ["更多選項"] } } }, { "l": "zh_TW", "t": { "Back": { "v": ["返回"] }, "Choose": { "v": ["選擇"] }, "More options": { "v": ["更多選項"] } } }, { "l": "zu_ZA", "t": { "Back": { "v": [""] }, "Choose": { "v": [""] }, "More options": { "v": [""] } } }];
+const t2 = [{ "l": "af", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "ar", "t": { "a few seconds ago": { "v": ["منذ عدة ثوانٍ مضت"] }, "sec. ago": { "v": ["ثانية مضت"] }, "seconds ago": { "v": ["ثوانٍ مضت"] } } }, { "l": "ast", "t": { "a few seconds ago": { "v": ["hai unos segundos"] }, "sec. ago": { "v": ["hai segs"] }, "seconds ago": { "v": ["hai segundos"] } } }, { "l": "az", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "be", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "bg", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "bn_BD", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "br", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "bs", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "ca", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "cs", "t": { "a few seconds ago": { "v": ["před několika sekundami"] }, "sec. ago": { "v": ["sek. před"] }, "seconds ago": { "v": ["sekund předtím"] } } }, { "l": "cs_CZ", "t": { "a few seconds ago": { "v": ["před několika sekundami"] }, "sec. ago": { "v": ["sek. před"] }, "seconds ago": { "v": ["sekund předtím"] } } }, { "l": "cy_GB", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "da", "t": { "a few seconds ago": { "v": ["et par sekunder siden"] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "de", "t": { "a few seconds ago": { "v": ["vor ein paar Sekunden"] }, "sec. ago": { "v": ["Sek. zuvor"] }, "seconds ago": { "v": ["Sekunden zuvor"] } } }, { "l": "de_DE", "t": { "a few seconds ago": { "v": ["vor ein paar Sekunden"] }, "sec. ago": { "v": ["Sek. zuvor"] }, "seconds ago": { "v": ["Sekunden zuvor"] } } }, { "l": "el", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "en_GB", "t": { "a few seconds ago": { "v": ["a few seconds ago"] }, "sec. ago": { "v": ["sec. ago"] }, "seconds ago": { "v": ["seconds ago"] } } }, { "l": "eo", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "es", "t": { "a few seconds ago": { "v": ["hace unos pocos segundos"] }, "sec. ago": { "v": ["hace segundos"] }, "seconds ago": { "v": ["segundos atrás"] } } }, { "l": "es_419", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "es_AR", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "es_CL", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "es_CO", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "es_CR", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "es_DO", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "es_EC", "t": { "a few seconds ago": { "v": ["hace unos segundos"] }, "sec. ago": { "v": ["hace segundos"] }, "seconds ago": { "v": ["Segundos atrás"] } } }, { "l": "es_GT", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "es_HN", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "es_MX", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "es_NI", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "es_PA", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "es_PE", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "es_PR", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "es_PY", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "es_SV", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "es_UY", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "et_EE", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "eu", "t": { "a few seconds ago": { "v": ["duela segundo batzuk"] }, "sec. ago": { "v": ["duela seg."] }, "seconds ago": { "v": ["duela segundo"] } } }, { "l": "fa", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "fi", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "fo", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "fr", "t": { "a few seconds ago": { "v": ["il y a quelques instants"] }, "sec. ago": { "v": ["il y a sec."] }, "seconds ago": { "v": ["il y a secondes"] } } }, { "l": "gd", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "gl", "t": { "a few seconds ago": { "v": ["hai uns segundos"] }, "sec. ago": { "v": ["segs. atrás"] }, "seconds ago": { "v": ["segundos atrás"] } } }, { "l": "he", "t": { "a few seconds ago": { "v": ["לפני מספר שניות"] }, "sec. ago": { "v": ["לפני מספר שניות"] }, "seconds ago": { "v": ["לפני מס׳ שניות"] } } }, { "l": "hi_IN", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "hr", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "hsb", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "hu", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "hy", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "ia", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "id", "t": { "a few seconds ago": { "v": ["beberapa detik yang lalu"] }, "sec. ago": { "v": ["dtk. yang lalu"] }, "seconds ago": { "v": ["beberapa detik lalu"] } } }, { "l": "ig", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "is", "t": { "a few seconds ago": { "v": ["fyrir örfáum sekúndum síðan"] }, "sec. ago": { "v": ["sek. síðan"] }, "seconds ago": { "v": ["sekúndum síðan"] } } }, { "l": "it", "t": { "a few seconds ago": { "v": ["pochi secondi fa"] }, "sec. ago": { "v": ["sec. fa"] }, "seconds ago": { "v": ["secondi fa"] } } }, { "l": "ja", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "ka", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "ka_GE", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "kab", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "kk", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "km", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "kn", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "ko", "t": { "a few seconds ago": { "v": ["방금 전"] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "la", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "lb", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "lo", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "lt_LT", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "lv", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "mk", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "mn", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "mr", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "ms_MY", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "my", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "nb", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "ne", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "nl", "t": { "a few seconds ago": { "v": ["enkele seconden terug"] }, "sec. ago": { "v": ["sec. geleden"] }, "seconds ago": { "v": ["seconden geleden"] } } }, { "l": "nn_NO", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "oc", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "pl", "t": { "a few seconds ago": { "v": ["kilka sekund temu"] }, "sec. ago": { "v": ["sek. temu"] }, "seconds ago": { "v": ["sekund temu"] } } }, { "l": "ps", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "pt_BR", "t": { "a few seconds ago": { "v": ["Alguns segundos atrás"] }, "sec. ago": { "v": ["seg. atrás"] }, "seconds ago": { "v": ["segundos atrás"] } } }, { "l": "pt_PT", "t": { "a few seconds ago": { "v": ["alguns segundos atrás"] }, "sec. ago": { "v": ["seg. atrás"] }, "seconds ago": { "v": ["segundos atrás"] } } }, { "l": "ro", "t": { "a few seconds ago": { "v": ["acum câteva secunde"] }, "sec. ago": { "v": ["sec. în urmă"] }, "seconds ago": { "v": ["secunde în urmă"] } } }, { "l": "ru", "t": { "a few seconds ago": { "v": ["несколько секунд назад"] }, "sec. ago": { "v": ["сек. назад"] }, "seconds ago": { "v": ["секунд назад"] } } }, { "l": "sc", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "si", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "sk", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "sl", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "sq", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "sr", "t": { "a few seconds ago": { "v": ["пре неколико секунди"] }, "sec. ago": { "v": ["сек. раније"] }, "seconds ago": { "v": ["секунди раније"] } } }, { "l": "sr@latin", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "sv", "t": { "a few seconds ago": { "v": ["några sekunder sedan"] }, "sec. ago": { "v": ["sek. sedan"] }, "seconds ago": { "v": ["sekunder sedan"] } } }, { "l": "sw", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "ta", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "th", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "tk", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "tr", "t": { "a few seconds ago": { "v": ["birkaç saniye önce"] }, "sec. ago": { "v": ["sn. önce"] }, "seconds ago": { "v": ["saniye önce"] } } }, { "l": "ug", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "uk", "t": { "a few seconds ago": { "v": ["декілька секунд тому"] }, "sec. ago": { "v": ["с тому"] }, "seconds ago": { "v": ["с тому"] } } }, { "l": "ur_PK", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "uz", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "vi", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "zh_CN", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }, { "l": "zh_HK", "t": { "a few seconds ago": { "v": ["幾秒前"] }, "sec. ago": { "v": ["秒前"] }, "seconds ago": { "v": ["秒前"] } } }, { "l": "zh_TW", "t": { "a few seconds ago": { "v": ["幾秒前"] }, "sec. ago": { "v": ["秒前"] }, "seconds ago": { "v": ["秒前"] } } }, { "l": "zu_ZA", "t": { "a few seconds ago": { "v": [""] }, "sec. ago": { "v": [""] }, "seconds ago": { "v": [""] } } }];
+const t3 = [{ "l": "af", "t": {} }, { "l": "ar", "t": { "Acapulco": { "v": ["بازلائي مطفي"] }, "Blue Violet": { "v": ["بنفسجي مشعشع"] }, "Boston Blue": { "v": ["سماوي مطفي"] }, "Deluge": { "v": ["بنفسجي مطفي"] }, "Feldspar": { "v": ["وردي صخري"] }, "Gold": { "v": ["ذهبي"] }, "Mariner": { "v": ["أزرق بحري"] }, "Nextcloud blue": { "v": ["أزرق نكست كلاود"] }, "Olivine": { "v": ["زيتي"] }, "Purple": { "v": ["بنفسجي"] }, "Rosy brown": { "v": ["بُنِّي زهري"] }, "Whiskey": { "v": ["نبيذي"] } } }, { "l": "ast", "t": { "Acapulco": { "v": ["Acapulcu"] }, "Blue Violet": { "v": ["Viola azulao"] }, "Boston Blue": { "v": ["Azul Boston"] }, "Deluge": { "v": ["Deluge"] }, "Feldspar": { "v": ["Feldspar"] }, "Gold": { "v": ["Oru"] }, "Mariner": { "v": ["Marineru"] }, "Nextcloud blue": { "v": ["Nextcloud azul"] }, "Olivine": { "v": ["Olivina"] }, "Purple": { "v": ["Moráu"] }, "Rosy brown": { "v": ["Marrón arrosao"] }, "Whiskey": { "v": ["Whiskey"] } } }, { "l": "az", "t": {} }, { "l": "be", "t": {} }, { "l": "bg", "t": {} }, { "l": "bn_BD", "t": {} }, { "l": "br", "t": {} }, { "l": "bs", "t": {} }, { "l": "ca", "t": {} }, { "l": "cs", "t": {} }, { "l": "cs_CZ", "t": { "Acapulco": { "v": ["Akapulko"] }, "Blue Violet": { "v": ["Modrofialová"] }, "Boston Blue": { "v": ["Bostonská modrá"] }, "Deluge": { "v": ["Deluge"] }, "Feldspar": { "v": ["Živicová"] }, "Gold": { "v": ["Zlatá"] }, "Mariner": { "v": ["Námořnická"] }, "Nextcloud blue": { "v": ["Nextcloud modrá"] }, "Olivine": { "v": ["Olivínová"] }, "Purple": { "v": ["Fialová"] }, "Rosy brown": { "v": ["Růžovohnědá"] }, "Whiskey": { "v": ["Whisky"] } } }, { "l": "cy_GB", "t": {} }, { "l": "da", "t": {} }, { "l": "de", "t": { "Acapulco": { "v": ["Acapulco"] }, "Blue Violet": { "v": ["Blau Violett"] }, "Boston Blue": { "v": ["Boston-Blau"] }, "Deluge": { "v": ["Sintflut"] }, "Feldspar": { "v": ["Feldspat"] }, "Gold": { "v": ["Gold"] }, "Mariner": { "v": ["Seemann"] }, "Nextcloud blue": { "v": ["Nextcloud Blau"] }, "Olivine": { "v": ["Olivin"] }, "Purple": { "v": ["Lila"] }, "Rosy brown": { "v": ["Rosiges Braun"] }, "Whiskey": { "v": ["Whiskey"] } } }, { "l": "de_DE", "t": { "Acapulco": { "v": ["Acapulco"] }, "Blue Violet": { "v": ["Blau Violett"] }, "Boston Blue": { "v": ["Boston-Blau"] }, "Deluge": { "v": ["Sintflut"] }, "Feldspar": { "v": ["Feldspat"] }, "Gold": { "v": ["Gold"] }, "Mariner": { "v": ["Seemann"] }, "Nextcloud blue": { "v": ["Nextcloud Blau"] }, "Olivine": { "v": ["Olivin"] }, "Purple": { "v": ["Lila"] }, "Rosy brown": { "v": ["Rosiges Braun"] }, "Whiskey": { "v": ["Whiskey"] } } }, { "l": "el", "t": {} }, { "l": "en_GB", "t": {} }, { "l": "eo", "t": {} }, { "l": "es", "t": { "Acapulco": { "v": ["Acapulco"] }, "Blue Violet": { "v": ["Violeta Azul"] }, "Boston Blue": { "v": ["Azul Boston"] }, "Deluge": { "v": ["Diluvio"] }, "Feldspar": { "v": ["Feldespato"] }, "Gold": { "v": ["Oro"] }, "Mariner": { "v": ["Marinero"] }, "Nextcloud blue": { "v": ["Azul Nextcloud"] }, "Olivine": { "v": ["Olivino"] }, "Purple": { "v": ["Púrpura"] }, "Rosy brown": { "v": ["Marrón rosáceo"] }, "Whiskey": { "v": ["Whiskey"] } } }, { "l": "es_419", "t": {} }, { "l": "es_AR", "t": {} }, { "l": "es_CL", "t": {} }, { "l": "es_CO", "t": {} }, { "l": "es_CR", "t": {} }, { "l": "es_DO", "t": {} }, { "l": "es_EC", "t": {} }, { "l": "es_GT", "t": {} }, { "l": "es_HN", "t": {} }, { "l": "es_MX", "t": {} }, { "l": "es_NI", "t": {} }, { "l": "es_PA", "t": {} }, { "l": "es_PE", "t": {} }, { "l": "es_PR", "t": {} }, { "l": "es_PY", "t": {} }, { "l": "es_SV", "t": {} }, { "l": "es_UY", "t": {} }, { "l": "et_EE", "t": {} }, { "l": "eu", "t": {} }, { "l": "fa", "t": {} }, { "l": "fi", "t": {} }, { "l": "fo", "t": {} }, { "l": "fr", "t": { "Gold": { "v": ["Doré"] }, "Nextcloud blue": { "v": ["Bleu Nextcloud"] }, "Purple": { "v": ["Violet"] } } }, { "l": "gd", "t": {} }, { "l": "gl", "t": { "Acapulco": { "v": ["Acapulco"] }, "Blue Violet": { "v": ["Azul violeta"] }, "Boston Blue": { "v": ["Azul Boston"] }, "Deluge": { "v": ["Diluvio"] }, "Feldspar": { "v": ["Feldespato"] }, "Gold": { "v": ["Ouro"] }, "Mariner": { "v": ["Marino"] }, "Nextcloud blue": { "v": ["Nextcloud azul"] }, "Olivine": { "v": ["Olivina"] }, "Purple": { "v": ["Púrpura"] }, "Rosy brown": { "v": ["Pardo rosado"] }, "Whiskey": { "v": ["Whisky"] } } }, { "l": "he", "t": {} }, { "l": "hi_IN", "t": {} }, { "l": "hr", "t": {} }, { "l": "hsb", "t": {} }, { "l": "hu", "t": {} }, { "l": "hy", "t": {} }, { "l": "ia", "t": {} }, { "l": "id", "t": { "Gold": { "v": ["Emas"] }, "Nextcloud blue": { "v": ["Biru Nextcloud"] }, "Purple": { "v": ["Ungu"] } } }, { "l": "ig", "t": {} }, { "l": "is", "t": { "Gold": { "v": ["Gull"] }, "Nextcloud blue": { "v": ["Nextcloud blátt"] }, "Purple": { "v": ["Purpurablátt"] } } }, { "l": "it", "t": { "Gold": { "v": ["Oro"] }, "Nextcloud blue": { "v": ["Nextcloud blue"] }, "Purple": { "v": ["Viola"] } } }, { "l": "ja", "t": {} }, { "l": "ka", "t": {} }, { "l": "ka_GE", "t": {} }, { "l": "kab", "t": {} }, { "l": "kk", "t": {} }, { "l": "km", "t": {} }, { "l": "kn", "t": {} }, { "l": "ko", "t": {} }, { "l": "la", "t": {} }, { "l": "lb", "t": {} }, { "l": "lo", "t": {} }, { "l": "lt_LT", "t": {} }, { "l": "lv", "t": {} }, { "l": "mk", "t": {} }, { "l": "mn", "t": {} }, { "l": "mr", "t": {} }, { "l": "ms_MY", "t": {} }, { "l": "my", "t": {} }, { "l": "nb", "t": {} }, { "l": "ne", "t": {} }, { "l": "nl", "t": {} }, { "l": "nn_NO", "t": {} }, { "l": "oc", "t": {} }, { "l": "pl", "t": { "Acapulco": { "v": ["Acapulco"] }, "Blue Violet": { "v": ["Niebieski fiolet"] }, "Boston Blue": { "v": ["Błękit Bostonu"] }, "Deluge": { "v": ["Potop"] }, "Feldspar": { "v": ["Skaleń"] }, "Gold": { "v": ["Złote"] }, "Mariner": { "v": ["Marynarz"] }, "Nextcloud blue": { "v": ["Niebieskie Nextcloud"] }, "Olivine": { "v": ["Oliwin"] }, "Purple": { "v": ["Fioletowy"] }, "Rosy brown": { "v": ["Różowy brąz"] }, "Whiskey": { "v": ["Whisky"] } } }, { "l": "ps", "t": {} }, { "l": "pt_BR", "t": { "Acapulco": { "v": ["Acapulco"] }, "Blue Violet": { "v": ["Violeta Azul"] }, "Boston Blue": { "v": ["Violeta Azul"] }, "Deluge": { "v": ["Dilúvio"] }, "Feldspar": { "v": ["Feldspato"] }, "Gold": { "v": ["Ouro"] }, "Mariner": { "v": ["Marinheiro"] }, "Nextcloud blue": { "v": ["Nextcloud azul"] }, "Olivine": { "v": ["Olivina"] }, "Purple": { "v": ["Roxo"] }, "Rosy brown": { "v": ["Castanho rosado"] }, "Whiskey": { "v": ["Uísque"] } } }, { "l": "pt_PT", "t": {} }, { "l": "ro", "t": { "Gold": { "v": ["Aur"] }, "Nextcloud blue": { "v": ["Nextcloud albastru"] }, "Purple": { "v": ["Purpuriu"] } } }, { "l": "ru", "t": {} }, { "l": "sc", "t": {} }, { "l": "si", "t": {} }, { "l": "sk", "t": {} }, { "l": "sl", "t": {} }, { "l": "sq", "t": {} }, { "l": "sr", "t": { "Acapulco": { "v": ["Акапулко"] }, "Blue Violet": { "v": ["Плаво љубичаста"] }, "Boston Blue": { "v": ["Бостон плава"] }, "Deluge": { "v": ["Поплава"] }, "Feldspar": { "v": ["Фелдспар"] }, "Gold": { "v": ["Злато"] }, "Mariner": { "v": ["Морнар"] }, "Nextcloud blue": { "v": ["Nextcloud плава"] }, "Olivine": { "v": ["Маслинаста"] }, "Purple": { "v": ["Пурпурна"] }, "Rosy brown": { "v": ["Роси браон"] }, "Whiskey": { "v": ["Виски"] } } }, { "l": "sr@latin", "t": {} }, { "l": "sv", "t": { "Acapulco": { "v": ["Acapulco"] }, "Blue Violet": { "v": ["Blåviolett"] }, "Boston Blue": { "v": ["Bostonblå"] }, "Deluge": { "v": ["Skyfallsblå"] }, "Feldspar": { "v": ["Feldspat"] }, "Gold": { "v": ["Guld"] }, "Mariner": { "v": ["Marinblå"] }, "Nextcloud blue": { "v": ["Nextcloud-blå"] }, "Olivine": { "v": ["Olivin"] }, "Purple": { "v": ["Lila"] }, "Rosy brown": { "v": ["Rosabrun"] }, "Whiskey": { "v": ["Whisky"] } } }, { "l": "sw", "t": {} }, { "l": "ta", "t": {} }, { "l": "th", "t": {} }, { "l": "tk", "t": {} }, { "l": "tr", "t": { "Acapulco": { "v": ["Akapulko"] }, "Blue Violet": { "v": ["Mavi mor"] }, "Boston Blue": { "v": ["Boston mavisi"] }, "Deluge": { "v": ["Sel"] }, "Feldspar": { "v": ["Feldispat"] }, "Gold": { "v": ["Altın"] }, "Mariner": { "v": ["Denizci"] }, "Nextcloud blue": { "v": ["Nextcloud mavi"] }, "Olivine": { "v": ["Zeytinlik"] }, "Purple": { "v": ["Mor"] }, "Rosy brown": { "v": ["Kırmızımsı kahverengi"] }, "Whiskey": { "v": ["Viski"] } } }, { "l": "ug", "t": {} }, { "l": "uk", "t": { "Gold": { "v": ["Золотий"] }, "Nextcloud blue": { "v": ["Блакитний Nextcloud"] }, "Purple": { "v": ["Фіолетовий"] } } }, { "l": "ur_PK", "t": {} }, { "l": "uz", "t": {} }, { "l": "vi", "t": {} }, { "l": "zh_CN", "t": {} }, { "l": "zh_HK", "t": {} }, { "l": "zh_TW", "t": {} }, { "l": "zu_ZA", "t": {} }];
+const t4 = [{ "l": "af", "t": { "Actions": { "v": [""] } } }, { "l": "ar", "t": { "Actions": { "v": ["إجراءات"] } } }, { "l": "ast", "t": { "Actions": { "v": ["Aiciones"] } } }, { "l": "az", "t": { "Actions": { "v": [""] } } }, { "l": "be", "t": { "Actions": { "v": [""] } } }, { "l": "bg", "t": { "Actions": { "v": [""] } } }, { "l": "bn_BD", "t": { "Actions": { "v": [""] } } }, { "l": "br", "t": { "Actions": { "v": ["Oberioù"] } } }, { "l": "bs", "t": { "Actions": { "v": [""] } } }, { "l": "ca", "t": { "Actions": { "v": ["Accions"] } } }, { "l": "cs", "t": { "Actions": { "v": ["Akce"] } } }, { "l": "cs_CZ", "t": { "Actions": { "v": ["Akce"] } } }, { "l": "cy_GB", "t": { "Actions": { "v": [""] } } }, { "l": "da", "t": { "Actions": { "v": ["Handlinger"] } } }, { "l": "de", "t": { "Actions": { "v": ["Aktionen"] } } }, { "l": "de_DE", "t": { "Actions": { "v": ["Aktionen"] } } }, { "l": "el", "t": { "Actions": { "v": ["Ενέργειες"] } } }, { "l": "en_GB", "t": { "Actions": { "v": ["Actions"] } } }, { "l": "eo", "t": { "Actions": { "v": ["Agoj"] } } }, { "l": "es", "t": { "Actions": { "v": ["Acciones"] } } }, { "l": "es_419", "t": { "Actions": { "v": [""] } } }, { "l": "es_AR", "t": { "Actions": { "v": [""] } } }, { "l": "es_CL", "t": { "Actions": { "v": [""] } } }, { "l": "es_CO", "t": { "Actions": { "v": [""] } } }, { "l": "es_CR", "t": { "Actions": { "v": [""] } } }, { "l": "es_DO", "t": { "Actions": { "v": [""] } } }, { "l": "es_EC", "t": { "Actions": { "v": ["Acciones"] } } }, { "l": "es_GT", "t": { "Actions": { "v": [""] } } }, { "l": "es_HN", "t": { "Actions": { "v": [""] } } }, { "l": "es_MX", "t": { "Actions": { "v": [""] } } }, { "l": "es_NI", "t": { "Actions": { "v": [""] } } }, { "l": "es_PA", "t": { "Actions": { "v": [""] } } }, { "l": "es_PE", "t": { "Actions": { "v": [""] } } }, { "l": "es_PR", "t": { "Actions": { "v": [""] } } }, { "l": "es_PY", "t": { "Actions": { "v": [""] } } }, { "l": "es_SV", "t": { "Actions": { "v": [""] } } }, { "l": "es_UY", "t": { "Actions": { "v": [""] } } }, { "l": "et_EE", "t": { "Actions": { "v": [""] } } }, { "l": "eu", "t": { "Actions": { "v": ["Ekintzak"] } } }, { "l": "fa", "t": { "Actions": { "v": [""] } } }, { "l": "fi", "t": { "Actions": { "v": ["Toiminnot"] } } }, { "l": "fo", "t": { "Actions": { "v": [""] } } }, { "l": "fr", "t": { "Actions": { "v": ["Actions"] } } }, { "l": "gd", "t": { "Actions": { "v": [""] } } }, { "l": "gl", "t": { "Actions": { "v": ["Accións"] } } }, { "l": "he", "t": { "Actions": { "v": ["פעולות"] } } }, { "l": "hi_IN", "t": { "Actions": { "v": [""] } } }, { "l": "hr", "t": { "Actions": { "v": [""] } } }, { "l": "hsb", "t": { "Actions": { "v": [""] } } }, { "l": "hu", "t": { "Actions": { "v": ["Műveletek"] } } }, { "l": "hy", "t": { "Actions": { "v": [""] } } }, { "l": "ia", "t": { "Actions": { "v": [""] } } }, { "l": "id", "t": { "Actions": { "v": ["Tindakan"] } } }, { "l": "ig", "t": { "Actions": { "v": [""] } } }, { "l": "is", "t": { "Actions": { "v": ["Aðgerðir"] } } }, { "l": "it", "t": { "Actions": { "v": ["Azioni"] } } }, { "l": "ja", "t": { "Actions": { "v": ["操作"] } } }, { "l": "ka", "t": { "Actions": { "v": [""] } } }, { "l": "ka_GE", "t": { "Actions": { "v": [""] } } }, { "l": "kab", "t": { "Actions": { "v": [""] } } }, { "l": "kk", "t": { "Actions": { "v": [""] } } }, { "l": "km", "t": { "Actions": { "v": [""] } } }, { "l": "kn", "t": { "Actions": { "v": [""] } } }, { "l": "ko", "t": { "Actions": { "v": [""] } } }, { "l": "la", "t": { "Actions": { "v": [""] } } }, { "l": "lb", "t": { "Actions": { "v": [""] } } }, { "l": "lo", "t": { "Actions": { "v": [""] } } }, { "l": "lt_LT", "t": { "Actions": { "v": ["Veiksmai"] } } }, { "l": "lv", "t": { "Actions": { "v": [""] } } }, { "l": "mk", "t": { "Actions": { "v": ["Акции"] } } }, { "l": "mn", "t": { "Actions": { "v": [""] } } }, { "l": "mr", "t": { "Actions": { "v": [""] } } }, { "l": "ms_MY", "t": { "Actions": { "v": [""] } } }, { "l": "my", "t": { "Actions": { "v": ["လုပ်ဆောင်ချက်များ"] } } }, { "l": "nb", "t": { "Actions": { "v": ["Handlinger"] } } }, { "l": "ne", "t": { "Actions": { "v": [""] } } }, { "l": "nl", "t": { "Actions": { "v": ["Acties"] } } }, { "l": "nn_NO", "t": { "Actions": { "v": [""] } } }, { "l": "oc", "t": { "Actions": { "v": ["Accions"] } } }, { "l": "pl", "t": { "Actions": { "v": ["Działania"] } } }, { "l": "ps", "t": { "Actions": { "v": [""] } } }, { "l": "pt_BR", "t": { "Actions": { "v": ["Ações"] } } }, { "l": "pt_PT", "t": { "Actions": { "v": ["Ações"] } } }, { "l": "ro", "t": { "Actions": { "v": ["Acțiuni"] } } }, { "l": "ru", "t": { "Actions": { "v": ["Действия "] } } }, { "l": "sc", "t": { "Actions": { "v": [""] } } }, { "l": "si", "t": { "Actions": { "v": [""] } } }, { "l": "sk", "t": { "Actions": { "v": ["Akcie"] } } }, { "l": "sl", "t": { "Actions": { "v": ["Dejanja"] } } }, { "l": "sq", "t": { "Actions": { "v": [""] } } }, { "l": "sr", "t": { "Actions": { "v": ["Радње"] } } }, { "l": "sr@latin", "t": { "Actions": { "v": [""] } } }, { "l": "sv", "t": { "Actions": { "v": ["Åtgärder"] } } }, { "l": "sw", "t": { "Actions": { "v": [""] } } }, { "l": "ta", "t": { "Actions": { "v": [""] } } }, { "l": "th", "t": { "Actions": { "v": [""] } } }, { "l": "tk", "t": { "Actions": { "v": [""] } } }, { "l": "tr", "t": { "Actions": { "v": ["İşlemler"] } } }, { "l": "ug", "t": { "Actions": { "v": [""] } } }, { "l": "uk", "t": { "Actions": { "v": ["Дії"] } } }, { "l": "ur_PK", "t": { "Actions": { "v": [""] } } }, { "l": "uz", "t": { "Actions": { "v": [""] } } }, { "l": "vi", "t": { "Actions": { "v": [""] } } }, { "l": "zh_CN", "t": { "Actions": { "v": ["行为"] } } }, { "l": "zh_HK", "t": { "Actions": { "v": ["動作"] } } }, { "l": "zh_TW", "t": { "Actions": { "v": ["動作"] } } }, { "l": "zu_ZA", "t": { "Actions": { "v": [""] } } }];
+const t5 = [{ "l": "af", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "ar", "t": { 'Actions for item with name "{name}"': { "v": ['إجراءات على العنصر المُسمَّى "{name}"'] } } }, { "l": "ast", "t": { 'Actions for item with name "{name}"': { "v": ["Aiciones pal elementu col nome «{name}»"] } } }, { "l": "az", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "be", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "bg", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "bn_BD", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "br", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "bs", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "ca", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "cs", "t": { 'Actions for item with name "{name}"': { "v": ["Akce pro položku s názvem „{name}“"] } } }, { "l": "cs_CZ", "t": { 'Actions for item with name "{name}"': { "v": ["Akce pro položku s názvem „{name}“"] } } }, { "l": "cy_GB", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "da", "t": { 'Actions for item with name "{name}"': { "v": ['Handlinger for element med navnet "{name}"'] } } }, { "l": "de", "t": { 'Actions for item with name "{name}"': { "v": ['Aktionen für das Element "{name}“'] } } }, { "l": "de_DE", "t": { 'Actions for item with name "{name}"': { "v": ['Aktionen für Element mit dem Namen "{name}“'] } } }, { "l": "el", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "en_GB", "t": { 'Actions for item with name "{name}"': { "v": ['Actions for item with name "{name}"'] } } }, { "l": "eo", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "es", "t": { 'Actions for item with name "{name}"': { "v": ['Acciones para el ítem con nombre "{name}"'] } } }, { "l": "es_419", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "es_AR", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "es_CL", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "es_CO", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "es_CR", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "es_DO", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "es_EC", "t": { 'Actions for item with name "{name}"': { "v": ['Acciones para el elemento con nombre "{name}"'] } } }, { "l": "es_GT", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "es_HN", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "es_MX", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "es_NI", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "es_PA", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "es_PE", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "es_PR", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "es_PY", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "es_SV", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "es_UY", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "et_EE", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "eu", "t": { 'Actions for item with name "{name}"': { "v": ['"{name}" izeneko elementuaren ekintzak'] } } }, { "l": "fa", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "fi", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "fo", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "fr", "t": { 'Actions for item with name "{name}"': { "v": [`Actions de l'entrée avec le nom "{name}"`] } } }, { "l": "gd", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "gl", "t": { 'Actions for item with name "{name}"': { "v": ["Accións para o elemento co nome «{name}»"] } } }, { "l": "he", "t": { 'Actions for item with name "{name}"': { "v": ["פעולות לפריט בשם „{name}”"] } } }, { "l": "hi_IN", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "hr", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "hsb", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "hu", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "hy", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "ia", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "id", "t": { 'Actions for item with name "{name}"': { "v": ['Tindakan untuk item dengan nama "{name}"'] } } }, { "l": "ig", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "is", "t": { 'Actions for item with name "{name}"': { "v": ['Aðgerð fyrir atriði með heitið "{name}"'] } } }, { "l": "it", "t": { 'Actions for item with name "{name}"': { "v": [`Azioni per l'elemento con il nome "{nome}"`] } } }, { "l": "ja", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "ka", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "ka_GE", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "kab", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "kk", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "km", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "kn", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "ko", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "la", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "lb", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "lo", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "lt_LT", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "lv", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "mk", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "mn", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "mr", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "ms_MY", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "my", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "nb", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "ne", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "nl", "t": { 'Actions for item with name "{name}"': { "v": ['Actie voor item met naam "{name}"'] } } }, { "l": "nn_NO", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "oc", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "pl", "t": { 'Actions for item with name "{name}"': { "v": ['Akcje dla elementu o nazwie "{name}"'] } } }, { "l": "ps", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "pt_BR", "t": { 'Actions for item with name "{name}"': { "v": ['Ações para item com nome "{name}"'] } } }, { "l": "pt_PT", "t": { 'Actions for item with name "{name}"': { "v": ['Ações para objeto com o nome "[name]"'] } } }, { "l": "ro", "t": { 'Actions for item with name "{name}"': { "v": ['Acțiuni pentru elementul cu numele "{name}"'] } } }, { "l": "ru", "t": { 'Actions for item with name "{name}"': { "v": ['Действия для элемента с названием "{name}"'] } } }, { "l": "sc", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "si", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "sk", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "sl", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "sq", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "sr", "t": { 'Actions for item with name "{name}"': { "v": ["Радње за ставку под називом „{name}”"] } } }, { "l": "sr@latin", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "sv", "t": { 'Actions for item with name "{name}"': { "v": ['Åtgärder för objekt med namn "{name}"'] } } }, { "l": "sw", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "ta", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "th", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "tk", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "tr", "t": { 'Actions for item with name "{name}"': { "v": ["{name} adındaki öge için işlemler"] } } }, { "l": "ug", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "uk", "t": { 'Actions for item with name "{name}"': { "v": [`Дії для об'єкту "{name}"`] } } }, { "l": "ur_PK", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "uz", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "vi", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "zh_CN", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }, { "l": "zh_HK", "t": { 'Actions for item with name "{name}"': { "v": ["名稱為「{name}」項目的操作"] } } }, { "l": "zh_TW", "t": { 'Actions for item with name "{name}"': { "v": ["名稱為「{name}」項目的動作"] } } }, { "l": "zu_ZA", "t": { 'Actions for item with name "{name}"': { "v": [""] } } }];
+const t6 = [{ "l": "af", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "ar", "t": { "Activities": { "v": ["سجل الحركات"] }, "Animals & Nature": { "v": ["الحيوانات والطبيعة"] }, "Clear search": { "v": ["مَحْوُ البحث"] }, "Custom": { "v": ["مُخصَّص"] }, "Flags": { "v": ["الأعلام"] }, "Food & Drink": { "v": ["الطعام والشراب"] }, "Frequently used": { "v": ["شائعة الاستعمال"] }, "Objects": { "v": ["أشياء"] }, "People & Body": { "v": ["أشخاص و أجسام"] }, "Pick an emoji": { "v": ["إختَر رمز إيموجي emoji"] }, "Search emoji": { "v": ["البحث عن إيموجي emoji"] }, "Search results": { "v": ["نتائج البحث"] }, "Selected": { "v": ["مُحدّدة"] }, "Smileys & Emotion": { "v": ["وجوهٌ ضاحكة و مشاعر"] }, "Symbols": { "v": ["رموز"] }, "Travel & Places": { "v": ["سفر و أماكن"] } } }, { "l": "ast", "t": { "Activities": { "v": ["Actividaes"] }, "Animals & Nature": { "v": ["Animales y natura"] }, "Clear search": { "v": ["Borrar la busca"] }, "Custom": { "v": ["Personalizar"] }, "Flags": { "v": ["Banderes"] }, "Food & Drink": { "v": ["Cómida y bébora"] }, "Frequently used": { "v": ["D'usu frecuente"] }, "Objects": { "v": ["Oxetos"] }, "People & Body": { "v": ["Persones y cuerpu"] }, "Pick an emoji": { "v": ["Escueyi un fustaxe"] }, "Search emoji": { "v": ["Buscar nos fustaxes"] }, "Search results": { "v": ["Resultaos de la busca"] }, "Selected": { "v": ["Na seleición"] }, "Smileys & Emotion": { "v": ["Sorrises y emociones"] }, "Symbols": { "v": ["Símbolos"] }, "Travel & Places": { "v": ["Viaxes y llugares"] } } }, { "l": "az", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "be", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "bg", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "bn_BD", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "br", "t": { "Activities": { "v": ["Oberiantizoù"] }, "Animals & Nature": { "v": ["Loened & Natur"] }, "Clear search": { "v": [""] }, "Custom": { "v": ["Personelañ"] }, "Flags": { "v": ["Bannieloù"] }, "Food & Drink": { "v": ["Boued & Evajoù"] }, "Frequently used": { "v": ["Implijet alies"] }, "Objects": { "v": ["Traoù"] }, "People & Body": { "v": ["Tud & Korf"] }, "Pick an emoji": { "v": ["Choaz un emoji"] }, "Search emoji": { "v": [""] }, "Search results": { "v": ["Disoc'hoù an enklask"] }, "Smileys & Emotion": { "v": ["Smileyioù & Fromoù"] }, "Symbols": { "v": ["Arouezioù"] }, "Travel & Places": { "v": ["Beaj & Lec'hioù"] } } }, { "l": "bs", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "ca", "t": { "Activities": { "v": ["Activitats"] }, "Animals & Nature": { "v": ["Animals i natura"] }, "Clear search": { "v": [""] }, "Custom": { "v": ["Personalitzat"] }, "Flags": { "v": ["Marques"] }, "Food & Drink": { "v": ["Menjar i begudes"] }, "Frequently used": { "v": ["Utilitzats recentment"] }, "Objects": { "v": ["Objectes"] }, "People & Body": { "v": ["Persones i cos"] }, "Pick an emoji": { "v": ["Trieu un emoji"] }, "Search emoji": { "v": [""] }, "Search results": { "v": ["Resultats de cerca"] }, "Smileys & Emotion": { "v": ["Cares i emocions"] }, "Symbols": { "v": ["Símbols"] }, "Travel & Places": { "v": ["Viatges i llocs"] } } }, { "l": "cs", "t": { "Activities": { "v": ["Aktivity"] }, "Animals & Nature": { "v": ["Zvířata a příroda"] }, "Clear search": { "v": ["Vyčistit vyhledávání"] }, "Custom": { "v": ["Uživatelsky určené"] }, "Flags": { "v": ["Příznaky"] }, "Food & Drink": { "v": ["Jídlo a pití"] }, "Frequently used": { "v": ["Často používané"] }, "Objects": { "v": ["Objekty"] }, "People & Body": { "v": ["Lidé a tělo"] }, "Pick an emoji": { "v": ["Vybrat emoji"] }, "Search emoji": { "v": ["Hledat emoji"] }, "Search results": { "v": ["Výsledky hledání"] }, "Smileys & Emotion": { "v": ["Úsměvy a emoce"] }, "Symbols": { "v": ["Symboly"] }, "Travel & Places": { "v": ["Cestování a místa"] } } }, { "l": "cs_CZ", "t": { "Activities": { "v": ["Aktivity"] }, "Animals & Nature": { "v": ["Zvířata a příroda"] }, "Clear search": { "v": ["Vyčistit vyhledávání"] }, "Custom": { "v": ["Uživatelsky určené"] }, "Dark skin tone": { "v": ["Tmavý tělový tón"] }, "Emoji picker": { "v": ["Výběr emotikon"] }, "Flags": { "v": ["Příznaky"] }, "Food & Drink": { "v": ["Jídlo a pití"] }, "Frequently used": { "v": ["Často používané"] }, "Light skin tone": { "v": ["Světlý tělový tón"] }, "Medium dark skin tone": { "v": ["Středně tmavý tělový tón"] }, "Medium light skin tone": { "v": ["Středně světlý tělový tón"] }, "Medium skin tone": { "v": ["Střední tělový tón"] }, "Neutral skin color": { "v": ["Neutřální tělová barva"] }, "Objects": { "v": ["Objekty"] }, "People & Body": { "v": ["Lidé a tělo"] }, "Pick an emoji": { "v": ["Vybrat emoji"] }, "Search emoji": { "v": ["Hledat emoji"] }, "Search results": { "v": ["Výsledky hledání"] }, "Selected": { "v": ["Vybráno"] }, "Skin tone": { "v": ["Tělový tón"] }, "Smileys & Emotion": { "v": ["Úsměvy a emoce"] }, "Symbols": { "v": ["Symboly"] }, "Travel & Places": { "v": ["Cestování a místa"] } } }, { "l": "cy_GB", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "da", "t": { "Activities": { "v": ["Aktiviteter"] }, "Animals & Nature": { "v": ["Dyr & Natur"] }, "Clear search": { "v": ["Ryd søgning"] }, "Custom": { "v": ["Brugerdefineret"] }, "Flags": { "v": ["Flag"] }, "Food & Drink": { "v": ["Mad & Drikke"] }, "Frequently used": { "v": ["Ofte brugt"] }, "Objects": { "v": ["Objekter"] }, "People & Body": { "v": ["Mennesker & Menneskekroppen"] }, "Pick an emoji": { "v": ["Vælg en emoji"] }, "Search emoji": { "v": [""] }, "Search results": { "v": ["Søgeresultater"] }, "Smileys & Emotion": { "v": ["Smileys & Emotion"] }, "Symbols": { "v": ["Symboler"] }, "Travel & Places": { "v": ["Rejser & Rejsemål"] } } }, { "l": "de", "t": { "Activities": { "v": ["Aktivitäten"] }, "Animals & Nature": { "v": ["Tiere & Natur"] }, "Clear search": { "v": ["Suche leeren"] }, "Custom": { "v": ["Benutzerdefiniert"] }, "Flags": { "v": ["Flaggen"] }, "Food & Drink": { "v": ["Essen & Trinken"] }, "Frequently used": { "v": ["Häufig verwendet"] }, "Objects": { "v": ["Gegenstände"] }, "People & Body": { "v": ["Menschen & Körper"] }, "Pick an emoji": { "v": ["Ein Emoji auswählen"] }, "Search emoji": { "v": ["Emoji suchen"] }, "Search results": { "v": ["Suchergebnisse"] }, "Selected": { "v": ["Ausgewählt"] }, "Smileys & Emotion": { "v": ["Smileys & Emotionen"] }, "Symbols": { "v": ["Symbole"] }, "Travel & Places": { "v": ["Reisen & Orte"] } } }, { "l": "de_DE", "t": { "Activities": { "v": ["Aktivitäten"] }, "Animals & Nature": { "v": ["Tiere & Natur"] }, "Clear search": { "v": ["Suche leeren"] }, "Custom": { "v": ["Benutzerdefiniert"] }, "Dark skin tone": { "v": ["Dunkler Skin-Farbton"] }, "Emoji picker": { "v": ["Emoji-Auswahl"] }, "Flags": { "v": ["Flaggen"] }, "Food & Drink": { "v": ["Essen & Trinken"] }, "Frequently used": { "v": ["Häufig verwendet"] }, "Light skin tone": { "v": ["Heller Skin-Farbton"] }, "Medium dark skin tone": { "v": ["Mitteldunkler Skin-Farbton"] }, "Medium light skin tone": { "v": ["Mittelheller Skin-Farbton"] }, "Medium skin tone": { "v": ["Mittlerer Skin-Farbton"] }, "Neutral skin color": { "v": ["Neutraler Skin-Farbton"] }, "Objects": { "v": ["Objekte"] }, "People & Body": { "v": ["Menschen & Körper"] }, "Pick an emoji": { "v": ["Ein Emoji auswählen"] }, "Search emoji": { "v": ["Emoji suchen"] }, "Search results": { "v": ["Suchergebnisse"] }, "Selected": { "v": ["Ausgewählt"] }, "Skin tone": { "v": ["Skin-Farbton"] }, "Smileys & Emotion": { "v": ["Smileys & Emotionen"] }, "Symbols": { "v": ["Symbole"] }, "Travel & Places": { "v": ["Reisen & Orte"] } } }, { "l": "el", "t": { "Activities": { "v": ["Δραστηριότητες"] }, "Animals & Nature": { "v": ["Ζώα & Φύση"] }, "Clear search": { "v": [""] }, "Custom": { "v": ["Προσαρμογή"] }, "Flags": { "v": ["Σημαίες"] }, "Food & Drink": { "v": ["Φαγητό & Ποτό"] }, "Frequently used": { "v": ["Συχνά χρησιμοποιούμενο"] }, "Objects": { "v": ["Αντικείμενα"] }, "People & Body": { "v": ["Άνθρωποι & Σώμα"] }, "Pick an emoji": { "v": ["Επιλέξτε ένα emoji"] }, "Search emoji": { "v": [""] }, "Search results": { "v": ["Αποτελέσματα αναζήτησης"] }, "Smileys & Emotion": { "v": ["Φατσούλες & Συναίσθημα"] }, "Symbols": { "v": ["Σύμβολα"] }, "Travel & Places": { "v": ["Ταξίδια & Τοποθεσίες"] } } }, { "l": "en_GB", "t": { "Activities": { "v": ["Activities"] }, "Animals & Nature": { "v": ["Animals & Nature"] }, "Clear search": { "v": ["Clear search"] }, "Custom": { "v": ["Custom"] }, "Flags": { "v": ["Flags"] }, "Food & Drink": { "v": ["Food & Drink"] }, "Frequently used": { "v": ["Frequently used"] }, "Objects": { "v": ["Objects"] }, "People & Body": { "v": ["People & Body"] }, "Pick an emoji": { "v": ["Pick an emoji"] }, "Search emoji": { "v": ["Search emoji"] }, "Search results": { "v": ["Search results"] }, "Selected": { "v": ["Selected"] }, "Smileys & Emotion": { "v": ["Smileys & Emotion"] }, "Symbols": { "v": ["Symbols"] }, "Travel & Places": { "v": ["Travel & Places"] } } }, { "l": "eo", "t": { "Activities": { "v": ["Aktiveco"] }, "Animals & Nature": { "v": ["Bestoj & Naturo"] }, "Clear search": { "v": [""] }, "Custom": { "v": ["Propra"] }, "Flags": { "v": ["Flagoj"] }, "Food & Drink": { "v": ["Manĝaĵo & Trinkaĵo"] }, "Frequently used": { "v": ["Ofte uzataj"] }, "Objects": { "v": ["Objektoj"] }, "People & Body": { "v": ["Homoj & Korpo"] }, "Pick an emoji": { "v": ["Elekti emoĝion "] }, "Search emoji": { "v": [""] }, "Search results": { "v": ["Serĉrezultoj"] }, "Smileys & Emotion": { "v": ["Ridoj kaj Emocioj"] }, "Symbols": { "v": ["Signoj"] }, "Travel & Places": { "v": ["Vojaĵoj & Lokoj"] } } }, { "l": "es", "t": { "Activities": { "v": ["Actividades"] }, "Animals & Nature": { "v": ["Animales y naturaleza"] }, "Clear search": { "v": ["Limpiar búsqueda"] }, "Custom": { "v": ["Personalizado"] }, "Emoji picker": { "v": ["Selector de emojis"] }, "Flags": { "v": ["Banderas"] }, "Food & Drink": { "v": ["Comida y bebida"] }, "Frequently used": { "v": ["Usado con frecuencia"] }, "Objects": { "v": ["Objetos"] }, "People & Body": { "v": ["Personas y Cuerpo"] }, "Pick an emoji": { "v": ["Elegir un emoji"] }, "Search emoji": { "v": ["Buscar emoji"] }, "Search results": { "v": ["Resultados de la búsqueda"] }, "Selected": { "v": ["Seleccionado"] }, "Smileys & Emotion": { "v": ["Smileys y emoticonos"] }, "Symbols": { "v": ["Símbolos"] }, "Travel & Places": { "v": ["Viajes y lugares"] } } }, { "l": "es_419", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "es_AR", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "es_CL", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "es_CO", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "es_CR", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "es_DO", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "es_EC", "t": { "Activities": { "v": ["Actividades"] }, "Animals & Nature": { "v": ["Animales y Naturaleza"] }, "Clear search": { "v": ["Limpiar búsqueda"] }, "Custom": { "v": ["Personalizado"] }, "Flags": { "v": ["Marcas"] }, "Food & Drink": { "v": ["Comida y Bebida"] }, "Frequently used": { "v": ["Frecuentemente utilizado"] }, "Objects": { "v": ["Objetos"] }, "People & Body": { "v": ["Personas y Cuerpo"] }, "Pick an emoji": { "v": ["Seleccionar un emoji"] }, "Search emoji": { "v": ["Buscar emoji"] }, "Search results": { "v": ["Resultados de búsqueda"] }, "Selected": { "v": [""] }, "Smileys & Emotion": { "v": ["Caritas y Emociones"] }, "Symbols": { "v": ["Símbolos"] }, "Travel & Places": { "v": ["Viajes y Lugares"] } } }, { "l": "es_GT", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "es_HN", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "es_MX", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "es_NI", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "es_PA", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "es_PE", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "es_PR", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "es_PY", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "es_SV", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "es_UY", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "et_EE", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "eu", "t": { "Activities": { "v": ["Jarduerak"] }, "Animals & Nature": { "v": ["Animaliak eta Natura"] }, "Clear search": { "v": ["Garbitu bilaketa"] }, "Custom": { "v": ["Pertsonalizatua"] }, "Flags": { "v": ["Banderak"] }, "Food & Drink": { "v": ["Janaria eta edariak"] }, "Frequently used": { "v": ["Askotan erabilia"] }, "Objects": { "v": ["Objektuak"] }, "People & Body": { "v": ["Jendea eta gorputza"] }, "Pick an emoji": { "v": ["Hautatu emoji bat"] }, "Search emoji": { "v": ["Bilatu emojiak"] }, "Search results": { "v": ["Bilaketa emaitzak"] }, "Selected": { "v": ["Hautatuta"] }, "Smileys & Emotion": { "v": ["Smileyak eta emozioa"] }, "Symbols": { "v": ["Sinboloak"] }, "Travel & Places": { "v": ["Bidaiak eta lekuak"] } } }, { "l": "fa", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "fi", "t": { "Activities": { "v": ["Aktiviteetit"] }, "Animals & Nature": { "v": ["Eläimet & luonto"] }, "Clear search": { "v": [""] }, "Custom": { "v": ["Mukautettu"] }, "Flags": { "v": ["Liput"] }, "Food & Drink": { "v": ["Ruoka & juoma"] }, "Frequently used": { "v": ["Usein käytetyt"] }, "Objects": { "v": ["Esineet & asiat"] }, "People & Body": { "v": ["Ihmiset & keho"] }, "Pick an emoji": { "v": ["Valitse emoji"] }, "Search emoji": { "v": [""] }, "Search results": { "v": ["Hakutulokset"] }, "Smileys & Emotion": { "v": ["Hymiöt & tunteet"] }, "Symbols": { "v": ["Symbolit"] }, "Travel & Places": { "v": ["Matkustus & kohteet"] } } }, { "l": "fo", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "fr", "t": { "Activities": { "v": ["Activités"] }, "Animals & Nature": { "v": ["Animaux & Nature"] }, "Clear search": { "v": ["Effacer la recherche"] }, "Custom": { "v": ["Personnalisé"] }, "Flags": { "v": ["Drapeaux"] }, "Food & Drink": { "v": ["Nourriture & Boissons"] }, "Frequently used": { "v": ["Utilisés fréquemment"] }, "Objects": { "v": ["Objets"] }, "People & Body": { "v": ["Personnes & Corps"] }, "Pick an emoji": { "v": ["Choisissez un émoji"] }, "Search emoji": { "v": ["Rechercher un emoji"] }, "Search results": { "v": ["Résultats de recherche"] }, "Selected": { "v": ["sélectionné"] }, "Smileys & Emotion": { "v": ["Smileys & Émotions"] }, "Symbols": { "v": ["Symboles"] }, "Travel & Places": { "v": ["Voyage & Lieux"] } } }, { "l": "gd", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "gl", "t": { "Activities": { "v": ["Actividades"] }, "Animals & Nature": { "v": ["Animais e natureza"] }, "Clear search": { "v": ["Limpar a busca"] }, "Custom": { "v": ["Personalizado"] }, "Dark skin tone": { "v": ["Ton de pel escuro"] }, "Emoji picker": { "v": ["Selector de «emojis»"] }, "Flags": { "v": ["Bandeiras"] }, "Food & Drink": { "v": ["Comida e bebida"] }, "Frequently used": { "v": ["Usado con frecuencia"] }, "Light skin tone": { "v": ["Ton de pel claro"] }, "Medium dark skin tone": { "v": ["Ton de pel medio escuro"] }, "Medium light skin tone": { "v": ["Ton de pel medio claro"] }, "Medium skin tone": { "v": ["Ton de pel medio"] }, "Neutral skin color": { "v": ["Cor de pel neutra"] }, "Objects": { "v": ["Obxectos"] }, "People & Body": { "v": ["Persoas e corpo"] }, "Pick an emoji": { "v": ["Escolla un «emoji»"] }, "Search emoji": { "v": ["Buscar «emoji»"] }, "Search results": { "v": ["Resultados da busca"] }, "Selected": { "v": ["Seleccionado"] }, "Skin tone": { "v": ["Ton de pel"] }, "Smileys & Emotion": { "v": ["Sorrisos e emocións"] }, "Symbols": { "v": ["Símbolos"] }, "Travel & Places": { "v": ["Viaxes e lugares"] } } }, { "l": "he", "t": { "Activities": { "v": ["פעילויות"] }, "Animals & Nature": { "v": ["חיות וטבע"] }, "Clear search": { "v": ["פינוי חיפוש"] }, "Custom": { "v": ["בהתאמה אישית"] }, "Flags": { "v": ["דגלים"] }, "Food & Drink": { "v": ["מזון ומשקאות"] }, "Frequently used": { "v": ["בשימוש תדיר"] }, "Objects": { "v": ["חפצים"] }, "People & Body": { "v": ["אנשים וגוף"] }, "Pick an emoji": { "v": ["נא לבחור אמוג׳י"] }, "Search emoji": { "v": ["חיפוש אמוג׳י"] }, "Search results": { "v": ["תוצאות חיפוש"] }, "Selected": { "v": [""] }, "Smileys & Emotion": { "v": ["חייכנים ורגשונים"] }, "Symbols": { "v": ["סמלים"] }, "Travel & Places": { "v": ["טיולים ומקומות"] } } }, { "l": "hi_IN", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "hr", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "hsb", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "hu", "t": { "Activities": { "v": ["Tevékenységek"] }, "Animals & Nature": { "v": ["Állatok és természet"] }, "Clear search": { "v": [""] }, "Custom": { "v": ["Egyéni"] }, "Flags": { "v": ["Zászlók"] }, "Food & Drink": { "v": ["Étel és ital"] }, "Frequently used": { "v": ["Gyakran használt"] }, "Objects": { "v": ["Tárgyak"] }, "People & Body": { "v": ["Emberek és test"] }, "Pick an emoji": { "v": ["Válasszon egy emodzsit"] }, "Search emoji": { "v": [""] }, "Search results": { "v": ["Találatok"] }, "Smileys & Emotion": { "v": ["Mosolyok és érzelmek"] }, "Symbols": { "v": ["Szimbólumok"] }, "Travel & Places": { "v": ["Utazás és helyek"] } } }, { "l": "hy", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "ia", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "id", "t": { "Activities": { "v": ["Aktivitas"] }, "Animals & Nature": { "v": ["Satwa dan Alam"] }, "Clear search": { "v": ["Bersihkan pencarian"] }, "Custom": { "v": ["Khusus"] }, "Flags": { "v": ["Tanda"] }, "Food & Drink": { "v": ["Makanan dan Minuman"] }, "Frequently used": { "v": ["Sering digunakan"] }, "Objects": { "v": ["Objek"] }, "People & Body": { "v": ["Orang & Badan"] }, "Pick an emoji": { "v": ["Pilih emoji"] }, "Search emoji": { "v": ["Cari emoji"] }, "Search results": { "v": ["Hasil pencarian"] }, "Selected": { "v": ["Dipilih"] }, "Smileys & Emotion": { "v": ["Senyuman & Perasaan"] }, "Symbols": { "v": ["Simbol"] }, "Travel & Places": { "v": ["Perjalanan & Tempat"] } } }, { "l": "ig", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "is", "t": { "Activities": { "v": ["Aðgerðir"] }, "Animals & Nature": { "v": ["Dýr og náttúra"] }, "Clear search": { "v": ["Hreinsa leit"] }, "Custom": { "v": ["Sérsniðið"] }, "Flags": { "v": ["Flögg"] }, "Food & Drink": { "v": ["Matur og drykkur"] }, "Frequently used": { "v": ["Oftast notað"] }, "Objects": { "v": ["Hlutir"] }, "People & Body": { "v": ["Fólk og líkami"] }, "Pick an emoji": { "v": ["Veldu tjáningartákn"] }, "Search emoji": { "v": ["Leita að tjáningartákni"] }, "Search results": { "v": ["Leitarniðurstöður"] }, "Selected": { "v": ["Valið"] }, "Smileys & Emotion": { "v": ["Broskallar og tilfinningar"] }, "Symbols": { "v": ["Tákn"] }, "Travel & Places": { "v": ["Staðir og ferðalög"] } } }, { "l": "it", "t": { "Activities": { "v": ["Attività"] }, "Animals & Nature": { "v": ["Animali e natura"] }, "Clear search": { "v": ["online"] }, "Custom": { "v": ["Personalizzato"] }, "Flags": { "v": ["Bandiere"] }, "Food & Drink": { "v": ["Cibo e bevande"] }, "Frequently used": { "v": ["Usati di frequente"] }, "Objects": { "v": ["Oggetti"] }, "People & Body": { "v": ["Persone e corpo"] }, "Pick an emoji": { "v": ["Scegli un emoji"] }, "Search emoji": { "v": ["Ricerca emoji"] }, "Search results": { "v": ["Risultati di ricerca"] }, "Selected": { "v": ["Selezionato"] }, "Smileys & Emotion": { "v": ["Faccine ed emozioni"] }, "Symbols": { "v": ["Simboli"] }, "Travel & Places": { "v": ["Viaggi e luoghi"] } } }, { "l": "ja", "t": { "Activities": { "v": ["アクティビティ"] }, "Animals & Nature": { "v": ["動物と自然"] }, "Clear search": { "v": [""] }, "Custom": { "v": ["カスタム"] }, "Flags": { "v": ["国旗"] }, "Food & Drink": { "v": ["食べ物と飲み物"] }, "Frequently used": { "v": ["よく使うもの"] }, "Objects": { "v": ["物"] }, "People & Body": { "v": ["様々な人と体の部位"] }, "Pick an emoji": { "v": ["絵文字を選択"] }, "Search emoji": { "v": [""] }, "Search results": { "v": ["検索結果"] }, "Smileys & Emotion": { "v": ["感情表現"] }, "Symbols": { "v": ["記号"] }, "Travel & Places": { "v": ["旅行と場所"] } } }, { "l": "ka", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "ka_GE", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "kab", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "kk", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "km", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "kn", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "ko", "t": { "Activities": { "v": ["활동"] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "la", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "lb", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "lo", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "lt_LT", "t": { "Activities": { "v": ["Veiklos"] }, "Animals & Nature": { "v": ["Gyvūnai ir gamta"] }, "Clear search": { "v": [""] }, "Custom": { "v": ["Tinkinti"] }, "Flags": { "v": ["Vėliavos"] }, "Food & Drink": { "v": ["Maistas ir gėrimai"] }, "Frequently used": { "v": ["Dažniausiai naudoti"] }, "Objects": { "v": ["Objektai"] }, "People & Body": { "v": ["Žmonės ir kūnas"] }, "Pick an emoji": { "v": ["Pasirinkti jaustuką"] }, "Search emoji": { "v": [""] }, "Search results": { "v": ["Paieškos rezultatai"] }, "Smileys & Emotion": { "v": ["Šypsenos ir emocijos"] }, "Symbols": { "v": ["Simboliai"] }, "Travel & Places": { "v": ["Kelionės ir vietos"] } } }, { "l": "lv", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "mk", "t": { "Activities": { "v": ["Активности"] }, "Animals & Nature": { "v": ["Животни & Природа"] }, "Clear search": { "v": [""] }, "Custom": { "v": ["Прилагодени"] }, "Flags": { "v": ["Знамиња"] }, "Food & Drink": { "v": ["Храна & Пијалоци"] }, "Frequently used": { "v": ["Најчесто користени"] }, "Objects": { "v": ["Објекти"] }, "People & Body": { "v": ["Луѓе & Тело"] }, "Pick an emoji": { "v": ["Избери емотикон"] }, "Search emoji": { "v": [""] }, "Search results": { "v": ["Резултати од барувањето"] }, "Smileys & Emotion": { "v": ["Смешковци & Емотикони"] }, "Symbols": { "v": ["Симболи"] }, "Travel & Places": { "v": ["Патувања & Места"] } } }, { "l": "mn", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "mr", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "ms_MY", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "my", "t": { "Activities": { "v": ["ပြုလုပ်ဆောင်တာများ"] }, "Animals & Nature": { "v": ["တိရစ္ဆာန်များနှင့် သဘာဝ"] }, "Clear search": { "v": [""] }, "Custom": { "v": ["အလိုကျချိန်ညှိမှု"] }, "Flags": { "v": ["အလံများ"] }, "Food & Drink": { "v": ["အစားအသောက်"] }, "Frequently used": { "v": ["မကြာခဏအသုံးပြုသော"] }, "Objects": { "v": ["အရာဝတ္ထုများ"] }, "People & Body": { "v": ["လူပုဂ္ဂိုလ်များနှင့် ခန္ဓာကိုယ်"] }, "Pick an emoji": { "v": ["အီမိုဂျီရွေးရန်"] }, "Search emoji": { "v": [""] }, "Search results": { "v": ["ရှာဖွေမှု ရလဒ်များ"] }, "Smileys & Emotion": { "v": ["စမိုင်လီများနှင့် အီမိုရှင်း"] }, "Symbols": { "v": ["သင်္ကေတများ"] }, "Travel & Places": { "v": ["ခရီးသွားလာခြင်းနှင့် နေရာများ"] } } }, { "l": "nb", "t": { "Activities": { "v": ["Aktiviteter"] }, "Animals & Nature": { "v": ["Dyr og natur"] }, "Clear search": { "v": [""] }, "Custom": { "v": ["Tilpasset"] }, "Flags": { "v": ["Flagg"] }, "Food & Drink": { "v": ["Mat og drikke"] }, "Frequently used": { "v": ["Ofte brukt"] }, "Objects": { "v": ["Objekter"] }, "People & Body": { "v": ["Mennesker og kropp"] }, "Pick an emoji": { "v": ["Velg en emoji"] }, "Search emoji": { "v": [""] }, "Search results": { "v": ["Søkeresultater"] }, "Smileys & Emotion": { "v": ["Smilefjes og følelser"] }, "Symbols": { "v": ["Symboler"] }, "Travel & Places": { "v": ["Reise og steder"] } } }, { "l": "ne", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "nl", "t": { "Activities": { "v": ["Activiteiten"] }, "Animals & Nature": { "v": ["Dieren & Natuur"] }, "Clear search": { "v": ["Wis zoekopdracht"] }, "Custom": { "v": ["Aangepast"] }, "Flags": { "v": ["Vlaggen"] }, "Food & Drink": { "v": ["Eten & Drinken"] }, "Frequently used": { "v": ["Vaak gebruikt"] }, "Objects": { "v": ["Objecten"] }, "People & Body": { "v": ["Mensen & Lichaam"] }, "Pick an emoji": { "v": ["Kies een emoji"] }, "Search emoji": { "v": ["Zoek emoji"] }, "Search results": { "v": ["Zoekresultaten"] }, "Selected": { "v": ["Geselecteerd"] }, "Smileys & Emotion": { "v": ["Smileys & Emotie"] }, "Symbols": { "v": ["Symbolen"] }, "Travel & Places": { "v": ["Reizen & Plaatsen"] } } }, { "l": "nn_NO", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "oc", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "pl", "t": { "Activities": { "v": ["Aktywność"] }, "Animals & Nature": { "v": ["Zwierzęta i natura"] }, "Clear search": { "v": ["Wyczyść wyszukiwanie"] }, "Custom": { "v": ["Zwyczajne"] }, "Flags": { "v": ["Flagi"] }, "Food & Drink": { "v": ["Jedzenie i picie"] }, "Frequently used": { "v": ["Często używane"] }, "Objects": { "v": ["Obiekty"] }, "People & Body": { "v": ["Ludzie i ciało"] }, "Pick an emoji": { "v": ["Wybierz emoji"] }, "Search emoji": { "v": ["Szukaj emoji"] }, "Search results": { "v": ["Wyniki wyszukiwania"] }, "Selected": { "v": ["Wybrane"] }, "Smileys & Emotion": { "v": ["Buźki i emotikony"] }, "Symbols": { "v": ["Symbole"] }, "Travel & Places": { "v": ["Podróże i miejsca"] } } }, { "l": "ps", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "pt_BR", "t": { "Activities": { "v": ["Atividades"] }, "Animals & Nature": { "v": ["Animais & Natureza"] }, "Clear search": { "v": ["Limpar pesquisa"] }, "Custom": { "v": ["Personalizado"] }, "Flags": { "v": ["Bandeiras"] }, "Food & Drink": { "v": ["Comida & Bebida"] }, "Frequently used": { "v": ["Mais usados"] }, "Objects": { "v": ["Objetos"] }, "People & Body": { "v": ["Pessoas & Corpo"] }, "Pick an emoji": { "v": ["Escolha um emoji"] }, "Search emoji": { "v": ["Pesquisar emoticons"] }, "Search results": { "v": ["Resultados da pesquisa"] }, "Selected": { "v": ["Selecionado"] }, "Smileys & Emotion": { "v": ["Smiles & Emoções"] }, "Symbols": { "v": ["Símbolo"] }, "Travel & Places": { "v": ["Viagem & Lugares"] } } }, { "l": "pt_PT", "t": { "Activities": { "v": ["Atividades"] }, "Animals & Nature": { "v": ["Animais e Natureza"] }, "Clear search": { "v": ["Limpar a pesquisa"] }, "Custom": { "v": ["Personalizado"] }, "Flags": { "v": ["Bandeiras"] }, "Food & Drink": { "v": ["Comida e Bebida"] }, "Frequently used": { "v": ["Mais utilizados"] }, "Objects": { "v": ["Objetos"] }, "People & Body": { "v": ["Pessoas e Corpo"] }, "Pick an emoji": { "v": ["Escolha um emoji"] }, "Search emoji": { "v": ["Pesquisar emoji"] }, "Search results": { "v": ["Resultados da pesquisa"] }, "Selected": { "v": [""] }, "Smileys & Emotion": { "v": ["Sorrisos e Emoções"] }, "Symbols": { "v": ["Símbolos"] }, "Travel & Places": { "v": ["Viagem e Lugares"] } } }, { "l": "ro", "t": { "Activities": { "v": ["Activități"] }, "Animals & Nature": { "v": ["Animale și natură"] }, "Clear search": { "v": ["Șterge căutarea"] }, "Custom": { "v": ["Personalizat"] }, "Flags": { "v": ["Marcaje"] }, "Food & Drink": { "v": ["Alimente și băuturi"] }, "Frequently used": { "v": ["Utilizate frecvent"] }, "Objects": { "v": ["Obiecte"] }, "People & Body": { "v": ["Oameni și corp"] }, "Pick an emoji": { "v": ["Alege un emoji"] }, "Search emoji": { "v": ["Căutare emoji"] }, "Search results": { "v": ["Rezultatele căutării"] }, "Selected": { "v": ["Selectat"] }, "Smileys & Emotion": { "v": ["Zâmbete și emoții"] }, "Symbols": { "v": ["Simboluri"] }, "Travel & Places": { "v": ["Călătorii și locuri"] } } }, { "l": "ru", "t": { "Activities": { "v": ["События"] }, "Animals & Nature": { "v": ["Животные и природа "] }, "Clear search": { "v": ["Очистить поиск"] }, "Custom": { "v": ["Пользовательское"] }, "Flags": { "v": ["Флаги"] }, "Food & Drink": { "v": ["Еда, напиток"] }, "Frequently used": { "v": ["Часто используемый"] }, "Objects": { "v": ["Объекты"] }, "People & Body": { "v": ["Люди и тело"] }, "Pick an emoji": { "v": ["Выберите эмодзи"] }, "Search emoji": { "v": ["Поиск эмодзи"] }, "Search results": { "v": ["Результаты поиска"] }, "Selected": { "v": ["Выбрано"] }, "Smileys & Emotion": { "v": ["Смайлики и эмоции"] }, "Symbols": { "v": ["Символы"] }, "Travel & Places": { "v": ["Путешествия и места"] } } }, { "l": "sc", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "si", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "sk", "t": { "Activities": { "v": ["Aktivity"] }, "Animals & Nature": { "v": ["Zvieratá a príroda"] }, "Clear search": { "v": [""] }, "Custom": { "v": ["Zvyk"] }, "Flags": { "v": ["Vlajky"] }, "Food & Drink": { "v": ["Jedlo a nápoje"] }, "Frequently used": { "v": ["Často používané"] }, "Objects": { "v": ["Objekty"] }, "People & Body": { "v": ["Ľudia a telo"] }, "Pick an emoji": { "v": ["Vyberte si emodži"] }, "Search emoji": { "v": [""] }, "Search results": { "v": ["Výsledky vyhľadávania"] }, "Smileys & Emotion": { "v": ["Smajlíky a emócie"] }, "Symbols": { "v": ["Symboly"] }, "Travel & Places": { "v": ["Cestovanie a miesta"] } } }, { "l": "sl", "t": { "Activities": { "v": ["Dejavnosti"] }, "Animals & Nature": { "v": ["Živali in Narava"] }, "Clear search": { "v": [""] }, "Custom": { "v": ["Po meri"] }, "Flags": { "v": ["Zastavice"] }, "Food & Drink": { "v": ["Hrana in Pijača"] }, "Frequently used": { "v": ["Pogostost uporabe"] }, "Objects": { "v": ["Predmeti"] }, "People & Body": { "v": ["Ljudje in Telo"] }, "Pick an emoji": { "v": ["Izbor izrazne ikone"] }, "Search emoji": { "v": [""] }, "Search results": { "v": ["Zadetki iskanja"] }, "Smileys & Emotion": { "v": ["Izrazne ikone"] }, "Symbols": { "v": ["Simboli"] }, "Travel & Places": { "v": ["Potovanja in Kraji"] } } }, { "l": "sq", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "sr", "t": { "Activities": { "v": ["Активности"] }, "Animals & Nature": { "v": ["Животиње и природа"] }, "Clear search": { "v": ["Обриши претрагу"] }, "Custom": { "v": ["Произвољно"] }, "Emoji picker": { "v": ["Бирач емођија"] }, "Flags": { "v": ["Заставе"] }, "Food & Drink": { "v": ["Храна и пиће"] }, "Frequently used": { "v": ["Често коришћено"] }, "Objects": { "v": ["Предмети"] }, "People & Body": { "v": ["Људи и тело"] }, "Pick an emoji": { "v": ["Изаберите емођи"] }, "Search emoji": { "v": ["Претражи емођи"] }, "Search results": { "v": ["Резултати претраге"] }, "Selected": { "v": ["Изабрано"] }, "Smileys & Emotion": { "v": ["Смајлији и емоције"] }, "Symbols": { "v": ["Симболи"] }, "Travel & Places": { "v": ["Путовање и места"] } } }, { "l": "sr@latin", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "sv", "t": { "Activities": { "v": ["Aktiviteter"] }, "Animals & Nature": { "v": ["Djur & Natur"] }, "Clear search": { "v": ["Rensa sökning"] }, "Custom": { "v": ["Anpassad"] }, "Dark skin tone": { "v": ["Mörk hudton"] }, "Emoji picker": { "v": ["Emoji-väljare"] }, "Flags": { "v": ["Flaggor"] }, "Food & Drink": { "v": ["Mat & Dryck"] }, "Frequently used": { "v": ["Används ofta"] }, "Light skin tone": { "v": ["Ljus hudton"] }, "Medium dark skin tone": { "v": ["Medium mörk hudton"] }, "Medium light skin tone": { "v": ["Medium ljus hudton"] }, "Medium skin tone": { "v": ["Medium hudton"] }, "Neutral skin color": { "v": ["Neutral hudfärg"] }, "Objects": { "v": ["Objekt"] }, "People & Body": { "v": ["Kropp & Själ"] }, "Pick an emoji": { "v": ["Välj en emoji"] }, "Search emoji": { "v": ["Sök emoji"] }, "Search results": { "v": ["Sökresultat"] }, "Selected": { "v": ["Vald"] }, "Skin tone": { "v": ["Hudton"] }, "Smileys & Emotion": { "v": ["Selfies & Känslor"] }, "Symbols": { "v": ["Symboler"] }, "Travel & Places": { "v": ["Resor & Sevärdigheter"] } } }, { "l": "sw", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "ta", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "th", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "tk", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "tr", "t": { "Activities": { "v": ["Etkinlikler"] }, "Animals & Nature": { "v": ["Hayvanlar ve Doğa"] }, "Clear search": { "v": ["Aramayı temizle"] }, "Custom": { "v": ["Özel"] }, "Dark skin tone": { "v": ["Koyu deri rengi"] }, "Emoji picker": { "v": ["Emoji seçici"] }, "Flags": { "v": ["Bayraklar"] }, "Food & Drink": { "v": ["Yeme ve içme"] }, "Frequently used": { "v": ["Sık kullanılanlar"] }, "Light skin tone": { "v": ["Açık deri rengi"] }, "Medium dark skin tone": { "v": ["Orta koyu deri rengi"] }, "Medium light skin tone": { "v": ["Orta açık deri rengi"] }, "Medium skin tone": { "v": ["Orta deri rengi"] }, "Neutral skin color": { "v": ["Nötr deri rengi"] }, "Objects": { "v": ["Nesneler"] }, "People & Body": { "v": ["İnsanlar ve beden"] }, "Pick an emoji": { "v": ["Bir emoji seçin"] }, "Search emoji": { "v": ["Emoji ara"] }, "Search results": { "v": ["Arama sonuçları"] }, "Selected": { "v": ["Seçilmiş"] }, "Skin tone": { "v": ["Deri rengi"] }, "Smileys & Emotion": { "v": ["İfadeler ve duygular"] }, "Symbols": { "v": ["Simgeler"] }, "Travel & Places": { "v": ["Gezi ve yerler"] } } }, { "l": "ug", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "uk", "t": { "Activities": { "v": ["Діяльність"] }, "Animals & Nature": { "v": ["Тварини та природа"] }, "Clear search": { "v": ["Очистити пошук"] }, "Custom": { "v": ["Власне"] }, "Flags": { "v": ["Прапори"] }, "Food & Drink": { "v": ["Їжа та напої"] }, "Frequently used": { "v": ["Найчастіші"] }, "Objects": { "v": ["Об'єкти"] }, "People & Body": { "v": ["Люди та жести"] }, "Pick an emoji": { "v": ["Виберіть емоційку"] }, "Search emoji": { "v": ["Шукати емоційки"] }, "Search results": { "v": ["Результати пошуку"] }, "Selected": { "v": ["Вибрано"] }, "Smileys & Emotion": { "v": ["Смайли та емоції"] }, "Symbols": { "v": ["Символи"] }, "Travel & Places": { "v": ["Поїздки та місця"] } } }, { "l": "ur_PK", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "uz", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "vi", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }, { "l": "zh_CN", "t": { "Activities": { "v": ["活动"] }, "Animals & Nature": { "v": ["动物 & 自然"] }, "Clear search": { "v": [""] }, "Custom": { "v": ["自定义"] }, "Flags": { "v": ["旗帜"] }, "Food & Drink": { "v": ["食物 & 饮品"] }, "Frequently used": { "v": ["经常使用"] }, "Objects": { "v": ["物体"] }, "People & Body": { "v": ["人 & 身体"] }, "Pick an emoji": { "v": ["选择一个表情"] }, "Search emoji": { "v": [""] }, "Search results": { "v": ["搜索结果"] }, "Smileys & Emotion": { "v": ["笑脸 & 情感"] }, "Symbols": { "v": ["符号"] }, "Travel & Places": { "v": ["旅游 & 地点"] } } }, { "l": "zh_HK", "t": { "Activities": { "v": ["活動"] }, "Animals & Nature": { "v": ["動物與自然"] }, "Clear search": { "v": ["清除搜索"] }, "Custom": { "v": ["自定義"] }, "Flags": { "v": ["旗幟"] }, "Food & Drink": { "v": ["食物與飲料"] }, "Frequently used": { "v": ["經常使用"] }, "Objects": { "v": ["物件"] }, "People & Body": { "v": ["人物"] }, "Pick an emoji": { "v": ["選擇表情符號"] }, "Search emoji": { "v": ["搜尋表情符號"] }, "Search results": { "v": ["搜尋結果"] }, "Selected": { "v": ["已選"] }, "Smileys & Emotion": { "v": ["表情"] }, "Symbols": { "v": ["標誌"] }, "Travel & Places": { "v": ["旅遊與景點"] } } }, { "l": "zh_TW", "t": { "Activities": { "v": ["活動"] }, "Animals & Nature": { "v": ["動物與自然"] }, "Clear search": { "v": ["清除搜尋"] }, "Custom": { "v": ["自定義"] }, "Flags": { "v": ["旗幟"] }, "Food & Drink": { "v": ["食物與飲料"] }, "Frequently used": { "v": ["最近使用"] }, "Objects": { "v": ["物件"] }, "People & Body": { "v": ["人物"] }, "Pick an emoji": { "v": ["選擇表情符號"] }, "Search emoji": { "v": ["搜尋表情符號"] }, "Search results": { "v": ["搜尋結果"] }, "Selected": { "v": ["已選取"] }, "Smileys & Emotion": { "v": ["表情"] }, "Symbols": { "v": ["標誌"] }, "Travel & Places": { "v": ["旅遊與景點"] } } }, { "l": "zu_ZA", "t": { "Activities": { "v": [""] }, "Animals & Nature": { "v": [""] }, "Clear search": { "v": [""] }, "Custom": { "v": [""] }, "Flags": { "v": [""] }, "Food & Drink": { "v": [""] }, "Frequently used": { "v": [""] }, "Objects": { "v": [""] }, "People & Body": { "v": [""] }, "Pick an emoji": { "v": [""] }, "Search emoji": { "v": [""] }, "Search results": { "v": [""] }, "Smileys & Emotion": { "v": [""] }, "Symbols": { "v": [""] }, "Travel & Places": { "v": [""] } } }];
+const t7 = [{ "l": "af", "t": { "Any link": { "v": [""] } } }, { "l": "ar", "t": { "Any link": { "v": ["أيَّ رابطٍ"] } } }, { "l": "ast", "t": { "Any link": { "v": ["Cualesquier enllaz"] } } }, { "l": "az", "t": { "Any link": { "v": [""] } } }, { "l": "be", "t": { "Any link": { "v": [""] } } }, { "l": "bg", "t": { "Any link": { "v": [""] } } }, { "l": "bn_BD", "t": { "Any link": { "v": [""] } } }, { "l": "br", "t": { "Any link": { "v": [""] } } }, { "l": "bs", "t": { "Any link": { "v": [""] } } }, { "l": "ca", "t": { "Any link": { "v": [""] } } }, { "l": "cs", "t": { "Any link": { "v": ["Jakýkoli odkaz"] } } }, { "l": "cs_CZ", "t": { "Any link": { "v": ["Jakýkoli odkaz"] } } }, { "l": "cy_GB", "t": { "Any link": { "v": [""] } } }, { "l": "da", "t": { "Any link": { "v": ["Ethvert link"] } } }, { "l": "de", "t": { "Any link": { "v": ["Irgendein Link"] } } }, { "l": "de_DE", "t": { "Any link": { "v": ["Irgendein Link"] } } }, { "l": "el", "t": { "Any link": { "v": [""] } } }, { "l": "en_GB", "t": { "Any link": { "v": ["Any link"] } } }, { "l": "eo", "t": { "Any link": { "v": [""] } } }, { "l": "es", "t": { "Any link": { "v": ["Cualquier enlace"] } } }, { "l": "es_419", "t": { "Any link": { "v": [""] } } }, { "l": "es_AR", "t": { "Any link": { "v": [""] } } }, { "l": "es_CL", "t": { "Any link": { "v": [""] } } }, { "l": "es_CO", "t": { "Any link": { "v": [""] } } }, { "l": "es_CR", "t": { "Any link": { "v": [""] } } }, { "l": "es_DO", "t": { "Any link": { "v": [""] } } }, { "l": "es_EC", "t": { "Any link": { "v": ["Cualquier enlace"] } } }, { "l": "es_GT", "t": { "Any link": { "v": [""] } } }, { "l": "es_HN", "t": { "Any link": { "v": [""] } } }, { "l": "es_MX", "t": { "Any link": { "v": [""] } } }, { "l": "es_NI", "t": { "Any link": { "v": [""] } } }, { "l": "es_PA", "t": { "Any link": { "v": [""] } } }, { "l": "es_PE", "t": { "Any link": { "v": [""] } } }, { "l": "es_PR", "t": { "Any link": { "v": [""] } } }, { "l": "es_PY", "t": { "Any link": { "v": [""] } } }, { "l": "es_SV", "t": { "Any link": { "v": [""] } } }, { "l": "es_UY", "t": { "Any link": { "v": [""] } } }, { "l": "et_EE", "t": { "Any link": { "v": [""] } } }, { "l": "eu", "t": { "Any link": { "v": ["Edozein esteka"] } } }, { "l": "fa", "t": { "Any link": { "v": [""] } } }, { "l": "fi", "t": { "Any link": { "v": [""] } } }, { "l": "fo", "t": { "Any link": { "v": [""] } } }, { "l": "fr", "t": { "Any link": { "v": ["N'importe quel lien"] } } }, { "l": "gd", "t": { "Any link": { "v": [""] } } }, { "l": "gl", "t": { "Any link": { "v": ["Calquera ligazón"] } } }, { "l": "he", "t": { "Any link": { "v": ["קישור כלשהו"] } } }, { "l": "hi_IN", "t": { "Any link": { "v": [""] } } }, { "l": "hr", "t": { "Any link": { "v": [""] } } }, { "l": "hsb", "t": { "Any link": { "v": [""] } } }, { "l": "hu", "t": { "Any link": { "v": [""] } } }, { "l": "hy", "t": { "Any link": { "v": [""] } } }, { "l": "ia", "t": { "Any link": { "v": [""] } } }, { "l": "id", "t": { "Any link": { "v": ["Semua tautan"] } } }, { "l": "ig", "t": { "Any link": { "v": [""] } } }, { "l": "is", "t": { "Any link": { "v": ["Einhver tengill"] } } }, { "l": "it", "t": { "Any link": { "v": ["Qualsiasi link"] } } }, { "l": "ja", "t": { "Any link": { "v": [""] } } }, { "l": "ka", "t": { "Any link": { "v": [""] } } }, { "l": "ka_GE", "t": { "Any link": { "v": [""] } } }, { "l": "kab", "t": { "Any link": { "v": [""] } } }, { "l": "kk", "t": { "Any link": { "v": [""] } } }, { "l": "km", "t": { "Any link": { "v": [""] } } }, { "l": "kn", "t": { "Any link": { "v": [""] } } }, { "l": "ko", "t": { "Any link": { "v": [""] } } }, { "l": "la", "t": { "Any link": { "v": [""] } } }, { "l": "lb", "t": { "Any link": { "v": [""] } } }, { "l": "lo", "t": { "Any link": { "v": [""] } } }, { "l": "lt_LT", "t": { "Any link": { "v": [""] } } }, { "l": "lv", "t": { "Any link": { "v": [""] } } }, { "l": "mk", "t": { "Any link": { "v": [""] } } }, { "l": "mn", "t": { "Any link": { "v": [""] } } }, { "l": "mr", "t": { "Any link": { "v": [""] } } }, { "l": "ms_MY", "t": { "Any link": { "v": [""] } } }, { "l": "my", "t": { "Any link": { "v": [""] } } }, { "l": "nb", "t": { "Any link": { "v": [""] } } }, { "l": "ne", "t": { "Any link": { "v": [""] } } }, { "l": "nl", "t": { "Any link": { "v": ["Elke link"] } } }, { "l": "nn_NO", "t": { "Any link": { "v": [""] } } }, { "l": "oc", "t": { "Any link": { "v": [""] } } }, { "l": "pl", "t": { "Any link": { "v": ["Dowolny link"] } } }, { "l": "ps", "t": { "Any link": { "v": [""] } } }, { "l": "pt_BR", "t": { "Any link": { "v": ["Qualquer link"] } } }, { "l": "pt_PT", "t": { "Any link": { "v": ["Qualquer link"] } } }, { "l": "ro", "t": { "Any link": { "v": ["Orice link"] } } }, { "l": "ru", "t": { "Any link": { "v": ["Любая ссылка"] } } }, { "l": "sc", "t": { "Any link": { "v": [""] } } }, { "l": "si", "t": { "Any link": { "v": [""] } } }, { "l": "sk", "t": { "Any link": { "v": [""] } } }, { "l": "sl", "t": { "Any link": { "v": [""] } } }, { "l": "sq", "t": { "Any link": { "v": [""] } } }, { "l": "sr", "t": { "Any link": { "v": ["Било који линк"] } } }, { "l": "sr@latin", "t": { "Any link": { "v": [""] } } }, { "l": "sv", "t": { "Any link": { "v": ["Vilken länk som helst"] } } }, { "l": "sw", "t": { "Any link": { "v": [""] } } }, { "l": "ta", "t": { "Any link": { "v": [""] } } }, { "l": "th", "t": { "Any link": { "v": [""] } } }, { "l": "tk", "t": { "Any link": { "v": [""] } } }, { "l": "tr", "t": { "Any link": { "v": ["Herhangi bir bağlantı"] } } }, { "l": "ug", "t": { "Any link": { "v": [""] } } }, { "l": "uk", "t": { "Any link": { "v": ["Будь-яке посилання"] } } }, { "l": "ur_PK", "t": { "Any link": { "v": [""] } } }, { "l": "uz", "t": { "Any link": { "v": [""] } } }, { "l": "vi", "t": { "Any link": { "v": [""] } } }, { "l": "zh_CN", "t": { "Any link": { "v": [""] } } }, { "l": "zh_HK", "t": { "Any link": { "v": ["任何連結"] } } }, { "l": "zh_TW", "t": { "Any link": { "v": ["任何連結"] } } }, { "l": "zu_ZA", "t": { "Any link": { "v": [""] } } }];
+const t8 = [{ "l": "af", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "ar", "t": { "Anything shared with the same group of people will show up here": { "v": ["أيّ مادة تمت مشاركتها مع نفس المجموعة من الأشخاص سيتم عرضها هنا"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["خطأ في الحصول على الموارد ذات الصلة. يرجى الاتصال بمشرف النظام عندك إذا كان لديك أيّ أسئلة."] }, "Related resources": { "v": ["مصادر ذات صلة"] } } }, { "l": "ast", "t": { "Anything shared with the same group of people will show up here": { "v": ["Equí va apaecer tolo que compartas col mesmu grupu de persones"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Hebo un error al consiguir los recursos rellacionaos. Ponte en contautu col alministrador del sistema si tienes dalguna entruga."] }, "Related resources": { "v": ["Recursos rellacionao"] } } }, { "l": "az", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "be", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "bg", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "bn_BD", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "br", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "bs", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "ca", "t": { "Anything shared with the same group of people will show up here": { "v": ["Qualsevol cosa compartida amb el mateix grup de persones es mostrarà aquí"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": ["Recursos relacionats"] } } }, { "l": "cs", "t": { "Anything shared with the same group of people will show up here": { "v": ["Cokoli nasdíleného stejné skupině lidí se zobrazí zde"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Chyba při získávání souvisejících prostředků. Pokud máte jakékoli dotazy, obraťte se na správce vámi využívaného systému."] }, "Related resources": { "v": ["Související prostředky"] } } }, { "l": "cs_CZ", "t": { "Anything shared with the same group of people will show up here": { "v": ["Cokoli nasdíleného stejné skupině lidí se zobrazí zde"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Chyba při získávání souvisejících prostředků. Pokud máte jakékoli dotazy, obraťte se na správce vámi využívaného systému."] }, "Related resources": { "v": ["Související prostředky"] } } }, { "l": "cy_GB", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "da", "t": { "Anything shared with the same group of people will show up here": { "v": ["Alt der deles med samme gruppe af personer vil vises her"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": ["Relaterede emner"] } } }, { "l": "de", "t": { "Anything shared with the same group of people will show up here": { "v": ["Alles, das mit derselben Gruppe von Personen geteilt wird, wird hier angezeigt"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Fehler beim Abrufen verwandter Ressourcen. Bei Fragen wende dich bitte an deinen Systemadministrator."] }, "Related resources": { "v": ["Verwandte Ressourcen"] } } }, { "l": "de_DE", "t": { "Anything shared with the same group of people will show up here": { "v": ["Alles, das mit derselben Gruppe von Personen geteilt wird, wird hier angezeigt"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Fehler beim Abrufen verwandter Ressourcen. Bei Fragen wenden Sie sich bitte an Ihre Systemadministration."] }, "Related resources": { "v": ["Verwandte Ressourcen"] } } }, { "l": "el", "t": { "Anything shared with the same group of people will show up here": { "v": ["Οτιδήποτε μοιράζεται με την ίδια ομάδα ατόμων θα εμφανίζεται εδώ"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": ["Σχετικοί πόροι"] } } }, { "l": "en_GB", "t": { "Anything shared with the same group of people will show up here": { "v": ["Anything shared with the same group of people will show up here"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Error getting related resources. Please contact your system administrator if you have any questions."] }, "Related resources": { "v": ["Related resources"] } } }, { "l": "eo", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "es", "t": { "Anything shared with the same group of people will show up here": { "v": ["Cualquier cosa que esté compartida con el mismo grupo de personas se mostrará aquí"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Error al obtener recursos relacionados. Por favor, contacte a su administrador del sistema si tiene alguna pregunta."] }, "Related resources": { "v": ["Recursos relacionados"] } } }, { "l": "es_419", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "es_AR", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "es_CL", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "es_CO", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "es_CR", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "es_DO", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "es_EC", "t": { "Anything shared with the same group of people will show up here": { "v": ["Cualquier cosa compartida con el mismo grupo de personas aparecerá aquí."] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Error al obtener recursos relacionados. Por favor, contacta a tu administrador del sistema si tienes alguna pregunta."] }, "Related resources": { "v": ["Recursos relacionados"] } } }, { "l": "es_GT", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "es_HN", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "es_MX", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "es_NI", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "es_PA", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "es_PE", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "es_PR", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "es_PY", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "es_SV", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "es_UY", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "et_EE", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "eu", "t": { "Anything shared with the same group of people will show up here": { "v": ["Pertsona-talde berarekin partekatutako edozer agertuko da hemen"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Errore bat gertatu da erlazionatutako baliabideak eskuratzean. Jarri harremanetan zure sistemaren administratzailearekin galderarik baduzu."] }, "Related resources": { "v": ["Erlazionatutako baliabideak"] } } }, { "l": "fa", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "fi", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "fo", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "fr", "t": { "Anything shared with the same group of people will show up here": { "v": ["Tout ce qui est partagé avec le même groupe de personnes apparaîtra ici"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Erreur lors de la récupération des ressources liées. Contactez votre administrateur système pour répondre à vos éventuelles questions."] }, "Related resources": { "v": ["Ressources liées"] } } }, { "l": "gd", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "gl", "t": { "Anything shared with the same group of people will show up here": { "v": ["Todo o que se comparta co mesmo grupo de persoas aparecerá aquí"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Produciuse un erro ao obter os recursos relacionados. Póñase en contacto coa administración do seu sistema se ten algunha dúbida."] }, "Related resources": { "v": ["Recursos relacionados"] } } }, { "l": "he", "t": { "Anything shared with the same group of people will show up here": { "v": ["כל מה שמשותף עם אותה קבוצת האנשים יופיע כאן"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["שגיאה בקבלת המשאבים הקשורים. נא ליצור קשר עם הנהלת המערכת אם יש לך שאלות."] }, "Related resources": { "v": ["משאבים קשורים"] } } }, { "l": "hi_IN", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "hr", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "hsb", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "hu", "t": { "Anything shared with the same group of people will show up here": { "v": ["Minden, amit ugyanazzal a csoporttal oszt meg, itt fog megjelenni"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": ["Kapcsolódó erőforrások"] } } }, { "l": "hy", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "ia", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "id", "t": { "Anything shared with the same group of people will show up here": { "v": ["Apa pun yang dibagikan dengan grup orang yang sama akan muncul di sini"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Kesalahan saat mengambil sumber daya terkait. Hubungi administrator sistem Anda jika ada pertanyaan."] }, "Related resources": { "v": ["Sumber daya terkait"] } } }, { "l": "ig", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "is", "t": { "Anything shared with the same group of people will show up here": { "v": ["Allt sem deilt er með sama hópi fólks mun birtast hér"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Villa við að sækja tengd tilföng. Hafðu samband við kerfisstjórann þinn ef þú ert með einhverjar spurningar."] }, "Related resources": { "v": ["Tengd tilföng"] } } }, { "l": "it", "t": { "Anything shared with the same group of people will show up here": { "v": ["Tutto ciò che è stato condiviso con lo stesso gruppo di persone viene visualizzato qui"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Errore nell'ottenere le risorse correlate. Per qualsiasi domanda, contattare l'amministratore di sistema."] }, "Related resources": { "v": ["Risorse correlate"] } } }, { "l": "ja", "t": { "Anything shared with the same group of people will show up here": { "v": ["同じグループで共有しているものは、全てここに表示されます"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": ["関連リソース"] } } }, { "l": "ka", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "ka_GE", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "kab", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "kk", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "km", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "kn", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "ko", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "la", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "lb", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "lo", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "lt_LT", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "lv", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "mk", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "mn", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "mr", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "ms_MY", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "my", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "nb", "t": { "Anything shared with the same group of people will show up here": { "v": ["Alt som er delt med den samme gruppen vil vises her"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": ["Relaterte ressurser"] } } }, { "l": "ne", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "nl", "t": { "Anything shared with the same group of people will show up here": { "v": ["Alles dat gedeeld is met dezelfde groep mensen zal hier getoond worden"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Fout bij het verkrijgen van resources. Neem a.u.b. contact op met uw systeembeheerder als u vragen heeft."] }, "Related resources": { "v": ["Gerelateerde bronnen"] } } }, { "l": "nn_NO", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "oc", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "pl", "t": { "Anything shared with the same group of people will show up here": { "v": ["Tutaj pojawi się wszystko, co zostało udostępnione tej samej grupie osób"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Błąd podczas pobierania powiązanych zasobów. Jeśli masz jakiekolwiek pytania, skontaktuj się z administratorem systemu."] }, "Related resources": { "v": ["Powiązane zasoby"] } } }, { "l": "ps", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "pt_BR", "t": { "Anything shared with the same group of people will show up here": { "v": ["Qualquer coisa compartilhada com o mesmo grupo de pessoas aparecerá aqui"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Erro ao obter recursos relacionados. Por favor entre em contato com o administrador do sistema se tiver alguma dúvida."] }, "Related resources": { "v": ["Recursos relacionados"] } } }, { "l": "pt_PT", "t": { "Anything shared with the same group of people will show up here": { "v": ["Qualquer coisa compartilhada com o mesmo grupo de pessoas aparecerá aqui"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Erro em obter info relacionadas. Por favor contacte o administrador do sistema para esclarecimentos adicionais."] }, "Related resources": { "v": ["Recursos relacionados"] } } }, { "l": "ro", "t": { "Anything shared with the same group of people will show up here": { "v": ["Tot ceea ce este partajat cu același grup de persoane va fi afișat aici"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Eroare la preluarea resurselor adiționale. Vă rugăm să contactați administratorul pentru întrebări."] }, "Related resources": { "v": ["Resurse legate"] } } }, { "l": "ru", "t": { "Anything shared with the same group of people will show up here": { "v": ["Всё, чем поделились с той же группой людей, будет отображаться здесь"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Ошибка при получении связанных ресурсов. Если у вас есть какие-либо вопросы, обратитесь к системному администратору."] }, "Related resources": { "v": ["Связанные ресурсы"] } } }, { "l": "sc", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "si", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "sk", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "sl", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": ["Povezani viri"] } } }, { "l": "sq", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "sr", "t": { "Anything shared with the same group of people will show up here": { "v": ["Све што се дели са истом групом људи ће се појавити овде"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Грешка код прибављања везаних ресурса. Молимо вас да се обратите администратору ако имате питања."] }, "Related resources": { "v": ["Повезани ресурси"] } } }, { "l": "sr@latin", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "sv", "t": { "Anything shared with the same group of people will show up here": { "v": ["Något som delats med samma grupp av personer kommer att visas här"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Det gick inte att hämta relaterade resurser. Kontakta din systemadministratör om du har några frågor."] }, "Related resources": { "v": ["Relaterade resurser"] } } }, { "l": "sw", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "ta", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "th", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "tk", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "tr", "t": { "Anything shared with the same group of people will show up here": { "v": ["Aynı kişi grubu ile paylaşılan herşey burada görüntülenir"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["İlgili kaynaklara ulaşılırken sorun çıktı. Herhangi bir sorunuz varsa lütfen sistem yöneticiniz ile görüşün "] }, "Related resources": { "v": ["İlgili kaynaklar"] } } }, { "l": "ug", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "uk", "t": { "Anything shared with the same group of people will show up here": { "v": ["Будь-що доступне для цієї же групи людей буде показано тут"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["Помилка під час отримання пов'язаних ресурсів. Будь ласка, сконтактуйте з системним адміністратором, якщо у вас виникли запитання."] }, "Related resources": { "v": ["Пов'язані ресурси"] } } }, { "l": "ur_PK", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "uz", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "vi", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }, { "l": "zh_CN", "t": { "Anything shared with the same group of people will show up here": { "v": ["与同组用户分享的所有内容都会显示于此"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": ["相关资源"] } } }, { "l": "zh_HK", "t": { "Anything shared with the same group of people will show up here": { "v": ["與同一組人共享的任何內容都會顯示在此處"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["取得相關資源時發生錯誤。如果有任何問題，請聯絡系統管理員。"] }, "Related resources": { "v": ["相關資源"] } } }, { "l": "zh_TW", "t": { "Anything shared with the same group of people will show up here": { "v": ["與相同群組分享的所有內容都會顯示於此"] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": ["取得相關資源時發生錯誤。如果有任何問題，請聯絡系統管理員。"] }, "Related resources": { "v": ["相關資源"] } } }, { "l": "zu_ZA", "t": { "Anything shared with the same group of people will show up here": { "v": [""] }, "Error getting related resources. Please contact your system administrator if you have any questions.": { "v": [""] }, "Related resources": { "v": [""] } } }];
+const t9 = [{ "l": "af", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "ar", "t": { "Avatar of {displayName}": { "v": ["الرمز التجسيدي avatar لــ {displayName}  "] }, "Avatar of {displayName}, {status}": { "v": ["الرمز التجسيدي  avatar لــ {displayName}، {status}"] } } }, { "l": "ast", "t": { "Avatar of {displayName}": { "v": ["Avatar de: {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Avatar de: {displayName}, {status}"] } } }, { "l": "az", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "be", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "bg", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "bn_BD", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "br", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "bs", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "ca", "t": { "Avatar of {displayName}": { "v": ["Avatar de {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Avatar de {displayName}, {status}"] } } }, { "l": "cs", "t": { "Avatar of {displayName}": { "v": ["Zástupný obrázek uživatele {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Zástupný obrázek uživatele {displayName}, {status}"] } } }, { "l": "cs_CZ", "t": { "Avatar of {displayName}": { "v": ["Zástupný obrázek uživatele {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Zástupný obrázek uživatele {displayName}, {status}"] } } }, { "l": "cy_GB", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "da", "t": { "Avatar of {displayName}": { "v": ["Avatar af {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Avatar af {displayName}, {status}"] } } }, { "l": "de", "t": { "Avatar of {displayName}": { "v": ["Avatar von {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Avatar von {displayName}, {status}"] } } }, { "l": "de_DE", "t": { "Avatar of {displayName}": { "v": ["Avatar von {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Avatar von {displayName}, {status}"] } } }, { "l": "el", "t": { "Avatar of {displayName}": { "v": ["Άβαταρ του {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Άβαταρ του {displayName}, {status}"] } } }, { "l": "en_GB", "t": { "Avatar of {displayName}": { "v": ["Avatar of {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Avatar of {displayName}, {status}"] } } }, { "l": "eo", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "es", "t": { "Avatar of {displayName}": { "v": ["Avatar de {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Avatar de {displayName}, {status}"] } } }, { "l": "es_419", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "es_AR", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "es_CL", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "es_CO", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "es_CR", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "es_DO", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "es_EC", "t": { "Avatar of {displayName}": { "v": ["Avatar de {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Avatar de {displayName}, {status}"] } } }, { "l": "es_GT", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "es_HN", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "es_MX", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "es_NI", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "es_PA", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "es_PE", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "es_PR", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "es_PY", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "es_SV", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "es_UY", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "et_EE", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "eu", "t": { "Avatar of {displayName}": { "v": ["{displayName}-(e)n irudia"] }, "Avatar of {displayName}, {status}": { "v": ["{displayName} -(e)n irudia, {status}"] } } }, { "l": "fa", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "fi", "t": { "Avatar of {displayName}": { "v": ["Käyttäjän {displayName} avatar"] }, "Avatar of {displayName}, {status}": { "v": ["Käyttäjän {displayName} avatar, {status}"] } } }, { "l": "fo", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "fr", "t": { "Avatar of {displayName}": { "v": ["Avatar de {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Avatar de {displayName}, {status}"] } } }, { "l": "gd", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "gl", "t": { "Avatar of {displayName}": { "v": ["Avatar de {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Avatar de {displayName}, {status}"] } } }, { "l": "he", "t": { "Avatar of {displayName}": { "v": ["תמונה ייצוגית של {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["תמונה ייצוגית של {displayName}, {status}"] } } }, { "l": "hi_IN", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "hr", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "hsb", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "hu", "t": { "Avatar of {displayName}": { "v": ["{displayName} profilképe"] }, "Avatar of {displayName}, {status}": { "v": ["{displayName} profilképe, {status}"] } } }, { "l": "hy", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "ia", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "id", "t": { "Avatar of {displayName}": { "v": ["Avatar {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Avatar {displayName}, {status}"] } } }, { "l": "ig", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "is", "t": { "Avatar of {displayName}": { "v": ["Auðkennismynd fyrir {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Auðkennismynd fyrir {displayName}, {status}"] } } }, { "l": "it", "t": { "Avatar of {displayName}": { "v": ["Avatar di {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Avatar di {displayName}, {status}"] } } }, { "l": "ja", "t": { "Avatar of {displayName}": { "v": ["{displayName} のアバター"] }, "Avatar of {displayName}, {status}": { "v": ["{displayName}, {status} のアバター"] } } }, { "l": "ka", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "ka_GE", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "kab", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "kk", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "km", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "kn", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "ko", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "la", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "lb", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "lo", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "lt_LT", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "lv", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "mk", "t": { "Avatar of {displayName}": { "v": ["Аватар на {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Аватар на {displayName}, {status}"] } } }, { "l": "mn", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "mr", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "ms_MY", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "my", "t": { "Avatar of {displayName}": { "v": ["{displayName} ၏ ကိုယ်ပွား"] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "nb", "t": { "Avatar of {displayName}": { "v": ["Avataren til {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["{displayName}'s avatar, {status}"] } } }, { "l": "ne", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "nl", "t": { "Avatar of {displayName}": { "v": ["Avatar van {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Avatar van {displayName}, {status}"] } } }, { "l": "nn_NO", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "oc", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "pl", "t": { "Avatar of {displayName}": { "v": ["Awatar {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Awatar {displayName}, {status}"] } } }, { "l": "ps", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "pt_BR", "t": { "Avatar of {displayName}": { "v": ["Avatar de {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Avatar de {displayName}, {status}"] } } }, { "l": "pt_PT", "t": { "Avatar of {displayName}": { "v": ["Avatar de {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Avatar de {displayName}, {status}"] } } }, { "l": "ro", "t": { "Avatar of {displayName}": { "v": ["Avatarul lui {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Avatarul lui {displayName}, {status}"] } } }, { "l": "ru", "t": { "Avatar of {displayName}": { "v": ["Аватар {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Фотография {displayName}, {status}"] } } }, { "l": "sc", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "si", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "sk", "t": { "Avatar of {displayName}": { "v": ["Avatar {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Avatar {displayName}, {status}"] } } }, { "l": "sl", "t": { "Avatar of {displayName}": { "v": ["Podoba {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Prikazna slika {displayName}, {status}"] } } }, { "l": "sq", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "sr", "t": { "Avatar of {displayName}": { "v": ["Аватар за {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Avatar za {displayName}, {status}"] } } }, { "l": "sr@latin", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "sv", "t": { "Avatar of {displayName}": { "v": ["{displayName}s avatar"] }, "Avatar of {displayName}, {status}": { "v": ["{displayName}s avatar, {status}"] } } }, { "l": "sw", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "ta", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "th", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "tk", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "tr", "t": { "Avatar of {displayName}": { "v": ["{displayName} avatarı"] }, "Avatar of {displayName}, {status}": { "v": ["{displayName}, {status} avatarı"] } } }, { "l": "ug", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "uk", "t": { "Avatar of {displayName}": { "v": ["Аватар {displayName}"] }, "Avatar of {displayName}, {status}": { "v": ["Аватар {displayName}, {status}"] } } }, { "l": "ur_PK", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "uz", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "vi", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }, { "l": "zh_CN", "t": { "Avatar of {displayName}": { "v": ["{displayName}的头像"] }, "Avatar of {displayName}, {status}": { "v": ["{displayName}的头像，{status}"] } } }, { "l": "zh_HK", "t": { "Avatar of {displayName}": { "v": ["{displayName} 的頭像"] }, "Avatar of {displayName}, {status}": { "v": ["{displayName} 的頭像，{status}"] } } }, { "l": "zh_TW", "t": { "Avatar of {displayName}": { "v": ["{displayName} 的大頭照"] }, "Avatar of {displayName}, {status}": { "v": ["{displayName}, {status} 的大頭照"] } } }, { "l": "zu_ZA", "t": { "Avatar of {displayName}": { "v": [""] }, "Avatar of {displayName}, {status}": { "v": [""] } } }];
+const t10 = [{ "l": "af", "t": {} }, { "l": "ar", "t": { "away": { "v": ["غير موجود"] }, "do not disturb": { "v": ["يُرجى عدم الإزعاج"] }, "invisible": { "v": ["غير مرئي"] }, "offline": { "v": ["غير متصل"] }, "online": { "v": ["مُتّصِلٌ"] } } }, { "l": "ast", "t": { "away": { "v": ["ausente"] }, "do not disturb": { "v": ["nun molestar"] }, "invisible": { "v": ["invisible"] }, "offline": { "v": ["desconectáu"] }, "online": { "v": ["en llinia"] } } }, { "l": "az", "t": {} }, { "l": "be", "t": {} }, { "l": "bg", "t": {} }, { "l": "bn_BD", "t": {} }, { "l": "br", "t": {} }, { "l": "bs", "t": {} }, { "l": "ca", "t": {} }, { "l": "cs", "t": {} }, { "l": "cs_CZ", "t": { "away": { "v": ["pryč"] }, "busy": { "v": ["zaneprádněn(a)"] }, "do not disturb": { "v": ["nerušit"] }, "invisible": { "v": ["neviditelné"] }, "offline": { "v": ["offline"] }, "online": { "v": ["online"] } } }, { "l": "cy_GB", "t": {} }, { "l": "da", "t": {} }, { "l": "de", "t": { "away": { "v": ["Abwesend"] }, "busy": { "v": ["Beschäftigt"] }, "do not disturb": { "v": ["Bitte nicht stören"] }, "invisible": { "v": ["Unsichtbar"] }, "offline": { "v": ["Offline"] }, "online": { "v": ["Online"] } } }, { "l": "de_DE", "t": { "away": { "v": ["Abwesend"] }, "busy": { "v": ["Beschäftigt"] }, "do not disturb": { "v": ["Bitte nicht stören"] }, "invisible": { "v": ["Unsichtbar"] }, "offline": { "v": ["Offline"] }, "online": { "v": ["Online"] } } }, { "l": "el", "t": {} }, { "l": "en_GB", "t": { "away": { "v": ["away"] }, "do not disturb": { "v": ["do not disturb"] }, "offline": { "v": ["offline"] }, "online": { "v": ["online"] } } }, { "l": "eo", "t": {} }, { "l": "es", "t": { "away": { "v": ["ausente"] }, "busy": { "v": ["ocupado"] }, "do not disturb": { "v": ["no molestar"] }, "invisible": { "v": ["invisible"] }, "offline": { "v": ["fuera de línea"] }, "online": { "v": ["en línea"] } } }, { "l": "es_419", "t": {} }, { "l": "es_AR", "t": {} }, { "l": "es_CL", "t": {} }, { "l": "es_CO", "t": {} }, { "l": "es_CR", "t": {} }, { "l": "es_DO", "t": {} }, { "l": "es_EC", "t": {} }, { "l": "es_GT", "t": {} }, { "l": "es_HN", "t": {} }, { "l": "es_MX", "t": {} }, { "l": "es_NI", "t": {} }, { "l": "es_PA", "t": {} }, { "l": "es_PE", "t": {} }, { "l": "es_PR", "t": {} }, { "l": "es_PY", "t": {} }, { "l": "es_SV", "t": {} }, { "l": "es_UY", "t": {} }, { "l": "et_EE", "t": {} }, { "l": "eu", "t": {} }, { "l": "fa", "t": {} }, { "l": "fi", "t": {} }, { "l": "fo", "t": {} }, { "l": "fr", "t": { "away": { "v": ["absent"] }, "do not disturb": { "v": ["ne pas déranger"] }, "offline": { "v": ["hors ligne"] }, "online": { "v": ["en ligne"] } } }, { "l": "gd", "t": {} }, { "l": "gl", "t": { "away": { "v": ["ausente"] }, "busy": { "v": ["ocupado"] }, "do not disturb": { "v": ["non molestar"] }, "invisible": { "v": ["invisíbel"] }, "offline": { "v": ["desconectado"] }, "online": { "v": ["conectado"] } } }, { "l": "he", "t": {} }, { "l": "hi_IN", "t": {} }, { "l": "hr", "t": {} }, { "l": "hsb", "t": {} }, { "l": "hu", "t": {} }, { "l": "hy", "t": {} }, { "l": "ia", "t": {} }, { "l": "id", "t": { "away": { "v": ["tidak tersedia"] }, "do not disturb": { "v": ["jangan ganggu"] }, "offline": { "v": ["luring"] }, "online": { "v": ["daring"] } } }, { "l": "ig", "t": {} }, { "l": "is", "t": { "away": { "v": ["í burtu"] }, "do not disturb": { "v": ["ekki ónáða"] }, "offline": { "v": ["ónettengt"] }, "online": { "v": ["nettengt"] } } }, { "l": "it", "t": { "away": { "v": ["via"] }, "do not disturb": { "v": ["non disturbare"] }, "offline": { "v": ["offline"] }, "online": { "v": ["online"] } } }, { "l": "ja", "t": {} }, { "l": "ka", "t": {} }, { "l": "ka_GE", "t": {} }, { "l": "kab", "t": {} }, { "l": "kk", "t": {} }, { "l": "km", "t": {} }, { "l": "kn", "t": {} }, { "l": "ko", "t": {} }, { "l": "la", "t": {} }, { "l": "lb", "t": {} }, { "l": "lo", "t": {} }, { "l": "lt_LT", "t": {} }, { "l": "lv", "t": {} }, { "l": "mk", "t": {} }, { "l": "mn", "t": {} }, { "l": "mr", "t": {} }, { "l": "ms_MY", "t": {} }, { "l": "my", "t": {} }, { "l": "nb", "t": {} }, { "l": "ne", "t": {} }, { "l": "nl", "t": { "away": { "v": ["weg"] }, "do not disturb": { "v": ["niet storen"] }, "offline": { "v": ["offline"] }, "online": { "v": ["online"] } } }, { "l": "nn_NO", "t": {} }, { "l": "oc", "t": {} }, { "l": "pl", "t": { "away": { "v": ["stąd"] }, "do not disturb": { "v": ["nie przeszkadzać"] }, "invisible": { "v": ["niewidzialny"] }, "offline": { "v": ["offline"] }, "online": { "v": ["online"] } } }, { "l": "ps", "t": {} }, { "l": "pt_BR", "t": { "away": { "v": ["ausente"] }, "do not disturb": { "v": ["não perturbe"] }, "invisible": { "v": ["invisível"] }, "offline": { "v": ["desligada"] }, "online": { "v": ["ligado"] } } }, { "l": "pt_PT", "t": {} }, { "l": "ro", "t": { "away": { "v": ["plecat"] }, "do not disturb": { "v": ["nu deranjați"] }, "offline": { "v": ["deconectat"] }, "online": { "v": ["online"] } } }, { "l": "ru", "t": { "away": { "v": ["отсутствие"] }, "do not disturb": { "v": ["не беспокоить"] }, "offline": { "v": ["офлайн"] }, "online": { "v": ["онлайн"] } } }, { "l": "sc", "t": {} }, { "l": "si", "t": {} }, { "l": "sk", "t": {} }, { "l": "sl", "t": {} }, { "l": "sq", "t": {} }, { "l": "sr", "t": { "away": { "v": ["одсутан"] }, "busy": { "v": ["заузет"] }, "do not disturb": { "v": ["не узнемиравај"] }, "invisible": { "v": ["невидљиво"] }, "offline": { "v": ["ван мреже"] }, "online": { "v": ["на мрежи"] } } }, { "l": "sr@latin", "t": {} }, { "l": "sv", "t": { "away": { "v": ["borta"] }, "busy": { "v": ["upptagen"] }, "do not disturb": { "v": ["stör ej"] }, "invisible": { "v": ["osynlig"] }, "offline": { "v": ["offline"] }, "online": { "v": ["online"] } } }, { "l": "sw", "t": {} }, { "l": "ta", "t": {} }, { "l": "th", "t": {} }, { "l": "tk", "t": {} }, { "l": "tr", "t": { "away": { "v": ["Uzakta"] }, "busy": { "v": ["meşgul"] }, "do not disturb": { "v": ["Rahatsız etmeyin"] }, "invisible": { "v": ["görünmez"] }, "offline": { "v": ["Çevrim dışı"] }, "online": { "v": ["Çevrim içi"] } } }, { "l": "ug", "t": {} }, { "l": "uk", "t": { "away": { "v": ["відсутній"] }, "do not disturb": { "v": ["не турбувати"] }, "offline": { "v": ["не в мережі"] }, "online": { "v": ["в мережі"] } } }, { "l": "ur_PK", "t": {} }, { "l": "uz", "t": {} }, { "l": "vi", "t": {} }, { "l": "zh_CN", "t": {} }, { "l": "zh_HK", "t": { "away": { "v": ["離開"] }, "do not disturb": { "v": ["請勿打擾"] }, "offline": { "v": ["離線"] }, "online": { "v": ["在線"] } } }, { "l": "zh_TW", "t": {} }, { "l": "zu_ZA", "t": {} }];
+const t11 = [{ "l": "af", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "ar", "t": { "Back to provider selection": { "v": ["عودة إلى اختيار المُزوِّد"] }, "Close Smart Picker": { "v": ["أغلِق اللاقط الذكي Smart Picker"] }, "Smart Picker": { "v": ["اللاقط الذكي smart picker"] } } }, { "l": "ast", "t": { "Back to provider selection": { "v": ["Volver a la seleición de fornidores"] }, "Close Smart Picker": { "v": ["Zarrar la seleición intelixente"] }, "Smart Picker": { "v": ["Selector intelixente"] } } }, { "l": "az", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "be", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "bg", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "bn_BD", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "br", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "bs", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "ca", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "cs", "t": { "Back to provider selection": { "v": ["Zpět na výběr poskytovatele"] }, "Close Smart Picker": { "v": ["Zavřít inteligentní výběr"] }, "Smart Picker": { "v": ["Inteligentní výběr"] } } }, { "l": "cs_CZ", "t": { "Back to provider selection": { "v": ["Zpět na výběr poskytovatele"] }, "Close Smart Picker": { "v": ["Zavřít inteligentní výběr"] }, "Smart Picker": { "v": ["Inteligentní výběr"] } } }, { "l": "cy_GB", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "da", "t": { "Back to provider selection": { "v": ["Tilbage til udbydervalg"] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "de", "t": { "Back to provider selection": { "v": ["Zurück zur Anbieterauswahl"] }, "Close Smart Picker": { "v": ["Smart Picker schließen"] }, "Smart Picker": { "v": ["Smart Picker"] } } }, { "l": "de_DE", "t": { "Back to provider selection": { "v": ["Zurück zur Anbieterauswahl"] }, "Close Smart Picker": { "v": ["Smart Picker schließen"] }, "Smart Picker": { "v": ["Smart Picker"] } } }, { "l": "el", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "en_GB", "t": { "Back to provider selection": { "v": ["Back to provider selection"] }, "Close Smart Picker": { "v": ["Close Smart Picker"] }, "Smart Picker": { "v": ["Smart Picker"] } } }, { "l": "eo", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "es", "t": { "Back to provider selection": { "v": ["Volver a la selección de proveedor"] }, "Close Smart Picker": { "v": ["Cerrar selector inteligente"] }, "Smart Picker": { "v": ["Selector inteligente"] } } }, { "l": "es_419", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "es_AR", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "es_CL", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "es_CO", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "es_CR", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "es_DO", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "es_EC", "t": { "Back to provider selection": { "v": ["Volver a la selección de proveedor"] }, "Close Smart Picker": { "v": ["Cerrar selector inteligente"] }, "Smart Picker": { "v": ["Selector inteligente"] } } }, { "l": "es_GT", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "es_HN", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "es_MX", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "es_NI", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "es_PA", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "es_PE", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "es_PR", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "es_PY", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "es_SV", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "es_UY", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "et_EE", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "eu", "t": { "Back to provider selection": { "v": ["Itzuli hornitzaileen hautapenera"] }, "Close Smart Picker": { "v": ["Itxi hautatzaile adimenduna"] }, "Smart Picker": { "v": ["Hautatzaile adimenduna"] } } }, { "l": "fa", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "fi", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "fo", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "fr", "t": { "Back to provider selection": { "v": ["Revenir à la sélection du fournisseur"] }, "Close Smart Picker": { "v": ["Fermer le sélecteur intelligent"] }, "Smart Picker": { "v": ["Sélecteur intelligent"] } } }, { "l": "gd", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "gl", "t": { "Back to provider selection": { "v": ["Volver á selección do provedor"] }, "Close Smart Picker": { "v": ["Pechar o Selector intelixente"] }, "Smart Picker": { "v": ["Selector intelixente"] } } }, { "l": "he", "t": { "Back to provider selection": { "v": ["חזרה לבחירת ספק"] }, "Close Smart Picker": { "v": ["סגירת הבורר החכם"] }, "Smart Picker": { "v": ["בורר חכם"] } } }, { "l": "hi_IN", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "hr", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "hsb", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "hu", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "hy", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "ia", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "id", "t": { "Back to provider selection": { "v": ["Kembali ke pemilihan penyedia"] }, "Close Smart Picker": { "v": ["Tutup Pemilih Cerdas"] }, "Smart Picker": { "v": ["Pemilih Cerdas"] } } }, { "l": "ig", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "is", "t": { "Back to provider selection": { "v": ["Til baka í val á þjónustuveitu"] }, "Close Smart Picker": { "v": ["Loka snjall-veljara"] }, "Smart Picker": { "v": ["Snjall-veljari"] } } }, { "l": "it", "t": { "Back to provider selection": { "v": ["Torna alla selezione del provider"] }, "Close Smart Picker": { "v": ["Chiudere lo Smart Picker"] }, "Smart Picker": { "v": ["Picker intelligente"] } } }, { "l": "ja", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "ka", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "ka_GE", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "kab", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "kk", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "km", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "kn", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "ko", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "la", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "lb", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "lo", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "lt_LT", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "lv", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "mk", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "mn", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "mr", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "ms_MY", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "my", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "nb", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "ne", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "nl", "t": { "Back to provider selection": { "v": ["Terug naar provider selectie"] }, "Close Smart Picker": { "v": ["Sluit Slimme Kiezer"] }, "Smart Picker": { "v": ["Slimme Kiezer"] } } }, { "l": "nn_NO", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "oc", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "pl", "t": { "Back to provider selection": { "v": ["Powrót do wyboru dostawcy"] }, "Close Smart Picker": { "v": ["Zamknij inteligentny selektor"] }, "Smart Picker": { "v": ["Inteligentny Picker"] } } }, { "l": "ps", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "pt_BR", "t": { "Back to provider selection": { "v": ["Voltar para seleção de provedor"] }, "Close Smart Picker": { "v": ["Fechar Seletor Inteligente"] }, "Smart Picker": { "v": ["Seletor Inteligente"] } } }, { "l": "pt_PT", "t": { "Back to provider selection": { "v": ["Voltar à seleção de fornecedor"] }, "Close Smart Picker": { "v": ['Fechar "Smart Picker"'] }, "Smart Picker": { "v": ["Smart Picker"] } } }, { "l": "ro", "t": { "Back to provider selection": { "v": ["Înapoi la selecția providerului"] }, "Close Smart Picker": { "v": ["Închide Smart Picker"] }, "Smart Picker": { "v": ["Smart Picker"] } } }, { "l": "ru", "t": { "Back to provider selection": { "v": ["Вернуться к выбору провайдера"] }, "Close Smart Picker": { "v": ["Закрыть интеллектуальный выбор"] }, "Smart Picker": { "v": ["Умный выбор"] } } }, { "l": "sc", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "si", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "sk", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "sl", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "sq", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "sr", "t": { "Back to provider selection": { "v": ["Назад на избор пружаоца"] }, "Close Smart Picker": { "v": ["Затвори паметни бирач"] }, "Smart Picker": { "v": ["Паметни бирач"] } } }, { "l": "sr@latin", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "sv", "t": { "Back to provider selection": { "v": ["Tillbaka till leverantörsval"] }, "Close Smart Picker": { "v": ["Stäng Smart Picker"] }, "Smart Picker": { "v": ["Smart Picker"] } } }, { "l": "sw", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "ta", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "th", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "tk", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "tr", "t": { "Back to provider selection": { "v": ["Sağlayıcı seçimine dön"] }, "Close Smart Picker": { "v": ["Akıllı seçimi kapat"] }, "Smart Picker": { "v": ["Akıllı seçim"] } } }, { "l": "ug", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "uk", "t": { "Back to provider selection": { "v": ["Назад до вибору постачальника"] }, "Close Smart Picker": { "v": ["Закрити асистент вибору"] }, "Smart Picker": { "v": ["Асистент вибору"] } } }, { "l": "ur_PK", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "uz", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "vi", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "zh_CN", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }, { "l": "zh_HK", "t": { "Back to provider selection": { "v": ["回到提供者選擇"] }, "Close Smart Picker": { "v": ["關閉 Smart Picker"] }, "Smart Picker": { "v": ["Smart Picker"] } } }, { "l": "zh_TW", "t": { "Back to provider selection": { "v": ["回到提供者選擇"] }, "Close Smart Picker": { "v": ["關閉智慧型挑選器"] }, "Smart Picker": { "v": ["智慧型挑選器"] } } }, { "l": "zu_ZA", "t": { "Back to provider selection": { "v": [""] }, "Close Smart Picker": { "v": [""] }, "Smart Picker": { "v": [""] } } }];
+const t12 = [{ "l": "af", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "ar", "t": { "Cancel changes": { "v": ["إلغاء التغييرات"] }, "Confirm changes": { "v": ["تأكيد التغييرات"] } } }, { "l": "ast", "t": { "Cancel changes": { "v": ["Encaboxar los cambeos"] }, "Confirm changes": { "v": ["Confirmar los cambeos"] } } }, { "l": "az", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "be", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "bg", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "bn_BD", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "br", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "bs", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "ca", "t": { "Cancel changes": { "v": ["Cancel·la els canvis"] }, "Confirm changes": { "v": ["Confirmeu els canvis"] } } }, { "l": "cs", "t": { "Cancel changes": { "v": ["Zrušit změny"] }, "Confirm changes": { "v": ["Potvrdit změny"] } } }, { "l": "cs_CZ", "t": { "Cancel changes": { "v": ["Zrušit změny"] }, "Confirm changes": { "v": ["Potvrdit změny"] } } }, { "l": "cy_GB", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "da", "t": { "Cancel changes": { "v": ["Annuller ændringer"] }, "Confirm changes": { "v": ["Bekræft ændringer"] } } }, { "l": "de", "t": { "Cancel changes": { "v": ["Änderungen verwerfen"] }, "Confirm changes": { "v": ["Änderungen bestätigen"] } } }, { "l": "de_DE", "t": { "Cancel changes": { "v": ["Änderungen verwerfen"] }, "Confirm changes": { "v": ["Änderungen bestätigen"] } } }, { "l": "el", "t": { "Cancel changes": { "v": ["Ακύρωση αλλαγών"] }, "Confirm changes": { "v": ["Επιβεβαίωση αλλαγών"] } } }, { "l": "en_GB", "t": { "Cancel changes": { "v": ["Cancel changes"] }, "Confirm changes": { "v": ["Confirm changes"] } } }, { "l": "eo", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "es", "t": { "Cancel changes": { "v": ["Cancelar cambios"] }, "Confirm changes": { "v": ["Confirmar cambios"] } } }, { "l": "es_419", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "es_AR", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "es_CL", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "es_CO", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "es_CR", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "es_DO", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "es_EC", "t": { "Cancel changes": { "v": ["Cancelar cambios"] }, "Confirm changes": { "v": ["Confirmar cambios"] } } }, { "l": "es_GT", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "es_HN", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "es_MX", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "es_NI", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "es_PA", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "es_PE", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "es_PR", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "es_PY", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "es_SV", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "es_UY", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "et_EE", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "eu", "t": { "Cancel changes": { "v": ["Ezeztatu aldaketak"] }, "Confirm changes": { "v": ["Baieztatu aldaketak"] } } }, { "l": "fa", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "fi", "t": { "Cancel changes": { "v": ["Peruuta muutokset"] }, "Confirm changes": { "v": ["Vahvista muutokset"] } } }, { "l": "fo", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "fr", "t": { "Cancel changes": { "v": ["Annuler les modifications"] }, "Confirm changes": { "v": ["Confirmer les modifications"] } } }, { "l": "gd", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "gl", "t": { "Cancel changes": { "v": ["Cancelar os cambios"] }, "Confirm changes": { "v": ["Confirma os cambios"] } } }, { "l": "he", "t": { "Cancel changes": { "v": ["ביטול שינויים"] }, "Confirm changes": { "v": ["אישור השינויים"] } } }, { "l": "hi_IN", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "hr", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "hsb", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "hu", "t": { "Cancel changes": { "v": ["Változtatások elvetése"] }, "Confirm changes": { "v": ["Változtatások megerősítése"] } } }, { "l": "hy", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "ia", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "id", "t": { "Cancel changes": { "v": ["Batalkan perubahan"] }, "Confirm changes": { "v": ["Konfirmasikan perubahan"] } } }, { "l": "ig", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "is", "t": { "Cancel changes": { "v": ["Hætta við breytingar"] }, "Confirm changes": { "v": ["Staðfesta breytingar"] } } }, { "l": "it", "t": { "Cancel changes": { "v": ["Annulla modifiche"] }, "Confirm changes": { "v": ["Conferma modifiche"] } } }, { "l": "ja", "t": { "Cancel changes": { "v": ["変更をキャンセル"] }, "Confirm changes": { "v": ["変更を承認"] } } }, { "l": "ka", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "ka_GE", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "kab", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "kk", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "km", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "kn", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "ko", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "la", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "lb", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "lo", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "lt_LT", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "lv", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "mk", "t": { "Cancel changes": { "v": ["Откажи ги промените"] }, "Confirm changes": { "v": ["Потврди ги промените"] } } }, { "l": "mn", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "mr", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "ms_MY", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "my", "t": { "Cancel changes": { "v": ["ပြောင်းလဲမှုများ ပယ်ဖျက်ရန်"] }, "Confirm changes": { "v": ["ပြောင်းလဲမှုများ အတည်ပြုရန်"] } } }, { "l": "nb", "t": { "Cancel changes": { "v": ["Avbryt endringer"] }, "Confirm changes": { "v": ["Bekreft endringer"] } } }, { "l": "ne", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "nl", "t": { "Cancel changes": { "v": ["Wijzigingen annuleren"] }, "Confirm changes": { "v": ["Wijzigingen bevestigen"] } } }, { "l": "nn_NO", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "oc", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "pl", "t": { "Cancel changes": { "v": ["Anuluj zmiany"] }, "Confirm changes": { "v": ["Potwierdź zmiany"] } } }, { "l": "ps", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "pt_BR", "t": { "Cancel changes": { "v": ["Cancelar alterações"] }, "Confirm changes": { "v": ["Confirmar alterações"] } } }, { "l": "pt_PT", "t": { "Cancel changes": { "v": ["Cancelar alterações"] }, "Confirm changes": { "v": ["Confirmar alterações"] } } }, { "l": "ro", "t": { "Cancel changes": { "v": ["Anulează modificările"] }, "Confirm changes": { "v": ["Confirmați modificările"] } } }, { "l": "ru", "t": { "Cancel changes": { "v": ["Отменить изменения"] }, "Confirm changes": { "v": ["Подтвердить изменения"] } } }, { "l": "sc", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "si", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "sk", "t": { "Cancel changes": { "v": ["Zrušiť zmeny"] }, "Confirm changes": { "v": ["Potvrdiť zmeny"] } } }, { "l": "sl", "t": { "Cancel changes": { "v": ["Prekliči spremembe"] }, "Confirm changes": { "v": ["Potrdi spremembe"] } } }, { "l": "sq", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "sr", "t": { "Cancel changes": { "v": ["Откажи измене"] }, "Confirm changes": { "v": ["Потврдите измене"] } } }, { "l": "sr@latin", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "sv", "t": { "Cancel changes": { "v": ["Avbryt ändringar"] }, "Confirm changes": { "v": ["Bekräfta ändringar"] } } }, { "l": "sw", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "ta", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "th", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "tk", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "tr", "t": { "Cancel changes": { "v": ["Değişiklikleri iptal et"] }, "Confirm changes": { "v": ["Değişiklikleri onayla"] } } }, { "l": "ug", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "uk", "t": { "Cancel changes": { "v": ["Скасувати зміни"] }, "Confirm changes": { "v": ["Підтвердити зміни"] } } }, { "l": "ur_PK", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "uz", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "vi", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }, { "l": "zh_CN", "t": { "Cancel changes": { "v": ["取消更改"] }, "Confirm changes": { "v": ["确认更改"] } } }, { "l": "zh_HK", "t": { "Cancel changes": { "v": ["取消更改"] }, "Confirm changes": { "v": ["確認更改"] } } }, { "l": "zh_TW", "t": { "Cancel changes": { "v": ["取消變更"] }, "Confirm changes": { "v": ["確認變更"] } } }, { "l": "zu_ZA", "t": { "Cancel changes": { "v": [""] }, "Confirm changes": { "v": [""] } } }];
+const t13 = [{ "l": "af", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "ar", "t": { "Change name": { "v": ["تغيير الاسم"] }, "Close sidebar": { "v": ["قفل الشريط الجانبي"] }, "Favorite": { "v": ["المُفضَّلة"] } } }, { "l": "ast", "t": { "Change name": { "v": ["Camudar el nome"] }, "Close sidebar": { "v": ["Zarrar la barra llateral"] }, "Favorite": { "v": ["Favoritu"] } } }, { "l": "az", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "be", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "bg", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "bn_BD", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "br", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "bs", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "ca", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": ["Tancar la barra lateral"] }, "Favorite": { "v": ["Preferit"] } } }, { "l": "cs", "t": { "Change name": { "v": ["Změnit název"] }, "Close sidebar": { "v": ["Zavřít postranní panel"] }, "Favorite": { "v": ["Oblíbené"] } } }, { "l": "cs_CZ", "t": { "Change name": { "v": ["Změnit název"] }, "Close sidebar": { "v": ["Zavřít postranní panel"] }, "Favorite": { "v": ["Oblíbené"] } } }, { "l": "cy_GB", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "da", "t": { "Change name": { "v": ["Ændre navn"] }, "Close sidebar": { "v": ["Luk sidepanel"] }, "Favorite": { "v": ["Favorit"] } } }, { "l": "de", "t": { "Change name": { "v": ["Namen ändern"] }, "Close sidebar": { "v": ["Seitenleiste schließen"] }, "Favorite": { "v": ["Favorit"] } } }, { "l": "de_DE", "t": { "Change name": { "v": ["Namen ändern"] }, "Close sidebar": { "v": ["Seitenleiste schließen"] }, "Favorite": { "v": ["Favorit"] } } }, { "l": "el", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": ["Κλείσιμο πλευρικής μπάρας"] }, "Favorite": { "v": ["Αγαπημένα"] } } }, { "l": "en_GB", "t": { "Change name": { "v": ["Change name"] }, "Close sidebar": { "v": ["Close sidebar"] }, "Favorite": { "v": ["Favourite"] } } }, { "l": "eo", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "es", "t": { "Change name": { "v": ["Cambiar nombre"] }, "Close sidebar": { "v": ["Cerrar barra lateral"] }, "Favorite": { "v": ["Favorito"] } } }, { "l": "es_419", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "es_AR", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "es_CL", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "es_CO", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "es_CR", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "es_DO", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "es_EC", "t": { "Change name": { "v": ["Cambiar nombre"] }, "Close sidebar": { "v": ["Cerrar barra lateral"] }, "Favorite": { "v": ["Favorito"] } } }, { "l": "es_GT", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "es_HN", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "es_MX", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "es_NI", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "es_PA", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "es_PE", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "es_PR", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "es_PY", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "es_SV", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "es_UY", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "et_EE", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "eu", "t": { "Change name": { "v": ["Aldatu izena"] }, "Close sidebar": { "v": ["Itxi albo-barra"] }, "Favorite": { "v": ["Gogokoa"] } } }, { "l": "fa", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "fi", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "fo", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "fr", "t": { "Change name": { "v": ["Modifier le nom"] }, "Close sidebar": { "v": ["Fermer la barre latérale"] }, "Favorite": { "v": ["Favori"] } } }, { "l": "gd", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "gl", "t": { "Change name": { "v": ["Cambiar o nome"] }, "Close sidebar": { "v": ["Pechar a barra lateral"] }, "Favorite": { "v": ["Favorito"] } } }, { "l": "he", "t": { "Change name": { "v": ["החלפת שם"] }, "Close sidebar": { "v": ["סגירת סרגל הצד"] }, "Favorite": { "v": ["למועדפים"] } } }, { "l": "hi_IN", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "hr", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "hsb", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "hu", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": ["Oldalsáv bezárása"] }, "Favorite": { "v": ["Kedvenc"] } } }, { "l": "hy", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "ia", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "id", "t": { "Change name": { "v": ["Ubah nama"] }, "Close sidebar": { "v": ["Tutup bilah sisi"] }, "Favorite": { "v": ["Favorit"] } } }, { "l": "ig", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "is", "t": { "Change name": { "v": ["Breyta nafni"] }, "Close sidebar": { "v": ["Loka hliðarstiku"] }, "Favorite": { "v": ["Eftirlæti"] } } }, { "l": "it", "t": { "Change name": { "v": ["Cambia nome"] }, "Close sidebar": { "v": ["Chiudi la barra laterale"] }, "Favorite": { "v": ["Preferito"] } } }, { "l": "ja", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": ["サイドバーを閉じる"] }, "Favorite": { "v": ["お気に入り"] } } }, { "l": "ka", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "ka_GE", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "kab", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "kk", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "km", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "kn", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "ko", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "la", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "lb", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "lo", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "lt_LT", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "lv", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "mk", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": ["Фаворити"] } } }, { "l": "mn", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "mr", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "ms_MY", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "my", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "nb", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": ["Lukk sidepanel"] }, "Favorite": { "v": ["Favoritt"] } } }, { "l": "ne", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "nl", "t": { "Change name": { "v": ["Verander naam"] }, "Close sidebar": { "v": ["Sluit sidebar"] }, "Favorite": { "v": ["Favoriet"] } } }, { "l": "nn_NO", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "oc", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "pl", "t": { "Change name": { "v": ["Zmień nazwę"] }, "Close sidebar": { "v": ["Zamknij pasek boczny"] }, "Favorite": { "v": ["Ulubiony"] } } }, { "l": "ps", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "pt_BR", "t": { "Change name": { "v": ["Mude o nome"] }, "Close sidebar": { "v": ["Fechar barra lateral"] }, "Favorite": { "v": ["Favorito"] } } }, { "l": "pt_PT", "t": { "Change name": { "v": ["Alterar nome"] }, "Close sidebar": { "v": ["Fechar barra lateral"] }, "Favorite": { "v": ["Favorito"] } } }, { "l": "ro", "t": { "Change name": { "v": ["Modifică numele"] }, "Close sidebar": { "v": ["Închide bara laterală"] }, "Favorite": { "v": ["Favorit"] } } }, { "l": "ru", "t": { "Change name": { "v": ["Изменить имя"] }, "Close sidebar": { "v": ["Закрыть сайдбар"] }, "Favorite": { "v": ["Избранное"] } } }, { "l": "sc", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "si", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "sk", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "sl", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": ["Zapri stransko vrstico"] }, "Favorite": { "v": ["Priljubljeno"] } } }, { "l": "sq", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "sr", "t": { "Change name": { "v": ["Измени назив"] }, "Close sidebar": { "v": ["Затвори бочну траку"] }, "Favorite": { "v": ["Омиљени"] } } }, { "l": "sr@latin", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "sv", "t": { "Change name": { "v": ["Ändra namn"] }, "Close sidebar": { "v": ["Stäng sidopanel"] }, "Favorite": { "v": ["Favorit"] } } }, { "l": "sw", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "ta", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "th", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "tk", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "tr", "t": { "Change name": { "v": ["Adı değiştir"] }, "Close sidebar": { "v": ["Yan çubuğu kapat"] }, "Favorite": { "v": ["Sık kullanılanlara ekle"] } } }, { "l": "ug", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "uk", "t": { "Change name": { "v": ["Змінити назву"] }, "Close sidebar": { "v": ["Закрити бічну панель"] }, "Favorite": { "v": ["Із зірочкою"] } } }, { "l": "ur_PK", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "uz", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "vi", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }, { "l": "zh_CN", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": ["关闭侧边栏"] }, "Favorite": { "v": ["喜爱"] } } }, { "l": "zh_HK", "t": { "Change name": { "v": ["更改名稱"] }, "Close sidebar": { "v": ["關閉側邊欄"] }, "Favorite": { "v": ["喜愛"] } } }, { "l": "zh_TW", "t": { "Change name": { "v": ["變更名稱"] }, "Close sidebar": { "v": ["關閉側邊欄"] }, "Favorite": { "v": ["最愛"] } } }, { "l": "zu_ZA", "t": { "Change name": { "v": [""] }, "Close sidebar": { "v": [""] }, "Favorite": { "v": [""] } } }];
+const t14 = [{ "l": "af", "t": { "No results": { "v": [""] } } }, { "l": "ar", "t": { "Clear selected": { "v": ["مَحْوُ المُحدّد"] }, "Deselect {option}": { "v": ["إلغاء تحديد {option}"] }, "No results": { "v": ["ليس هناك أية نتيجة"] } } }, { "l": "ast", "t": { "Clear selected": { "v": ["Borrar lo seleicionao"] }, "Deselect {option}": { "v": ["Deseleicionar «{option}»"] }, "No results": { "v": ["Nun hai nengún resultáu"] } } }, { "l": "az", "t": { "No results": { "v": [""] } } }, { "l": "be", "t": { "No results": { "v": [""] } } }, { "l": "bg", "t": { "No results": { "v": [""] } } }, { "l": "bn_BD", "t": { "No results": { "v": [""] } } }, { "l": "br", "t": { "No results": { "v": ["Disoc'h ebet"] } } }, { "l": "bs", "t": { "No results": { "v": [""] } } }, { "l": "ca", "t": { "No results": { "v": ["Sense resultats"] } } }, { "l": "cs", "t": { "No results": { "v": ["Nic nenalezeno"] } } }, { "l": "cs_CZ", "t": { "Clear selected": { "v": ["Vyčistit vybrané"] }, "Deselect {option}": { "v": ["Zrušit výběr {option}"] }, "No results": { "v": ["Nic nenalezeno"] }, "Options": { "v": ["Možnosti"] } } }, { "l": "cy_GB", "t": { "No results": { "v": [""] } } }, { "l": "da", "t": { "No results": { "v": ["Ingen resultater"] } } }, { "l": "de", "t": { "Clear selected": { "v": ["Auswahl leeren"] }, "Deselect {option}": { "v": ["{option} abwählen"] }, "No results": { "v": ["Keine Ergebnisse"] }, "Options": { "v": ["Optionen"] } } }, { "l": "de_DE", "t": { "Clear selected": { "v": ["Auswahl leeren"] }, "Deselect {option}": { "v": ["{option} abwählen"] }, "No results": { "v": ["Keine Ergebnisse"] }, "Options": { "v": ["Optionen"] } } }, { "l": "el", "t": { "No results": { "v": ["Κανένα αποτέλεσμα"] } } }, { "l": "en_GB", "t": { "No results": { "v": ["No results"] } } }, { "l": "eo", "t": { "No results": { "v": ["La rezulto forestas"] } } }, { "l": "es", "t": { "Clear selected": { "v": ["Limpiar selección"] }, "Deselect {option}": { "v": ["Deseleccionar {option}"] }, "No results": { "v": [" Ningún resultado"] }, "Options": { "v": ["Opciones"] } } }, { "l": "es_419", "t": { "No results": { "v": [""] } } }, { "l": "es_AR", "t": { "No results": { "v": [""] } } }, { "l": "es_CL", "t": { "No results": { "v": [""] } } }, { "l": "es_CO", "t": { "No results": { "v": [""] } } }, { "l": "es_CR", "t": { "No results": { "v": [""] } } }, { "l": "es_DO", "t": { "No results": { "v": [""] } } }, { "l": "es_EC", "t": { "No results": { "v": ["Sin resultados"] } } }, { "l": "es_GT", "t": { "No results": { "v": [""] } } }, { "l": "es_HN", "t": { "No results": { "v": [""] } } }, { "l": "es_MX", "t": { "No results": { "v": [""] } } }, { "l": "es_NI", "t": { "No results": { "v": [""] } } }, { "l": "es_PA", "t": { "No results": { "v": [""] } } }, { "l": "es_PE", "t": { "No results": { "v": [""] } } }, { "l": "es_PR", "t": { "No results": { "v": [""] } } }, { "l": "es_PY", "t": { "No results": { "v": [""] } } }, { "l": "es_SV", "t": { "No results": { "v": [""] } } }, { "l": "es_UY", "t": { "No results": { "v": [""] } } }, { "l": "et_EE", "t": { "No results": { "v": [""] } } }, { "l": "eu", "t": { "No results": { "v": ["Emaitzarik ez"] } } }, { "l": "fa", "t": { "No results": { "v": [""] } } }, { "l": "fi", "t": { "No results": { "v": ["Ei tuloksia"] } } }, { "l": "fo", "t": { "No results": { "v": [""] } } }, { "l": "fr", "t": { "Clear selected": { "v": ["Vider la sélection"] }, "Deselect {option}": { "v": ["Désélectionner {option}"] }, "No results": { "v": ["Aucun résultat"] } } }, { "l": "gd", "t": { "No results": { "v": [""] } } }, { "l": "gl", "t": { "Clear selected": { "v": ["Limpar o seleccionado"] }, "Deselect {option}": { "v": ["Desmarcar {opción}"] }, "No results": { "v": ["Sen resultados"] }, "Options": { "v": ["Opcións"] } } }, { "l": "he", "t": { "No results": { "v": ["אין תוצאות"] } } }, { "l": "hi_IN", "t": { "No results": { "v": [""] } } }, { "l": "hr", "t": { "No results": { "v": [""] } } }, { "l": "hsb", "t": { "No results": { "v": [""] } } }, { "l": "hu", "t": { "No results": { "v": ["Nincs találat"] } } }, { "l": "hy", "t": { "No results": { "v": [""] } } }, { "l": "ia", "t": { "No results": { "v": [""] } } }, { "l": "id", "t": { "Clear selected": { "v": ["Hapus terpilih"] }, "Deselect {option}": { "v": ["Batalkan pemilihan {option}"] }, "No results": { "v": ["Tidak ada hasil"] } } }, { "l": "ig", "t": { "No results": { "v": [""] } } }, { "l": "is", "t": { "Clear selected": { "v": ["Hreinsa valið"] }, "Deselect {option}": { "v": ["Afvelja {option}"] }, "No results": { "v": ["Engar niðurstöður"] } } }, { "l": "it", "t": { "Clear selected": { "v": ["Cancella selezionati"] }, "Deselect {option}": { "v": ["Deselezionare {option}"] }, "No results": { "v": ["Nessun risultato"] } } }, { "l": "ja", "t": { "No results": { "v": ["なし"] } } }, { "l": "ka", "t": { "No results": { "v": [""] } } }, { "l": "ka_GE", "t": { "No results": { "v": [""] } } }, { "l": "kab", "t": { "No results": { "v": [""] } } }, { "l": "kk", "t": { "No results": { "v": [""] } } }, { "l": "km", "t": { "No results": { "v": [""] } } }, { "l": "kn", "t": { "No results": { "v": [""] } } }, { "l": "ko", "t": { "No results": { "v": [""] } } }, { "l": "la", "t": { "No results": { "v": [""] } } }, { "l": "lb", "t": { "No results": { "v": [""] } } }, { "l": "lo", "t": { "No results": { "v": [""] } } }, { "l": "lt_LT", "t": { "No results": { "v": ["Nėra rezultatų"] } } }, { "l": "lv", "t": { "No results": { "v": ["Nav rezultātu"] } } }, { "l": "mk", "t": { "No results": { "v": ["Нема резултати"] } } }, { "l": "mn", "t": { "No results": { "v": [""] } } }, { "l": "mr", "t": { "No results": { "v": [""] } } }, { "l": "ms_MY", "t": { "No results": { "v": [""] } } }, { "l": "my", "t": { "No results": { "v": ["ရလဒ်မရှိပါ"] } } }, { "l": "nb", "t": { "No results": { "v": ["Ingen resultater"] } } }, { "l": "ne", "t": { "No results": { "v": [""] } } }, { "l": "nl", "t": { "No results": { "v": ["Geen resultaten"] } } }, { "l": "nn_NO", "t": { "No results": { "v": [""] } } }, { "l": "oc", "t": { "No results": { "v": ["Cap de resultat"] } } }, { "l": "pl", "t": { "Clear selected": { "v": ["Wyczyść wybrane"] }, "Deselect {option}": { "v": ["Odznacz {option}"] }, "No results": { "v": ["Brak wyników"] }, "Options": { "v": ["Opcje"] } } }, { "l": "ps", "t": { "No results": { "v": [""] } } }, { "l": "pt_BR", "t": { "Clear selected": { "v": ["Limpar selecionado"] }, "Deselect {option}": { "v": ["Desmarque {option}"] }, "No results": { "v": ["Sem resultados"] } } }, { "l": "pt_PT", "t": { "No results": { "v": ["Sem resultados"] } } }, { "l": "ro", "t": { "Clear selected": { "v": ["Șterge selecția"] }, "Deselect {option}": { "v": ["Deselctează {option}"] }, "No results": { "v": ["Nu există rezultate"] } } }, { "l": "ru", "t": { "No results": { "v": ["Результаты отсуствуют"] } } }, { "l": "sc", "t": { "No results": { "v": [""] } } }, { "l": "si", "t": { "No results": { "v": [""] } } }, { "l": "sk", "t": { "No results": { "v": ["Žiadne výsledky"] } } }, { "l": "sl", "t": { "No results": { "v": ["Ni zadetkov"] } } }, { "l": "sq", "t": { "No results": { "v": [""] } } }, { "l": "sr", "t": { "Clear selected": { "v": ["Обриши изабрано"] }, "Deselect {option}": { "v": ["Уклони избор {option}"] }, "No results": { "v": ["Нема резултата"] }, "Options": { "v": ["Опције"] } } }, { "l": "sr@latin", "t": { "No results": { "v": [""] } } }, { "l": "sv", "t": { "Clear selected": { "v": ["Rensa val"] }, "Deselect {option}": { "v": ["Avmarkera {option}"] }, "No results": { "v": ["Inga resultat"] }, "Options": { "v": ["Alternativ"] } } }, { "l": "sw", "t": { "No results": { "v": [""] } } }, { "l": "ta", "t": { "No results": { "v": [""] } } }, { "l": "th", "t": { "No results": { "v": [""] } } }, { "l": "tk", "t": { "No results": { "v": [""] } } }, { "l": "tr", "t": { "Clear selected": { "v": ["Seçilmişleri temizle"] }, "Deselect {option}": { "v": ["{option} bırak"] }, "No results": { "v": ["Herhangi bir sonuç bulunamadı"] }, "Options": { "v": ["Seçenekler"] } } }, { "l": "ug", "t": { "No results": { "v": [""] } } }, { "l": "uk", "t": { "Clear selected": { "v": ["Очистити вибране"] }, "Deselect {option}": { "v": ["Зняти вибір {option}"] }, "No results": { "v": ["Відсутні результати"] } } }, { "l": "ur_PK", "t": { "No results": { "v": [""] } } }, { "l": "uz", "t": { "No results": { "v": [""] } } }, { "l": "vi", "t": { "No results": { "v": [""] } } }, { "l": "zh_CN", "t": { "No results": { "v": ["无结果"] } } }, { "l": "zh_HK", "t": { "No results": { "v": ["無結果"] } } }, { "l": "zh_TW", "t": { "No results": { "v": ["無結果"] } } }, { "l": "zu_ZA", "t": { "No results": { "v": [""] } } }];
+const t15 = [{ "l": "af", "t": { "Clear text": { "v": [""] } } }, { "l": "ar", "t": { "Clear text": { "v": ["مَحْوُ النص"] }, "Save changes": { "v": ["حفظ التغييرات"] } } }, { "l": "ast", "t": { "Clear text": { "v": ["Borrar el testu"] }, "Save changes": { "v": ["Guardar los cambeos"] } } }, { "l": "az", "t": { "Clear text": { "v": [""] } } }, { "l": "be", "t": { "Clear text": { "v": [""] } } }, { "l": "bg", "t": { "Clear text": { "v": [""] } } }, { "l": "bn_BD", "t": { "Clear text": { "v": [""] } } }, { "l": "br", "t": { "Clear text": { "v": [""] } } }, { "l": "bs", "t": { "Clear text": { "v": [""] } } }, { "l": "ca", "t": { "Clear text": { "v": ["Netejar text"] } } }, { "l": "cs", "t": { "Clear text": { "v": ["Čitelný text"] } } }, { "l": "cs_CZ", "t": { "Clear text": { "v": ["Čitelný text"] }, "Save changes": { "v": ["Uložit změny"] } } }, { "l": "cy_GB", "t": { "Clear text": { "v": [""] } } }, { "l": "da", "t": { "Clear text": { "v": ["Ryd tekst"] } } }, { "l": "de", "t": { "Clear text": { "v": ["Klartext"] }, "Save changes": { "v": ["Änderungen speichern"] } } }, { "l": "de_DE", "t": { "Clear text": { "v": ["Klartext"] }, "Save changes": { "v": ["Änderungen speichern"] } } }, { "l": "el", "t": { "Clear text": { "v": ["Εκκαθάριση κειμένου"] } } }, { "l": "en_GB", "t": { "Clear text": { "v": ["Clear text"] } } }, { "l": "eo", "t": { "Clear text": { "v": [""] } } }, { "l": "es", "t": { "Clear text": { "v": ["Limpiar texto"] }, "Save changes": { "v": ["Guardar cambios"] } } }, { "l": "es_419", "t": { "Clear text": { "v": [""] } } }, { "l": "es_AR", "t": { "Clear text": { "v": [""] } } }, { "l": "es_CL", "t": { "Clear text": { "v": [""] } } }, { "l": "es_CO", "t": { "Clear text": { "v": [""] } } }, { "l": "es_CR", "t": { "Clear text": { "v": [""] } } }, { "l": "es_DO", "t": { "Clear text": { "v": [""] } } }, { "l": "es_EC", "t": { "Clear text": { "v": ["Limpiar texto"] } } }, { "l": "es_GT", "t": { "Clear text": { "v": [""] } } }, { "l": "es_HN", "t": { "Clear text": { "v": [""] } } }, { "l": "es_MX", "t": { "Clear text": { "v": [""] } } }, { "l": "es_NI", "t": { "Clear text": { "v": [""] } } }, { "l": "es_PA", "t": { "Clear text": { "v": [""] } } }, { "l": "es_PE", "t": { "Clear text": { "v": [""] } } }, { "l": "es_PR", "t": { "Clear text": { "v": [""] } } }, { "l": "es_PY", "t": { "Clear text": { "v": [""] } } }, { "l": "es_SV", "t": { "Clear text": { "v": [""] } } }, { "l": "es_UY", "t": { "Clear text": { "v": [""] } } }, { "l": "et_EE", "t": { "Clear text": { "v": [""] } } }, { "l": "eu", "t": { "Clear text": { "v": ["Garbitu testua"] } } }, { "l": "fa", "t": { "Clear text": { "v": [""] } } }, { "l": "fi", "t": { "Clear text": { "v": [""] } } }, { "l": "fo", "t": { "Clear text": { "v": [""] } } }, { "l": "fr", "t": { "Clear text": { "v": ["Effacer le texte"] }, "Save changes": { "v": ["Sauvegarder les changements"] } } }, { "l": "gd", "t": { "Clear text": { "v": [""] } } }, { "l": "gl", "t": { "Clear text": { "v": ["Limpar o texto"] }, "Save changes": { "v": ["Gardar os cambios"] } } }, { "l": "he", "t": { "Clear text": { "v": ["פינוי טקסט"] } } }, { "l": "hi_IN", "t": { "Clear text": { "v": [""] } } }, { "l": "hr", "t": { "Clear text": { "v": [""] } } }, { "l": "hsb", "t": { "Clear text": { "v": [""] } } }, { "l": "hu", "t": { "Clear text": { "v": ["Szöveg törlése"] } } }, { "l": "hy", "t": { "Clear text": { "v": [""] } } }, { "l": "ia", "t": { "Clear text": { "v": [""] } } }, { "l": "id", "t": { "Clear text": { "v": ["Bersihkan teks"] }, "Save changes": { "v": ["Simpan perubahan"] } } }, { "l": "ig", "t": { "Clear text": { "v": [""] } } }, { "l": "is", "t": { "Clear text": { "v": ["Hreinsa texta"] }, "Save changes": { "v": ["Vista breytingar"] } } }, { "l": "it", "t": { "Clear text": { "v": ["Cancella il testo"] }, "Save changes": { "v": ["Salva le modifiche"] } } }, { "l": "ja", "t": { "Clear text": { "v": ["テキストをクリア"] } } }, { "l": "ka", "t": { "Clear text": { "v": [""] } } }, { "l": "ka_GE", "t": { "Clear text": { "v": [""] } } }, { "l": "kab", "t": { "Clear text": { "v": [""] } } }, { "l": "kk", "t": { "Clear text": { "v": [""] } } }, { "l": "km", "t": { "Clear text": { "v": [""] } } }, { "l": "kn", "t": { "Clear text": { "v": [""] } } }, { "l": "ko", "t": { "Clear text": { "v": [""] } } }, { "l": "la", "t": { "Clear text": { "v": [""] } } }, { "l": "lb", "t": { "Clear text": { "v": [""] } } }, { "l": "lo", "t": { "Clear text": { "v": [""] } } }, { "l": "lt_LT", "t": { "Clear text": { "v": [""] } } }, { "l": "lv", "t": { "Clear text": { "v": [""] } } }, { "l": "mk", "t": { "Clear text": { "v": [""] } } }, { "l": "mn", "t": { "Clear text": { "v": [""] } } }, { "l": "mr", "t": { "Clear text": { "v": [""] } } }, { "l": "ms_MY", "t": { "Clear text": { "v": [""] } } }, { "l": "my", "t": { "Clear text": { "v": [""] } } }, { "l": "nb", "t": { "Clear text": { "v": ["Fjern tekst"] } } }, { "l": "ne", "t": { "Clear text": { "v": [""] } } }, { "l": "nl", "t": { "Clear text": { "v": ["Wis tekst"] } } }, { "l": "nn_NO", "t": { "Clear text": { "v": [""] } } }, { "l": "oc", "t": { "Clear text": { "v": [""] } } }, { "l": "pl", "t": { "Clear text": { "v": ["Wyczyść tekst"] }, "Save changes": { "v": ["Zapisz zmiany"] } } }, { "l": "ps", "t": { "Clear text": { "v": [""] } } }, { "l": "pt_BR", "t": { "Clear text": { "v": ["Limpar texto"] }, "Save changes": { "v": ["Salvar alterações"] } } }, { "l": "pt_PT", "t": { "Clear text": { "v": ["Limpar texto"] } } }, { "l": "ro", "t": { "Clear text": { "v": ["Șterge textul"] }, "Save changes": { "v": ["Salvează modificările"] } } }, { "l": "ru", "t": { "Clear text": { "v": ["Очистить текст"] } } }, { "l": "sc", "t": { "Clear text": { "v": [""] } } }, { "l": "si", "t": { "Clear text": { "v": [""] } } }, { "l": "sk", "t": { "Clear text": { "v": [""] } } }, { "l": "sl", "t": { "Clear text": { "v": ["Počisti besedilo"] } } }, { "l": "sq", "t": { "Clear text": { "v": [""] } } }, { "l": "sr", "t": { "Clear text": { "v": ["Обриши текст"] }, "Save changes": { "v": ["Сачувај измене"] } } }, { "l": "sr@latin", "t": { "Clear text": { "v": [""] } } }, { "l": "sv", "t": { "Clear text": { "v": ["Ta bort text"] }, "Save changes": { "v": ["Spara ändringar"] } } }, { "l": "sw", "t": { "Clear text": { "v": [""] } } }, { "l": "ta", "t": { "Clear text": { "v": [""] } } }, { "l": "th", "t": { "Clear text": { "v": [""] } } }, { "l": "tk", "t": { "Clear text": { "v": [""] } } }, { "l": "tr", "t": { "Clear text": { "v": ["Metni temizle"] }, "Save changes": { "v": ["Değişiklikleri kaydet"] } } }, { "l": "ug", "t": { "Clear text": { "v": [""] } } }, { "l": "uk", "t": { "Clear text": { "v": ["Очистити текст"] }, "Save changes": { "v": ["Зберегти зміни"] } } }, { "l": "ur_PK", "t": { "Clear text": { "v": [""] } } }, { "l": "uz", "t": { "Clear text": { "v": [""] } } }, { "l": "vi", "t": { "Clear text": { "v": [""] } } }, { "l": "zh_CN", "t": { "Clear text": { "v": ["清除文本"] } } }, { "l": "zh_HK", "t": { "Clear text": { "v": ["清除文本"] } } }, { "l": "zh_TW", "t": { "Clear text": { "v": ["清除文字"] } } }, { "l": "zu_ZA", "t": { "Clear text": { "v": [""] } } }];
+const t16 = [{ "l": "af", "t": { "Close": { "v": [""] } } }, { "l": "ar", "t": { "Close": { "v": ["أغلِق"] } } }, { "l": "ast", "t": { "Close": { "v": ["Zarrar"] } } }, { "l": "az", "t": { "Close": { "v": [""] } } }, { "l": "be", "t": { "Close": { "v": [""] } } }, { "l": "bg", "t": { "Close": { "v": [""] } } }, { "l": "bn_BD", "t": { "Close": { "v": [""] } } }, { "l": "br", "t": { "Close": { "v": ["Serriñ"] } } }, { "l": "bs", "t": { "Close": { "v": [""] } } }, { "l": "ca", "t": { "Close": { "v": ["Tanca"] } } }, { "l": "cs", "t": { "Close": { "v": ["Zavřít"] } } }, { "l": "cs_CZ", "t": { "Close": { "v": ["Zavřít"] } } }, { "l": "cy_GB", "t": { "Close": { "v": [""] } } }, { "l": "da", "t": { "Close": { "v": ["Luk"] } } }, { "l": "de", "t": { "Close": { "v": ["Schließen"] } } }, { "l": "de_DE", "t": { "Close": { "v": ["Schließen"] } } }, { "l": "el", "t": { "Close": { "v": ["Κλείσιμο"] } } }, { "l": "en_GB", "t": { "Close": { "v": ["Close"] } } }, { "l": "eo", "t": { "Close": { "v": ["Fermu"] } } }, { "l": "es", "t": { "Close": { "v": ["Cerrar"] } } }, { "l": "es_419", "t": { "Close": { "v": [""] } } }, { "l": "es_AR", "t": { "Close": { "v": [""] } } }, { "l": "es_CL", "t": { "Close": { "v": [""] } } }, { "l": "es_CO", "t": { "Close": { "v": [""] } } }, { "l": "es_CR", "t": { "Close": { "v": [""] } } }, { "l": "es_DO", "t": { "Close": { "v": [""] } } }, { "l": "es_EC", "t": { "Close": { "v": ["Cerrar"] } } }, { "l": "es_GT", "t": { "Close": { "v": [""] } } }, { "l": "es_HN", "t": { "Close": { "v": [""] } } }, { "l": "es_MX", "t": { "Close": { "v": [""] } } }, { "l": "es_NI", "t": { "Close": { "v": [""] } } }, { "l": "es_PA", "t": { "Close": { "v": [""] } } }, { "l": "es_PE", "t": { "Close": { "v": [""] } } }, { "l": "es_PR", "t": { "Close": { "v": [""] } } }, { "l": "es_PY", "t": { "Close": { "v": [""] } } }, { "l": "es_SV", "t": { "Close": { "v": [""] } } }, { "l": "es_UY", "t": { "Close": { "v": [""] } } }, { "l": "et_EE", "t": { "Close": { "v": [""] } } }, { "l": "eu", "t": { "Close": { "v": ["Itxi"] } } }, { "l": "fa", "t": { "Close": { "v": [""] } } }, { "l": "fi", "t": { "Close": { "v": ["Sulje"] } } }, { "l": "fo", "t": { "Close": { "v": [""] } } }, { "l": "fr", "t": { "Close": { "v": ["Fermer"] } } }, { "l": "gd", "t": { "Close": { "v": [""] } } }, { "l": "gl", "t": { "Close": { "v": ["Pechar"] } } }, { "l": "he", "t": { "Close": { "v": ["סגירה"] } } }, { "l": "hi_IN", "t": { "Close": { "v": [""] } } }, { "l": "hr", "t": { "Close": { "v": [""] } } }, { "l": "hsb", "t": { "Close": { "v": [""] } } }, { "l": "hu", "t": { "Close": { "v": ["Bezárás"] } } }, { "l": "hy", "t": { "Close": { "v": [""] } } }, { "l": "ia", "t": { "Close": { "v": [""] } } }, { "l": "id", "t": { "Close": { "v": ["Tutup"] } } }, { "l": "ig", "t": { "Close": { "v": [""] } } }, { "l": "is", "t": { "Close": { "v": ["Loka"] } } }, { "l": "it", "t": { "Close": { "v": ["Chiudi"] } } }, { "l": "ja", "t": { "Close": { "v": ["閉じる"] } } }, { "l": "ka", "t": { "Close": { "v": [""] } } }, { "l": "ka_GE", "t": { "Close": { "v": [""] } } }, { "l": "kab", "t": { "Close": { "v": [""] } } }, { "l": "kk", "t": { "Close": { "v": [""] } } }, { "l": "km", "t": { "Close": { "v": [""] } } }, { "l": "kn", "t": { "Close": { "v": [""] } } }, { "l": "ko", "t": { "Close": { "v": [""] } } }, { "l": "la", "t": { "Close": { "v": [""] } } }, { "l": "lb", "t": { "Close": { "v": [""] } } }, { "l": "lo", "t": { "Close": { "v": [""] } } }, { "l": "lt_LT", "t": { "Close": { "v": ["Užverti"] } } }, { "l": "lv", "t": { "Close": { "v": ["Aizvērt"] } } }, { "l": "mk", "t": { "Close": { "v": ["Затвори"] } } }, { "l": "mn", "t": { "Close": { "v": [""] } } }, { "l": "mr", "t": { "Close": { "v": [""] } } }, { "l": "ms_MY", "t": { "Close": { "v": [""] } } }, { "l": "my", "t": { "Close": { "v": ["ပိတ်ရန်"] } } }, { "l": "nb", "t": { "Close": { "v": ["Lukk"] } } }, { "l": "ne", "t": { "Close": { "v": [""] } } }, { "l": "nl", "t": { "Close": { "v": ["Sluiten"] } } }, { "l": "nn_NO", "t": { "Close": { "v": [""] } } }, { "l": "oc", "t": { "Close": { "v": ["Tampar"] } } }, { "l": "pl", "t": { "Close": { "v": ["Zamknij"] } } }, { "l": "ps", "t": { "Close": { "v": [""] } } }, { "l": "pt_BR", "t": { "Close": { "v": ["Fechar"] } } }, { "l": "pt_PT", "t": { "Close": { "v": ["Fechar"] } } }, { "l": "ro", "t": { "Close": { "v": ["Închideți"] } } }, { "l": "ru", "t": { "Close": { "v": ["Закрыть"] } } }, { "l": "sc", "t": { "Close": { "v": [""] } } }, { "l": "si", "t": { "Close": { "v": [""] } } }, { "l": "sk", "t": { "Close": { "v": ["Zatvoriť"] } } }, { "l": "sl", "t": { "Close": { "v": ["Zapri"] } } }, { "l": "sq", "t": { "Close": { "v": [""] } } }, { "l": "sr", "t": { "Close": { "v": ["Затвори"] } } }, { "l": "sr@latin", "t": { "Close": { "v": [""] } } }, { "l": "sv", "t": { "Close": { "v": ["Stäng"] } } }, { "l": "sw", "t": { "Close": { "v": [""] } } }, { "l": "ta", "t": { "Close": { "v": [""] } } }, { "l": "th", "t": { "Close": { "v": [""] } } }, { "l": "tk", "t": { "Close": { "v": [""] } } }, { "l": "tr", "t": { "Close": { "v": ["Kapat"] } } }, { "l": "ug", "t": { "Close": { "v": [""] } } }, { "l": "uk", "t": { "Close": { "v": ["Закрити"] } } }, { "l": "ur_PK", "t": { "Close": { "v": [""] } } }, { "l": "uz", "t": { "Close": { "v": [""] } } }, { "l": "vi", "t": { "Close": { "v": [""] } } }, { "l": "zh_CN", "t": { "Close": { "v": ["关闭"] } } }, { "l": "zh_HK", "t": { "Close": { "v": ["關閉"] } } }, { "l": "zh_TW", "t": { "Close": { "v": ["關閉"] } } }, { "l": "zu_ZA", "t": { "Close": { "v": [""] } } }];
+const t17 = [{ "l": "af", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "ar", "t": { "Close navigation": { "v": ["أغلِق المُتصفِّح"] }, "Open navigation": { "v": ["إفتَح المتصفح"] } } }, { "l": "ast", "t": { "Close navigation": { "v": ["Zarrar la navegación"] }, "Open navigation": { "v": ["Abrir la navegación"] } } }, { "l": "az", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "be", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "bg", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "bn_BD", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "br", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "bs", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "ca", "t": { "Close navigation": { "v": ["Tanca la navegació"] }, "Open navigation": { "v": ["Obre la navegació"] } } }, { "l": "cs", "t": { "Close navigation": { "v": ["Zavřít navigaci"] }, "Open navigation": { "v": ["Otevřít navigaci"] } } }, { "l": "cs_CZ", "t": { "Close navigation": { "v": ["Zavřít navigaci"] }, "Open navigation": { "v": ["Otevřít navigaci"] } } }, { "l": "cy_GB", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "da", "t": { "Close navigation": { "v": ["Luk navigation"] }, "Open navigation": { "v": ["Åbn navigation"] } } }, { "l": "de", "t": { "Close navigation": { "v": ["Navigation schließen"] }, "Open navigation": { "v": ["Navigation öffnen"] } } }, { "l": "de_DE", "t": { "Close navigation": { "v": ["Navigation schließen"] }, "Open navigation": { "v": ["Navigation öffnen"] } } }, { "l": "el", "t": { "Close navigation": { "v": ["Κλείσιμο πλοήγησης"] }, "Open navigation": { "v": ["Άνοιγμα πλοήγησης"] } } }, { "l": "en_GB", "t": { "Close navigation": { "v": ["Close navigation"] }, "Open navigation": { "v": ["Open navigation"] } } }, { "l": "eo", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "es", "t": { "Close navigation": { "v": ["Cerrar navegación"] }, "Open navigation": { "v": ["Abrir navegación"] } } }, { "l": "es_419", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "es_AR", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "es_CL", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "es_CO", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "es_CR", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "es_DO", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "es_EC", "t": { "Close navigation": { "v": ["Cerrar navegación"] }, "Open navigation": { "v": ["Abrir navegación"] } } }, { "l": "es_GT", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "es_HN", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "es_MX", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "es_NI", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "es_PA", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "es_PE", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "es_PR", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "es_PY", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "es_SV", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "es_UY", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "et_EE", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "eu", "t": { "Close navigation": { "v": ["Itxi nabigazioa"] }, "Open navigation": { "v": ["Ireki nabigazioa"] } } }, { "l": "fa", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "fi", "t": { "Close navigation": { "v": ["Sulje navigaatio"] }, "Open navigation": { "v": ["Avaa navigaatio"] } } }, { "l": "fo", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "fr", "t": { "Close navigation": { "v": ["Fermer la navigation"] }, "Open navigation": { "v": ["Ouvrir la navigation"] } } }, { "l": "gd", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "gl", "t": { "Close navigation": { "v": ["Pechar a navegación"] }, "Open navigation": { "v": ["Abrir a navegación"] } } }, { "l": "he", "t": { "Close navigation": { "v": ["סגירת הניווט"] }, "Open navigation": { "v": ["פתיחת ניווט"] } } }, { "l": "hi_IN", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "hr", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "hsb", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "hu", "t": { "Close navigation": { "v": ["Navigáció bezárása"] }, "Open navigation": { "v": ["Navigáció megnyitása"] } } }, { "l": "hy", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "ia", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "id", "t": { "Close navigation": { "v": ["Tutup navigasi"] }, "Open navigation": { "v": ["Buka navigasi"] } } }, { "l": "ig", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "is", "t": { "Close navigation": { "v": ["Loka leiðsagnarsleða"] }, "Open navigation": { "v": ["Opna leiðsagnarsleða"] } } }, { "l": "it", "t": { "Close navigation": { "v": ["Chiudi la navigazione"] }, "Open navigation": { "v": ["Apri la navigazione"] } } }, { "l": "ja", "t": { "Close navigation": { "v": ["ナビゲーションを閉じる"] }, "Open navigation": { "v": ["ナビゲーションを開く"] } } }, { "l": "ka", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "ka_GE", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "kab", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "kk", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "km", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "kn", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "ko", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "la", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "lb", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "lo", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "lt_LT", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "lv", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "mk", "t": { "Close navigation": { "v": ["Затвори навигација"] }, "Open navigation": { "v": ["Отвори навигација"] } } }, { "l": "mn", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "mr", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "ms_MY", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "my", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "nb", "t": { "Close navigation": { "v": ["Lukk navigasjon"] }, "Open navigation": { "v": ["Åpne navigasjon"] } } }, { "l": "ne", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "nl", "t": { "Close navigation": { "v": ["Navigatie sluiten"] }, "Open navigation": { "v": ["Navigatie openen"] } } }, { "l": "nn_NO", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "oc", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "pl", "t": { "Close navigation": { "v": ["Zamknij nawigację"] }, "Open navigation": { "v": ["Otwórz nawigację"] } } }, { "l": "ps", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "pt_BR", "t": { "Close navigation": { "v": ["Fechar navegação"] }, "Open navigation": { "v": ["Abrir navegação"] } } }, { "l": "pt_PT", "t": { "Close navigation": { "v": ["Fechar navegação"] }, "Open navigation": { "v": ["Abrir navegação"] } } }, { "l": "ro", "t": { "Close navigation": { "v": ["Închideți navigarea"] }, "Open navigation": { "v": ["Deschideți navigația"] } } }, { "l": "ru", "t": { "Close navigation": { "v": ["Закрыть навигацию"] }, "Open navigation": { "v": ["Открыть навигацию"] } } }, { "l": "sc", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "si", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "sk", "t": { "Close navigation": { "v": ["Zavrieť navigáciu"] }, "Open navigation": { "v": ["Otvoriť navigáciu"] } } }, { "l": "sl", "t": { "Close navigation": { "v": ["Zapri krmarjenje"] }, "Open navigation": { "v": ["Odpri krmarjenje"] } } }, { "l": "sq", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "sr", "t": { "Close navigation": { "v": ["Затвори навигацију"] }, "Open navigation": { "v": ["Отвори навигацију"] } } }, { "l": "sr@latin", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "sv", "t": { "Close navigation": { "v": ["Stäng navigering"] }, "Open navigation": { "v": ["Öppna navigering"] } } }, { "l": "sw", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "ta", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "th", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "tk", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "tr", "t": { "Close navigation": { "v": ["Gezinmeyi kapat"] }, "Open navigation": { "v": ["Gezinmeyi aç"] } } }, { "l": "ug", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "uk", "t": { "Close navigation": { "v": ["Закрити навігацію"] }, "Open navigation": { "v": ["Відкрити навігацію"] } } }, { "l": "ur_PK", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "uz", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "vi", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }, { "l": "zh_CN", "t": { "Close navigation": { "v": ["关闭导航"] }, "Open navigation": { "v": ["开启导航"] } } }, { "l": "zh_HK", "t": { "Close navigation": { "v": ["關閉導航"] }, "Open navigation": { "v": ["開啟導航"] } } }, { "l": "zh_TW", "t": { "Close navigation": { "v": ["關閉導航"] }, "Open navigation": { "v": ["開啟導航"] } } }, { "l": "zu_ZA", "t": { "Close navigation": { "v": [""] }, "Open navigation": { "v": [""] } } }];
+const t18 = [{ "l": "af", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "ar", "t": { "Collapse menu": { "v": ["طَيُّ القائمة"] }, "Open menu": { "v": ["إفتَح القائمة"] } } }, { "l": "ast", "t": { "Collapse menu": { "v": ["Recoyer el menú"] }, "Open menu": { "v": ["Abrir le menú"] } } }, { "l": "az", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "be", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "bg", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "bn_BD", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "br", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "bs", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "ca", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "cs", "t": { "Collapse menu": { "v": ["Sbalit nabídku"] }, "Open menu": { "v": ["Otevřít nabídku"] } } }, { "l": "cs_CZ", "t": { "Collapse menu": { "v": ["Sbalit nabídku"] }, "Open menu": { "v": ["Otevřít nabídku"] } } }, { "l": "cy_GB", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "da", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "de", "t": { "Collapse menu": { "v": ["Menü einklappen"] }, "Open menu": { "v": ["Menü öffnen"] } } }, { "l": "de_DE", "t": { "Collapse menu": { "v": ["Menü einklappen"] }, "Open menu": { "v": ["Menü öffnen"] } } }, { "l": "el", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "en_GB", "t": { "Collapse menu": { "v": ["Collapse menu"] }, "Open menu": { "v": ["Open menu"] } } }, { "l": "eo", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "es", "t": { "Collapse menu": { "v": ["Ocultar menú"] }, "Open menu": { "v": ["Abrir menú"] } } }, { "l": "es_419", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "es_AR", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "es_CL", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "es_CO", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "es_CR", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "es_DO", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "es_EC", "t": { "Collapse menu": { "v": ["Ocultar menú"] }, "Open menu": { "v": ["Abrir menú"] } } }, { "l": "es_GT", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "es_HN", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "es_MX", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "es_NI", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "es_PA", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "es_PE", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "es_PR", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "es_PY", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "es_SV", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "es_UY", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "et_EE", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "eu", "t": { "Collapse menu": { "v": ["Tolestu menua"] }, "Open menu": { "v": ["Ireki menua"] } } }, { "l": "fa", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "fi", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "fo", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "fr", "t": { "Collapse menu": { "v": ["Réduire le menu"] }, "Open menu": { "v": ["Ouvrir le menu"] } } }, { "l": "gd", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "gl", "t": { "Collapse menu": { "v": ["Contraer o menú"] }, "Open menu": { "v": ["Abrir o menú"] } } }, { "l": "he", "t": { "Collapse menu": { "v": ["צמצום התפריט"] }, "Open menu": { "v": ["פתיחת תפריט"] } } }, { "l": "hi_IN", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "hr", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "hsb", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "hu", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "hy", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "ia", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "id", "t": { "Collapse menu": { "v": ["Ciutkan menu"] }, "Open menu": { "v": ["Buka menu"] } } }, { "l": "ig", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "is", "t": { "Collapse menu": { "v": ["Fella valmynd saman"] }, "Open menu": { "v": ["Opna valmynd"] } } }, { "l": "it", "t": { "Collapse menu": { "v": ["Chiudi Menu"] }, "Open menu": { "v": ["Apri il menu"] } } }, { "l": "ja", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "ka", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "ka_GE", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "kab", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "kk", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "km", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "kn", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "ko", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "la", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "lb", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "lo", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "lt_LT", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "lv", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "mk", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "mn", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "mr", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "ms_MY", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "my", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "nb", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "ne", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "nl", "t": { "Collapse menu": { "v": ["Klap menu in"] }, "Open menu": { "v": ["Open menu"] } } }, { "l": "nn_NO", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "oc", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "pl", "t": { "Collapse menu": { "v": ["Zwiń menu"] }, "Open menu": { "v": ["Otwórz menu"] } } }, { "l": "ps", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "pt_BR", "t": { "Collapse menu": { "v": ["Recolher menu"] }, "Open menu": { "v": ["Abrir menu"] } } }, { "l": "pt_PT", "t": { "Collapse menu": { "v": ["Comprimir menu"] }, "Open menu": { "v": ["Abrir menu"] } } }, { "l": "ro", "t": { "Collapse menu": { "v": ["Restrânge meniul"] }, "Open menu": { "v": ["Deschide meniul"] } } }, { "l": "ru", "t": { "Collapse menu": { "v": ["Свернуть меню"] }, "Open menu": { "v": ["Открыть меню"] } } }, { "l": "sc", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "si", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "sk", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "sl", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "sq", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "sr", "t": { "Collapse menu": { "v": ["Сажми мени"] }, "Open menu": { "v": ["Отвори мени"] } } }, { "l": "sr@latin", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "sv", "t": { "Collapse menu": { "v": ["Komprimera menyn"] }, "Open menu": { "v": ["Öppna menyn"] } } }, { "l": "sw", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "ta", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "th", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "tk", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "tr", "t": { "Collapse menu": { "v": ["Menüyü daralt"] }, "Open menu": { "v": ["Menüyü aç"] } } }, { "l": "ug", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "uk", "t": { "Collapse menu": { "v": ["Згорнути меню"] }, "Open menu": { "v": ["Відкрити меню"] } } }, { "l": "ur_PK", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "uz", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "vi", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "zh_CN", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }, { "l": "zh_HK", "t": { "Collapse menu": { "v": ["折疊選單"] }, "Open menu": { "v": ["開啟選單"] } } }, { "l": "zh_TW", "t": { "Collapse menu": { "v": ["折疊選單"] }, "Open menu": { "v": ["開啟選單"] } } }, { "l": "zu_ZA", "t": { "Collapse menu": { "v": [""] }, "Open menu": { "v": [""] } } }];
+const t19 = [{ "l": "af", "t": { "Edit item": { "v": [""] } } }, { "l": "ar", "t": { "Edit item": { "v": ["تعديل عنصر"] } } }, { "l": "ast", "t": { "Edit item": { "v": ["Editar l'elementu"] } } }, { "l": "az", "t": { "Edit item": { "v": [""] } } }, { "l": "be", "t": { "Edit item": { "v": [""] } } }, { "l": "bg", "t": { "Edit item": { "v": [""] } } }, { "l": "bn_BD", "t": { "Edit item": { "v": [""] } } }, { "l": "br", "t": { "Edit item": { "v": [""] } } }, { "l": "bs", "t": { "Edit item": { "v": [""] } } }, { "l": "ca", "t": { "Edit item": { "v": ["Edita l'element"] } } }, { "l": "cs", "t": { "Edit item": { "v": ["Upravit položku"] } } }, { "l": "cs_CZ", "t": { "Edit item": { "v": ["Upravit položku"] } } }, { "l": "cy_GB", "t": { "Edit item": { "v": [""] } } }, { "l": "da", "t": { "Edit item": { "v": ["Rediger emne"] } } }, { "l": "de", "t": { "Edit item": { "v": ["Objekt bearbeiten"] } } }, { "l": "de_DE", "t": { "Edit item": { "v": ["Element bearbeiten"] } } }, { "l": "el", "t": { "Edit item": { "v": ["Επεξεργασία"] } } }, { "l": "en_GB", "t": { "Edit item": { "v": ["Edit item"] } } }, { "l": "eo", "t": { "Edit item": { "v": [""] } } }, { "l": "es", "t": { "Edit item": { "v": ["Editar elemento"] } } }, { "l": "es_419", "t": { "Edit item": { "v": [""] } } }, { "l": "es_AR", "t": { "Edit item": { "v": [""] } } }, { "l": "es_CL", "t": { "Edit item": { "v": [""] } } }, { "l": "es_CO", "t": { "Edit item": { "v": [""] } } }, { "l": "es_CR", "t": { "Edit item": { "v": [""] } } }, { "l": "es_DO", "t": { "Edit item": { "v": [""] } } }, { "l": "es_EC", "t": { "Edit item": { "v": ["Editar elemento"] } } }, { "l": "es_GT", "t": { "Edit item": { "v": [""] } } }, { "l": "es_HN", "t": { "Edit item": { "v": [""] } } }, { "l": "es_MX", "t": { "Edit item": { "v": [""] } } }, { "l": "es_NI", "t": { "Edit item": { "v": [""] } } }, { "l": "es_PA", "t": { "Edit item": { "v": [""] } } }, { "l": "es_PE", "t": { "Edit item": { "v": [""] } } }, { "l": "es_PR", "t": { "Edit item": { "v": [""] } } }, { "l": "es_PY", "t": { "Edit item": { "v": [""] } } }, { "l": "es_SV", "t": { "Edit item": { "v": [""] } } }, { "l": "es_UY", "t": { "Edit item": { "v": [""] } } }, { "l": "et_EE", "t": { "Edit item": { "v": [""] } } }, { "l": "eu", "t": { "Edit item": { "v": ["Editatu elementua"] } } }, { "l": "fa", "t": { "Edit item": { "v": [""] } } }, { "l": "fi", "t": { "Edit item": { "v": ["Muokkaa kohdetta"] } } }, { "l": "fo", "t": { "Edit item": { "v": [""] } } }, { "l": "fr", "t": { "Edit item": { "v": ["Éditer l'élément"] } } }, { "l": "gd", "t": { "Edit item": { "v": [""] } } }, { "l": "gl", "t": { "Edit item": { "v": ["Editar o elemento"] } } }, { "l": "he", "t": { "Edit item": { "v": ["עריכת פריט"] } } }, { "l": "hi_IN", "t": { "Edit item": { "v": [""] } } }, { "l": "hr", "t": { "Edit item": { "v": [""] } } }, { "l": "hsb", "t": { "Edit item": { "v": [""] } } }, { "l": "hu", "t": { "Edit item": { "v": ["Elem szerkesztése"] } } }, { "l": "hy", "t": { "Edit item": { "v": [""] } } }, { "l": "ia", "t": { "Edit item": { "v": [""] } } }, { "l": "id", "t": { "Edit item": { "v": ["Edit item"] } } }, { "l": "ig", "t": { "Edit item": { "v": [""] } } }, { "l": "is", "t": { "Edit item": { "v": ["Breyta atriði"] } } }, { "l": "it", "t": { "Edit item": { "v": ["Modifica l'elemento"] } } }, { "l": "ja", "t": { "Edit item": { "v": ["編集"] } } }, { "l": "ka", "t": { "Edit item": { "v": [""] } } }, { "l": "ka_GE", "t": { "Edit item": { "v": [""] } } }, { "l": "kab", "t": { "Edit item": { "v": [""] } } }, { "l": "kk", "t": { "Edit item": { "v": [""] } } }, { "l": "km", "t": { "Edit item": { "v": [""] } } }, { "l": "kn", "t": { "Edit item": { "v": [""] } } }, { "l": "ko", "t": { "Edit item": { "v": [""] } } }, { "l": "la", "t": { "Edit item": { "v": [""] } } }, { "l": "lb", "t": { "Edit item": { "v": [""] } } }, { "l": "lo", "t": { "Edit item": { "v": [""] } } }, { "l": "lt_LT", "t": { "Edit item": { "v": [""] } } }, { "l": "lv", "t": { "Edit item": { "v": [""] } } }, { "l": "mk", "t": { "Edit item": { "v": ["Уреди"] } } }, { "l": "mn", "t": { "Edit item": { "v": [""] } } }, { "l": "mr", "t": { "Edit item": { "v": [""] } } }, { "l": "ms_MY", "t": { "Edit item": { "v": [""] } } }, { "l": "my", "t": { "Edit item": { "v": [""] } } }, { "l": "nb", "t": { "Edit item": { "v": ["Rediger"] } } }, { "l": "ne", "t": { "Edit item": { "v": [""] } } }, { "l": "nl", "t": { "Edit item": { "v": ["Item bewerken"] } } }, { "l": "nn_NO", "t": { "Edit item": { "v": [""] } } }, { "l": "oc", "t": { "Edit item": { "v": [""] } } }, { "l": "pl", "t": { "Edit item": { "v": ["Edytuj element"] } } }, { "l": "ps", "t": { "Edit item": { "v": [""] } } }, { "l": "pt_BR", "t": { "Edit item": { "v": ["Editar item"] } } }, { "l": "pt_PT", "t": { "Edit item": { "v": ["Editar item"] } } }, { "l": "ro", "t": { "Edit item": { "v": ["Editați elementul"] } } }, { "l": "ru", "t": { "Edit item": { "v": ["Изменить элемент"] } } }, { "l": "sc", "t": { "Edit item": { "v": [""] } } }, { "l": "si", "t": { "Edit item": { "v": [""] } } }, { "l": "sk", "t": { "Edit item": { "v": ["Upraviť položku"] } } }, { "l": "sl", "t": { "Edit item": { "v": ["Uredi predmet"] } } }, { "l": "sq", "t": { "Edit item": { "v": [""] } } }, { "l": "sr", "t": { "Edit item": { "v": ["Уреди ставку"] } } }, { "l": "sr@latin", "t": { "Edit item": { "v": [""] } } }, { "l": "sv", "t": { "Edit item": { "v": ["Ändra"] } } }, { "l": "sw", "t": { "Edit item": { "v": [""] } } }, { "l": "ta", "t": { "Edit item": { "v": [""] } } }, { "l": "th", "t": { "Edit item": { "v": [""] } } }, { "l": "tk", "t": { "Edit item": { "v": [""] } } }, { "l": "tr", "t": { "Edit item": { "v": ["Ögeyi düzenle"] } } }, { "l": "ug", "t": { "Edit item": { "v": [""] } } }, { "l": "uk", "t": { "Edit item": { "v": ["Редагувати елемент"] } } }, { "l": "ur_PK", "t": { "Edit item": { "v": [""] } } }, { "l": "uz", "t": { "Edit item": { "v": [""] } } }, { "l": "vi", "t": { "Edit item": { "v": [""] } } }, { "l": "zh_CN", "t": { "Edit item": { "v": ["编辑项目"] } } }, { "l": "zh_HK", "t": { "Edit item": { "v": ["編輯項目"] } } }, { "l": "zh_TW", "t": { "Edit item": { "v": ["編輯項目"] } } }, { "l": "zu_ZA", "t": { "Edit item": { "v": [""] } } }];
+const t20 = [{ "l": "af", "t": { "Enter link": { "v": [""] } } }, { "l": "ar", "t": { "Enter link": { "v": ["أدخِل الرابط"] } } }, { "l": "ast", "t": { "Enter link": { "v": ["Introducir l'enllaz"] } } }, { "l": "az", "t": { "Enter link": { "v": [""] } } }, { "l": "be", "t": { "Enter link": { "v": [""] } } }, { "l": "bg", "t": { "Enter link": { "v": [""] } } }, { "l": "bn_BD", "t": { "Enter link": { "v": [""] } } }, { "l": "br", "t": { "Enter link": { "v": [""] } } }, { "l": "bs", "t": { "Enter link": { "v": [""] } } }, { "l": "ca", "t": { "Enter link": { "v": [""] } } }, { "l": "cs", "t": { "Enter link": { "v": ["Zadat odkaz"] } } }, { "l": "cs_CZ", "t": { "Enter link": { "v": ["Zadat odkaz"] } } }, { "l": "cy_GB", "t": { "Enter link": { "v": [""] } } }, { "l": "da", "t": { "Enter link": { "v": [""] } } }, { "l": "de", "t": { "Enter link": { "v": ["Link eingeben"] } } }, { "l": "de_DE", "t": { "Enter link": { "v": ["Link eingeben"] } } }, { "l": "el", "t": { "Enter link": { "v": [""] } } }, { "l": "en_GB", "t": { "Enter link": { "v": ["Enter link"] } } }, { "l": "eo", "t": { "Enter link": { "v": [""] } } }, { "l": "es", "t": { "Enter link": { "v": ["Ingrese enlace"] } } }, { "l": "es_419", "t": { "Enter link": { "v": [""] } } }, { "l": "es_AR", "t": { "Enter link": { "v": [""] } } }, { "l": "es_CL", "t": { "Enter link": { "v": [""] } } }, { "l": "es_CO", "t": { "Enter link": { "v": [""] } } }, { "l": "es_CR", "t": { "Enter link": { "v": [""] } } }, { "l": "es_DO", "t": { "Enter link": { "v": [""] } } }, { "l": "es_EC", "t": { "Enter link": { "v": ["Ingresar enlace"] } } }, { "l": "es_GT", "t": { "Enter link": { "v": [""] } } }, { "l": "es_HN", "t": { "Enter link": { "v": [""] } } }, { "l": "es_MX", "t": { "Enter link": { "v": [""] } } }, { "l": "es_NI", "t": { "Enter link": { "v": [""] } } }, { "l": "es_PA", "t": { "Enter link": { "v": [""] } } }, { "l": "es_PE", "t": { "Enter link": { "v": [""] } } }, { "l": "es_PR", "t": { "Enter link": { "v": [""] } } }, { "l": "es_PY", "t": { "Enter link": { "v": [""] } } }, { "l": "es_SV", "t": { "Enter link": { "v": [""] } } }, { "l": "es_UY", "t": { "Enter link": { "v": [""] } } }, { "l": "et_EE", "t": { "Enter link": { "v": [""] } } }, { "l": "eu", "t": { "Enter link": { "v": ["Sartu esteka"] } } }, { "l": "fa", "t": { "Enter link": { "v": [""] } } }, { "l": "fi", "t": { "Enter link": { "v": [""] } } }, { "l": "fo", "t": { "Enter link": { "v": [""] } } }, { "l": "fr", "t": { "Enter link": { "v": ["Saisissez le lien"] } } }, { "l": "gd", "t": { "Enter link": { "v": [""] } } }, { "l": "gl", "t": { "Enter link": { "v": ["Introducir a ligazón"] } } }, { "l": "he", "t": { "Enter link": { "v": ["מילוי קישור"] } } }, { "l": "hi_IN", "t": { "Enter link": { "v": [""] } } }, { "l": "hr", "t": { "Enter link": { "v": [""] } } }, { "l": "hsb", "t": { "Enter link": { "v": [""] } } }, { "l": "hu", "t": { "Enter link": { "v": [""] } } }, { "l": "hy", "t": { "Enter link": { "v": [""] } } }, { "l": "ia", "t": { "Enter link": { "v": [""] } } }, { "l": "id", "t": { "Enter link": { "v": ["Masukkan tautan"] } } }, { "l": "ig", "t": { "Enter link": { "v": [""] } } }, { "l": "is", "t": { "Enter link": { "v": ["Settu inn tengil"] } } }, { "l": "it", "t": { "Enter link": { "v": ["Inserire il link"] } } }, { "l": "ja", "t": { "Enter link": { "v": [""] } } }, { "l": "ka", "t": { "Enter link": { "v": [""] } } }, { "l": "ka_GE", "t": { "Enter link": { "v": [""] } } }, { "l": "kab", "t": { "Enter link": { "v": [""] } } }, { "l": "kk", "t": { "Enter link": { "v": [""] } } }, { "l": "km", "t": { "Enter link": { "v": [""] } } }, { "l": "kn", "t": { "Enter link": { "v": [""] } } }, { "l": "ko", "t": { "Enter link": { "v": [""] } } }, { "l": "la", "t": { "Enter link": { "v": [""] } } }, { "l": "lb", "t": { "Enter link": { "v": [""] } } }, { "l": "lo", "t": { "Enter link": { "v": [""] } } }, { "l": "lt_LT", "t": { "Enter link": { "v": [""] } } }, { "l": "lv", "t": { "Enter link": { "v": [""] } } }, { "l": "mk", "t": { "Enter link": { "v": [""] } } }, { "l": "mn", "t": { "Enter link": { "v": [""] } } }, { "l": "mr", "t": { "Enter link": { "v": [""] } } }, { "l": "ms_MY", "t": { "Enter link": { "v": [""] } } }, { "l": "my", "t": { "Enter link": { "v": [""] } } }, { "l": "nb", "t": { "Enter link": { "v": [""] } } }, { "l": "ne", "t": { "Enter link": { "v": [""] } } }, { "l": "nl", "t": { "Enter link": { "v": ["Voer link in"] } } }, { "l": "nn_NO", "t": { "Enter link": { "v": [""] } } }, { "l": "oc", "t": { "Enter link": { "v": [""] } } }, { "l": "pl", "t": { "Enter link": { "v": ["Wprowadź link"] } } }, { "l": "ps", "t": { "Enter link": { "v": [""] } } }, { "l": "pt_BR", "t": { "Enter link": { "v": ["Insira o link"] } } }, { "l": "pt_PT", "t": { "Enter link": { "v": ["Introduzir link"] } } }, { "l": "ro", "t": { "Enter link": { "v": ["Introduceți link-ul"] } } }, { "l": "ru", "t": { "Enter link": { "v": ["Введите ссылку"] } } }, { "l": "sc", "t": { "Enter link": { "v": [""] } } }, { "l": "si", "t": { "Enter link": { "v": [""] } } }, { "l": "sk", "t": { "Enter link": { "v": [""] } } }, { "l": "sl", "t": { "Enter link": { "v": [""] } } }, { "l": "sq", "t": { "Enter link": { "v": [""] } } }, { "l": "sr", "t": { "Enter link": { "v": ["Унесите линк"] } } }, { "l": "sr@latin", "t": { "Enter link": { "v": [""] } } }, { "l": "sv", "t": { "Enter link": { "v": ["Ange länk"] } } }, { "l": "sw", "t": { "Enter link": { "v": [""] } } }, { "l": "ta", "t": { "Enter link": { "v": [""] } } }, { "l": "th", "t": { "Enter link": { "v": [""] } } }, { "l": "tk", "t": { "Enter link": { "v": [""] } } }, { "l": "tr", "t": { "Enter link": { "v": ["Bağlantıyı yazın"] } } }, { "l": "ug", "t": { "Enter link": { "v": [""] } } }, { "l": "uk", "t": { "Enter link": { "v": ["Зазначте посилання"] } } }, { "l": "ur_PK", "t": { "Enter link": { "v": [""] } } }, { "l": "uz", "t": { "Enter link": { "v": [""] } } }, { "l": "vi", "t": { "Enter link": { "v": [""] } } }, { "l": "zh_CN", "t": { "Enter link": { "v": [""] } } }, { "l": "zh_HK", "t": { "Enter link": { "v": ["輸入連結"] } } }, { "l": "zh_TW", "t": { "Enter link": { "v": ["輸入連結"] } } }, { "l": "zu_ZA", "t": { "Enter link": { "v": [""] } } }];
+const t21 = [{ "l": "af", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "ar", "t": { "External documentation for {name}": { "v": ["التوثيق الخارجي لـ {name}"] } } }, { "l": "ast", "t": { "External documentation for {name}": { "v": ["Documentación esterna pa: {name}"] } } }, { "l": "az", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "be", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "bg", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "bn_BD", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "br", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "bs", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "ca", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "cs", "t": { "External documentation for {name}": { "v": ["Externí dokumentace pro {name}"] } } }, { "l": "cs_CZ", "t": { "External documentation for {name}": { "v": ["Externí dokumentace pro {name}"] } } }, { "l": "cy_GB", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "da", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "de", "t": { "External documentation for {name}": { "v": ["Externe Dokumentation für {name}"] } } }, { "l": "de_DE", "t": { "External documentation for {name}": { "v": ["Externe Dokumentation für {name}"] } } }, { "l": "el", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "en_GB", "t": { "External documentation for {name}": { "v": ["External documentation for {name}"] } } }, { "l": "eo", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "es", "t": { "External documentation for {name}": { "v": ["Documentación externa para {name}"] } } }, { "l": "es_419", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "es_AR", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "es_CL", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "es_CO", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "es_CR", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "es_DO", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "es_EC", "t": { "External documentation for {name}": { "v": ["Documentación externa para {name}"] } } }, { "l": "es_GT", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "es_HN", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "es_MX", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "es_NI", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "es_PA", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "es_PE", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "es_PR", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "es_PY", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "es_SV", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "es_UY", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "et_EE", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "eu", "t": { "External documentation for {name}": { "v": ["{name}-ren kanpoko dokumentazioa"] } } }, { "l": "fa", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "fi", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "fo", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "fr", "t": { "External documentation for {name}": { "v": ["Documentation externe pour {name}"] } } }, { "l": "gd", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "gl", "t": { "External documentation for {name}": { "v": ["Documentación externa para {name}"] } } }, { "l": "he", "t": { "External documentation for {name}": { "v": ["תיעוד חיצוני עבור {name}"] } } }, { "l": "hi_IN", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "hr", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "hsb", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "hu", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "hy", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "ia", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "id", "t": { "External documentation for {name}": { "v": ["Dokumentasi eksternal untuk {name}"] } } }, { "l": "ig", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "is", "t": { "External documentation for {name}": { "v": ["Utanaðkomandi leiðbeiningar fyrir {name}"] } } }, { "l": "it", "t": { "External documentation for {name}": { "v": ["Documentazione esterna per {name}"] } } }, { "l": "ja", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "ka", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "ka_GE", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "kab", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "kk", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "km", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "kn", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "ko", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "la", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "lb", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "lo", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "lt_LT", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "lv", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "mk", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "mn", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "mr", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "ms_MY", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "my", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "nb", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "ne", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "nl", "t": { "External documentation for {name}": { "v": ["Externe documentatie voor {name}"] } } }, { "l": "nn_NO", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "oc", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "pl", "t": { "External documentation for {name}": { "v": ["Dokumentacja zewnętrzna dla {name}"] } } }, { "l": "ps", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "pt_BR", "t": { "External documentation for {name}": { "v": ["Documentação externa para {name}"] } } }, { "l": "pt_PT", "t": { "External documentation for {name}": { "v": ["Documentação externa para {name}"] } } }, { "l": "ro", "t": { "External documentation for {name}": { "v": ["Documentație externă pentru {name}"] } } }, { "l": "ru", "t": { "External documentation for {name}": { "v": ["Внешняя документация для {name}"] } } }, { "l": "sc", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "si", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "sk", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "sl", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "sq", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "sr", "t": { "External documentation for {name}": { "v": ["Спољна документација за {name}"] } } }, { "l": "sr@latin", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "sv", "t": { "External documentation for {name}": { "v": ["Extern dokumentation för {name}"] } } }, { "l": "sw", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "ta", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "th", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "tk", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "tr", "t": { "External documentation for {name}": { "v": ["{name} için dış belgeler"] } } }, { "l": "ug", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "uk", "t": { "External documentation for {name}": { "v": ["Зовнішня документація для {name}"] } } }, { "l": "ur_PK", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "uz", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "vi", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "zh_CN", "t": { "External documentation for {name}": { "v": [""] } } }, { "l": "zh_HK", "t": { "External documentation for {name}": { "v": ["{name} 的外部文件"] } } }, { "l": "zh_TW", "t": { "External documentation for {name}": { "v": ["{name} 的外部文件"] } } }, { "l": "zu_ZA", "t": { "External documentation for {name}": { "v": [""] } } }];
+const t22 = [{ "l": "af", "t": { "Global": { "v": [""] } } }, { "l": "ar", "t": { "Global": { "v": ["شامل"] } } }, { "l": "ast", "t": { "Global": { "v": ["Global"] } } }, { "l": "az", "t": { "Global": { "v": [""] } } }, { "l": "be", "t": { "Global": { "v": [""] } } }, { "l": "bg", "t": { "Global": { "v": [""] } } }, { "l": "bn_BD", "t": { "Global": { "v": [""] } } }, { "l": "br", "t": { "Global": { "v": [""] } } }, { "l": "bs", "t": { "Global": { "v": [""] } } }, { "l": "ca", "t": { "Global": { "v": ["Global"] } } }, { "l": "cs", "t": { "Global": { "v": ["Globální"] } } }, { "l": "cs_CZ", "t": { "Global": { "v": ["Globální"] } } }, { "l": "cy_GB", "t": { "Global": { "v": [""] } } }, { "l": "da", "t": { "Global": { "v": ["Global"] } } }, { "l": "de", "t": { "Global": { "v": ["Global"] } } }, { "l": "de_DE", "t": { "Global": { "v": ["Global"] } } }, { "l": "el", "t": { "Global": { "v": ["Καθολικό"] } } }, { "l": "en_GB", "t": { "Global": { "v": ["Global"] } } }, { "l": "eo", "t": { "Global": { "v": [""] } } }, { "l": "es", "t": { "Global": { "v": ["Global"] } } }, { "l": "es_419", "t": { "Global": { "v": [""] } } }, { "l": "es_AR", "t": { "Global": { "v": [""] } } }, { "l": "es_CL", "t": { "Global": { "v": [""] } } }, { "l": "es_CO", "t": { "Global": { "v": [""] } } }, { "l": "es_CR", "t": { "Global": { "v": [""] } } }, { "l": "es_DO", "t": { "Global": { "v": [""] } } }, { "l": "es_EC", "t": { "Global": { "v": ["Global"] } } }, { "l": "es_GT", "t": { "Global": { "v": [""] } } }, { "l": "es_HN", "t": { "Global": { "v": [""] } } }, { "l": "es_MX", "t": { "Global": { "v": [""] } } }, { "l": "es_NI", "t": { "Global": { "v": [""] } } }, { "l": "es_PA", "t": { "Global": { "v": [""] } } }, { "l": "es_PE", "t": { "Global": { "v": [""] } } }, { "l": "es_PR", "t": { "Global": { "v": [""] } } }, { "l": "es_PY", "t": { "Global": { "v": [""] } } }, { "l": "es_SV", "t": { "Global": { "v": [""] } } }, { "l": "es_UY", "t": { "Global": { "v": [""] } } }, { "l": "et_EE", "t": { "Global": { "v": [""] } } }, { "l": "eu", "t": { "Global": { "v": ["Globala"] } } }, { "l": "fa", "t": { "Global": { "v": [""] } } }, { "l": "fi", "t": { "Global": { "v": ["Yleinen"] } } }, { "l": "fo", "t": { "Global": { "v": [""] } } }, { "l": "fr", "t": { "Global": { "v": ["Global"] } } }, { "l": "gd", "t": { "Global": { "v": [""] } } }, { "l": "gl", "t": { "Global": { "v": ["Global"] } } }, { "l": "he", "t": { "Global": { "v": ["כללי"] } } }, { "l": "hi_IN", "t": { "Global": { "v": [""] } } }, { "l": "hr", "t": { "Global": { "v": [""] } } }, { "l": "hsb", "t": { "Global": { "v": [""] } } }, { "l": "hu", "t": { "Global": { "v": ["Globális"] } } }, { "l": "hy", "t": { "Global": { "v": [""] } } }, { "l": "ia", "t": { "Global": { "v": [""] } } }, { "l": "id", "t": { "Global": { "v": ["Global"] } } }, { "l": "ig", "t": { "Global": { "v": [""] } } }, { "l": "is", "t": { "Global": { "v": ["Almennt"] } } }, { "l": "it", "t": { "Global": { "v": ["Globale"] } } }, { "l": "ja", "t": { "Global": { "v": ["全体"] } } }, { "l": "ka", "t": { "Global": { "v": [""] } } }, { "l": "ka_GE", "t": { "Global": { "v": [""] } } }, { "l": "kab", "t": { "Global": { "v": [""] } } }, { "l": "kk", "t": { "Global": { "v": [""] } } }, { "l": "km", "t": { "Global": { "v": [""] } } }, { "l": "kn", "t": { "Global": { "v": [""] } } }, { "l": "ko", "t": { "Global": { "v": [""] } } }, { "l": "la", "t": { "Global": { "v": [""] } } }, { "l": "lb", "t": { "Global": { "v": [""] } } }, { "l": "lo", "t": { "Global": { "v": [""] } } }, { "l": "lt_LT", "t": { "Global": { "v": [""] } } }, { "l": "lv", "t": { "Global": { "v": [""] } } }, { "l": "mk", "t": { "Global": { "v": ["Глобално"] } } }, { "l": "mn", "t": { "Global": { "v": [""] } } }, { "l": "mr", "t": { "Global": { "v": [""] } } }, { "l": "ms_MY", "t": { "Global": { "v": [""] } } }, { "l": "my", "t": { "Global": { "v": ["ကမ္ဘာလုံးဆိုင်ရာ"] } } }, { "l": "nb", "t": { "Global": { "v": ["Global"] } } }, { "l": "ne", "t": { "Global": { "v": [""] } } }, { "l": "nl", "t": { "Global": { "v": ["Globaal"] } } }, { "l": "nn_NO", "t": { "Global": { "v": [""] } } }, { "l": "oc", "t": { "Global": { "v": [""] } } }, { "l": "pl", "t": { "Global": { "v": ["Globalnie"] } } }, { "l": "ps", "t": { "Global": { "v": [""] } } }, { "l": "pt_BR", "t": { "Global": { "v": ["Global"] } } }, { "l": "pt_PT", "t": { "Global": { "v": ["Global"] } } }, { "l": "ro", "t": { "Global": { "v": ["Global"] } } }, { "l": "ru", "t": { "Global": { "v": ["Глобальный"] } } }, { "l": "sc", "t": { "Global": { "v": [""] } } }, { "l": "si", "t": { "Global": { "v": [""] } } }, { "l": "sk", "t": { "Global": { "v": ["Globálne"] } } }, { "l": "sl", "t": { "Global": { "v": ["Splošno"] } } }, { "l": "sq", "t": { "Global": { "v": [""] } } }, { "l": "sr", "t": { "Global": { "v": ["Глобално"] } } }, { "l": "sr@latin", "t": { "Global": { "v": [""] } } }, { "l": "sv", "t": { "Global": { "v": ["Global"] } } }, { "l": "sw", "t": { "Global": { "v": [""] } } }, { "l": "ta", "t": { "Global": { "v": [""] } } }, { "l": "th", "t": { "Global": { "v": [""] } } }, { "l": "tk", "t": { "Global": { "v": [""] } } }, { "l": "tr", "t": { "Global": { "v": ["Evrensel"] } } }, { "l": "ug", "t": { "Global": { "v": [""] } } }, { "l": "uk", "t": { "Global": { "v": ["Глобальний"] } } }, { "l": "ur_PK", "t": { "Global": { "v": [""] } } }, { "l": "uz", "t": { "Global": { "v": [""] } } }, { "l": "vi", "t": { "Global": { "v": [""] } } }, { "l": "zh_CN", "t": { "Global": { "v": ["全局"] } } }, { "l": "zh_HK", "t": { "Global": { "v": ["全球的"] } } }, { "l": "zh_TW", "t": { "Global": { "v": ["全域"] } } }, { "l": "zu_ZA", "t": { "Global": { "v": [""] } } }];
+const t23 = [{ "l": "af", "t": { "Go back to the list": { "v": [""] } } }, { "l": "ar", "t": { "Go back to the list": { "v": ["عودة إلى القائمة"] } } }, { "l": "ast", "t": { "Go back to the list": { "v": ["Volver a la llista"] } } }, { "l": "az", "t": { "Go back to the list": { "v": [""] } } }, { "l": "be", "t": { "Go back to the list": { "v": [""] } } }, { "l": "bg", "t": { "Go back to the list": { "v": [""] } } }, { "l": "bn_BD", "t": { "Go back to the list": { "v": [""] } } }, { "l": "br", "t": { "Go back to the list": { "v": [""] } } }, { "l": "bs", "t": { "Go back to the list": { "v": [""] } } }, { "l": "ca", "t": { "Go back to the list": { "v": ["Torna a la llista"] } } }, { "l": "cs", "t": { "Go back to the list": { "v": ["Jít zpět na seznam"] } } }, { "l": "cs_CZ", "t": { "Go back to the list": { "v": ["Jít zpět na seznam"] } } }, { "l": "cy_GB", "t": { "Go back to the list": { "v": [""] } } }, { "l": "da", "t": { "Go back to the list": { "v": ["Tilbage til listen"] } } }, { "l": "de", "t": { "Go back to the list": { "v": ["Zurück zur Liste"] } } }, { "l": "de_DE", "t": { "Go back to the list": { "v": ["Zurück zur Liste"] } } }, { "l": "el", "t": { "Go back to the list": { "v": ["Επιστροφή στην αρχική λίστα "] } } }, { "l": "en_GB", "t": { "Go back to the list": { "v": ["Go back to the list"] } } }, { "l": "eo", "t": { "Go back to the list": { "v": [""] } } }, { "l": "es", "t": { "Go back to the list": { "v": ["Volver a la lista"] } } }, { "l": "es_419", "t": { "Go back to the list": { "v": [""] } } }, { "l": "es_AR", "t": { "Go back to the list": { "v": [""] } } }, { "l": "es_CL", "t": { "Go back to the list": { "v": [""] } } }, { "l": "es_CO", "t": { "Go back to the list": { "v": [""] } } }, { "l": "es_CR", "t": { "Go back to the list": { "v": [""] } } }, { "l": "es_DO", "t": { "Go back to the list": { "v": [""] } } }, { "l": "es_EC", "t": { "Go back to the list": { "v": ["Volver a la lista"] } } }, { "l": "es_GT", "t": { "Go back to the list": { "v": [""] } } }, { "l": "es_HN", "t": { "Go back to the list": { "v": [""] } } }, { "l": "es_MX", "t": { "Go back to the list": { "v": [""] } } }, { "l": "es_NI", "t": { "Go back to the list": { "v": [""] } } }, { "l": "es_PA", "t": { "Go back to the list": { "v": [""] } } }, { "l": "es_PE", "t": { "Go back to the list": { "v": [""] } } }, { "l": "es_PR", "t": { "Go back to the list": { "v": [""] } } }, { "l": "es_PY", "t": { "Go back to the list": { "v": [""] } } }, { "l": "es_SV", "t": { "Go back to the list": { "v": [""] } } }, { "l": "es_UY", "t": { "Go back to the list": { "v": [""] } } }, { "l": "et_EE", "t": { "Go back to the list": { "v": [""] } } }, { "l": "eu", "t": { "Go back to the list": { "v": ["Bueltatu zerrendara"] } } }, { "l": "fa", "t": { "Go back to the list": { "v": [""] } } }, { "l": "fi", "t": { "Go back to the list": { "v": ["Siirry takaisin listaan"] } } }, { "l": "fo", "t": { "Go back to the list": { "v": [""] } } }, { "l": "fr", "t": { "Go back to the list": { "v": ["Retourner à la liste"] } } }, { "l": "gd", "t": { "Go back to the list": { "v": [""] } } }, { "l": "gl", "t": { "Go back to the list": { "v": ["Volver á lista"] } } }, { "l": "he", "t": { "Go back to the list": { "v": ["חזרה לרשימה"] } } }, { "l": "hi_IN", "t": { "Go back to the list": { "v": [""] } } }, { "l": "hr", "t": { "Go back to the list": { "v": [""] } } }, { "l": "hsb", "t": { "Go back to the list": { "v": [""] } } }, { "l": "hu", "t": { "Go back to the list": { "v": ["Ugrás vissza a listához"] } } }, { "l": "hy", "t": { "Go back to the list": { "v": [""] } } }, { "l": "ia", "t": { "Go back to the list": { "v": [""] } } }, { "l": "id", "t": { "Go back to the list": { "v": ["Kembali ke daftar"] } } }, { "l": "ig", "t": { "Go back to the list": { "v": [""] } } }, { "l": "is", "t": { "Go back to the list": { "v": ["Fara til baka í listann"] } } }, { "l": "it", "t": { "Go back to the list": { "v": ["Torna all'elenco"] } } }, { "l": "ja", "t": { "Go back to the list": { "v": ["リストに戻る"] } } }, { "l": "ka", "t": { "Go back to the list": { "v": [""] } } }, { "l": "ka_GE", "t": { "Go back to the list": { "v": [""] } } }, { "l": "kab", "t": { "Go back to the list": { "v": [""] } } }, { "l": "kk", "t": { "Go back to the list": { "v": [""] } } }, { "l": "km", "t": { "Go back to the list": { "v": [""] } } }, { "l": "kn", "t": { "Go back to the list": { "v": [""] } } }, { "l": "ko", "t": { "Go back to the list": { "v": [""] } } }, { "l": "la", "t": { "Go back to the list": { "v": [""] } } }, { "l": "lb", "t": { "Go back to the list": { "v": [""] } } }, { "l": "lo", "t": { "Go back to the list": { "v": [""] } } }, { "l": "lt_LT", "t": { "Go back to the list": { "v": [""] } } }, { "l": "lv", "t": { "Go back to the list": { "v": [""] } } }, { "l": "mk", "t": { "Go back to the list": { "v": ["Врати се на листата"] } } }, { "l": "mn", "t": { "Go back to the list": { "v": [""] } } }, { "l": "mr", "t": { "Go back to the list": { "v": [""] } } }, { "l": "ms_MY", "t": { "Go back to the list": { "v": [""] } } }, { "l": "my", "t": { "Go back to the list": { "v": [""] } } }, { "l": "nb", "t": { "Go back to the list": { "v": ["Gå tilbake til listen"] } } }, { "l": "ne", "t": { "Go back to the list": { "v": [""] } } }, { "l": "nl", "t": { "Go back to the list": { "v": ["Ga terug naar de lijst"] } } }, { "l": "nn_NO", "t": { "Go back to the list": { "v": [""] } } }, { "l": "oc", "t": { "Go back to the list": { "v": [""] } } }, { "l": "pl", "t": { "Go back to the list": { "v": ["Powrót do listy"] } } }, { "l": "ps", "t": { "Go back to the list": { "v": [""] } } }, { "l": "pt_BR", "t": { "Go back to the list": { "v": ["Volte para a lista"] } } }, { "l": "pt_PT", "t": { "Go back to the list": { "v": ["Voltar para a lista"] } } }, { "l": "ro", "t": { "Go back to the list": { "v": ["Întoarceți-vă la listă"] } } }, { "l": "ru", "t": { "Go back to the list": { "v": ["Вернуться к списку"] } } }, { "l": "sc", "t": { "Go back to the list": { "v": [""] } } }, { "l": "si", "t": { "Go back to the list": { "v": [""] } } }, { "l": "sk", "t": { "Go back to the list": { "v": ["Naspäť na zoznam"] } } }, { "l": "sl", "t": { "Go back to the list": { "v": ["Vrni se na seznam"] } } }, { "l": "sq", "t": { "Go back to the list": { "v": [""] } } }, { "l": "sr", "t": { "Go back to the list": { "v": ["Назад на листу"] } } }, { "l": "sr@latin", "t": { "Go back to the list": { "v": [""] } } }, { "l": "sv", "t": { "Go back to the list": { "v": ["Gå tillbaka till listan"] } } }, { "l": "sw", "t": { "Go back to the list": { "v": [""] } } }, { "l": "ta", "t": { "Go back to the list": { "v": [""] } } }, { "l": "th", "t": { "Go back to the list": { "v": [""] } } }, { "l": "tk", "t": { "Go back to the list": { "v": [""] } } }, { "l": "tr", "t": { "Go back to the list": { "v": ["Listeye dön"] } } }, { "l": "ug", "t": { "Go back to the list": { "v": [""] } } }, { "l": "uk", "t": { "Go back to the list": { "v": ["Повернутися до списку"] } } }, { "l": "ur_PK", "t": { "Go back to the list": { "v": [""] } } }, { "l": "uz", "t": { "Go back to the list": { "v": [""] } } }, { "l": "vi", "t": { "Go back to the list": { "v": [""] } } }, { "l": "zh_CN", "t": { "Go back to the list": { "v": ["返回至列表"] } } }, { "l": "zh_HK", "t": { "Go back to the list": { "v": ["返回清單"] } } }, { "l": "zh_TW", "t": { "Go back to the list": { "v": ["回到清單"] } } }, { "l": "zu_ZA", "t": { "Go back to the list": { "v": [""] } } }];
+const t24 = [{ "l": "af", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "ar", "t": { "Hide password": { "v": ["إخفاء كلمة المرور"] }, "Password is secure": { "v": ["كلمة المرور مُؤمّنة"] }, "Show password": { "v": ["أظهِر كلمة المرور"] } } }, { "l": "ast", "t": { "Hide password": { "v": ["Anubrir la contraseña"] }, "Password is secure": { "v": ["La contraseña ye segura"] }, "Show password": { "v": ["Amosar la contraseña"] } } }, { "l": "az", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "be", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "bg", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "bn_BD", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "br", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "bs", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "ca", "t": { "Hide password": { "v": ["Amagar contrasenya"] }, "Password is secure": { "v": ["Contrasenya segura<br>"] }, "Show password": { "v": ["Mostrar contrasenya"] } } }, { "l": "cs", "t": { "Hide password": { "v": ["Skrýt heslo"] }, "Password is secure": { "v": ["Heslo je bezpečné"] }, "Show password": { "v": ["Zobrazit heslo"] } } }, { "l": "cs_CZ", "t": { "Hide password": { "v": ["Skrýt heslo"] }, "Password is secure": { "v": ["Heslo je bezpečné"] }, "Show password": { "v": ["Zobrazit heslo"] } } }, { "l": "cy_GB", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "da", "t": { "Hide password": { "v": ["Skjul kodeord"] }, "Password is secure": { "v": ["Kodeordet er sikkert"] }, "Show password": { "v": ["Vis kodeord"] } } }, { "l": "de", "t": { "Hide password": { "v": ["Passwort verbergen"] }, "Password is secure": { "v": ["Passwort ist sicher"] }, "Show password": { "v": ["Passwort anzeigen"] } } }, { "l": "de_DE", "t": { "Hide password": { "v": ["Passwort verbergen"] }, "Password is secure": { "v": ["Passwort ist sicher"] }, "Show password": { "v": ["Passwort anzeigen"] } } }, { "l": "el", "t": { "Hide password": { "v": ["Απόκρυψη κωδικού πρόσβασης"] }, "Password is secure": { "v": ["Ο κωδικός πρόσβασης είναι ασφαλής"] }, "Show password": { "v": ["Εμφάνιση κωδικού πρόσβασης"] } } }, { "l": "en_GB", "t": { "Hide password": { "v": ["Hide password"] }, "Password is secure": { "v": ["Password is secure"] }, "Show password": { "v": ["Show password"] } } }, { "l": "eo", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "es", "t": { "Hide password": { "v": ["Ocultar contraseña"] }, "Password is secure": { "v": ["La contraseña es segura"] }, "Show password": { "v": ["Mostrar contraseña"] } } }, { "l": "es_419", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "es_AR", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "es_CL", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "es_CO", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "es_CR", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "es_DO", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "es_EC", "t": { "Hide password": { "v": ["Ocultar contraseña"] }, "Password is secure": { "v": ["La contraseña es segura"] }, "Show password": { "v": ["Mostrar contraseña"] } } }, { "l": "es_GT", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "es_HN", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "es_MX", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "es_NI", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "es_PA", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "es_PE", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "es_PR", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "es_PY", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "es_SV", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "es_UY", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "et_EE", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "eu", "t": { "Hide password": { "v": ["Ezkutatu pasahitza"] }, "Password is secure": { "v": ["Pasahitza segurua da"] }, "Show password": { "v": ["Erakutsi pasahitza"] } } }, { "l": "fa", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "fi", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "fo", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "fr", "t": { "Hide password": { "v": ["Cacher le mot de passe"] }, "Password is secure": { "v": ["Le mot de passe est sécurisé"] }, "Show password": { "v": ["Afficher le mot de passe"] } } }, { "l": "gd", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "gl", "t": { "Hide password": { "v": ["Agochar o contrasinal"] }, "Password is secure": { "v": ["O contrasinal é seguro"] }, "Show password": { "v": ["Amosar o contrasinal"] } } }, { "l": "he", "t": { "Hide password": { "v": ["הסתרת סיסמה"] }, "Password is secure": { "v": ["הסיסמה מאובטחת"] }, "Show password": { "v": ["הצגת סיסמה"] } } }, { "l": "hi_IN", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "hr", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "hsb", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "hu", "t": { "Hide password": { "v": ["Jelszó elrejtése"] }, "Password is secure": { "v": ["A jelszó biztonságos"] }, "Show password": { "v": ["Jelszó megjelenítése"] } } }, { "l": "hy", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "ia", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "id", "t": { "Hide password": { "v": ["Sembunyikan sandi"] }, "Password is secure": { "v": ["Kata sandi sudah aman"] }, "Show password": { "v": ["Tampilkan sandi"] } } }, { "l": "ig", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "is", "t": { "Hide password": { "v": ["Fela lykilorð"] }, "Password is secure": { "v": ["Lykilorðið er öruggt"] }, "Show password": { "v": ["Birta lykilorð"] } } }, { "l": "it", "t": { "Hide password": { "v": ["Nascondi la password"] }, "Password is secure": { "v": ["La password è sicura"] }, "Show password": { "v": ["Mostra la password"] } } }, { "l": "ja", "t": { "Hide password": { "v": ["パスワードを非表示"] }, "Password is secure": { "v": ["パスワードは保護されています"] }, "Show password": { "v": ["パスワードを表示"] } } }, { "l": "ka", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "ka_GE", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "kab", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "kk", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "km", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "kn", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "ko", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "la", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "lb", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "lo", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "lt_LT", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "lv", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "mk", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "mn", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "mr", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "ms_MY", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "my", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "nb", "t": { "Hide password": { "v": ["Skjul passord"] }, "Password is secure": { "v": ["Passordet er sikkert"] }, "Show password": { "v": ["Vis passord"] } } }, { "l": "ne", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "nl", "t": { "Hide password": { "v": ["Verberg wachtwoord"] }, "Password is secure": { "v": ["Wachtwoord is veilig"] }, "Show password": { "v": ["Toon wachtwoord"] } } }, { "l": "nn_NO", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "oc", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "pl", "t": { "Hide password": { "v": ["Ukryj hasło"] }, "Password is secure": { "v": ["Hasło jest bezpieczne"] }, "Show password": { "v": ["Pokaż hasło"] } } }, { "l": "ps", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "pt_BR", "t": { "Hide password": { "v": ["Ocultar a senha"] }, "Password is secure": { "v": ["A senha é segura"] }, "Show password": { "v": ["Mostrar senha"] } } }, { "l": "pt_PT", "t": { "Hide password": { "v": ["Ocultar a senha"] }, "Password is secure": { "v": ["A senha é segura"] }, "Show password": { "v": ["Mostrar senha"] } } }, { "l": "ro", "t": { "Hide password": { "v": ["Ascunde parola"] }, "Password is secure": { "v": ["Parola este sigură"] }, "Show password": { "v": ["Arată parola"] } } }, { "l": "ru", "t": { "Hide password": { "v": ["Скрыть пароль"] }, "Password is secure": { "v": ["Пароль надежный"] }, "Show password": { "v": ["Показать пароль"] } } }, { "l": "sc", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "si", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "sk", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "sl", "t": { "Hide password": { "v": ["Skrij geslo"] }, "Password is secure": { "v": ["Geslo je varno"] }, "Show password": { "v": ["Pokaži geslo"] } } }, { "l": "sq", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "sr", "t": { "Hide password": { "v": ["Сакриј лозинку"] }, "Password is secure": { "v": ["Лозинка је безбедна"] }, "Show password": { "v": ["Прикажи лозинку"] } } }, { "l": "sr@latin", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "sv", "t": { "Hide password": { "v": ["Göm lössenordet"] }, "Password is secure": { "v": ["Lössenordet är säkert"] }, "Show password": { "v": ["Visa lössenordet"] } } }, { "l": "sw", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "ta", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "th", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "tk", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "tr", "t": { "Hide password": { "v": ["Parolayı gizle"] }, "Password is secure": { "v": ["Parola güvenli"] }, "Show password": { "v": ["Parolayı görüntüle"] } } }, { "l": "ug", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "uk", "t": { "Hide password": { "v": ["Приховати пароль"] }, "Password is secure": { "v": ["Пароль безпечний"] }, "Show password": { "v": ["Показати пароль"] } } }, { "l": "ur_PK", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "uz", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "vi", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }, { "l": "zh_CN", "t": { "Hide password": { "v": ["隐藏密码"] }, "Password is secure": { "v": ["密码安全"] }, "Show password": { "v": ["显示密码"] } } }, { "l": "zh_HK", "t": { "Hide password": { "v": ["隱藏密碼"] }, "Password is secure": { "v": ["密碼是安全的"] }, "Show password": { "v": ["顯示密碼"] } } }, { "l": "zh_TW", "t": { "Hide password": { "v": ["隱藏密碼"] }, "Password is secure": { "v": ["密碼安全"] }, "Show password": { "v": ["顯示密碼"] } } }, { "l": "zu_ZA", "t": { "Hide password": { "v": [""] }, "Password is secure": { "v": [""] }, "Show password": { "v": [""] } } }];
+const t25 = [{ "l": "af", "t": {} }, { "l": "ar", "t": {} }, { "l": "ast", "t": {} }, { "l": "az", "t": {} }, { "l": "be", "t": {} }, { "l": "bg", "t": {} }, { "l": "bn_BD", "t": {} }, { "l": "br", "t": {} }, { "l": "bs", "t": {} }, { "l": "ca", "t": {} }, { "l": "cs", "t": {} }, { "l": "cs_CZ", "t": { "Keyboard navigation help": { "v": ["Nápověda pro pohyb pomocí klávesnice"] }, "Skip to app navigation": { "v": ["Přeskočit na navigaci aplikace"] }, "Skip to main content": { "v": ["Přeskočit na hlavní obsah"] } } }, { "l": "cy_GB", "t": {} }, { "l": "da", "t": {} }, { "l": "de", "t": {} }, { "l": "de_DE", "t": { "Keyboard navigation help": { "v": ["Tastatur-Navigationshilfe"] }, "Skip to app navigation": { "v": ["Zur App-Navigation springen"] }, "Skip to main content": { "v": ["Zum Hauptinhalt springen"] } } }, { "l": "el", "t": {} }, { "l": "en_GB", "t": {} }, { "l": "eo", "t": {} }, { "l": "es", "t": { "Keyboard navigation help": { "v": ["Ayuda de navegación del teclado"] }, "Skip to app navigation": { "v": ["Saltar a la navegación de apps"] }, "Skip to main content": { "v": ["Saltar al contenido principal"] } } }, { "l": "es_419", "t": {} }, { "l": "es_AR", "t": {} }, { "l": "es_CL", "t": {} }, { "l": "es_CO", "t": {} }, { "l": "es_CR", "t": {} }, { "l": "es_DO", "t": {} }, { "l": "es_EC", "t": {} }, { "l": "es_GT", "t": {} }, { "l": "es_HN", "t": {} }, { "l": "es_MX", "t": {} }, { "l": "es_NI", "t": {} }, { "l": "es_PA", "t": {} }, { "l": "es_PE", "t": {} }, { "l": "es_PR", "t": {} }, { "l": "es_PY", "t": {} }, { "l": "es_SV", "t": {} }, { "l": "es_UY", "t": {} }, { "l": "et_EE", "t": {} }, { "l": "eu", "t": {} }, { "l": "fa", "t": {} }, { "l": "fi", "t": {} }, { "l": "fo", "t": {} }, { "l": "fr", "t": {} }, { "l": "gd", "t": {} }, { "l": "gl", "t": { "Keyboard navigation help": { "v": ["Axuda á navegación co teclado"] }, "Skip to app navigation": { "v": ["Ir á navegación da aplicación"] }, "Skip to main content": { "v": ["Ir ao contido principal"] } } }, { "l": "he", "t": {} }, { "l": "hi_IN", "t": {} }, { "l": "hr", "t": {} }, { "l": "hsb", "t": {} }, { "l": "hu", "t": {} }, { "l": "hy", "t": {} }, { "l": "ia", "t": {} }, { "l": "id", "t": {} }, { "l": "ig", "t": {} }, { "l": "is", "t": {} }, { "l": "it", "t": {} }, { "l": "ja", "t": {} }, { "l": "ka", "t": {} }, { "l": "ka_GE", "t": {} }, { "l": "kab", "t": {} }, { "l": "kk", "t": {} }, { "l": "km", "t": {} }, { "l": "kn", "t": {} }, { "l": "ko", "t": {} }, { "l": "la", "t": {} }, { "l": "lb", "t": {} }, { "l": "lo", "t": {} }, { "l": "lt_LT", "t": {} }, { "l": "lv", "t": {} }, { "l": "mk", "t": {} }, { "l": "mn", "t": {} }, { "l": "mr", "t": {} }, { "l": "ms_MY", "t": {} }, { "l": "my", "t": {} }, { "l": "nb", "t": {} }, { "l": "ne", "t": {} }, { "l": "nl", "t": {} }, { "l": "nn_NO", "t": {} }, { "l": "oc", "t": {} }, { "l": "pl", "t": {} }, { "l": "ps", "t": {} }, { "l": "pt_BR", "t": {} }, { "l": "pt_PT", "t": {} }, { "l": "ro", "t": {} }, { "l": "ru", "t": {} }, { "l": "sc", "t": {} }, { "l": "si", "t": {} }, { "l": "sk", "t": {} }, { "l": "sl", "t": {} }, { "l": "sq", "t": {} }, { "l": "sr", "t": { "Keyboard navigation help": { "v": ["Помоћ за навигацију тастатуром"] }, "Skip to app navigation": { "v": ["Прескочи на навигацију апликацијом"] }, "Skip to main content": { "v": ["Прескочи на главни садржај"] } } }, { "l": "sr@latin", "t": {} }, { "l": "sv", "t": { "Keyboard navigation help": { "v": ["Hjälp med tangentbordsnavigering"] }, "Skip to app navigation": { "v": ["Hoppa till appnavigering"] }, "Skip to main content": { "v": ["Hoppa till huvudinnehåll"] } } }, { "l": "sw", "t": {} }, { "l": "ta", "t": {} }, { "l": "th", "t": {} }, { "l": "tk", "t": {} }, { "l": "tr", "t": { "Keyboard navigation help": { "v": ["Klavye ile gezinme yardımı"] }, "Skip to app navigation": { "v": ["Uygulama gezinmesine git"] }, "Skip to main content": { "v": ["Ana içeriğe git"] } } }, { "l": "ug", "t": {} }, { "l": "uk", "t": {} }, { "l": "ur_PK", "t": {} }, { "l": "uz", "t": {} }, { "l": "vi", "t": {} }, { "l": "zh_CN", "t": {} }, { "l": "zh_HK", "t": {} }, { "l": "zh_TW", "t": {} }, { "l": "zu_ZA", "t": {} }];
+const t26 = [{ "l": "af", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "ar", "t": { 'Load more "{options}"': { "v": ['تحميل المزيد من "{options}" '] }, "Raw link {options}": { "v": [" الرابط الخام raw link ـ {options}"] }, "Start typing to search": { "v": ["إبدإ كتابة مفردات البحث"] } } }, { "l": "ast", "t": { 'Load more "{options}"': { "v": ["Cargar más «{options}»"] }, "Raw link {options}": { "v": ["Enllaz en bruto {optiones}"] }, "Start typing to search": { "v": ["Comienza a escribir pa buscar"] } } }, { "l": "az", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "be", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "bg", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "bn_BD", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "br", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "bs", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "ca", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "cs", "t": { "Raw link {options}": { "v": ["Holý odkaz {options}"] }, "Start typing to search": { "v": ["Vyhledávejte psaním"] } } }, { "l": "cs_CZ", "t": { 'Load more "{options}"': { "v": ["Načíst další „{options}“"] }, "Raw link {options}": { "v": ["Holý odkaz {options}"] }, "Start typing to search": { "v": ["Vyhledávejte psaním"] } } }, { "l": "cy_GB", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "da", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "de", "t": { 'Load more "{options}"': { "v": ['Weitere "{options}" laden'] }, "Raw link {options}": { "v": ["Unverarbeiteter Link {Optionen}"] }, "Start typing to search": { "v": ["Beginne mit der Eingabe, um zu suchen"] } } }, { "l": "de_DE", "t": { 'Load more "{options}"': { "v": ['Weitere "{options}" laden'] }, "Raw link {options}": { "v": ["Unverarbeiteter Link {Optionen}"] }, "Start typing to search": { "v": ["Mit der Eingabe beginnen, um zu suchen"] } } }, { "l": "el", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "en_GB", "t": { 'Load more "{options}"': { "v": ['Load more "{options}"'] }, "Raw link {options}": { "v": ["Raw link {options}"] }, "Start typing to search": { "v": ["Start typing to search"] } } }, { "l": "eo", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "es", "t": { 'Load more "{options}"': { "v": ['Cargar más "{options}"'] }, "Raw link {options}": { "v": ["Enlace directo {options}"] }, "Start typing to search": { "v": ["Comience a escribir para buscar"] } } }, { "l": "es_419", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "es_AR", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "es_CL", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "es_CO", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "es_CR", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "es_DO", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "es_EC", "t": { 'Load more "{options}"': { "v": [""] }, "Raw link {options}": { "v": ["Enlace directo {options}"] }, "Start typing to search": { "v": ["Comienza a escribir para buscar"] } } }, { "l": "es_GT", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "es_HN", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "es_MX", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "es_NI", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "es_PA", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "es_PE", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "es_PR", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "es_PY", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "es_SV", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "es_UY", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "et_EE", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "eu", "t": { 'Load more "{options}"': { "v": ['Kargatu "{options}" gehiago'] }, "Raw link {options}": { "v": ["Formaturik gabeko esteka {aukerak}"] }, "Start typing to search": { "v": ["Hasi idazten bilatzeko"] } } }, { "l": "fa", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "fi", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "fo", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "fr", "t": { 'Load more "{options}"': { "v": [`Charger d'avantage "{options}"`] }, "Raw link {options}": { "v": ["Lien brut {options}"] }, "Start typing to search": { "v": ["Commencez à écrire pour rechercher"] } } }, { "l": "gd", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "gl", "t": { 'Load more "{options}"': { "v": ["Cargar máis «{options}»"] }, "Raw link {options}": { "v": ["Ligazón sen procesar {options}"] }, "Start typing to search": { "v": ["Comece a escribir para buscar"] } } }, { "l": "he", "t": { 'Load more "{options}"': { "v": [""] }, "Raw link {options}": { "v": ["קישור גולמי {options}"] }, "Start typing to search": { "v": ["התחלת הקלדה מחפשת"] } } }, { "l": "hi_IN", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "hr", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "hsb", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "hu", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "hy", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "ia", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "id", "t": { 'Load more "{options}"': { "v": ['Muat "{options}" lainnya'] }, "Raw link {options}": { "v": ["Tautan mentah {options}"] }, "Start typing to search": { "v": ["Ketik untuk mulai mencari"] } } }, { "l": "ig", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "is", "t": { 'Load more "{options}"': { "v": ['Hlaða inn fleiri "{options}"'] }, "Raw link {options}": { "v": ["Hrár tengill {options}"] }, "Start typing to search": { "v": ["Byrjaðu að skrifa til að leita"] } } }, { "l": "it", "t": { 'Load more "{options}"': { "v": ['Carica più "{options}"'] }, "Raw link {options}": { "v": ["Raw link {options}"] }, "Start typing to search": { "v": ["Iniziare a digitare per effettuare la ricerca"] } } }, { "l": "ja", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "ka", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "ka_GE", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "kab", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "kk", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "km", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "kn", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "ko", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "la", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "lb", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "lo", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "lt_LT", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "lv", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "mk", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "mn", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "mr", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "ms_MY", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "my", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "nb", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "ne", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "nl", "t": { 'Load more "{options}"': { "v": ['Laad meer "{options}"'] }, "Raw link {options}": { "v": ["Basis link {options}"] }, "Start typing to search": { "v": ["Start met typen om te zoeken"] } } }, { "l": "nn_NO", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "oc", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "pl", "t": { 'Load more "{options}"': { "v": ['Załaduj więcej "{options}"'] }, "Raw link {options}": { "v": ["Link Raw {options}"] }, "Start typing to search": { "v": ["Zacznij pisać, aby wyszukać"] } } }, { "l": "ps", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "pt_BR", "t": { 'Load more "{options}"': { "v": ['Carregue mais "{options}"'] }, "Raw link {options}": { "v": ["Link bruto {options}"] }, "Start typing to search": { "v": ["Comece a digitar para pesquisar"] } } }, { "l": "pt_PT", "t": { 'Load more "{options}"': { "v": [""] }, "Raw link {options}": { "v": ["Link inicial {options}"] }, "Start typing to search": { "v": ["Comece a digitar para pesquisar"] } } }, { "l": "ro", "t": { 'Load more "{options}"': { "v": ['Încarcă mai multe "{options}"'] }, "Raw link {options}": { "v": ["Link brut {options}"] }, "Start typing to search": { "v": ["Tastați pentru căutare"] } } }, { "l": "ru", "t": { 'Load more "{options}"': { "v": ['Загрузить больше "{options}""'] }, "Raw link {options}": { "v": ["Необработанная ссылка {options}"] }, "Start typing to search": { "v": ["Начните вводить текст для поиска"] } } }, { "l": "sc", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "si", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "sk", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "sl", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "sq", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "sr", "t": { 'Load more "{options}"': { "v": ["Учитај још „{options}”"] }, "Raw link {options}": { "v": ["Сирови линк {options}"] }, "Start typing to search": { "v": ["Покрените претрагу куцањем"] } } }, { "l": "sr@latin", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "sv", "t": { 'Load more "{options}"': { "v": ['Ladda fler "{options}"'] }, "Raw link {options}": { "v": ["Oformaterad länk {options}"] }, "Start typing to search": { "v": ["Börja skriva för att söka"] } } }, { "l": "sw", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "ta", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "th", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "tk", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "tr", "t": { 'Load more "{options}"': { "v": ['Diğer "{options}"'] }, "Raw link {options}": { "v": ["Ham bağlantı {options}"] }, "Start typing to search": { "v": ["Aramak için yazmaya başlayın"] } } }, { "l": "ug", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "uk", "t": { 'Load more "{options}"': { "v": ['Завантажити більше "{options}"'] }, "Raw link {options}": { "v": ["Пряме посилання {options}"] }, "Start typing to search": { "v": ["Почніть вводити для пошуку"] } } }, { "l": "ur_PK", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "uz", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "vi", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "zh_CN", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }, { "l": "zh_HK", "t": { 'Load more "{options}"': { "v": ['載入更多 "{options}"'] }, "Raw link {options}": { "v": ["原始連結 {options}"] }, "Start typing to search": { "v": ["開始輸入以進行搜尋"] } } }, { "l": "zh_TW", "t": { 'Load more "{options}"': { "v": ["載入更多「{options}」"] }, "Raw link {options}": { "v": ["原始連結 {options}"] }, "Start typing to search": { "v": ["開始輸入以進行搜尋"] } } }, { "l": "zu_ZA", "t": { "Raw link {options}": { "v": [""] }, "Start typing to search": { "v": [""] } } }];
+const t27 = [{ "l": "af", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "ar", "t": { "Message limit of {count} characters reached": { "v": ["تمّ الوصول إلى الحد الأقصى لعدد الأحرف في الرسالة: {count} حرف"] }, "No link provider found": { "v": ["لا يوجد أيّ مزود روابط link provider"] }, "Write a message …": { "v": ["أكتُب رسالةً ..."] } } }, { "l": "ast", "t": { "Message limit of {count} characters reached": { "v": ["Algamóse la llende del mensaxe con {count} caráuteres"] }, "No link provider found": { "v": ["Nun s'atopó nengún fornidor d'enllaces"] }, "Write a message …": { "v": ["Escribi un mensaxe…"] } } }, { "l": "az", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "be", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "bg", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "bn_BD", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "br", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "bs", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "ca", "t": { "Message limit of {count} characters reached": { "v": ["S'ha arribat al límit de {count} caràcters per missatge"] }, "No link provider found": { "v": [""] } } }, { "l": "cs", "t": { "Message limit of {count} characters reached": { "v": ["Dosaženo limitu počtu ({count}) znaků zprávy"] }, "No link provider found": { "v": ["Nenalezen žádný poskytovatel odkazů"] } } }, { "l": "cs_CZ", "t": { "Message limit of {count} characters reached": { "v": ["Dosaženo limitu počtu ({count}) znaků zprávy"] }, "No link provider found": { "v": ["Nenalezen žádný poskytovatel odkazů"] }, "Write a message …": { "v": ["Napsat zprávu…"] } } }, { "l": "cy_GB", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "da", "t": { "Message limit of {count} characters reached": { "v": ["Begrænsning på {count} tegn er nået"] }, "No link provider found": { "v": [""] } } }, { "l": "de", "t": { "Message limit of {count} characters reached": { "v": ["Nachrichtenlimit von {count} Zeichen erreicht."] }, "No link provider found": { "v": ["Kein Linkanbieter gefunden"] }, "Write a message …": { "v": ["Nachricht schreiben …"] } } }, { "l": "de_DE", "t": { "Message limit of {count} characters reached": { "v": ["Nachrichtenlimit von {count} Zeichen erreicht"] }, "No link provider found": { "v": ["Kein Linkanbieter gefunden"] }, "Write a message …": { "v": ["Nachricht schreiben …"] } } }, { "l": "el", "t": { "Message limit of {count} characters reached": { "v": ["Συμπληρώθηκε το όριο των {count} χαρακτήρων του μηνύματος"] }, "No link provider found": { "v": [""] } } }, { "l": "en_GB", "t": { "Message limit of {count} characters reached": { "v": ["Message limit of {count} characters reached"] }, "No link provider found": { "v": ["No link provider found"] }, "Write a message …": { "v": ["Write a message …"] } } }, { "l": "eo", "t": { "Message limit of {count} characters reached": { "v": ["La limo je {count} da literoj atingita"] }, "No link provider found": { "v": [""] } } }, { "l": "es", "t": { "Message limit of {count} characters reached": { "v": ["Se ha alcanzado el límite de {count} caracteres en el mensaje"] }, "No link provider found": { "v": ["No se encontró ningún proveedor de enlaces"] }, "Write a message …": { "v": ["Escriba un mensaje ..."] } } }, { "l": "es_419", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "es_AR", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "es_CL", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "es_CO", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "es_CR", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "es_DO", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "es_EC", "t": { "Message limit of {count} characters reached": { "v": ["Se ha alcanzado el límite de caracteres del mensaje {count}"] }, "No link provider found": { "v": ["No se encontró ningún proveedor de enlaces"] }, "Write a message …": { "v": [""] } } }, { "l": "es_GT", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "es_HN", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "es_MX", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "es_NI", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "es_PA", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "es_PE", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "es_PR", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "es_PY", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "es_SV", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "es_UY", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "et_EE", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "eu", "t": { "Message limit of {count} characters reached": { "v": ["Mezuaren {count} karaketere-limitera heldu zara"] }, "No link provider found": { "v": ["Ez da aurkitu esteka-hornitzailerik"] }, "Write a message …": { "v": ["Idatzi mezu bat…"] } } }, { "l": "fa", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "fi", "t": { "Message limit of {count} characters reached": { "v": ["Viestin merkken enimmäisimäärä {count} täynnä "] }, "No link provider found": { "v": [""] } } }, { "l": "fo", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "fr", "t": { "Message limit of {count} characters reached": { "v": ["Limite de messages de {count} caractères atteinte"] }, "No link provider found": { "v": ["Aucun fournisseur de lien trouvé"] }, "Write a message …": { "v": ["Ecrire un message..."] } } }, { "l": "gd", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "gl", "t": { "Message limit of {count} characters reached": { "v": ["Acadouse o límite de {count} caracteres por mensaxe"] }, "No link provider found": { "v": ["Non se atopou ningún provedor de ligazóns"] }, "Write a message …": { "v": ["Escribir unha mensaxe…"] } } }, { "l": "he", "t": { "Message limit of {count} characters reached": { "v": ["הגעת למגבלה של {count} תווים"] }, "No link provider found": { "v": ["לא נמצא ספק קישורים"] }, "Write a message …": { "v": [""] } } }, { "l": "hi_IN", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "hr", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "hsb", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "hu", "t": { "Message limit of {count} characters reached": { "v": ["{count} karakteres üzenetkorlát elérve"] }, "No link provider found": { "v": [""] } } }, { "l": "hy", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "ia", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "id", "t": { "Message limit of {count} characters reached": { "v": ["Batas jumlah karakter pesan ({count} karakter) tercapai"] }, "No link provider found": { "v": ["Tidak ada penyedia tautan yang ditemukan"] }, "Write a message …": { "v": ["Tulis pesan ..."] } } }, { "l": "ig", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "is", "t": { "Message limit of {count} characters reached": { "v": ["Takmörkum {count} stafa náð"] }, "No link provider found": { "v": ["Engin tenglaveita fannst"] }, "Write a message …": { "v": ["Skrifaðu skilaboð …"] } } }, { "l": "it", "t": { "Message limit of {count} characters reached": { "v": ["Limite dei messaggi di {count} caratteri raggiunto"] }, "No link provider found": { "v": ["Nessun fornitore di link trovato"] }, "Write a message …": { "v": ["Scrivi un messaggio ..."] } } }, { "l": "ja", "t": { "Message limit of {count} characters reached": { "v": ["{count} 文字のメッセージ上限に達しています"] }, "No link provider found": { "v": [""] } } }, { "l": "ka", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "ka_GE", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "kab", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "kk", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "km", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "kn", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "ko", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "la", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "lb", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "lo", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "lt_LT", "t": { "Message limit of {count} characters reached": { "v": ["Pasiekta {count} simbolių žinutės riba"] }, "No link provider found": { "v": [""] } } }, { "l": "lv", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "mk", "t": { "Message limit of {count} characters reached": { "v": ["Ограничувањето на должината на пораката од {count} карактери е надминато"] }, "No link provider found": { "v": [""] } } }, { "l": "mn", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "mr", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "ms_MY", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "my", "t": { "Message limit of {count} characters reached": { "v": ["ကန့်သတ် စာလုံးရေ {count} လုံး ပြည့်ပါပြီ"] }, "No link provider found": { "v": [""] } } }, { "l": "nb", "t": { "Message limit of {count} characters reached": { "v": ["Karakter begrensing {count} nådd i melding"] }, "No link provider found": { "v": [""] } } }, { "l": "ne", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "nl", "t": { "Message limit of {count} characters reached": { "v": ["Berichtlimiet van {count} karakters bereikt"] }, "No link provider found": { "v": ["Geen link provider gevonden"] }, "Write a message …": { "v": ["Schrijf een bericht..."] } } }, { "l": "nn_NO", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "oc", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "pl", "t": { "Message limit of {count} characters reached": { "v": ["Przekroczono limit wiadomości wynoszący {count} znaków"] }, "No link provider found": { "v": ["Nie znaleziono dostawcy linków"] }, "Write a message …": { "v": ["Napisać wiadomość…"] } } }, { "l": "ps", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "pt_BR", "t": { "Message limit of {count} characters reached": { "v": ["Limite de mensagem de {count} caracteres atingido"] }, "No link provider found": { "v": ["Nenhum provedor de link encontrado"] }, "Write a message …": { "v": ["Escreve uma mensagem …"] } } }, { "l": "pt_PT", "t": { "Message limit of {count} characters reached": { "v": ["Atingido o limite de {count} carateres da mensagem."] }, "No link provider found": { "v": ["Nenhum fornecedor de link encontrado"] }, "Write a message …": { "v": [""] } } }, { "l": "ro", "t": { "Message limit of {count} characters reached": { "v": ["Limita mesajului de {count} caractere a fost atinsă"] }, "No link provider found": { "v": ["Nu s-a găsit un provider pentru linkuri"] }, "Write a message …": { "v": ["Scrieți un mesaj ..."] } } }, { "l": "ru", "t": { "Message limit of {count} characters reached": { "v": ["Достигнуто ограничение на количество символов в {count}"] }, "No link provider found": { "v": ["Поставщик ссылок не найден"] }, "Write a message …": { "v": ["Напиши сообщение …"] } } }, { "l": "sc", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "si", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "sk", "t": { "Message limit of {count} characters reached": { "v": ["Limit správy na {count} znakov dosiahnutý"] }, "No link provider found": { "v": [""] } } }, { "l": "sl", "t": { "Message limit of {count} characters reached": { "v": ["Dosežena omejitev {count} znakov na sporočilo."] }, "No link provider found": { "v": [""] } } }, { "l": "sq", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "sr", "t": { "Message limit of {count} characters reached": { "v": ["Достигнуто је ограничење величине поруке од {count} карактера"] }, "No link provider found": { "v": ["Није пронађен ниједан пружалац линка"] }, "Write a message …": { "v": ["Напишите поруку…"] } } }, { "l": "sr@latin", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "sv", "t": { "Message limit of {count} characters reached": { "v": ["Meddelandegräns {count} tecken används"] }, "No link provider found": { "v": ["Ingen länkleverantör hittades"] }, "Write a message …": { "v": ["Skriv ett meddelande …"] } } }, { "l": "sw", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "ta", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "th", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "tk", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "tr", "t": { "Message limit of {count} characters reached": { "v": ["{count} karakter ileti sınırına ulaşıldı"] }, "No link provider found": { "v": ["Bağlantı sağlayıcısı bulunamadı"] }, "Write a message …": { "v": ["Bir ileti yazın…"] } } }, { "l": "ug", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "uk", "t": { "Message limit of {count} characters reached": { "v": ["Вичерпано ліміт у {count} символів для повідомлення"] }, "No link provider found": { "v": ["Не наведено посилання"] }, "Write a message …": { "v": ["Написати повідомлення ..."] } } }, { "l": "ur_PK", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "uz", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "vi", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }, { "l": "zh_CN", "t": { "Message limit of {count} characters reached": { "v": ["已达到 {count} 个字符的消息限制"] }, "No link provider found": { "v": [""] } } }, { "l": "zh_HK", "t": { "Message limit of {count} characters reached": { "v": ["已達到訊息最多 {count} 字元限制"] }, "No link provider found": { "v": ["找不到連結提供者"] }, "Write a message …": { "v": ["編寫訊息 …"] } } }, { "l": "zh_TW", "t": { "Message limit of {count} characters reached": { "v": ["已達到訊息最多 {count} 字元限制"] }, "No link provider found": { "v": ["找不到連結提供者"] }, "Write a message …": { "v": ["編寫訊息……"] } } }, { "l": "zu_ZA", "t": { "Message limit of {count} characters reached": { "v": [""] }, "No link provider found": { "v": [""] } } }];
+const t28 = [{ "l": "af", "t": { "More items …": { "v": [""] } } }, { "l": "ar", "t": { "More items …": { "v": ["عناصر أخرى ..."] } } }, { "l": "ast", "t": { "More items …": { "v": ["Más elementos…"] } } }, { "l": "az", "t": { "More items …": { "v": [""] } } }, { "l": "be", "t": { "More items …": { "v": [""] } } }, { "l": "bg", "t": { "More items …": { "v": [""] } } }, { "l": "bn_BD", "t": { "More items …": { "v": [""] } } }, { "l": "br", "t": { "More items …": { "v": [""] } } }, { "l": "bs", "t": { "More items …": { "v": [""] } } }, { "l": "ca", "t": { "More items …": { "v": ["Més artícles..."] } } }, { "l": "cs", "t": { "More items …": { "v": ["Další položky…"] } } }, { "l": "cs_CZ", "t": { "More items …": { "v": ["Další položky…"] } } }, { "l": "cy_GB", "t": { "More items …": { "v": [""] } } }, { "l": "da", "t": { "More items …": { "v": ["Mere ..."] } } }, { "l": "de", "t": { "More items …": { "v": ["Weitere Elemente …"] } } }, { "l": "de_DE", "t": { "More items …": { "v": ["Weitere Elemente …"] } } }, { "l": "el", "t": { "More items …": { "v": ["Περισσότερα στοιχεία …"] } } }, { "l": "en_GB", "t": { "More items …": { "v": ["More items …"] } } }, { "l": "eo", "t": { "More items …": { "v": [""] } } }, { "l": "es", "t": { "More items …": { "v": ["Más ítems ..."] } } }, { "l": "es_419", "t": { "More items …": { "v": [""] } } }, { "l": "es_AR", "t": { "More items …": { "v": [""] } } }, { "l": "es_CL", "t": { "More items …": { "v": [""] } } }, { "l": "es_CO", "t": { "More items …": { "v": [""] } } }, { "l": "es_CR", "t": { "More items …": { "v": [""] } } }, { "l": "es_DO", "t": { "More items …": { "v": [""] } } }, { "l": "es_EC", "t": { "More items …": { "v": ["Más elementos..."] } } }, { "l": "es_GT", "t": { "More items …": { "v": [""] } } }, { "l": "es_HN", "t": { "More items …": { "v": [""] } } }, { "l": "es_MX", "t": { "More items …": { "v": [""] } } }, { "l": "es_NI", "t": { "More items …": { "v": [""] } } }, { "l": "es_PA", "t": { "More items …": { "v": [""] } } }, { "l": "es_PE", "t": { "More items …": { "v": [""] } } }, { "l": "es_PR", "t": { "More items …": { "v": [""] } } }, { "l": "es_PY", "t": { "More items …": { "v": [""] } } }, { "l": "es_SV", "t": { "More items …": { "v": [""] } } }, { "l": "es_UY", "t": { "More items …": { "v": [""] } } }, { "l": "et_EE", "t": { "More items …": { "v": [""] } } }, { "l": "eu", "t": { "More items …": { "v": ["Elementu gehiago …"] } } }, { "l": "fa", "t": { "More items …": { "v": [""] } } }, { "l": "fi", "t": { "More items …": { "v": [""] } } }, { "l": "fo", "t": { "More items …": { "v": [""] } } }, { "l": "fr", "t": { "More items …": { "v": ["Plus d'éléments..."] } } }, { "l": "gd", "t": { "More items …": { "v": [""] } } }, { "l": "gl", "t": { "More items …": { "v": ["Máis elementos…"] } } }, { "l": "he", "t": { "More items …": { "v": ["פריטים נוספים…"] } } }, { "l": "hi_IN", "t": { "More items …": { "v": [""] } } }, { "l": "hr", "t": { "More items …": { "v": [""] } } }, { "l": "hsb", "t": { "More items …": { "v": [""] } } }, { "l": "hu", "t": { "More items …": { "v": ["További elemek..."] } } }, { "l": "hy", "t": { "More items …": { "v": [""] } } }, { "l": "ia", "t": { "More items …": { "v": [""] } } }, { "l": "id", "t": { "More items …": { "v": ["Item lainnya…"] } } }, { "l": "ig", "t": { "More items …": { "v": [""] } } }, { "l": "is", "t": { "More items …": { "v": ["Fleiri atriði …"] } } }, { "l": "it", "t": { "More items …": { "v": ["Più elementi ..."] } } }, { "l": "ja", "t": { "More items …": { "v": ["他のアイテム"] } } }, { "l": "ka", "t": { "More items …": { "v": [""] } } }, { "l": "ka_GE", "t": { "More items …": { "v": [""] } } }, { "l": "kab", "t": { "More items …": { "v": [""] } } }, { "l": "kk", "t": { "More items …": { "v": [""] } } }, { "l": "km", "t": { "More items …": { "v": [""] } } }, { "l": "kn", "t": { "More items …": { "v": [""] } } }, { "l": "ko", "t": { "More items …": { "v": [""] } } }, { "l": "la", "t": { "More items …": { "v": [""] } } }, { "l": "lb", "t": { "More items …": { "v": [""] } } }, { "l": "lo", "t": { "More items …": { "v": [""] } } }, { "l": "lt_LT", "t": { "More items …": { "v": [""] } } }, { "l": "lv", "t": { "More items …": { "v": [""] } } }, { "l": "mk", "t": { "More items …": { "v": [""] } } }, { "l": "mn", "t": { "More items …": { "v": [""] } } }, { "l": "mr", "t": { "More items …": { "v": [""] } } }, { "l": "ms_MY", "t": { "More items …": { "v": [""] } } }, { "l": "my", "t": { "More items …": { "v": [""] } } }, { "l": "nb", "t": { "More items …": { "v": ["Flere gjenstander..."] } } }, { "l": "ne", "t": { "More items …": { "v": [""] } } }, { "l": "nl", "t": { "More items …": { "v": ["Meer items..."] } } }, { "l": "nn_NO", "t": { "More items …": { "v": [""] } } }, { "l": "oc", "t": { "More items …": { "v": [""] } } }, { "l": "pl", "t": { "More items …": { "v": ["Więcej pozycji…"] } } }, { "l": "ps", "t": { "More items …": { "v": [""] } } }, { "l": "pt_BR", "t": { "More items …": { "v": ["Mais itens …"] } } }, { "l": "pt_PT", "t": { "More items …": { "v": ["Mais itens …"] } } }, { "l": "ro", "t": { "More items …": { "v": ["Mai multe articole ..."] } } }, { "l": "ru", "t": { "More items …": { "v": ["Больше элементов..."] } } }, { "l": "sc", "t": { "More items …": { "v": [""] } } }, { "l": "si", "t": { "More items …": { "v": [""] } } }, { "l": "sk", "t": { "More items …": { "v": [""] } } }, { "l": "sl", "t": { "More items …": { "v": ["Več predmetov ..."] } } }, { "l": "sq", "t": { "More items …": { "v": [""] } } }, { "l": "sr", "t": { "More items …": { "v": ["Још ставки..."] } } }, { "l": "sr@latin", "t": { "More items …": { "v": [""] } } }, { "l": "sv", "t": { "More items …": { "v": ["Fler objekt"] } } }, { "l": "sw", "t": { "More items …": { "v": [""] } } }, { "l": "ta", "t": { "More items …": { "v": [""] } } }, { "l": "th", "t": { "More items …": { "v": [""] } } }, { "l": "tk", "t": { "More items …": { "v": [""] } } }, { "l": "tr", "t": { "More items …": { "v": ["Diğer ögeler…"] } } }, { "l": "ug", "t": { "More items …": { "v": [""] } } }, { "l": "uk", "t": { "More items …": { "v": ["Більше об'єктів..."] } } }, { "l": "ur_PK", "t": { "More items …": { "v": [""] } } }, { "l": "uz", "t": { "More items …": { "v": [""] } } }, { "l": "vi", "t": { "More items …": { "v": [""] } } }, { "l": "zh_CN", "t": { "More items …": { "v": ["更多项目…"] } } }, { "l": "zh_HK", "t": { "More items …": { "v": ["更多項目 …"] } } }, { "l": "zh_TW", "t": { "More items …": { "v": ["更多項目……"] } } }, { "l": "zu_ZA", "t": { "More items …": { "v": [""] } } }];
+const t29 = [{ "l": "af", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "ar", "t": { "Next": { "v": ["التالي"] }, "Pause slideshow": { "v": ["تجميد عرض الشرائح"] }, "Previous": { "v": ["السابق"] }, "Start slideshow": { "v": ["إبدإ العرض"] } } }, { "l": "ast", "t": { "Next": { "v": ["Siguiente"] }, "Pause slideshow": { "v": ["Posar la presentación de diapositives"] }, "Previous": { "v": ["Anterior"] }, "Start slideshow": { "v": ["Aniciar la presentación de diapositives"] } } }, { "l": "az", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "be", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "bg", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "bn_BD", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "br", "t": { "Next": { "v": ["Da heul"] }, "Pause slideshow": { "v": ["Arsav an diaporama"] }, "Previous": { "v": ["A-raok"] }, "Start slideshow": { "v": ["Kregiñ an diaporama"] } } }, { "l": "bs", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "ca", "t": { "Next": { "v": ["Següent"] }, "Pause slideshow": { "v": ["Atura la presentació"] }, "Previous": { "v": ["Anterior"] }, "Start slideshow": { "v": ["Inicia la presentació"] } } }, { "l": "cs", "t": { "Next": { "v": ["Následující"] }, "Pause slideshow": { "v": ["Pozastavit prezentaci"] }, "Previous": { "v": ["Předchozí"] }, "Start slideshow": { "v": ["Spustit prezentaci"] } } }, { "l": "cs_CZ", "t": { "Next": { "v": ["Následující"] }, "Pause slideshow": { "v": ["Pozastavit prezentaci"] }, "Previous": { "v": ["Předchozí"] }, "Start slideshow": { "v": ["Spustit prezentaci"] } } }, { "l": "cy_GB", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "da", "t": { "Next": { "v": ["Videre"] }, "Pause slideshow": { "v": ["Suspender fremvisning"] }, "Previous": { "v": ["Forrige"] }, "Start slideshow": { "v": ["Start fremvisning"] } } }, { "l": "de", "t": { "Next": { "v": ["Weiter"] }, "Pause slideshow": { "v": ["Diashow pausieren"] }, "Previous": { "v": ["Vorherige"] }, "Start slideshow": { "v": ["Diashow starten"] } } }, { "l": "de_DE", "t": { "Next": { "v": ["Weiter"] }, "Pause slideshow": { "v": ["Diashow pausieren"] }, "Previous": { "v": ["Vorherige"] }, "Start slideshow": { "v": ["Diashow starten"] } } }, { "l": "el", "t": { "Next": { "v": ["Επόμενο"] }, "Pause slideshow": { "v": ["Παύση προβολής διαφανειών"] }, "Previous": { "v": ["Προηγούμενο"] }, "Start slideshow": { "v": ["Έναρξη προβολής διαφανειών"] } } }, { "l": "en_GB", "t": { "Next": { "v": ["Next"] }, "Pause slideshow": { "v": ["Pause slideshow"] }, "Previous": { "v": ["Previous"] }, "Start slideshow": { "v": ["Start slideshow"] } } }, { "l": "eo", "t": { "Next": { "v": ["Sekva"] }, "Pause slideshow": { "v": ["Payzi bildprezenton"] }, "Previous": { "v": ["Antaŭa"] }, "Start slideshow": { "v": ["Komenci bildprezenton"] } } }, { "l": "es", "t": { "Next": { "v": ["Siguiente"] }, "Pause slideshow": { "v": ["Pausar la presentación "] }, "Previous": { "v": ["Anterior"] }, "Start slideshow": { "v": ["Iniciar la presentación"] } } }, { "l": "es_419", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "es_AR", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "es_CL", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "es_CO", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "es_CR", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "es_DO", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "es_EC", "t": { "Next": { "v": ["Siguiente"] }, "Pause slideshow": { "v": ["Pausar presentación de diapositivas"] }, "Previous": { "v": ["Anterior"] }, "Start slideshow": { "v": ["Iniciar presentación de diapositivas"] } } }, { "l": "es_GT", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "es_HN", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "es_MX", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "es_NI", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "es_PA", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "es_PE", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "es_PR", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "es_PY", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "es_SV", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "es_UY", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "et_EE", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "eu", "t": { "Next": { "v": ["Hurrengoa"] }, "Pause slideshow": { "v": ["Pausatu diaporama"] }, "Previous": { "v": ["Aurrekoa"] }, "Start slideshow": { "v": ["Hasi diaporama"] } } }, { "l": "fa", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "fi", "t": { "Next": { "v": ["Seuraava"] }, "Pause slideshow": { "v": ["Keskeytä diaesitys"] }, "Previous": { "v": ["Edellinen"] }, "Start slideshow": { "v": ["Aloita diaesitys"] } } }, { "l": "fo", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "fr", "t": { "Next": { "v": ["Suivant"] }, "Pause slideshow": { "v": ["Mettre le diaporama en pause"] }, "Previous": { "v": ["Précédent"] }, "Start slideshow": { "v": ["Démarrer le diaporama"] } } }, { "l": "gd", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "gl", "t": { "Next": { "v": ["Seguinte"] }, "Pause slideshow": { "v": ["Pausar o diaporama"] }, "Previous": { "v": ["Anterir"] }, "Start slideshow": { "v": ["Iniciar o diaporama"] } } }, { "l": "he", "t": { "Next": { "v": ["הבא"] }, "Pause slideshow": { "v": ["השהיית מצגת"] }, "Previous": { "v": ["הקודם"] }, "Start slideshow": { "v": ["התחלת המצגת"] } } }, { "l": "hi_IN", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "hr", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "hsb", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "hu", "t": { "Next": { "v": ["Következő"] }, "Pause slideshow": { "v": ["Diavetítés szüneteltetése"] }, "Previous": { "v": ["Előző"] }, "Start slideshow": { "v": ["Diavetítés indítása"] } } }, { "l": "hy", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "ia", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "id", "t": { "Next": { "v": ["Selanjutnya"] }, "Pause slideshow": { "v": ["Jeda tayangan slide"] }, "Previous": { "v": ["Sebelumnya"] }, "Start slideshow": { "v": ["Mulai salindia"] } } }, { "l": "ig", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "is", "t": { "Next": { "v": ["Næsta"] }, "Pause slideshow": { "v": ["Gera hlé á skyggnusýningu"] }, "Previous": { "v": ["Fyrri"] }, "Start slideshow": { "v": ["Byrja skyggnusýningu"] } } }, { "l": "it", "t": { "Next": { "v": ["Successivo"] }, "Pause slideshow": { "v": ["Presentazione in pausa"] }, "Previous": { "v": ["Precedente"] }, "Start slideshow": { "v": ["Avvia presentazione"] } } }, { "l": "ja", "t": { "Next": { "v": ["次"] }, "Pause slideshow": { "v": ["スライドショーを一時停止"] }, "Previous": { "v": ["前"] }, "Start slideshow": { "v": ["スライドショーを開始"] } } }, { "l": "ka", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "ka_GE", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "kab", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "kk", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "km", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "kn", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "ko", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "la", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "lb", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "lo", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "lt_LT", "t": { "Next": { "v": ["Kitas"] }, "Pause slideshow": { "v": ["Pristabdyti skaidrių rodymą"] }, "Previous": { "v": ["Ankstesnis"] }, "Start slideshow": { "v": ["Pradėti skaidrių rodymą"] } } }, { "l": "lv", "t": { "Next": { "v": ["Nākamais"] }, "Pause slideshow": { "v": ["Pauzēt slaidrādi"] }, "Previous": { "v": ["Iepriekšējais"] }, "Start slideshow": { "v": ["Sākt slaidrādi"] } } }, { "l": "mk", "t": { "Next": { "v": ["Следно"] }, "Pause slideshow": { "v": ["Пузирај слајдшоу"] }, "Previous": { "v": ["Предходно"] }, "Start slideshow": { "v": ["Стартувај слајдшоу"] } } }, { "l": "mn", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "mr", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "ms_MY", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "my", "t": { "Next": { "v": ["နောက်သို့ဆက်ရန်"] }, "Pause slideshow": { "v": ["စလိုက်ရှိုး ခေတ္တရပ်ရန်"] }, "Previous": { "v": ["ယခင်"] }, "Start slideshow": { "v": ["စလိုက်ရှိုးအား စတင်ရန်"] } } }, { "l": "nb", "t": { "Next": { "v": ["Neste"] }, "Pause slideshow": { "v": ["Pause lysbildefremvisning"] }, "Previous": { "v": ["Forrige"] }, "Start slideshow": { "v": ["Start lysbildefremvisning"] } } }, { "l": "ne", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "nl", "t": { "Next": { "v": ["Volgende"] }, "Pause slideshow": { "v": ["Pauzeer diavoorstelling"] }, "Previous": { "v": ["Vorige"] }, "Start slideshow": { "v": ["Start diavoorstelling"] } } }, { "l": "nn_NO", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "oc", "t": { "Next": { "v": ["Seguent"] }, "Pause slideshow": { "v": ["Metre en pausa lo diaporama"] }, "Previous": { "v": ["Precedent"] }, "Start slideshow": { "v": ["Lançar lo diaporama"] } } }, { "l": "pl", "t": { "Next": { "v": ["Następny"] }, "Pause slideshow": { "v": ["Wstrzymaj pokaz slajdów"] }, "Previous": { "v": ["Poprzedni"] }, "Start slideshow": { "v": ["Rozpocznij pokaz slajdów"] } } }, { "l": "ps", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "pt_BR", "t": { "Next": { "v": ["Próximo"] }, "Pause slideshow": { "v": ["Pausar apresentação de slides"] }, "Previous": { "v": ["Anterior"] }, "Start slideshow": { "v": ["Iniciar apresentação de slides"] } } }, { "l": "pt_PT", "t": { "Next": { "v": ["Seguinte"] }, "Pause slideshow": { "v": ["Pausar diaporama"] }, "Previous": { "v": ["Anterior"] }, "Start slideshow": { "v": ["Iniciar diaporama"] } } }, { "l": "ro", "t": { "Next": { "v": ["Următorul"] }, "Pause slideshow": { "v": ["Pauză prezentare de diapozitive"] }, "Previous": { "v": ["Anterior"] }, "Start slideshow": { "v": ["Începeți prezentarea de diapozitive"] } } }, { "l": "ru", "t": { "Next": { "v": ["Следующее"] }, "Pause slideshow": { "v": ["Приостановить показ слйдов"] }, "Previous": { "v": ["Предыдущее"] }, "Start slideshow": { "v": ["Начать показ слайдов"] } } }, { "l": "sc", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "si", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "sk", "t": { "Next": { "v": ["Ďalší"] }, "Pause slideshow": { "v": ["Pozastaviť prezentáciu"] }, "Previous": { "v": ["Predchádzajúci"] }, "Start slideshow": { "v": ["Začať prezentáciu"] } } }, { "l": "sl", "t": { "Next": { "v": ["Naslednji"] }, "Pause slideshow": { "v": ["Ustavi predstavitev"] }, "Previous": { "v": ["Predhodni"] }, "Start slideshow": { "v": ["Začni predstavitev"] } } }, { "l": "sq", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "sr", "t": { "Next": { "v": ["Следеће"] }, "Pause slideshow": { "v": ["Паузирај слајд шоу"] }, "Previous": { "v": ["Претходно"] }, "Start slideshow": { "v": ["Покрени слајд шоу"] } } }, { "l": "sr@latin", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "sv", "t": { "Next": { "v": ["Nästa"] }, "Pause slideshow": { "v": ["Pausa bildspelet"] }, "Previous": { "v": ["Föregående"] }, "Start slideshow": { "v": ["Starta bildspelet"] } } }, { "l": "sw", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "ta", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "th", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "tk", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "tr", "t": { "Next": { "v": ["Sonraki"] }, "Pause slideshow": { "v": ["Slayt sunumunu duraklat"] }, "Previous": { "v": ["Önceki"] }, "Start slideshow": { "v": ["Slayt sunumunu başlat"] } } }, { "l": "ug", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "uk", "t": { "Next": { "v": ["Вперед"] }, "Pause slideshow": { "v": ["Пауза у показі слайдів"] }, "Previous": { "v": ["Назад"] }, "Start slideshow": { "v": ["Почати показ слайдів"] } } }, { "l": "ur_PK", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "uz", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "vi", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }, { "l": "zh_CN", "t": { "Next": { "v": ["下一个"] }, "Pause slideshow": { "v": ["暂停幻灯片"] }, "Previous": { "v": ["上一个"] }, "Start slideshow": { "v": ["开始幻灯片"] } } }, { "l": "zh_HK", "t": { "Next": { "v": ["下一個"] }, "Pause slideshow": { "v": ["暫停幻燈片"] }, "Previous": { "v": ["上一個"] }, "Start slideshow": { "v": ["開始幻燈片"] } } }, { "l": "zh_TW", "t": { "Next": { "v": ["下一個"] }, "Pause slideshow": { "v": ["暫停幻燈片"] }, "Previous": { "v": ["上一個"] }, "Start slideshow": { "v": ["開始幻燈片"] } } }, { "l": "zu_ZA", "t": { "Next": { "v": [""] }, "Pause slideshow": { "v": [""] }, "Previous": { "v": [""] }, "Start slideshow": { "v": [""] } } }];
+const t30 = [{ "l": "af", "t": { "No emoji found": { "v": [""] } } }, { "l": "ar", "t": { "No emoji found": { "v": ["لم يتم العثور على أي إيموجي emoji"] } } }, { "l": "ast", "t": { "No emoji found": { "v": ["Nun s'atopó nengún fustaxe"] } } }, { "l": "az", "t": { "No emoji found": { "v": [""] } } }, { "l": "be", "t": { "No emoji found": { "v": [""] } } }, { "l": "bg", "t": { "No emoji found": { "v": [""] } } }, { "l": "bn_BD", "t": { "No emoji found": { "v": [""] } } }, { "l": "br", "t": { "No emoji found": { "v": ["Emoji ebet kavet"] } } }, { "l": "bs", "t": { "No emoji found": { "v": [""] } } }, { "l": "ca", "t": { "No emoji found": { "v": ["No s'ha trobat cap emoji"] } } }, { "l": "cs", "t": { "No emoji found": { "v": ["Nenalezeno žádné emoji"] } } }, { "l": "cs_CZ", "t": { "No emoji found": { "v": ["Nenalezeno žádné emoji"] } } }, { "l": "cy_GB", "t": { "No emoji found": { "v": [""] } } }, { "l": "da", "t": { "No emoji found": { "v": ["Ingen emoji fundet"] } } }, { "l": "de", "t": { "No emoji found": { "v": ["Kein Emoji gefunden"] } } }, { "l": "de_DE", "t": { "No emoji found": { "v": ["Kein Emoji gefunden"] } } }, { "l": "el", "t": { "No emoji found": { "v": ["Δεν βρέθηκε emoji"] } } }, { "l": "en_GB", "t": { "No emoji found": { "v": ["No emoji found"] } } }, { "l": "eo", "t": { "No emoji found": { "v": ["La emoĝio forestas"] } } }, { "l": "es", "t": { "No emoji found": { "v": ["No se encontró ningún emoji"] } } }, { "l": "es_419", "t": { "No emoji found": { "v": [""] } } }, { "l": "es_AR", "t": { "No emoji found": { "v": [""] } } }, { "l": "es_CL", "t": { "No emoji found": { "v": [""] } } }, { "l": "es_CO", "t": { "No emoji found": { "v": [""] } } }, { "l": "es_CR", "t": { "No emoji found": { "v": [""] } } }, { "l": "es_DO", "t": { "No emoji found": { "v": [""] } } }, { "l": "es_EC", "t": { "No emoji found": { "v": ["No se encontró ningún emoji"] } } }, { "l": "es_GT", "t": { "No emoji found": { "v": [""] } } }, { "l": "es_HN", "t": { "No emoji found": { "v": [""] } } }, { "l": "es_MX", "t": { "No emoji found": { "v": [""] } } }, { "l": "es_NI", "t": { "No emoji found": { "v": [""] } } }, { "l": "es_PA", "t": { "No emoji found": { "v": [""] } } }, { "l": "es_PE", "t": { "No emoji found": { "v": [""] } } }, { "l": "es_PR", "t": { "No emoji found": { "v": [""] } } }, { "l": "es_PY", "t": { "No emoji found": { "v": [""] } } }, { "l": "es_SV", "t": { "No emoji found": { "v": [""] } } }, { "l": "es_UY", "t": { "No emoji found": { "v": [""] } } }, { "l": "et_EE", "t": { "No emoji found": { "v": [""] } } }, { "l": "eu", "t": { "No emoji found": { "v": ["Ez da emojirik aurkitu"] } } }, { "l": "fa", "t": { "No emoji found": { "v": [""] } } }, { "l": "fi", "t": { "No emoji found": { "v": ["Emojia ei löytynyt"] } } }, { "l": "fo", "t": { "No emoji found": { "v": [""] } } }, { "l": "fr", "t": { "No emoji found": { "v": ["Pas d’émoji trouvé"] } } }, { "l": "gd", "t": { "No emoji found": { "v": [""] } } }, { "l": "gl", "t": { "No emoji found": { "v": ["Non se atopou ningún «emoji»"] } } }, { "l": "he", "t": { "No emoji found": { "v": ["לא נמצא אמוג׳י"] } } }, { "l": "hi_IN", "t": { "No emoji found": { "v": [""] } } }, { "l": "hr", "t": { "No emoji found": { "v": [""] } } }, { "l": "hsb", "t": { "No emoji found": { "v": [""] } } }, { "l": "hu", "t": { "No emoji found": { "v": ["Nem található emodzsi"] } } }, { "l": "hy", "t": { "No emoji found": { "v": [""] } } }, { "l": "ia", "t": { "No emoji found": { "v": [""] } } }, { "l": "id", "t": { "No emoji found": { "v": ["Tidak ada emoji yang ditemukan"] } } }, { "l": "ig", "t": { "No emoji found": { "v": [""] } } }, { "l": "is", "t": { "No emoji found": { "v": ["Ekkert tjáningartákn fannst"] } } }, { "l": "it", "t": { "No emoji found": { "v": ["Nessun emoji trovato"] } } }, { "l": "ja", "t": { "No emoji found": { "v": ["絵文字が見つかりません"] } } }, { "l": "ka", "t": { "No emoji found": { "v": [""] } } }, { "l": "ka_GE", "t": { "No emoji found": { "v": [""] } } }, { "l": "kab", "t": { "No emoji found": { "v": [""] } } }, { "l": "kk", "t": { "No emoji found": { "v": [""] } } }, { "l": "km", "t": { "No emoji found": { "v": [""] } } }, { "l": "kn", "t": { "No emoji found": { "v": [""] } } }, { "l": "ko", "t": { "No emoji found": { "v": [""] } } }, { "l": "la", "t": { "No emoji found": { "v": [""] } } }, { "l": "lb", "t": { "No emoji found": { "v": [""] } } }, { "l": "lo", "t": { "No emoji found": { "v": [""] } } }, { "l": "lt_LT", "t": { "No emoji found": { "v": ["Nerasta jaustukų"] } } }, { "l": "lv", "t": { "No emoji found": { "v": [""] } } }, { "l": "mk", "t": { "No emoji found": { "v": ["Не се пронајдени емотикони"] } } }, { "l": "mn", "t": { "No emoji found": { "v": [""] } } }, { "l": "mr", "t": { "No emoji found": { "v": [""] } } }, { "l": "ms_MY", "t": { "No emoji found": { "v": [""] } } }, { "l": "my", "t": { "No emoji found": { "v": ["အီမိုဂျီ ရှာဖွေမတွေ့နိုင်ပါ"] } } }, { "l": "nb", "t": { "No emoji found": { "v": ["Fant ingen emoji"] } } }, { "l": "ne", "t": { "No emoji found": { "v": [""] } } }, { "l": "nl", "t": { "No emoji found": { "v": ["Geen emoji gevonden"] } } }, { "l": "nn_NO", "t": { "No emoji found": { "v": [""] } } }, { "l": "oc", "t": { "No emoji found": { "v": [""] } } }, { "l": "pl", "t": { "No emoji found": { "v": ["Nie znaleziono emoji"] } } }, { "l": "ps", "t": { "No emoji found": { "v": [""] } } }, { "l": "pt_BR", "t": { "No emoji found": { "v": ["Nenhum emoji encontrado"] } } }, { "l": "pt_PT", "t": { "No emoji found": { "v": ["Nenhum emoji encontrado"] } } }, { "l": "ro", "t": { "No emoji found": { "v": ["Nu s-a găsit niciun emoji"] } } }, { "l": "ru", "t": { "No emoji found": { "v": ["Эмодзи не найдено"] } } }, { "l": "sc", "t": { "No emoji found": { "v": [""] } } }, { "l": "si", "t": { "No emoji found": { "v": [""] } } }, { "l": "sk", "t": { "No emoji found": { "v": ["Nenašli sa žiadne emodži"] } } }, { "l": "sl", "t": { "No emoji found": { "v": ["Ni najdenih izraznih ikon"] } } }, { "l": "sq", "t": { "No emoji found": { "v": [""] } } }, { "l": "sr", "t": { "No emoji found": { "v": ["Није пронађен ниједан емођи"] } } }, { "l": "sr@latin", "t": { "No emoji found": { "v": [""] } } }, { "l": "sv", "t": { "No emoji found": { "v": ["Hittade inga emojis"] } } }, { "l": "sw", "t": { "No emoji found": { "v": [""] } } }, { "l": "ta", "t": { "No emoji found": { "v": [""] } } }, { "l": "th", "t": { "No emoji found": { "v": [""] } } }, { "l": "tk", "t": { "No emoji found": { "v": [""] } } }, { "l": "tr", "t": { "No emoji found": { "v": ["Herhangi bir emoji bulunamadı"] } } }, { "l": "ug", "t": { "No emoji found": { "v": [""] } } }, { "l": "uk", "t": { "No emoji found": { "v": ["Емоційки відсутні"] } } }, { "l": "ur_PK", "t": { "No emoji found": { "v": [""] } } }, { "l": "uz", "t": { "No emoji found": { "v": [""] } } }, { "l": "vi", "t": { "No emoji found": { "v": [""] } } }, { "l": "zh_CN", "t": { "No emoji found": { "v": ["表情未找到"] } } }, { "l": "zh_HK", "t": { "No emoji found": { "v": ["未找到表情符號"] } } }, { "l": "zh_TW", "t": { "No emoji found": { "v": ["未找到表情符號"] } } }, { "l": "zu_ZA", "t": { "No emoji found": { "v": [""] } } }];
+const t31 = [{ "l": "af", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "ar", "t": { 'Open link to "{resourceName}"': { "v": ['إفتَح الرابط إلى "{resourceName}"'] } } }, { "l": "ast", "t": { 'Open link to "{resourceName}"': { "v": ["Abrir l'enllaz a «{resourceName}»"] } } }, { "l": "az", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "be", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "bg", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "bn_BD", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "br", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "bs", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "ca", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "cs", "t": { 'Open link to "{resourceName}"': { "v": ["Otevřít odkaz na „{resourceName}“"] } } }, { "l": "cs_CZ", "t": { 'Open link to "{resourceName}"': { "v": ["Otevřít odkaz na „{resourceName}“"] } } }, { "l": "cy_GB", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "da", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "de", "t": { 'Open link to "{resourceName}"': { "v": ['Link zu "{resourceName}“ öffnen'] } } }, { "l": "de_DE", "t": { 'Open link to "{resourceName}"': { "v": ['Link zu "{resourceName}“ öffnen'] } } }, { "l": "el", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "en_GB", "t": { 'Open link to "{resourceName}"': { "v": ['Open link to "{resourceName}"'] } } }, { "l": "eo", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "es", "t": { 'Open link to "{resourceName}"': { "v": ['Abrir enlace a "{resourceName}"'] } } }, { "l": "es_419", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "es_AR", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "es_CL", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "es_CO", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "es_CR", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "es_DO", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "es_EC", "t": { 'Open link to "{resourceName}"': { "v": ['Abrir enlace a "{resourceName}"'] } } }, { "l": "es_GT", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "es_HN", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "es_MX", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "es_NI", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "es_PA", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "es_PE", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "es_PR", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "es_PY", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "es_SV", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "es_UY", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "et_EE", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "eu", "t": { 'Open link to "{resourceName}"': { "v": ['Ireki "{resourceName}" esteka'] } } }, { "l": "fa", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "fi", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "fo", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "fr", "t": { 'Open link to "{resourceName}"': { "v": ['Ouvrir le lien vers "{resourceName}"'] } } }, { "l": "gd", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "gl", "t": { 'Open link to "{resourceName}"': { "v": ["Abrir a ligazón a «{resourceName}»"] } } }, { "l": "he", "t": { 'Open link to "{resourceName}"': { "v": ["פתיחת קישור אל „{resourceName}”"] } } }, { "l": "hi_IN", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "hr", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "hsb", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "hu", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "hy", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "ia", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "id", "t": { 'Open link to "{resourceName}"': { "v": ['Buka tautan ke "{resourceName}"'] } } }, { "l": "ig", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "is", "t": { 'Open link to "{resourceName}"': { "v": ['Opna tengil í "{resourceName}"'] } } }, { "l": "it", "t": { 'Open link to "{resourceName}"': { "v": ['Apri il link a "{resourceName}"'] } } }, { "l": "ja", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "ka", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "ka_GE", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "kab", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "kk", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "km", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "kn", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "ko", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "la", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "lb", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "lo", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "lt_LT", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "lv", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "mk", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "mn", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "mr", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "ms_MY", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "my", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "nb", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "ne", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "nl", "t": { 'Open link to "{resourceName}"': { "v": ['Open link naar "{resourceName}"'] } } }, { "l": "nn_NO", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "oc", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "pl", "t": { 'Open link to "{resourceName}"': { "v": ['Otwórz link do "{resourceName}"'] } } }, { "l": "ps", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "pt_BR", "t": { 'Open link to "{resourceName}"': { "v": ['Abrir i link para "{resourceName}"'] } } }, { "l": "pt_PT", "t": { 'Open link to "{resourceName}"': { "v": ['Abrir link para "{resourceName}"'] } } }, { "l": "ro", "t": { 'Open link to "{resourceName}"': { "v": ['Deschide linkul la  "{resourceName}"'] } } }, { "l": "ru", "t": { 'Open link to "{resourceName}"': { "v": ['Открыть ссылку на "{resourceName}"'] } } }, { "l": "sc", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "si", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "sk", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "sl", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "sq", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "sr", "t": { 'Open link to "{resourceName}"': { "v": ["Отвори линк на „{resourceName}”"] } } }, { "l": "sr@latin", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "sv", "t": { 'Open link to "{resourceName}"': { "v": ['Öppna länken till "{resourceName}"'] } } }, { "l": "sw", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "ta", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "th", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "tk", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "tr", "t": { 'Open link to "{resourceName}"': { "v": ["{resourceName} bağlantısını aç"] } } }, { "l": "ug", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "uk", "t": { 'Open link to "{resourceName}"': { "v": ['Відкрити посилання на "{resourceName}"'] } } }, { "l": "ur_PK", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "uz", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "vi", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "zh_CN", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }, { "l": "zh_HK", "t": { 'Open link to "{resourceName}"': { "v": ["開啟到「{resourceName}」的連結"] } } }, { "l": "zh_TW", "t": { 'Open link to "{resourceName}"': { "v": ["開啟到「{resourceName}」的連結"] } } }, { "l": "zu_ZA", "t": { 'Open link to "{resourceName}"': { "v": [""] } } }];
+const t32 = [{ "l": "af", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "ar", "t": { "Pick a date": { "v": ["إختَر التاريخ"] }, "Pick a date and a time": { "v": ["إختَر التاريخ و الوقت"] }, "Pick a month": { "v": ["إختَر الشهر"] }, "Pick a time": { "v": ["إختَر الوقت"] }, "Pick a week": { "v": ["إختَر الأسبوع"] }, "Pick a year": { "v": ["إختَر السنة"] }, "Please select a time zone:": { "v": ["الرجاء تحديد المنطقة الزمنية:"] } } }, { "l": "ast", "t": { "Pick a date": { "v": ["Escueyi una data"] }, "Pick a date and a time": { "v": ["Escueyi una data y hora"] }, "Pick a month": { "v": ["Escueyi un mes"] }, "Pick a time": { "v": ["Escueyi una hora"] }, "Pick a week": { "v": ["Escueyi una selmana"] }, "Pick a year": { "v": ["Escueyi un añu"] }, "Please select a time zone:": { "v": ["Seleiciona un fusu horariu:"] } } }, { "l": "az", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "be", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "bg", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "bn_BD", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "br", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "bs", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "ca", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": ["Seleccioneu una zona horària:"] } } }, { "l": "cs", "t": { "Pick a date": { "v": ["Vybrat datum"] }, "Pick a date and a time": { "v": ["Vybrat datum a čas"] }, "Pick a month": { "v": ["Vybrat měsíc"] }, "Pick a time": { "v": ["Vybrat čas"] }, "Pick a week": { "v": ["Vybrat týden"] }, "Pick a year": { "v": ["Vybrat rok"] }, "Please select a time zone:": { "v": ["Vyberte časovou zónu:"] } } }, { "l": "cs_CZ", "t": { "Pick a date": { "v": ["Vybrat datum"] }, "Pick a date and a time": { "v": ["Vybrat datum a čas"] }, "Pick a month": { "v": ["Vybrat měsíc"] }, "Pick a time": { "v": ["Vybrat čas"] }, "Pick a week": { "v": ["Vybrat týden"] }, "Pick a year": { "v": ["Vybrat rok"] }, "Please select a time zone:": { "v": ["Vyberte časovou zónu:"] } } }, { "l": "cy_GB", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "da", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": ["Vælg venligst en tidszone:"] } } }, { "l": "de", "t": { "Pick a date": { "v": ["Ein Datum auswählen"] }, "Pick a date and a time": { "v": ["Datum und Uhrzeit auswählen"] }, "Pick a month": { "v": ["Einen Monat auswählen"] }, "Pick a time": { "v": ["Eine Uhrzeit auswählen"] }, "Pick a week": { "v": ["Eine Woche auswählen"] }, "Pick a year": { "v": ["Ein Jahr auswählen"] }, "Please select a time zone:": { "v": ["Bitte wähle eine Zeitzone:"] } } }, { "l": "de_DE", "t": { "Pick a date": { "v": ["Ein Datum auswählen"] }, "Pick a date and a time": { "v": ["Datum und Uhrzeit auswählen"] }, "Pick a month": { "v": ["Einen Monat auswählen"] }, "Pick a time": { "v": ["Eine Uhrzeit auswählen"] }, "Pick a week": { "v": ["Eine Woche auswählen"] }, "Pick a year": { "v": ["Ein Jahr auswählen"] }, "Please select a time zone:": { "v": ["Bitte eine Zeitzone auswählen:"] } } }, { "l": "el", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": ["Παρακαλούμε επιλέξτε μια ζώνη ώρας:"] } } }, { "l": "en_GB", "t": { "Pick a date": { "v": ["Pick a date"] }, "Pick a date and a time": { "v": ["Pick a date and a time"] }, "Pick a month": { "v": ["Pick a month"] }, "Pick a time": { "v": ["Pick a time"] }, "Pick a week": { "v": ["Pick a week"] }, "Pick a year": { "v": ["Pick a year"] }, "Please select a time zone:": { "v": ["Please select a time zone:"] } } }, { "l": "eo", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "es", "t": { "Pick a date": { "v": ["Seleccione una fecha"] }, "Pick a date and a time": { "v": ["Seleccione una fecha y hora"] }, "Pick a month": { "v": ["Seleccione un mes"] }, "Pick a time": { "v": ["Seleccione una hora"] }, "Pick a week": { "v": ["Seleccione una semana"] }, "Pick a year": { "v": ["Seleccione un año"] }, "Please select a time zone:": { "v": ["Por favor elija un huso horario:"] } } }, { "l": "es_419", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "es_AR", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "es_CL", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "es_CO", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "es_CR", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "es_DO", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "es_EC", "t": { "Pick a date": { "v": ["Seleccionar una fecha"] }, "Pick a date and a time": { "v": ["Seleccionar una fecha y una hora"] }, "Pick a month": { "v": ["Seleccionar un mes"] }, "Pick a time": { "v": ["Seleccionar una semana"] }, "Pick a week": { "v": ["Seleccionar una semana"] }, "Pick a year": { "v": ["Seleccionar un año"] }, "Please select a time zone:": { "v": ["Por favor, selecciona una zona horaria:"] } } }, { "l": "es_GT", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "es_HN", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "es_MX", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "es_NI", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "es_PA", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "es_PE", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "es_PR", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "es_PY", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "es_SV", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "es_UY", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "et_EE", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "eu", "t": { "Pick a date": { "v": ["Aukeratu data bat"] }, "Pick a date and a time": { "v": ["Aukeratu data eta ordu bat"] }, "Pick a month": { "v": ["Aukeratu hilabete bat"] }, "Pick a time": { "v": ["Aukeratu ordu bat"] }, "Pick a week": { "v": ["Aukeratu aste bat"] }, "Pick a year": { "v": ["Aukeratu urte bat"] }, "Please select a time zone:": { "v": ["Mesedez hautatu ordu-zona bat:"] } } }, { "l": "fa", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "fi", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": ["Valitse aikavyöhyke:"] } } }, { "l": "fo", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "fr", "t": { "Pick a date": { "v": ["Sélectionner une date"] }, "Pick a date and a time": { "v": ["Sélectionner une date et une heure"] }, "Pick a month": { "v": ["Sélectionner un mois"] }, "Pick a time": { "v": ["Sélectionner une heure"] }, "Pick a week": { "v": ["Sélectionner une semaine"] }, "Pick a year": { "v": ["Sélectionner une année"] }, "Please select a time zone:": { "v": ["Sélectionnez un fuseau horaire : "] } } }, { "l": "gd", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "gl", "t": { "Pick a date": { "v": ["Escolla unha data"] }, "Pick a date and a time": { "v": ["Escolle unha data e unha hora"] }, "Pick a month": { "v": ["Escolla un mes"] }, "Pick a time": { "v": ["Escolla unha hora"] }, "Pick a week": { "v": ["Escolla unha semana"] }, "Pick a year": { "v": ["Escolla un ano"] }, "Please select a time zone:": { "v": ["Escolla un fuso horario:"] } } }, { "l": "he", "t": { "Pick a date": { "v": ["נא לבחור תאריך"] }, "Pick a date and a time": { "v": ["נא לבחור תאריך ושעה"] }, "Pick a month": { "v": ["נא לבחור חודש"] }, "Pick a time": { "v": ["נא לבחור שעה"] }, "Pick a week": { "v": ["נא לבחור שבוע"] }, "Pick a year": { "v": ["נא לבחור שנה"] }, "Please select a time zone:": { "v": ["נא לבחור אזור זמן:"] } } }, { "l": "hi_IN", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "hr", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "hsb", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "hu", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": ["Válasszon időzónát:"] } } }, { "l": "hy", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "ia", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "id", "t": { "Pick a date": { "v": ["Pilih tanggal"] }, "Pick a date and a time": { "v": ["Pilih tanggal dan waktu"] }, "Pick a month": { "v": ["Pilih bulan"] }, "Pick a time": { "v": ["Pilih waktu"] }, "Pick a week": { "v": ["Pilih pekan"] }, "Pick a year": { "v": ["Pilih tahun"] }, "Please select a time zone:": { "v": ["Mohon pilih zona waktu"] } } }, { "l": "ig", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "is", "t": { "Pick a date": { "v": ["Veldu dagsetningu"] }, "Pick a date and a time": { "v": ["Veldu dagsetningu og tíma"] }, "Pick a month": { "v": ["Veldu mánuð"] }, "Pick a time": { "v": ["Veldu tíma"] }, "Pick a week": { "v": ["Veldu viku"] }, "Pick a year": { "v": ["Veldu ár"] }, "Please select a time zone:": { "v": ["Veldu tímabelti:"] } } }, { "l": "it", "t": { "Pick a date": { "v": ["Scegli una data"] }, "Pick a date and a time": { "v": ["Scegli una data e un orario"] }, "Pick a month": { "v": ["Scegli un mese"] }, "Pick a time": { "v": ["Scegli un momento"] }, "Pick a week": { "v": ["Scegli una settimana"] }, "Pick a year": { "v": ["Scegli un anno"] }, "Please select a time zone:": { "v": ["Si prega di selezionare un fuso orario:"] } } }, { "l": "ja", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": ["タイムゾーンを選んで下さい："] } } }, { "l": "ka", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "ka_GE", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "kab", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "kk", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "km", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "kn", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "ko", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "la", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "lb", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "lo", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "lt_LT", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "lv", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "mk", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": ["Изберете временска зона:"] } } }, { "l": "mn", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "mr", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "ms_MY", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "my", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": ["ဒေသစံတော်ချိန် ရွေးချယ်ပေးပါ"] } } }, { "l": "nb", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": ["Vennligst velg tidssone"] } } }, { "l": "ne", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "nl", "t": { "Pick a date": { "v": ["Selecteer een datum"] }, "Pick a date and a time": { "v": ["Selecteer een datum en tijd"] }, "Pick a month": { "v": ["Selecteer een maand"] }, "Pick a time": { "v": ["Selecteer een tijd"] }, "Pick a week": { "v": ["Selecteer een week"] }, "Pick a year": { "v": ["Selecteer een jaar"] }, "Please select a time zone:": { "v": ["Selecteer een tijdzone:"] } } }, { "l": "nn_NO", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "oc", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "pl", "t": { "Pick a date": { "v": ["Wybierz datę"] }, "Pick a date and a time": { "v": ["Wybierz datę i godzinę"] }, "Pick a month": { "v": ["Wybierz miesiąc"] }, "Pick a time": { "v": ["Wybierz czas"] }, "Pick a week": { "v": ["Wybierz tydzień"] }, "Pick a year": { "v": ["Wybierz rok"] }, "Please select a time zone:": { "v": ["Wybierz strefę czasową:"] } } }, { "l": "ps", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "pt_BR", "t": { "Pick a date": { "v": ["Escolha uma data"] }, "Pick a date and a time": { "v": ["Escolha uma data e um horário"] }, "Pick a month": { "v": ["Escolha um mês"] }, "Pick a time": { "v": ["Escolha um horário"] }, "Pick a week": { "v": ["Escolha uma semana"] }, "Pick a year": { "v": ["Escolha um ano"] }, "Please select a time zone:": { "v": ["Selecione um fuso horário: "] } } }, { "l": "pt_PT", "t": { "Pick a date": { "v": ["Escolha uma data"] }, "Pick a date and a time": { "v": ["Escolha uma data e um horário"] }, "Pick a month": { "v": ["Escolha um mês"] }, "Pick a time": { "v": ["Escolha um horário"] }, "Pick a week": { "v": ["Escolha uma semana"] }, "Pick a year": { "v": ["Escolha um ano"] }, "Please select a time zone:": { "v": ["Por favor, selecione um fuso horário: "] } } }, { "l": "ro", "t": { "Pick a date": { "v": ["Selectați o dată"] }, "Pick a date and a time": { "v": ["Selectați data și timpul"] }, "Pick a month": { "v": ["Selectați o lună"] }, "Pick a time": { "v": ["Selectați timpul"] }, "Pick a week": { "v": ["Selectați o săptămână"] }, "Pick a year": { "v": ["Selectați anul"] }, "Please select a time zone:": { "v": ["Vă rugăm să selectați un fus orar:"] } } }, { "l": "ru", "t": { "Pick a date": { "v": ["Выберите дату"] }, "Pick a date and a time": { "v": ["Выберите дату и время"] }, "Pick a month": { "v": ["Выберите месяц"] }, "Pick a time": { "v": ["Выберите время"] }, "Pick a week": { "v": ["Выберите неделю"] }, "Pick a year": { "v": ["Выберите год"] }, "Please select a time zone:": { "v": ["Пожалуйста, выберите часовой пояс:"] } } }, { "l": "sc", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "si", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "sk", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": ["Prosím vyberte časovú zónu:"] } } }, { "l": "sl", "t": { "Pick a date": { "v": ["Izbor datuma"] }, "Pick a date and a time": { "v": ["Izbor datuma in časa"] }, "Pick a month": { "v": ["Izbor meseca"] }, "Pick a time": { "v": ["Izbor časa"] }, "Pick a week": { "v": ["Izbor tedna"] }, "Pick a year": { "v": ["Izbor leta"] }, "Please select a time zone:": { "v": ["Izbor časovnega pasu:"] } } }, { "l": "sq", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "sr", "t": { "Pick a date": { "v": ["Изаберите датум"] }, "Pick a date and a time": { "v": ["Изаберите датум и време"] }, "Pick a month": { "v": ["Изаберите месец"] }, "Pick a time": { "v": ["Изаберите време"] }, "Pick a week": { "v": ["Изаберите недељу"] }, "Pick a year": { "v": ["Изаберите годину"] }, "Please select a time zone:": { "v": ["Молимо вас да изаберете временску зону:"] } } }, { "l": "sr@latin", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "sv", "t": { "Pick a date": { "v": ["Välj datum"] }, "Pick a date and a time": { "v": ["Välj datum och tid"] }, "Pick a month": { "v": ["Välj månad"] }, "Pick a time": { "v": ["Välj tid"] }, "Pick a week": { "v": ["Välj vecka"] }, "Pick a year": { "v": ["Välj år"] }, "Please select a time zone:": { "v": ["Välj tidszon:"] } } }, { "l": "sw", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "ta", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "th", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "tk", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "tr", "t": { "Pick a date": { "v": ["Bir tarih seçin"] }, "Pick a date and a time": { "v": ["Bir tarih ve saat seçin"] }, "Pick a month": { "v": ["Bir ay seçin"] }, "Pick a time": { "v": ["Bir saat seçin"] }, "Pick a week": { "v": ["Bir hafta seçin"] }, "Pick a year": { "v": ["Bir yıl seçin"] }, "Please select a time zone:": { "v": ["Lütfen bir saat dilimi seçin:"] } } }, { "l": "ug", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "uk", "t": { "Pick a date": { "v": ["Вибрати дату"] }, "Pick a date and a time": { "v": ["Виберіть дату та час"] }, "Pick a month": { "v": ["Виберіть місяць"] }, "Pick a time": { "v": ["Виберіть час"] }, "Pick a week": { "v": ["Виберіть тиждень"] }, "Pick a year": { "v": ["Виберіть рік"] }, "Please select a time zone:": { "v": ["Виберіть часовий пояс:"] } } }, { "l": "ur_PK", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "uz", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "vi", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }, { "l": "zh_CN", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": ["请选择一个时区："] } } }, { "l": "zh_HK", "t": { "Pick a date": { "v": ["挑選日期"] }, "Pick a date and a time": { "v": ["挑選日期與時間"] }, "Pick a month": { "v": ["挑選月份"] }, "Pick a time": { "v": ["挑選時間"] }, "Pick a week": { "v": ["挑選星期"] }, "Pick a year": { "v": ["挑選年份"] }, "Please select a time zone:": { "v": ["請選擇時區："] } } }, { "l": "zh_TW", "t": { "Pick a date": { "v": ["挑選日期"] }, "Pick a date and a time": { "v": ["挑選日期與時間"] }, "Pick a month": { "v": ["挑選月份"] }, "Pick a time": { "v": ["挑選時間"] }, "Pick a week": { "v": ["挑選星期"] }, "Pick a year": { "v": ["挑選年份"] }, "Please select a time zone:": { "v": ["請選取時區："] } } }, { "l": "zu_ZA", "t": { "Pick a date": { "v": [""] }, "Pick a date and a time": { "v": [""] }, "Pick a month": { "v": [""] }, "Pick a time": { "v": [""] }, "Pick a week": { "v": [""] }, "Pick a year": { "v": [""] }, "Please select a time zone:": { "v": [""] } } }];
+const t33 = [{ "l": "af", "t": { "Provider icon": { "v": [""] } } }, { "l": "ar", "t": { "Provider icon": { "v": ["أيقونة المُزوِّد"] } } }, { "l": "ast", "t": { "Provider icon": { "v": ["Iconu del fornidor"] } } }, { "l": "az", "t": { "Provider icon": { "v": [""] } } }, { "l": "be", "t": { "Provider icon": { "v": [""] } } }, { "l": "bg", "t": { "Provider icon": { "v": [""] } } }, { "l": "bn_BD", "t": { "Provider icon": { "v": [""] } } }, { "l": "br", "t": { "Provider icon": { "v": [""] } } }, { "l": "bs", "t": { "Provider icon": { "v": [""] } } }, { "l": "ca", "t": { "Provider icon": { "v": [""] } } }, { "l": "cs", "t": { "Provider icon": { "v": ["Ikona poskytovatele"] } } }, { "l": "cs_CZ", "t": { "Provider icon": { "v": ["Ikona poskytovatele"] } } }, { "l": "cy_GB", "t": { "Provider icon": { "v": [""] } } }, { "l": "da", "t": { "Provider icon": { "v": [""] } } }, { "l": "de", "t": { "Provider icon": { "v": ["Anbietersymbol"] } } }, { "l": "de_DE", "t": { "Provider icon": { "v": ["Anbietersymbol"] } } }, { "l": "el", "t": { "Provider icon": { "v": [""] } } }, { "l": "en_GB", "t": { "Provider icon": { "v": ["Provider icon"] } } }, { "l": "eo", "t": { "Provider icon": { "v": [""] } } }, { "l": "es", "t": { "Provider icon": { "v": ["Ícono del proveedor"] } } }, { "l": "es_419", "t": { "Provider icon": { "v": [""] } } }, { "l": "es_AR", "t": { "Provider icon": { "v": [""] } } }, { "l": "es_CL", "t": { "Provider icon": { "v": [""] } } }, { "l": "es_CO", "t": { "Provider icon": { "v": [""] } } }, { "l": "es_CR", "t": { "Provider icon": { "v": [""] } } }, { "l": "es_DO", "t": { "Provider icon": { "v": [""] } } }, { "l": "es_EC", "t": { "Provider icon": { "v": ["Ícono del proveedor"] } } }, { "l": "es_GT", "t": { "Provider icon": { "v": [""] } } }, { "l": "es_HN", "t": { "Provider icon": { "v": [""] } } }, { "l": "es_MX", "t": { "Provider icon": { "v": [""] } } }, { "l": "es_NI", "t": { "Provider icon": { "v": [""] } } }, { "l": "es_PA", "t": { "Provider icon": { "v": [""] } } }, { "l": "es_PE", "t": { "Provider icon": { "v": [""] } } }, { "l": "es_PR", "t": { "Provider icon": { "v": [""] } } }, { "l": "es_PY", "t": { "Provider icon": { "v": [""] } } }, { "l": "es_SV", "t": { "Provider icon": { "v": [""] } } }, { "l": "es_UY", "t": { "Provider icon": { "v": [""] } } }, { "l": "et_EE", "t": { "Provider icon": { "v": [""] } } }, { "l": "eu", "t": { "Provider icon": { "v": ["Hornitzailearen ikonoa"] } } }, { "l": "fa", "t": { "Provider icon": { "v": [""] } } }, { "l": "fi", "t": { "Provider icon": { "v": [""] } } }, { "l": "fo", "t": { "Provider icon": { "v": [""] } } }, { "l": "fr", "t": { "Provider icon": { "v": ["Icône du fournisseur"] } } }, { "l": "gd", "t": { "Provider icon": { "v": [""] } } }, { "l": "gl", "t": { "Provider icon": { "v": ["Icona do provedor"] } } }, { "l": "he", "t": { "Provider icon": { "v": ["סמל ספק"] } } }, { "l": "hi_IN", "t": { "Provider icon": { "v": [""] } } }, { "l": "hr", "t": { "Provider icon": { "v": [""] } } }, { "l": "hsb", "t": { "Provider icon": { "v": [""] } } }, { "l": "hu", "t": { "Provider icon": { "v": [""] } } }, { "l": "hy", "t": { "Provider icon": { "v": [""] } } }, { "l": "ia", "t": { "Provider icon": { "v": [""] } } }, { "l": "id", "t": { "Provider icon": { "v": ["Ikon penyedia"] } } }, { "l": "ig", "t": { "Provider icon": { "v": [""] } } }, { "l": "is", "t": { "Provider icon": { "v": ["Táknmynd þjónustuveitu"] } } }, { "l": "it", "t": { "Provider icon": { "v": ["Icona del provider"] } } }, { "l": "ja", "t": { "Provider icon": { "v": [""] } } }, { "l": "ka", "t": { "Provider icon": { "v": [""] } } }, { "l": "ka_GE", "t": { "Provider icon": { "v": [""] } } }, { "l": "kab", "t": { "Provider icon": { "v": [""] } } }, { "l": "kk", "t": { "Provider icon": { "v": [""] } } }, { "l": "km", "t": { "Provider icon": { "v": [""] } } }, { "l": "kn", "t": { "Provider icon": { "v": [""] } } }, { "l": "ko", "t": { "Provider icon": { "v": [""] } } }, { "l": "la", "t": { "Provider icon": { "v": [""] } } }, { "l": "lb", "t": { "Provider icon": { "v": [""] } } }, { "l": "lo", "t": { "Provider icon": { "v": [""] } } }, { "l": "lt_LT", "t": { "Provider icon": { "v": [""] } } }, { "l": "lv", "t": { "Provider icon": { "v": [""] } } }, { "l": "mk", "t": { "Provider icon": { "v": [""] } } }, { "l": "mn", "t": { "Provider icon": { "v": [""] } } }, { "l": "mr", "t": { "Provider icon": { "v": [""] } } }, { "l": "ms_MY", "t": { "Provider icon": { "v": [""] } } }, { "l": "my", "t": { "Provider icon": { "v": [""] } } }, { "l": "nb", "t": { "Provider icon": { "v": [""] } } }, { "l": "ne", "t": { "Provider icon": { "v": [""] } } }, { "l": "nl", "t": { "Provider icon": { "v": ["Provider icon"] } } }, { "l": "nn_NO", "t": { "Provider icon": { "v": [""] } } }, { "l": "oc", "t": { "Provider icon": { "v": [""] } } }, { "l": "pl", "t": { "Provider icon": { "v": ["Dostawca ikony"] } } }, { "l": "ps", "t": { "Provider icon": { "v": [""] } } }, { "l": "pt_BR", "t": { "Provider icon": { "v": ["Ícone do provedor"] } } }, { "l": "pt_PT", "t": { "Provider icon": { "v": ["Icon do fornecedor"] } } }, { "l": "ro", "t": { "Provider icon": { "v": ["Provider pentru icon"] } } }, { "l": "ru", "t": { "Provider icon": { "v": ["Значок поставщика"] } } }, { "l": "sc", "t": { "Provider icon": { "v": [""] } } }, { "l": "si", "t": { "Provider icon": { "v": [""] } } }, { "l": "sk", "t": { "Provider icon": { "v": [""] } } }, { "l": "sl", "t": { "Provider icon": { "v": [""] } } }, { "l": "sq", "t": { "Provider icon": { "v": [""] } } }, { "l": "sr", "t": { "Provider icon": { "v": ["Икона пружаоца"] } } }, { "l": "sr@latin", "t": { "Provider icon": { "v": [""] } } }, { "l": "sv", "t": { "Provider icon": { "v": ["Leverantörsikon"] } } }, { "l": "sw", "t": { "Provider icon": { "v": [""] } } }, { "l": "ta", "t": { "Provider icon": { "v": [""] } } }, { "l": "th", "t": { "Provider icon": { "v": [""] } } }, { "l": "tk", "t": { "Provider icon": { "v": [""] } } }, { "l": "tr", "t": { "Provider icon": { "v": ["Sağlayıcı simgesi"] } } }, { "l": "ug", "t": { "Provider icon": { "v": [""] } } }, { "l": "uk", "t": { "Provider icon": { "v": ["Піктограма постачальника"] } } }, { "l": "ur_PK", "t": { "Provider icon": { "v": [""] } } }, { "l": "uz", "t": { "Provider icon": { "v": [""] } } }, { "l": "vi", "t": { "Provider icon": { "v": [""] } } }, { "l": "zh_CN", "t": { "Provider icon": { "v": [""] } } }, { "l": "zh_HK", "t": { "Provider icon": { "v": ["提供者圖示"] } } }, { "l": "zh_TW", "t": { "Provider icon": { "v": ["提供者圖示"] } } }, { "l": "zu_ZA", "t": { "Provider icon": { "v": [""] } } }];
+const t34 = [{ "l": "af", "t": { "Search": { "v": [""] } } }, { "l": "ar", "t": { "Search": { "v": ["بحث"] } } }, { "l": "ast", "t": { "Search": { "v": ["Buscar"] } } }, { "l": "az", "t": { "Search": { "v": [""] } } }, { "l": "be", "t": { "Search": { "v": [""] } } }, { "l": "bg", "t": { "Search": { "v": [""] } } }, { "l": "bn_BD", "t": { "Search": { "v": [""] } } }, { "l": "br", "t": { "Search": { "v": ["Klask"] } } }, { "l": "bs", "t": { "Search": { "v": [""] } } }, { "l": "ca", "t": { "Search": { "v": ["Cerca"] } } }, { "l": "cs", "t": { "Search": { "v": ["Hledat"] } } }, { "l": "cs_CZ", "t": { "Search": { "v": ["Hledat"] } } }, { "l": "cy_GB", "t": { "Search": { "v": [""] } } }, { "l": "da", "t": { "Search": { "v": ["Søg"] } } }, { "l": "de", "t": { "Search": { "v": ["Suche"] } } }, { "l": "de_DE", "t": { "Search": { "v": ["Suche"] } } }, { "l": "el", "t": { "Search": { "v": ["Αναζήτηση"] } } }, { "l": "en_GB", "t": { "Search": { "v": ["Search"] } } }, { "l": "eo", "t": { "Search": { "v": ["Serĉi"] } } }, { "l": "es", "t": { "Search": { "v": ["Buscar"] } } }, { "l": "es_419", "t": { "Search": { "v": [""] } } }, { "l": "es_AR", "t": { "Search": { "v": [""] } } }, { "l": "es_CL", "t": { "Search": { "v": [""] } } }, { "l": "es_CO", "t": { "Search": { "v": [""] } } }, { "l": "es_CR", "t": { "Search": { "v": [""] } } }, { "l": "es_DO", "t": { "Search": { "v": [""] } } }, { "l": "es_EC", "t": { "Search": { "v": ["Buscar"] } } }, { "l": "es_GT", "t": { "Search": { "v": [""] } } }, { "l": "es_HN", "t": { "Search": { "v": [""] } } }, { "l": "es_MX", "t": { "Search": { "v": [""] } } }, { "l": "es_NI", "t": { "Search": { "v": [""] } } }, { "l": "es_PA", "t": { "Search": { "v": [""] } } }, { "l": "es_PE", "t": { "Search": { "v": [""] } } }, { "l": "es_PR", "t": { "Search": { "v": [""] } } }, { "l": "es_PY", "t": { "Search": { "v": [""] } } }, { "l": "es_SV", "t": { "Search": { "v": [""] } } }, { "l": "es_UY", "t": { "Search": { "v": [""] } } }, { "l": "et_EE", "t": { "Search": { "v": [""] } } }, { "l": "eu", "t": { "Search": { "v": ["Bilatu"] } } }, { "l": "fa", "t": { "Search": { "v": [""] } } }, { "l": "fi", "t": { "Search": { "v": ["Etsi"] } } }, { "l": "fo", "t": { "Search": { "v": [""] } } }, { "l": "fr", "t": { "Search": { "v": ["Chercher"] } } }, { "l": "gd", "t": { "Search": { "v": [""] } } }, { "l": "gl", "t": { "Search": { "v": ["Buscar"] } } }, { "l": "he", "t": { "Search": { "v": ["חיפוש"] } } }, { "l": "hi_IN", "t": { "Search": { "v": [""] } } }, { "l": "hr", "t": { "Search": { "v": [""] } } }, { "l": "hsb", "t": { "Search": { "v": [""] } } }, { "l": "hu", "t": { "Search": { "v": ["Keresés"] } } }, { "l": "hy", "t": { "Search": { "v": [""] } } }, { "l": "ia", "t": { "Search": { "v": [""] } } }, { "l": "id", "t": { "Search": { "v": ["Cari"] } } }, { "l": "ig", "t": { "Search": { "v": [""] } } }, { "l": "is", "t": { "Search": { "v": ["Leita"] } } }, { "l": "it", "t": { "Search": { "v": ["Cerca"] } } }, { "l": "ja", "t": { "Search": { "v": ["検索"] } } }, { "l": "ka", "t": { "Search": { "v": [""] } } }, { "l": "ka_GE", "t": { "Search": { "v": [""] } } }, { "l": "kab", "t": { "Search": { "v": [""] } } }, { "l": "kk", "t": { "Search": { "v": [""] } } }, { "l": "km", "t": { "Search": { "v": [""] } } }, { "l": "kn", "t": { "Search": { "v": [""] } } }, { "l": "ko", "t": { "Search": { "v": [""] } } }, { "l": "la", "t": { "Search": { "v": [""] } } }, { "l": "lb", "t": { "Search": { "v": [""] } } }, { "l": "lo", "t": { "Search": { "v": [""] } } }, { "l": "lt_LT", "t": { "Search": { "v": ["Ieškoti"] } } }, { "l": "lv", "t": { "Search": { "v": [""] } } }, { "l": "mk", "t": { "Search": { "v": ["Барај"] } } }, { "l": "mn", "t": { "Search": { "v": [""] } } }, { "l": "mr", "t": { "Search": { "v": [""] } } }, { "l": "ms_MY", "t": { "Search": { "v": [""] } } }, { "l": "my", "t": { "Search": { "v": ["ရှာဖွေရန်"] } } }, { "l": "nb", "t": { "Search": { "v": ["Søk"] } } }, { "l": "ne", "t": { "Search": { "v": [""] } } }, { "l": "nl", "t": { "Search": { "v": ["Zoeken"] } } }, { "l": "nn_NO", "t": { "Search": { "v": [""] } } }, { "l": "oc", "t": { "Search": { "v": [""] } } }, { "l": "pl", "t": { "Search": { "v": ["Szukaj"] } } }, { "l": "ps", "t": { "Search": { "v": [""] } } }, { "l": "pt_BR", "t": { "Search": { "v": ["Pesquisar"] } } }, { "l": "pt_PT", "t": { "Search": { "v": ["Pesquisar"] } } }, { "l": "ro", "t": { "Search": { "v": ["Căutare"] } } }, { "l": "ru", "t": { "Search": { "v": ["Поиск"] } } }, { "l": "sc", "t": { "Search": { "v": [""] } } }, { "l": "si", "t": { "Search": { "v": [""] } } }, { "l": "sk", "t": { "Search": { "v": ["Hľadať"] } } }, { "l": "sl", "t": { "Search": { "v": ["Iskanje"] } } }, { "l": "sq", "t": { "Search": { "v": [""] } } }, { "l": "sr", "t": { "Search": { "v": ["Претражи"] } } }, { "l": "sr@latin", "t": { "Search": { "v": [""] } } }, { "l": "sv", "t": { "Search": { "v": ["Sök"] } } }, { "l": "sw", "t": { "Search": { "v": [""] } } }, { "l": "ta", "t": { "Search": { "v": [""] } } }, { "l": "th", "t": { "Search": { "v": [""] } } }, { "l": "tk", "t": { "Search": { "v": [""] } } }, { "l": "tr", "t": { "Search": { "v": ["Arama"] } } }, { "l": "ug", "t": { "Search": { "v": [""] } } }, { "l": "uk", "t": { "Search": { "v": ["Пошук"] } } }, { "l": "ur_PK", "t": { "Search": { "v": [""] } } }, { "l": "uz", "t": { "Search": { "v": [""] } } }, { "l": "vi", "t": { "Search": { "v": [""] } } }, { "l": "zh_CN", "t": { "Search": { "v": ["搜索"] } } }, { "l": "zh_HK", "t": { "Search": { "v": ["搜尋"] } } }, { "l": "zh_TW", "t": { "Search": { "v": ["搜尋"] } } }, { "l": "zu_ZA", "t": { "Search": { "v": [""] } } }];
+const t35 = [{ "l": "af", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "ar", "t": { "Search for time zone": { "v": ["البحث عن منطقة زمنية"] }, "Type to search time zone": { "v": ["أكتُب للبحث عن منطقة زمنية"] } } }, { "l": "ast", "t": { "Search for time zone": { "v": ["Buscar fusos horarios"] }, "Type to search time zone": { "v": ["Escribi pa buscar un fusu horariu"] } } }, { "l": "az", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "be", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "bg", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "bn_BD", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "br", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "bs", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "ca", "t": { "Type to search time zone": { "v": ["Escriviu per cercar la zona horària"] } } }, { "l": "cs", "t": { "Type to search time zone": { "v": ["Psaním vyhledejte časovou zónu"] } } }, { "l": "cs_CZ", "t": { "Search for time zone": { "v": ["Vyhledat časové pásmo"] }, "Type to search time zone": { "v": ["Psaním vyhledejte časovou zónu"] } } }, { "l": "cy_GB", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "da", "t": { "Type to search time zone": { "v": ["Indtast for at søge efter tidszone"] } } }, { "l": "de", "t": { "Search for time zone": { "v": ["Nach Zeitzone suchen"] }, "Type to search time zone": { "v": ["Tippen, um Zeitzone zu suchen"] } } }, { "l": "de_DE", "t": { "Search for time zone": { "v": ["Nach Zeitzone suchen"] }, "Type to search time zone": { "v": ["Tippen, um eine Zeitzone zu suchen"] } } }, { "l": "el", "t": { "Type to search time zone": { "v": ["Πληκτρολογήστε για αναζήτηση ζώνης ώρας"] } } }, { "l": "en_GB", "t": { "Type to search time zone": { "v": ["Type to search time zone"] } } }, { "l": "eo", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "es", "t": { "Search for time zone": { "v": ["Buscar huso horario"] }, "Type to search time zone": { "v": ["Escriba para buscar un huso horario"] } } }, { "l": "es_419", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "es_AR", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "es_CL", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "es_CO", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "es_CR", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "es_DO", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "es_EC", "t": { "Type to search time zone": { "v": ["Escribe para buscar la zona horaria"] } } }, { "l": "es_GT", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "es_HN", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "es_MX", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "es_NI", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "es_PA", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "es_PE", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "es_PR", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "es_PY", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "es_SV", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "es_UY", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "et_EE", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "eu", "t": { "Type to search time zone": { "v": ["Idatzi ordu-zona bat bilatzeko"] } } }, { "l": "fa", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "fi", "t": { "Type to search time zone": { "v": ["Kirjoita etsiäksesi aikavyöhyke"] } } }, { "l": "fo", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "fr", "t": { "Search for time zone": { "v": ["Rechercher le fuseau horaire"] }, "Type to search time zone": { "v": ["Saisissez les premiers lettres pour rechercher un fuseau horaire"] } } }, { "l": "gd", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "gl", "t": { "Search for time zone": { "v": ["Buscar por fuso horario"] }, "Type to search time zone": { "v": ["Escriba para buscar o fuso horario"] } } }, { "l": "he", "t": { "Type to search time zone": { "v": ["יש להקליד כדי לחפש אזור זמן"] } } }, { "l": "hi_IN", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "hr", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "hsb", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "hu", "t": { "Type to search time zone": { "v": ["Gépeljen az időzóna kereséséhez"] } } }, { "l": "hy", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "ia", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "id", "t": { "Search for time zone": { "v": ["Cari zona waktu"] }, "Type to search time zone": { "v": ["Ketik untuk mencari zona waktu"] } } }, { "l": "ig", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "is", "t": { "Search for time zone": { "v": ["Leita að tímabelti"] }, "Type to search time zone": { "v": ["Skrifaðu til að leita að tímabelti"] } } }, { "l": "it", "t": { "Search for time zone": { "v": ["Ricerca del fuso orario"] }, "Type to search time zone": { "v": ["Digita per cercare un fuso orario"] } } }, { "l": "ja", "t": { "Type to search time zone": { "v": ["タイムゾーン検索のため入力してください"] } } }, { "l": "ka", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "ka_GE", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "kab", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "kk", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "km", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "kn", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "ko", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "la", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "lb", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "lo", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "lt_LT", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "lv", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "mk", "t": { "Type to search time zone": { "v": ["Напишете за да пребарате временска зона"] } } }, { "l": "mn", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "mr", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "ms_MY", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "my", "t": { "Type to search time zone": { "v": ["ဒေသစံတော်ချိန်များ ရှာဖွေရန် စာရိုက်ပါ"] } } }, { "l": "nb", "t": { "Type to search time zone": { "v": ["Tast for å søke etter tidssone"] } } }, { "l": "ne", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "nl", "t": { "Type to search time zone": { "v": ["Type om een tijdzone te zoeken"] } } }, { "l": "nn_NO", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "oc", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "pl", "t": { "Search for time zone": { "v": ["Szukaj strefy czasowej"] }, "Type to search time zone": { "v": ["Wpisz, aby wyszukać strefę czasową"] } } }, { "l": "ps", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "pt_BR", "t": { "Search for time zone": { "v": ["Pesquisar fuso horário"] }, "Type to search time zone": { "v": ["Digite para pesquisar o fuso horário "] } } }, { "l": "pt_PT", "t": { "Type to search time zone": { "v": ["Digite para pesquisar o fuso horário "] } } }, { "l": "ro", "t": { "Search for time zone": { "v": ["Căutare zonă de timp"] }, "Type to search time zone": { "v": ["Tastați pentru a căuta fusul orar"] } } }, { "l": "ru", "t": { "Type to search time zone": { "v": ["Введите для поиска часового пояса"] } } }, { "l": "sc", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "si", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "sk", "t": { "Type to search time zone": { "v": ["Začníte písať pre vyhľadávanie časovej zóny"] } } }, { "l": "sl", "t": { "Type to search time zone": { "v": ["Vpišite niz za iskanje časovnega pasu"] } } }, { "l": "sq", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "sr", "t": { "Search for time zone": { "v": ["Претрага временске зоне"] }, "Type to search time zone": { "v": ["Куцајте да претражите временске зоне"] } } }, { "l": "sr@latin", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "sv", "t": { "Search for time zone": { "v": ["Sök efter tidszon"] }, "Type to search time zone": { "v": ["Skriv för att välja tidszon"] } } }, { "l": "sw", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "ta", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "th", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "tk", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "tr", "t": { "Search for time zone": { "v": ["Saat dilimi ara"] }, "Type to search time zone": { "v": ["Saat dilimi aramak için yazmaya başlayın"] } } }, { "l": "ug", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "uk", "t": { "Search for time zone": { "v": ["Шукати часові зони"] }, "Type to search time zone": { "v": ["Введіть для пошуку часовий пояс"] } } }, { "l": "ur_PK", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "uz", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "vi", "t": { "Type to search time zone": { "v": [""] } } }, { "l": "zh_CN", "t": { "Type to search time zone": { "v": ["打字以搜索时区"] } } }, { "l": "zh_HK", "t": { "Type to search time zone": { "v": ["鍵入以搜索時區"] } } }, { "l": "zh_TW", "t": { "Type to search time zone": { "v": ["輸入以搜尋時區"] } } }, { "l": "zu_ZA", "t": { "Type to search time zone": { "v": [""] } } }];
+const t36 = [{ "l": "af", "t": { "Select provider": { "v": [""] } } }, { "l": "ar", "t": { "Select provider": { "v": ["إختَر مٌزوِّداً"] } } }, { "l": "ast", "t": { "Select provider": { "v": ["Seleicionar el fornidor"] } } }, { "l": "az", "t": { "Select provider": { "v": [""] } } }, { "l": "be", "t": { "Select provider": { "v": [""] } } }, { "l": "bg", "t": { "Select provider": { "v": [""] } } }, { "l": "bn_BD", "t": { "Select provider": { "v": [""] } } }, { "l": "br", "t": { "Select provider": { "v": [""] } } }, { "l": "bs", "t": { "Select provider": { "v": [""] } } }, { "l": "ca", "t": { "Select provider": { "v": [""] } } }, { "l": "cs", "t": { "Select provider": { "v": ["Vybrat poskytovatele"] } } }, { "l": "cs_CZ", "t": { "Select provider": { "v": ["Vybrat poskytovatele"] } } }, { "l": "cy_GB", "t": { "Select provider": { "v": [""] } } }, { "l": "da", "t": { "Select provider": { "v": [""] } } }, { "l": "de", "t": { "Select provider": { "v": ["Anbieter auswählen"] } } }, { "l": "de_DE", "t": { "Select provider": { "v": ["Anbieter auswählen"] } } }, { "l": "el", "t": { "Select provider": { "v": [""] } } }, { "l": "en_GB", "t": { "Select provider": { "v": ["Select provider"] } } }, { "l": "eo", "t": { "Select provider": { "v": [""] } } }, { "l": "es", "t": { "Select provider": { "v": ["Seleccione proveedor"] } } }, { "l": "es_419", "t": { "Select provider": { "v": [""] } } }, { "l": "es_AR", "t": { "Select provider": { "v": [""] } } }, { "l": "es_CL", "t": { "Select provider": { "v": [""] } } }, { "l": "es_CO", "t": { "Select provider": { "v": [""] } } }, { "l": "es_CR", "t": { "Select provider": { "v": [""] } } }, { "l": "es_DO", "t": { "Select provider": { "v": [""] } } }, { "l": "es_EC", "t": { "Select provider": { "v": ["Seleccionar proveedor"] } } }, { "l": "es_GT", "t": { "Select provider": { "v": [""] } } }, { "l": "es_HN", "t": { "Select provider": { "v": [""] } } }, { "l": "es_MX", "t": { "Select provider": { "v": [""] } } }, { "l": "es_NI", "t": { "Select provider": { "v": [""] } } }, { "l": "es_PA", "t": { "Select provider": { "v": [""] } } }, { "l": "es_PE", "t": { "Select provider": { "v": [""] } } }, { "l": "es_PR", "t": { "Select provider": { "v": [""] } } }, { "l": "es_PY", "t": { "Select provider": { "v": [""] } } }, { "l": "es_SV", "t": { "Select provider": { "v": [""] } } }, { "l": "es_UY", "t": { "Select provider": { "v": [""] } } }, { "l": "et_EE", "t": { "Select provider": { "v": [""] } } }, { "l": "eu", "t": { "Select provider": { "v": ["Hautatu hornitzailea"] } } }, { "l": "fa", "t": { "Select provider": { "v": [""] } } }, { "l": "fi", "t": { "Select provider": { "v": [""] } } }, { "l": "fo", "t": { "Select provider": { "v": [""] } } }, { "l": "fr", "t": { "Select provider": { "v": ["Sélectionner un fournisseur"] } } }, { "l": "gd", "t": { "Select provider": { "v": [""] } } }, { "l": "gl", "t": { "Select provider": { "v": ["Seleccionar provedor"] } } }, { "l": "he", "t": { "Select provider": { "v": ["בחירת ספק"] } } }, { "l": "hi_IN", "t": { "Select provider": { "v": [""] } } }, { "l": "hr", "t": { "Select provider": { "v": [""] } } }, { "l": "hsb", "t": { "Select provider": { "v": [""] } } }, { "l": "hu", "t": { "Select provider": { "v": [""] } } }, { "l": "hy", "t": { "Select provider": { "v": [""] } } }, { "l": "ia", "t": { "Select provider": { "v": [""] } } }, { "l": "id", "t": { "Select provider": { "v": ["Pilih penyedia"] } } }, { "l": "ig", "t": { "Select provider": { "v": [""] } } }, { "l": "is", "t": { "Select provider": { "v": ["Veldu þjónustuveitu"] } } }, { "l": "it", "t": { "Select provider": { "v": ["Selezionare il provider"] } } }, { "l": "ja", "t": { "Select provider": { "v": [""] } } }, { "l": "ka", "t": { "Select provider": { "v": [""] } } }, { "l": "ka_GE", "t": { "Select provider": { "v": [""] } } }, { "l": "kab", "t": { "Select provider": { "v": [""] } } }, { "l": "kk", "t": { "Select provider": { "v": [""] } } }, { "l": "km", "t": { "Select provider": { "v": [""] } } }, { "l": "kn", "t": { "Select provider": { "v": [""] } } }, { "l": "ko", "t": { "Select provider": { "v": [""] } } }, { "l": "la", "t": { "Select provider": { "v": [""] } } }, { "l": "lb", "t": { "Select provider": { "v": [""] } } }, { "l": "lo", "t": { "Select provider": { "v": [""] } } }, { "l": "lt_LT", "t": { "Select provider": { "v": [""] } } }, { "l": "lv", "t": { "Select provider": { "v": [""] } } }, { "l": "mk", "t": { "Select provider": { "v": [""] } } }, { "l": "mn", "t": { "Select provider": { "v": [""] } } }, { "l": "mr", "t": { "Select provider": { "v": [""] } } }, { "l": "ms_MY", "t": { "Select provider": { "v": [""] } } }, { "l": "my", "t": { "Select provider": { "v": [""] } } }, { "l": "nb", "t": { "Select provider": { "v": [""] } } }, { "l": "ne", "t": { "Select provider": { "v": [""] } } }, { "l": "nl", "t": { "Select provider": { "v": ["Selecteer provider"] } } }, { "l": "nn_NO", "t": { "Select provider": { "v": [""] } } }, { "l": "oc", "t": { "Select provider": { "v": [""] } } }, { "l": "pl", "t": { "Select provider": { "v": ["Wybierz dostawcę"] } } }, { "l": "ps", "t": { "Select provider": { "v": [""] } } }, { "l": "pt_BR", "t": { "Select provider": { "v": ["Selecione o provedor"] } } }, { "l": "pt_PT", "t": { "Select provider": { "v": ["Escolha de fornecedor"] } } }, { "l": "ro", "t": { "Select provider": { "v": ["Selectați providerul"] } } }, { "l": "ru", "t": { "Select provider": { "v": ["Выбрать поставщика"] } } }, { "l": "sc", "t": { "Select provider": { "v": [""] } } }, { "l": "si", "t": { "Select provider": { "v": [""] } } }, { "l": "sk", "t": { "Select provider": { "v": [""] } } }, { "l": "sl", "t": { "Select provider": { "v": [""] } } }, { "l": "sq", "t": { "Select provider": { "v": [""] } } }, { "l": "sr", "t": { "Select provider": { "v": ["Изаберите пружаоца"] } } }, { "l": "sr@latin", "t": { "Select provider": { "v": [""] } } }, { "l": "sv", "t": { "Select provider": { "v": ["Välj leverantör"] } } }, { "l": "sw", "t": { "Select provider": { "v": [""] } } }, { "l": "ta", "t": { "Select provider": { "v": [""] } } }, { "l": "th", "t": { "Select provider": { "v": [""] } } }, { "l": "tk", "t": { "Select provider": { "v": [""] } } }, { "l": "tr", "t": { "Select provider": { "v": ["Sağlayıcı seçin"] } } }, { "l": "ug", "t": { "Select provider": { "v": [""] } } }, { "l": "uk", "t": { "Select provider": { "v": ["Виберіть постачальника"] } } }, { "l": "ur_PK", "t": { "Select provider": { "v": [""] } } }, { "l": "uz", "t": { "Select provider": { "v": [""] } } }, { "l": "vi", "t": { "Select provider": { "v": [""] } } }, { "l": "zh_CN", "t": { "Select provider": { "v": [""] } } }, { "l": "zh_HK", "t": { "Select provider": { "v": ["選擇提供者"] } } }, { "l": "zh_TW", "t": { "Select provider": { "v": ["選取提供者"] } } }, { "l": "zu_ZA", "t": { "Select provider": { "v": [""] } } }];
+const t37 = [{ "l": "af", "t": { "Settings": { "v": [""] } } }, { "l": "ar", "t": { "Settings": { "v": ["الإعدادات"] } } }, { "l": "ast", "t": { "Settings": { "v": ["Configuración"] } } }, { "l": "az", "t": { "Settings": { "v": [""] } } }, { "l": "be", "t": { "Settings": { "v": [""] } } }, { "l": "bg", "t": { "Settings": { "v": [""] } } }, { "l": "bn_BD", "t": { "Settings": { "v": [""] } } }, { "l": "br", "t": { "Settings": { "v": ["Arventennoù"] } } }, { "l": "bs", "t": { "Settings": { "v": [""] } } }, { "l": "ca", "t": { "Settings": { "v": ["Paràmetres"] } } }, { "l": "cs", "t": { "Settings": { "v": ["Nastavení"] } } }, { "l": "cs_CZ", "t": { "Settings": { "v": ["Nastavení"] } } }, { "l": "cy_GB", "t": { "Settings": { "v": [""] } } }, { "l": "da", "t": { "Settings": { "v": ["Indstillinger"] } } }, { "l": "de", "t": { "Settings": { "v": ["Einstellungen"] } } }, { "l": "de_DE", "t": { "Settings": { "v": ["Einstellungen"] } } }, { "l": "el", "t": { "Settings": { "v": ["Ρυθμίσεις"] } } }, { "l": "en_GB", "t": { "Settings": { "v": ["Settings"] } } }, { "l": "eo", "t": { "Settings": { "v": ["Agordo"] } } }, { "l": "es", "t": { "Settings": { "v": ["Ajustes"] } } }, { "l": "es_419", "t": { "Settings": { "v": [""] } } }, { "l": "es_AR", "t": { "Settings": { "v": [""] } } }, { "l": "es_CL", "t": { "Settings": { "v": [""] } } }, { "l": "es_CO", "t": { "Settings": { "v": [""] } } }, { "l": "es_CR", "t": { "Settings": { "v": [""] } } }, { "l": "es_DO", "t": { "Settings": { "v": [""] } } }, { "l": "es_EC", "t": { "Settings": { "v": ["Configuraciones"] } } }, { "l": "es_GT", "t": { "Settings": { "v": [""] } } }, { "l": "es_HN", "t": { "Settings": { "v": [""] } } }, { "l": "es_MX", "t": { "Settings": { "v": [""] } } }, { "l": "es_NI", "t": { "Settings": { "v": [""] } } }, { "l": "es_PA", "t": { "Settings": { "v": [""] } } }, { "l": "es_PE", "t": { "Settings": { "v": [""] } } }, { "l": "es_PR", "t": { "Settings": { "v": [""] } } }, { "l": "es_PY", "t": { "Settings": { "v": [""] } } }, { "l": "es_SV", "t": { "Settings": { "v": [""] } } }, { "l": "es_UY", "t": { "Settings": { "v": [""] } } }, { "l": "et_EE", "t": { "Settings": { "v": [""] } } }, { "l": "eu", "t": { "Settings": { "v": ["Ezarpenak"] } } }, { "l": "fa", "t": { "Settings": { "v": [""] } } }, { "l": "fi", "t": { "Settings": { "v": ["Asetukset"] } } }, { "l": "fo", "t": { "Settings": { "v": [""] } } }, { "l": "fr", "t": { "Settings": { "v": ["Paramètres"] } } }, { "l": "gd", "t": { "Settings": { "v": [""] } } }, { "l": "gl", "t": { "Settings": { "v": ["Axustes"] } } }, { "l": "he", "t": { "Settings": { "v": ["הגדרות"] } } }, { "l": "hi_IN", "t": { "Settings": { "v": [""] } } }, { "l": "hr", "t": { "Settings": { "v": [""] } } }, { "l": "hsb", "t": { "Settings": { "v": [""] } } }, { "l": "hu", "t": { "Settings": { "v": ["Beállítások"] } } }, { "l": "hy", "t": { "Settings": { "v": [""] } } }, { "l": "ia", "t": { "Settings": { "v": [""] } } }, { "l": "id", "t": { "Settings": { "v": ["Pengaturan"] } } }, { "l": "ig", "t": { "Settings": { "v": [""] } } }, { "l": "is", "t": { "Settings": { "v": ["Stillingar"] } } }, { "l": "it", "t": { "Settings": { "v": ["Impostazioni"] } } }, { "l": "ja", "t": { "Settings": { "v": ["設定"] } } }, { "l": "ka", "t": { "Settings": { "v": [""] } } }, { "l": "ka_GE", "t": { "Settings": { "v": [""] } } }, { "l": "kab", "t": { "Settings": { "v": [""] } } }, { "l": "kk", "t": { "Settings": { "v": [""] } } }, { "l": "km", "t": { "Settings": { "v": [""] } } }, { "l": "kn", "t": { "Settings": { "v": [""] } } }, { "l": "ko", "t": { "Settings": { "v": [""] } } }, { "l": "la", "t": { "Settings": { "v": [""] } } }, { "l": "lb", "t": { "Settings": { "v": [""] } } }, { "l": "lo", "t": { "Settings": { "v": [""] } } }, { "l": "lt_LT", "t": { "Settings": { "v": ["Nustatymai"] } } }, { "l": "lv", "t": { "Settings": { "v": ["Iestatījumi"] } } }, { "l": "mk", "t": { "Settings": { "v": ["Параметри"] } } }, { "l": "mn", "t": { "Settings": { "v": [""] } } }, { "l": "mr", "t": { "Settings": { "v": [""] } } }, { "l": "ms_MY", "t": { "Settings": { "v": [""] } } }, { "l": "my", "t": { "Settings": { "v": ["ချိန်ညှိချက်များ"] } } }, { "l": "nb", "t": { "Settings": { "v": ["Innstillinger"] } } }, { "l": "ne", "t": { "Settings": { "v": [""] } } }, { "l": "nl", "t": { "Settings": { "v": ["Instellingen"] } } }, { "l": "nn_NO", "t": { "Settings": { "v": [""] } } }, { "l": "oc", "t": { "Settings": { "v": ["Paramètres"] } } }, { "l": "pl", "t": { "Settings": { "v": ["Ustawienia"] } } }, { "l": "ps", "t": { "Settings": { "v": [""] } } }, { "l": "pt_BR", "t": { "Settings": { "v": ["Configurações"] } } }, { "l": "pt_PT", "t": { "Settings": { "v": ["Definições"] } } }, { "l": "ro", "t": { "Settings": { "v": ["Setări"] } } }, { "l": "ru", "t": { "Settings": { "v": ["Параметры"] } } }, { "l": "sc", "t": { "Settings": { "v": [""] } } }, { "l": "si", "t": { "Settings": { "v": [""] } } }, { "l": "sk", "t": { "Settings": { "v": ["Nastavenia"] } } }, { "l": "sl", "t": { "Settings": { "v": ["Nastavitve"] } } }, { "l": "sq", "t": { "Settings": { "v": [""] } } }, { "l": "sr", "t": { "Settings": { "v": ["Поставке"] } } }, { "l": "sr@latin", "t": { "Settings": { "v": [""] } } }, { "l": "sv", "t": { "Settings": { "v": ["Inställningar"] } } }, { "l": "sw", "t": { "Settings": { "v": [""] } } }, { "l": "ta", "t": { "Settings": { "v": [""] } } }, { "l": "th", "t": { "Settings": { "v": [""] } } }, { "l": "tk", "t": { "Settings": { "v": [""] } } }, { "l": "tr", "t": { "Settings": { "v": ["Ayarlar"] } } }, { "l": "ug", "t": { "Settings": { "v": [""] } } }, { "l": "uk", "t": { "Settings": { "v": ["Налаштування"] } } }, { "l": "ur_PK", "t": { "Settings": { "v": [""] } } }, { "l": "uz", "t": { "Settings": { "v": [""] } } }, { "l": "vi", "t": { "Settings": { "v": [""] } } }, { "l": "zh_CN", "t": { "Settings": { "v": ["设置"] } } }, { "l": "zh_HK", "t": { "Settings": { "v": ["設定"] } } }, { "l": "zh_TW", "t": { "Settings": { "v": ["設定"] } } }, { "l": "zu_ZA", "t": { "Settings": { "v": [""] } } }];
+const t38 = [{ "l": "af", "t": { "Settings navigation": { "v": [""] } } }, { "l": "ar", "t": { "Settings navigation": { "v": ["إعدادات التّصفُّح"] } } }, { "l": "ast", "t": { "Settings navigation": { "v": ["Navegación pela configuración"] } } }, { "l": "az", "t": { "Settings navigation": { "v": [""] } } }, { "l": "be", "t": { "Settings navigation": { "v": [""] } } }, { "l": "bg", "t": { "Settings navigation": { "v": [""] } } }, { "l": "bn_BD", "t": { "Settings navigation": { "v": [""] } } }, { "l": "br", "t": { "Settings navigation": { "v": [""] } } }, { "l": "bs", "t": { "Settings navigation": { "v": [""] } } }, { "l": "ca", "t": { "Settings navigation": { "v": ["Navegació d'opcions"] } } }, { "l": "cs", "t": { "Settings navigation": { "v": ["Pohyb po nastavení"] } } }, { "l": "cs_CZ", "t": { "Settings navigation": { "v": ["Pohyb po nastavení"] } } }, { "l": "cy_GB", "t": { "Settings navigation": { "v": [""] } } }, { "l": "da", "t": { "Settings navigation": { "v": ["Naviger i indstillinger"] } } }, { "l": "de", "t": { "Settings navigation": { "v": ["Einstellungen für die Navigation"] } } }, { "l": "de_DE", "t": { "Settings navigation": { "v": ["Einstellungen für die Navigation"] } } }, { "l": "el", "t": { "Settings navigation": { "v": ["Πλοήγηση ρυθμίσεων"] } } }, { "l": "en_GB", "t": { "Settings navigation": { "v": ["Settings navigation"] } } }, { "l": "eo", "t": { "Settings navigation": { "v": ["Agorda navigado"] } } }, { "l": "es", "t": { "Settings navigation": { "v": ["Navegación de ajustes"] } } }, { "l": "es_419", "t": { "Settings navigation": { "v": [""] } } }, { "l": "es_AR", "t": { "Settings navigation": { "v": [""] } } }, { "l": "es_CL", "t": { "Settings navigation": { "v": [""] } } }, { "l": "es_CO", "t": { "Settings navigation": { "v": [""] } } }, { "l": "es_CR", "t": { "Settings navigation": { "v": [""] } } }, { "l": "es_DO", "t": { "Settings navigation": { "v": [""] } } }, { "l": "es_EC", "t": { "Settings navigation": { "v": ["Navegación de configuraciones"] } } }, { "l": "es_GT", "t": { "Settings navigation": { "v": [""] } } }, { "l": "es_HN", "t": { "Settings navigation": { "v": [""] } } }, { "l": "es_MX", "t": { "Settings navigation": { "v": [""] } } }, { "l": "es_NI", "t": { "Settings navigation": { "v": [""] } } }, { "l": "es_PA", "t": { "Settings navigation": { "v": [""] } } }, { "l": "es_PE", "t": { "Settings navigation": { "v": [""] } } }, { "l": "es_PR", "t": { "Settings navigation": { "v": [""] } } }, { "l": "es_PY", "t": { "Settings navigation": { "v": [""] } } }, { "l": "es_SV", "t": { "Settings navigation": { "v": [""] } } }, { "l": "es_UY", "t": { "Settings navigation": { "v": [""] } } }, { "l": "et_EE", "t": { "Settings navigation": { "v": [""] } } }, { "l": "eu", "t": { "Settings navigation": { "v": ["Nabigazio ezarpenak"] } } }, { "l": "fa", "t": { "Settings navigation": { "v": [""] } } }, { "l": "fi", "t": { "Settings navigation": { "v": ["Asetusnavigaatio"] } } }, { "l": "fo", "t": { "Settings navigation": { "v": [""] } } }, { "l": "fr", "t": { "Settings navigation": { "v": ["Navigation dans les paramètres"] } } }, { "l": "gd", "t": { "Settings navigation": { "v": [""] } } }, { "l": "gl", "t": { "Settings navigation": { "v": ["Navegación polos axustes"] } } }, { "l": "he", "t": { "Settings navigation": { "v": ["ניווט בהגדרות"] } } }, { "l": "hi_IN", "t": { "Settings navigation": { "v": [""] } } }, { "l": "hr", "t": { "Settings navigation": { "v": [""] } } }, { "l": "hsb", "t": { "Settings navigation": { "v": [""] } } }, { "l": "hu", "t": { "Settings navigation": { "v": ["Navigáció a beállításokban"] } } }, { "l": "hy", "t": { "Settings navigation": { "v": [""] } } }, { "l": "ia", "t": { "Settings navigation": { "v": [""] } } }, { "l": "id", "t": { "Settings navigation": { "v": ["Navigasi pengaturan"] } } }, { "l": "ig", "t": { "Settings navigation": { "v": [""] } } }, { "l": "is", "t": { "Settings navigation": { "v": ["Flakk um stillingar"] } } }, { "l": "it", "t": { "Settings navigation": { "v": ["Navigazione delle impostazioni"] } } }, { "l": "ja", "t": { "Settings navigation": { "v": ["ナビゲーション設定"] } } }, { "l": "ka", "t": { "Settings navigation": { "v": [""] } } }, { "l": "ka_GE", "t": { "Settings navigation": { "v": [""] } } }, { "l": "kab", "t": { "Settings navigation": { "v": [""] } } }, { "l": "kk", "t": { "Settings navigation": { "v": [""] } } }, { "l": "km", "t": { "Settings navigation": { "v": [""] } } }, { "l": "kn", "t": { "Settings navigation": { "v": [""] } } }, { "l": "ko", "t": { "Settings navigation": { "v": [""] } } }, { "l": "la", "t": { "Settings navigation": { "v": [""] } } }, { "l": "lb", "t": { "Settings navigation": { "v": [""] } } }, { "l": "lo", "t": { "Settings navigation": { "v": [""] } } }, { "l": "lt_LT", "t": { "Settings navigation": { "v": ["Naršymas nustatymuose"] } } }, { "l": "lv", "t": { "Settings navigation": { "v": [""] } } }, { "l": "mk", "t": { "Settings navigation": { "v": ["Параметри за навигација"] } } }, { "l": "mn", "t": { "Settings navigation": { "v": [""] } } }, { "l": "mr", "t": { "Settings navigation": { "v": [""] } } }, { "l": "ms_MY", "t": { "Settings navigation": { "v": [""] } } }, { "l": "my", "t": { "Settings navigation": { "v": ["ချိန်ညှိချက်အညွှန်း"] } } }, { "l": "nb", "t": { "Settings navigation": { "v": ["Navigasjonsinstillinger"] } } }, { "l": "ne", "t": { "Settings navigation": { "v": [""] } } }, { "l": "nl", "t": { "Settings navigation": { "v": ["Instellingen navigatie"] } } }, { "l": "nn_NO", "t": { "Settings navigation": { "v": [""] } } }, { "l": "oc", "t": { "Settings navigation": { "v": [""] } } }, { "l": "pl", "t": { "Settings navigation": { "v": ["Ustawienia nawigacji"] } } }, { "l": "ps", "t": { "Settings navigation": { "v": [""] } } }, { "l": "pt_BR", "t": { "Settings navigation": { "v": ["Navegação de configurações"] } } }, { "l": "pt_PT", "t": { "Settings navigation": { "v": ["Navegação de configurações"] } } }, { "l": "ro", "t": { "Settings navigation": { "v": ["Navigare setări"] } } }, { "l": "ru", "t": { "Settings navigation": { "v": ["Навигация по настройкам"] } } }, { "l": "sc", "t": { "Settings navigation": { "v": [""] } } }, { "l": "si", "t": { "Settings navigation": { "v": [""] } } }, { "l": "sk", "t": { "Settings navigation": { "v": ["Navigácia v nastaveniach"] } } }, { "l": "sl", "t": { "Settings navigation": { "v": ["Krmarjenje nastavitev"] } } }, { "l": "sq", "t": { "Settings navigation": { "v": [""] } } }, { "l": "sr", "t": { "Settings navigation": { "v": ["Кретање по подешавањима"] } } }, { "l": "sr@latin", "t": { "Settings navigation": { "v": [""] } } }, { "l": "sv", "t": { "Settings navigation": { "v": ["Inställningsmeny"] } } }, { "l": "sw", "t": { "Settings navigation": { "v": [""] } } }, { "l": "ta", "t": { "Settings navigation": { "v": [""] } } }, { "l": "th", "t": { "Settings navigation": { "v": [""] } } }, { "l": "tk", "t": { "Settings navigation": { "v": [""] } } }, { "l": "tr", "t": { "Settings navigation": { "v": ["Gezinme ayarları"] } } }, { "l": "ug", "t": { "Settings navigation": { "v": [""] } } }, { "l": "uk", "t": { "Settings navigation": { "v": ["Навігація у налаштуваннях"] } } }, { "l": "ur_PK", "t": { "Settings navigation": { "v": [""] } } }, { "l": "uz", "t": { "Settings navigation": { "v": [""] } } }, { "l": "vi", "t": { "Settings navigation": { "v": [""] } } }, { "l": "zh_CN", "t": { "Settings navigation": { "v": ["设置向导"] } } }, { "l": "zh_HK", "t": { "Settings navigation": { "v": ["設定值導覽"] } } }, { "l": "zh_TW", "t": { "Settings navigation": { "v": ["設定值導覽"] } } }, { "l": "zu_ZA", "t": { "Settings navigation": { "v": [""] } } }];
+const t39 = [{ "l": "af", "t": { "Submit": { "v": [""] } } }, { "l": "ar", "t": { "Submit": { "v": ["إرسال"] } } }, { "l": "ast", "t": { "Submit": { "v": ["Unviar"] } } }, { "l": "az", "t": { "Submit": { "v": [""] } } }, { "l": "be", "t": { "Submit": { "v": [""] } } }, { "l": "bg", "t": { "Submit": { "v": [""] } } }, { "l": "bn_BD", "t": { "Submit": { "v": [""] } } }, { "l": "br", "t": { "Submit": { "v": [""] } } }, { "l": "bs", "t": { "Submit": { "v": [""] } } }, { "l": "ca", "t": { "Submit": { "v": ["Envia"] } } }, { "l": "cs", "t": { "Submit": { "v": ["Odeslat"] } } }, { "l": "cs_CZ", "t": { "Submit": { "v": ["Odeslat"] } } }, { "l": "cy_GB", "t": { "Submit": { "v": [""] } } }, { "l": "da", "t": { "Submit": { "v": ["Send"] } } }, { "l": "de", "t": { "Submit": { "v": ["Einreichen"] } } }, { "l": "de_DE", "t": { "Submit": { "v": ["Einreichen"] } } }, { "l": "el", "t": { "Submit": { "v": ["Υποβολή"] } } }, { "l": "en_GB", "t": { "Submit": { "v": ["Submit"] } } }, { "l": "eo", "t": { "Submit": { "v": [""] } } }, { "l": "es", "t": { "Submit": { "v": ["Enviar"] } } }, { "l": "es_419", "t": { "Submit": { "v": [""] } } }, { "l": "es_AR", "t": { "Submit": { "v": [""] } } }, { "l": "es_CL", "t": { "Submit": { "v": [""] } } }, { "l": "es_CO", "t": { "Submit": { "v": [""] } } }, { "l": "es_CR", "t": { "Submit": { "v": [""] } } }, { "l": "es_DO", "t": { "Submit": { "v": [""] } } }, { "l": "es_EC", "t": { "Submit": { "v": ["Enviar"] } } }, { "l": "es_GT", "t": { "Submit": { "v": [""] } } }, { "l": "es_HN", "t": { "Submit": { "v": [""] } } }, { "l": "es_MX", "t": { "Submit": { "v": [""] } } }, { "l": "es_NI", "t": { "Submit": { "v": [""] } } }, { "l": "es_PA", "t": { "Submit": { "v": [""] } } }, { "l": "es_PE", "t": { "Submit": { "v": [""] } } }, { "l": "es_PR", "t": { "Submit": { "v": [""] } } }, { "l": "es_PY", "t": { "Submit": { "v": [""] } } }, { "l": "es_SV", "t": { "Submit": { "v": [""] } } }, { "l": "es_UY", "t": { "Submit": { "v": [""] } } }, { "l": "et_EE", "t": { "Submit": { "v": [""] } } }, { "l": "eu", "t": { "Submit": { "v": ["Bidali"] } } }, { "l": "fa", "t": { "Submit": { "v": [""] } } }, { "l": "fi", "t": { "Submit": { "v": ["Lähetä"] } } }, { "l": "fo", "t": { "Submit": { "v": [""] } } }, { "l": "fr", "t": { "Submit": { "v": ["Valider"] } } }, { "l": "gd", "t": { "Submit": { "v": [""] } } }, { "l": "gl", "t": { "Submit": { "v": ["Enviar"] } } }, { "l": "he", "t": { "Submit": { "v": ["הגשה"] } } }, { "l": "hi_IN", "t": { "Submit": { "v": [""] } } }, { "l": "hr", "t": { "Submit": { "v": [""] } } }, { "l": "hsb", "t": { "Submit": { "v": [""] } } }, { "l": "hu", "t": { "Submit": { "v": ["Beküldés"] } } }, { "l": "hy", "t": { "Submit": { "v": [""] } } }, { "l": "ia", "t": { "Submit": { "v": [""] } } }, { "l": "id", "t": { "Submit": { "v": ["Kirimkan"] } } }, { "l": "ig", "t": { "Submit": { "v": [""] } } }, { "l": "is", "t": { "Submit": { "v": ["Senda inn"] } } }, { "l": "it", "t": { "Submit": { "v": ["Invia"] } } }, { "l": "ja", "t": { "Submit": { "v": ["提出"] } } }, { "l": "ka", "t": { "Submit": { "v": [""] } } }, { "l": "ka_GE", "t": { "Submit": { "v": [""] } } }, { "l": "kab", "t": { "Submit": { "v": [""] } } }, { "l": "kk", "t": { "Submit": { "v": [""] } } }, { "l": "km", "t": { "Submit": { "v": [""] } } }, { "l": "kn", "t": { "Submit": { "v": [""] } } }, { "l": "ko", "t": { "Submit": { "v": [""] } } }, { "l": "la", "t": { "Submit": { "v": [""] } } }, { "l": "lb", "t": { "Submit": { "v": [""] } } }, { "l": "lo", "t": { "Submit": { "v": [""] } } }, { "l": "lt_LT", "t": { "Submit": { "v": ["Pateikti"] } } }, { "l": "lv", "t": { "Submit": { "v": [""] } } }, { "l": "mk", "t": { "Submit": { "v": ["Испрати"] } } }, { "l": "mn", "t": { "Submit": { "v": [""] } } }, { "l": "mr", "t": { "Submit": { "v": [""] } } }, { "l": "ms_MY", "t": { "Submit": { "v": [""] } } }, { "l": "my", "t": { "Submit": { "v": ["တင်သွင်းရန်"] } } }, { "l": "nb", "t": { "Submit": { "v": ["Send"] } } }, { "l": "ne", "t": { "Submit": { "v": [""] } } }, { "l": "nl", "t": { "Submit": { "v": ["Verwerken"] } } }, { "l": "nn_NO", "t": { "Submit": { "v": [""] } } }, { "l": "oc", "t": { "Submit": { "v": [""] } } }, { "l": "pl", "t": { "Submit": { "v": ["Wyślij"] } } }, { "l": "ps", "t": { "Submit": { "v": [""] } } }, { "l": "pt_BR", "t": { "Submit": { "v": ["Enviar"] } } }, { "l": "pt_PT", "t": { "Submit": { "v": ["Submeter"] } } }, { "l": "ro", "t": { "Submit": { "v": ["Trimiteți"] } } }, { "l": "ru", "t": { "Submit": { "v": ["Утвердить"] } } }, { "l": "sc", "t": { "Submit": { "v": [""] } } }, { "l": "si", "t": { "Submit": { "v": [""] } } }, { "l": "sk", "t": { "Submit": { "v": ["Odoslať"] } } }, { "l": "sl", "t": { "Submit": { "v": ["Pošlji"] } } }, { "l": "sq", "t": { "Submit": { "v": [""] } } }, { "l": "sr", "t": { "Submit": { "v": ["Поднеси"] } } }, { "l": "sr@latin", "t": { "Submit": { "v": [""] } } }, { "l": "sv", "t": { "Submit": { "v": ["Skicka"] } } }, { "l": "sw", "t": { "Submit": { "v": [""] } } }, { "l": "ta", "t": { "Submit": { "v": [""] } } }, { "l": "th", "t": { "Submit": { "v": [""] } } }, { "l": "tk", "t": { "Submit": { "v": [""] } } }, { "l": "tr", "t": { "Submit": { "v": ["Gönder"] } } }, { "l": "ug", "t": { "Submit": { "v": [""] } } }, { "l": "uk", "t": { "Submit": { "v": ["Надіслати"] } } }, { "l": "ur_PK", "t": { "Submit": { "v": [""] } } }, { "l": "uz", "t": { "Submit": { "v": [""] } } }, { "l": "vi", "t": { "Submit": { "v": [""] } } }, { "l": "zh_CN", "t": { "Submit": { "v": ["提交"] } } }, { "l": "zh_HK", "t": { "Submit": { "v": ["提交"] } } }, { "l": "zh_TW", "t": { "Submit": { "v": ["遞交"] } } }, { "l": "zu_ZA", "t": { "Submit": { "v": [""] } } }];
+const t40 = [{ "l": "af", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "ar", "t": { "Unable to search the group": { "v": ["تعذّر البحث في المجموعة"] } } }, { "l": "ast", "t": { "Unable to search the group": { "v": ["Nun ye posible buscar el grupu"] } } }, { "l": "az", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "be", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "bg", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "bn_BD", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "br", "t": { "Unable to search the group": { "v": ["Dibosupl eo klask ar strollad"] } } }, { "l": "bs", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "ca", "t": { "Unable to search the group": { "v": ["No es pot cercar el grup"] } } }, { "l": "cs", "t": { "Unable to search the group": { "v": ["Nedaří se hledat skupinu"] } } }, { "l": "cs_CZ", "t": { "Unable to search the group": { "v": ["Nedaří se hledat skupinu"] } } }, { "l": "cy_GB", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "da", "t": { "Unable to search the group": { "v": ["Kan ikke søge på denne gruppe"] } } }, { "l": "de", "t": { "Unable to search the group": { "v": ["Die Gruppe konnte nicht durchsucht werden."] } } }, { "l": "de_DE", "t": { "Unable to search the group": { "v": ["Die Gruppe kann nicht durchsucht werden"] } } }, { "l": "el", "t": { "Unable to search the group": { "v": ["Δεν είναι δυνατή η αναζήτηση της ομάδας"] } } }, { "l": "en_GB", "t": { "Unable to search the group": { "v": ["Unable to search the group"] } } }, { "l": "eo", "t": { "Unable to search the group": { "v": ["Ne eblas serĉi en la grupo"] } } }, { "l": "es", "t": { "Unable to search the group": { "v": ["No es posible buscar en el grupo"] } } }, { "l": "es_419", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "es_AR", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "es_CL", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "es_CO", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "es_CR", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "es_DO", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "es_EC", "t": { "Unable to search the group": { "v": ["No se puede buscar en el grupo"] } } }, { "l": "es_GT", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "es_HN", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "es_MX", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "es_NI", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "es_PA", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "es_PE", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "es_PR", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "es_PY", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "es_SV", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "es_UY", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "et_EE", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "eu", "t": { "Unable to search the group": { "v": ["Ezin izan da taldea bilatu"] } } }, { "l": "fa", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "fi", "t": { "Unable to search the group": { "v": ["Ryhmää ei voi hakea"] } } }, { "l": "fo", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "fr", "t": { "Unable to search the group": { "v": ["Impossible de chercher le groupe"] } } }, { "l": "gd", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "gl", "t": { "Unable to search the group": { "v": ["Non foi posíbel buscar o grupo"] } } }, { "l": "he", "t": { "Unable to search the group": { "v": ["לא ניתן לחפש בקבוצה"] } } }, { "l": "hi_IN", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "hr", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "hsb", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "hu", "t": { "Unable to search the group": { "v": ["A csoport nem kereshető"] } } }, { "l": "hy", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "ia", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "id", "t": { "Unable to search the group": { "v": ["Tidak dapat mencari dalam grup"] } } }, { "l": "ig", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "is", "t": { "Unable to search the group": { "v": ["Get ekki leitað í hópnum"] } } }, { "l": "it", "t": { "Unable to search the group": { "v": ["Impossibile cercare il gruppo"] } } }, { "l": "ja", "t": { "Unable to search the group": { "v": ["グループを検索できません"] } } }, { "l": "ka", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "ka_GE", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "kab", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "kk", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "km", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "kn", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "ko", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "la", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "lb", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "lo", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "lt_LT", "t": { "Unable to search the group": { "v": ["Nepavyko atlikti paiešką grupėje"] } } }, { "l": "lv", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "mk", "t": { "Unable to search the group": { "v": ["Неможе да се принајде групата"] } } }, { "l": "mn", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "mr", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "ms_MY", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "my", "t": { "Unable to search the group": { "v": ["အဖွဲ့အား ရှာဖွေ၍ မရနိုင်ပါ"] } } }, { "l": "nb", "t": { "Unable to search the group": { "v": ["Kunne ikke søke i gruppen"] } } }, { "l": "ne", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "nl", "t": { "Unable to search the group": { "v": ["Kan niet zoeken in de groep"] } } }, { "l": "nn_NO", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "oc", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "pl", "t": { "Unable to search the group": { "v": ["Nie można przeszukać grupy"] } } }, { "l": "ps", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "pt_BR", "t": { "Unable to search the group": { "v": ["Não foi possível pesquisar o grupo"] } } }, { "l": "pt_PT", "t": { "Unable to search the group": { "v": ["Não é possível pesquisar o grupo"] } } }, { "l": "ro", "t": { "Unable to search the group": { "v": ["Imposibilitatea de a căuta în grup"] } } }, { "l": "ru", "t": { "Unable to search the group": { "v": ["Невозможно найти группу"] } } }, { "l": "sc", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "si", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "sk", "t": { "Unable to search the group": { "v": ["Skupinu sa nepodarilo nájsť"] } } }, { "l": "sl", "t": { "Unable to search the group": { "v": ["Ni mogoče iskati po skupini"] } } }, { "l": "sq", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "sr", "t": { "Unable to search the group": { "v": ["Група не може да се претражи"] } } }, { "l": "sr@latin", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "sv", "t": { "Unable to search the group": { "v": ["Kunde inte söka i gruppen"] } } }, { "l": "sw", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "ta", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "th", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "tk", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "tr", "t": { "Unable to search the group": { "v": ["Grupta arama yapılamadı"] } } }, { "l": "ug", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "uk", "t": { "Unable to search the group": { "v": ["Неможливо шукати в групі"] } } }, { "l": "ur_PK", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "uz", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "vi", "t": { "Unable to search the group": { "v": [""] } } }, { "l": "zh_CN", "t": { "Unable to search the group": { "v": ["无法搜索分组"] } } }, { "l": "zh_HK", "t": { "Unable to search the group": { "v": ["無法搜尋群組"] } } }, { "l": "zh_TW", "t": { "Unable to search the group": { "v": ["無法搜尋群組"] } } }, { "l": "zu_ZA", "t": { "Unable to search the group": { "v": [""] } } }];
+const t41 = [{ "l": "af", "t": { "Undo changes": { "v": [""] } } }, { "l": "ar", "t": { "Undo changes": { "v": ["تراجَع عن التغييرات"] } } }, { "l": "ast", "t": { "Undo changes": { "v": ["Desfacer los cambeos"] } } }, { "l": "az", "t": { "Undo changes": { "v": [""] } } }, { "l": "be", "t": { "Undo changes": { "v": [""] } } }, { "l": "bg", "t": { "Undo changes": { "v": [""] } } }, { "l": "bn_BD", "t": { "Undo changes": { "v": [""] } } }, { "l": "br", "t": { "Undo changes": { "v": [""] } } }, { "l": "bs", "t": { "Undo changes": { "v": [""] } } }, { "l": "ca", "t": { "Undo changes": { "v": ["Desfés els canvis"] } } }, { "l": "cs", "t": { "Undo changes": { "v": ["Vzít změny zpět"] } } }, { "l": "cs_CZ", "t": { "Undo changes": { "v": ["Vzít změny zpět"] } } }, { "l": "cy_GB", "t": { "Undo changes": { "v": [""] } } }, { "l": "da", "t": { "Undo changes": { "v": ["Fortryd ændringer"] } } }, { "l": "de", "t": { "Undo changes": { "v": ["Änderungen rückgängig machen"] } } }, { "l": "de_DE", "t": { "Undo changes": { "v": ["Änderungen rückgängig machen"] } } }, { "l": "el", "t": { "Undo changes": { "v": ["Αναίρεση Αλλαγών"] } } }, { "l": "en_GB", "t": { "Undo changes": { "v": ["Undo changes"] } } }, { "l": "eo", "t": { "Undo changes": { "v": [""] } } }, { "l": "es", "t": { "Undo changes": { "v": ["Deshacer cambios"] } } }, { "l": "es_419", "t": { "Undo changes": { "v": [""] } } }, { "l": "es_AR", "t": { "Undo changes": { "v": [""] } } }, { "l": "es_CL", "t": { "Undo changes": { "v": [""] } } }, { "l": "es_CO", "t": { "Undo changes": { "v": [""] } } }, { "l": "es_CR", "t": { "Undo changes": { "v": [""] } } }, { "l": "es_DO", "t": { "Undo changes": { "v": [""] } } }, { "l": "es_EC", "t": { "Undo changes": { "v": ["Deshacer cambios"] } } }, { "l": "es_GT", "t": { "Undo changes": { "v": [""] } } }, { "l": "es_HN", "t": { "Undo changes": { "v": [""] } } }, { "l": "es_MX", "t": { "Undo changes": { "v": [""] } } }, { "l": "es_NI", "t": { "Undo changes": { "v": [""] } } }, { "l": "es_PA", "t": { "Undo changes": { "v": [""] } } }, { "l": "es_PE", "t": { "Undo changes": { "v": [""] } } }, { "l": "es_PR", "t": { "Undo changes": { "v": [""] } } }, { "l": "es_PY", "t": { "Undo changes": { "v": [""] } } }, { "l": "es_SV", "t": { "Undo changes": { "v": [""] } } }, { "l": "es_UY", "t": { "Undo changes": { "v": [""] } } }, { "l": "et_EE", "t": { "Undo changes": { "v": [""] } } }, { "l": "eu", "t": { "Undo changes": { "v": ["Aldaketak desegin"] } } }, { "l": "fa", "t": { "Undo changes": { "v": [""] } } }, { "l": "fi", "t": { "Undo changes": { "v": ["Kumoa muutokset"] } } }, { "l": "fo", "t": { "Undo changes": { "v": [""] } } }, { "l": "fr", "t": { "Undo changes": { "v": ["Annuler les changements"] } } }, { "l": "gd", "t": { "Undo changes": { "v": [""] } } }, { "l": "gl", "t": { "Undo changes": { "v": ["Desfacer os cambios"] } } }, { "l": "he", "t": { "Undo changes": { "v": ["ביטול שינויים"] } } }, { "l": "hi_IN", "t": { "Undo changes": { "v": [""] } } }, { "l": "hr", "t": { "Undo changes": { "v": [""] } } }, { "l": "hsb", "t": { "Undo changes": { "v": [""] } } }, { "l": "hu", "t": { "Undo changes": { "v": ["Változtatások visszavonása"] } } }, { "l": "hy", "t": { "Undo changes": { "v": [""] } } }, { "l": "ia", "t": { "Undo changes": { "v": [""] } } }, { "l": "id", "t": { "Undo changes": { "v": ["Urungkan perubahan"] } } }, { "l": "ig", "t": { "Undo changes": { "v": [""] } } }, { "l": "is", "t": { "Undo changes": { "v": ["Afturkalla breytingar"] } } }, { "l": "it", "t": { "Undo changes": { "v": ["Cancella i cambiamenti"] } } }, { "l": "ja", "t": { "Undo changes": { "v": ["変更を取り消し"] } } }, { "l": "ka", "t": { "Undo changes": { "v": [""] } } }, { "l": "ka_GE", "t": { "Undo changes": { "v": [""] } } }, { "l": "kab", "t": { "Undo changes": { "v": [""] } } }, { "l": "kk", "t": { "Undo changes": { "v": [""] } } }, { "l": "km", "t": { "Undo changes": { "v": [""] } } }, { "l": "kn", "t": { "Undo changes": { "v": [""] } } }, { "l": "ko", "t": { "Undo changes": { "v": [""] } } }, { "l": "la", "t": { "Undo changes": { "v": [""] } } }, { "l": "lb", "t": { "Undo changes": { "v": [""] } } }, { "l": "lo", "t": { "Undo changes": { "v": [""] } } }, { "l": "lt_LT", "t": { "Undo changes": { "v": [""] } } }, { "l": "lv", "t": { "Undo changes": { "v": [""] } } }, { "l": "mk", "t": { "Undo changes": { "v": ["Врати ги промените"] } } }, { "l": "mn", "t": { "Undo changes": { "v": [""] } } }, { "l": "mr", "t": { "Undo changes": { "v": [""] } } }, { "l": "ms_MY", "t": { "Undo changes": { "v": [""] } } }, { "l": "my", "t": { "Undo changes": { "v": [""] } } }, { "l": "nb", "t": { "Undo changes": { "v": ["Tilbakestill endringer"] } } }, { "l": "ne", "t": { "Undo changes": { "v": [""] } } }, { "l": "nl", "t": { "Undo changes": { "v": ["Wijzigingen ongedaan maken"] } } }, { "l": "nn_NO", "t": { "Undo changes": { "v": [""] } } }, { "l": "oc", "t": { "Undo changes": { "v": [""] } } }, { "l": "pl", "t": { "Undo changes": { "v": ["Cofnij zmiany"] } } }, { "l": "ps", "t": { "Undo changes": { "v": [""] } } }, { "l": "pt_BR", "t": { "Undo changes": { "v": ["Desfazer modificações"] } } }, { "l": "pt_PT", "t": { "Undo changes": { "v": ["Anular alterações"] } } }, { "l": "ro", "t": { "Undo changes": { "v": ["Anularea modificărilor"] } } }, { "l": "ru", "t": { "Undo changes": { "v": ["Отменить изменения"] } } }, { "l": "sc", "t": { "Undo changes": { "v": [""] } } }, { "l": "si", "t": { "Undo changes": { "v": [""] } } }, { "l": "sk", "t": { "Undo changes": { "v": ["Vrátiť zmeny"] } } }, { "l": "sl", "t": { "Undo changes": { "v": ["Razveljavi spremembe"] } } }, { "l": "sq", "t": { "Undo changes": { "v": [""] } } }, { "l": "sr", "t": { "Undo changes": { "v": ["Поништи измене"] } } }, { "l": "sr@latin", "t": { "Undo changes": { "v": [""] } } }, { "l": "sv", "t": { "Undo changes": { "v": ["Ångra ändringar"] } } }, { "l": "sw", "t": { "Undo changes": { "v": [""] } } }, { "l": "ta", "t": { "Undo changes": { "v": [""] } } }, { "l": "th", "t": { "Undo changes": { "v": [""] } } }, { "l": "tk", "t": { "Undo changes": { "v": [""] } } }, { "l": "tr", "t": { "Undo changes": { "v": ["Değişiklikleri geri al"] } } }, { "l": "ug", "t": { "Undo changes": { "v": [""] } } }, { "l": "uk", "t": { "Undo changes": { "v": ["Скасувати зміни"] } } }, { "l": "ur_PK", "t": { "Undo changes": { "v": [""] } } }, { "l": "uz", "t": { "Undo changes": { "v": [""] } } }, { "l": "vi", "t": { "Undo changes": { "v": [""] } } }, { "l": "zh_CN", "t": { "Undo changes": { "v": ["撤销更改"] } } }, { "l": "zh_HK", "t": { "Undo changes": { "v": ["取消更改"] } } }, { "l": "zh_TW", "t": { "Undo changes": { "v": ["還原變更"] } } }, { "l": "zu_ZA", "t": { "Undo changes": { "v": [""] } } }];
+const t42 = [{ "l": "af", "t": {} }, { "l": "ar", "t": { "User status: {status}": { "v": ["حالة المستخدِم: {status}"] } } }, { "l": "ast", "t": { "User status: {status}": { "v": ["Estáu del usuariu: {status}"] } } }, { "l": "az", "t": {} }, { "l": "be", "t": {} }, { "l": "bg", "t": {} }, { "l": "bn_BD", "t": {} }, { "l": "br", "t": {} }, { "l": "bs", "t": {} }, { "l": "ca", "t": {} }, { "l": "cs", "t": {} }, { "l": "cs_CZ", "t": { "User status: {status}": { "v": ["Stav uživatele: {status}"] } } }, { "l": "cy_GB", "t": {} }, { "l": "da", "t": {} }, { "l": "de", "t": { "User status: {status}": { "v": ["Benutzerstatus: {status}"] } } }, { "l": "de_DE", "t": { "User status: {status}": { "v": ["Benutzerstatus: {status}"] } } }, { "l": "el", "t": {} }, { "l": "en_GB", "t": { "User status: {status}": { "v": ["User status: {status}"] } } }, { "l": "eo", "t": {} }, { "l": "es", "t": { "User status: {status}": { "v": ["Estatus del usuario: {status}"] } } }, { "l": "es_419", "t": {} }, { "l": "es_AR", "t": {} }, { "l": "es_CL", "t": {} }, { "l": "es_CO", "t": {} }, { "l": "es_CR", "t": {} }, { "l": "es_DO", "t": {} }, { "l": "es_EC", "t": {} }, { "l": "es_GT", "t": {} }, { "l": "es_HN", "t": {} }, { "l": "es_MX", "t": {} }, { "l": "es_NI", "t": {} }, { "l": "es_PA", "t": {} }, { "l": "es_PE", "t": {} }, { "l": "es_PR", "t": {} }, { "l": "es_PY", "t": {} }, { "l": "es_SV", "t": {} }, { "l": "es_UY", "t": {} }, { "l": "et_EE", "t": {} }, { "l": "eu", "t": {} }, { "l": "fa", "t": {} }, { "l": "fi", "t": {} }, { "l": "fo", "t": {} }, { "l": "fr", "t": { "User status: {status}": { "v": ["Statut de l'utilisateur : {status}"] } } }, { "l": "gd", "t": {} }, { "l": "gl", "t": { "User status: {status}": { "v": ["Estado do usuario: {status}"] } } }, { "l": "he", "t": {} }, { "l": "hi_IN", "t": {} }, { "l": "hr", "t": {} }, { "l": "hsb", "t": {} }, { "l": "hu", "t": {} }, { "l": "hy", "t": {} }, { "l": "ia", "t": {} }, { "l": "id", "t": { "User status: {status}": { "v": ["Status pengguna: {status}"] } } }, { "l": "ig", "t": {} }, { "l": "is", "t": { "User status: {status}": { "v": ["Staða notanda: {status}"] } } }, { "l": "it", "t": { "User status: {status}": { "v": ["Stato dell'utente: {status}"] } } }, { "l": "ja", "t": {} }, { "l": "ka", "t": {} }, { "l": "ka_GE", "t": {} }, { "l": "kab", "t": {} }, { "l": "kk", "t": {} }, { "l": "km", "t": {} }, { "l": "kn", "t": {} }, { "l": "ko", "t": {} }, { "l": "la", "t": {} }, { "l": "lb", "t": {} }, { "l": "lo", "t": {} }, { "l": "lt_LT", "t": {} }, { "l": "lv", "t": {} }, { "l": "mk", "t": {} }, { "l": "mn", "t": {} }, { "l": "mr", "t": {} }, { "l": "ms_MY", "t": {} }, { "l": "my", "t": {} }, { "l": "nb", "t": {} }, { "l": "ne", "t": {} }, { "l": "nl", "t": { "User status: {status}": { "v": ["Gebruikers status: {status}"] } } }, { "l": "nn_NO", "t": {} }, { "l": "oc", "t": {} }, { "l": "pl", "t": { "User status: {status}": { "v": ["Status użytkownika: {status}"] } } }, { "l": "ps", "t": {} }, { "l": "pt_BR", "t": { "User status: {status}": { "v": ["Status do usuário: {status}"] } } }, { "l": "pt_PT", "t": {} }, { "l": "ro", "t": { "User status: {status}": { "v": ["Status utilizator: {status}"] } } }, { "l": "ru", "t": { "User status: {status}": { "v": ["Статус пользователя: {status}"] } } }, { "l": "sc", "t": {} }, { "l": "si", "t": {} }, { "l": "sk", "t": {} }, { "l": "sl", "t": {} }, { "l": "sq", "t": {} }, { "l": "sr", "t": { "User status: {status}": { "v": ["Статус корисника: {status}"] } } }, { "l": "sr@latin", "t": {} }, { "l": "sv", "t": { "User status: {status}": { "v": ["Användarstatus: {status}"] } } }, { "l": "sw", "t": {} }, { "l": "ta", "t": {} }, { "l": "th", "t": {} }, { "l": "tk", "t": {} }, { "l": "tr", "t": { "User status: {status}": { "v": ["Kullanıcı durumu: {status}"] } } }, { "l": "ug", "t": {} }, { "l": "uk", "t": { "User status: {status}": { "v": ["Статус користувача: {status}"] } } }, { "l": "ur_PK", "t": {} }, { "l": "uz", "t": {} }, { "l": "vi", "t": {} }, { "l": "zh_CN", "t": {} }, { "l": "zh_HK", "t": { "User status: {status}": { "v": ["用戶狀態：{status}"] } } }, { "l": "zh_TW", "t": {} }, { "l": "zu_ZA", "t": {} }];
+
+//# sourceMappingURL=_l10n-Au_T0Ikx.mjs.map
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/chunks/_plugin-vue2_normalizer-Ewhtj4Do.mjs":
+/*!*************************************************************************!*\
+  !*** ../nextcloud-vue/dist/chunks/_plugin-vue2_normalizer-Ewhtj4Do.mjs ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   n: () => (/* binding */ normalizeComponent)
+/* harmony export */ });
+function normalizeComponent(scriptExports, render, staticRenderFns, functionalTemplate, injectStyles, scopeId, moduleIdentifier, shadowMode) {
+  var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
+  if (render) {
+    options.render = render;
+    options.staticRenderFns = staticRenderFns;
+    options._compiled = true;
+  }
+  if (functionalTemplate) {
+    options.functional = true;
+  }
+  if (scopeId) {
+    options._scopeId = "data-v-" + scopeId;
+  }
+  var hook;
+  if (moduleIdentifier) {
+    hook = function(context) {
+      context = context || // cached call
+      this.$vnode && this.$vnode.ssrContext || // stateful
+      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext;
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== "undefined") {
+        context = __VUE_SSR_CONTEXT__;
+      }
+      if (injectStyles) {
+        injectStyles.call(this, context);
+      }
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier);
+      }
+    };
+    options._ssrRegister = hook;
+  } else if (injectStyles) {
+    hook = shadowMode ? function() {
+      injectStyles.call(
+        this,
+        (options.functional ? this.parent : this).$root.$options.shadowRoot
+      );
+    } : injectStyles;
+  }
+  if (hook) {
+    if (options.functional) {
+      options._injectStyles = hook;
+      var originalRender = options.render;
+      options.render = function renderWithStyleInjection(h, context) {
+        hook.call(context);
+        return originalRender(h, context);
+      };
+    } else {
+      var existing = options.beforeCreate;
+      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    }
+  }
+  return {
+    exports: scriptExports,
+    options
+  };
+}
+
+//# sourceMappingURL=_plugin-vue2_normalizer-Ewhtj4Do.mjs.map
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/chunks/focusTrap-Mgj6f-TI.mjs":
+/*!***********************************************************!*\
+  !*** ../nextcloud-vue/dist/chunks/focusTrap-Mgj6f-TI.mjs ***!
+  \***********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   g: () => (/* binding */ getTrapStack)
+/* harmony export */ });
+/**
+ * @copyright Copyright (c) 2022 John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @author John Molakvoæ <skjnldsv@protonmail.com>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+const getTrapStack = function() {
+  Object.assign(window, { _nc_focus_trap: window._nc_focus_trap || [] });
+  return window._nc_focus_trap;
+};
+
+//# sourceMappingURL=focusTrap-Mgj6f-TI.mjs.map
+
+
+/***/ }),
+
+/***/ "../nextcloud-vue/dist/chunks/logger-NqlBlfJu.mjs":
+/*!********************************************************!*\
+  !*** ../nextcloud-vue/dist/chunks/logger-NqlBlfJu.mjs ***!
+  \********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   l: () => (/* binding */ logger)
+/* harmony export */ });
+/* harmony import */ var _nextcloud_logger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nextcloud/logger */ "../nextcloud-vue/node_modules/@nextcloud/logger/dist/index.js");
+
+/**
+ * @copyright 2021 Christoph Wurst <christoph@winzerhof-wurst.at>
+ *
+ * @author 2021 Christoph Wurst <christoph@winzerhof-wurst.at>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+const logger = (0,_nextcloud_logger__WEBPACK_IMPORTED_MODULE_0__.getLoggerBuilder)().detectUser().setApp("@nextcloud/vue").build();
+
+//# sourceMappingURL=logger-NqlBlfJu.mjs.map
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			id: moduleId,
+/******/ 			loaded: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var chunkIds = deferred[i][0];
+/******/ 				var fn = deferred[i][1];
+/******/ 				var priority = deferred[i][2];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/ensure chunk */
+/******/ 	(() => {
+/******/ 		__webpack_require__.f = {};
+/******/ 		// This file contains only the entry chunk.
+/******/ 		// The chunk loading function for additional chunks
+/******/ 		__webpack_require__.e = (chunkId) => {
+/******/ 			return Promise.all(Object.keys(__webpack_require__.f).reduce((promises, key) => {
+/******/ 				__webpack_require__.f[key](chunkId, promises);
+/******/ 				return promises;
+/******/ 			}, []));
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get javascript chunk filename */
+/******/ 	(() => {
+/******/ 		// This function allow to reference async chunks
+/******/ 		__webpack_require__.u = (chunkId) => {
+/******/ 			// return url for filenames based on template
+/******/ 			return "" + chunkId + "-" + chunkId + ".js?v=" + {"node_modules_nextcloud_dialogs_dist_chunks_index-1zThpkd0_mjs":"3af271bdcc33cecc5ab7","nextcloud-vue_dist_chunks_NcAvatar-hzJg5uL9_mjs":"40a6ba496f9d14b92d96","nextcloud-vue_dist_chunks_ArrowRight-I5-Rr76L_mjs-nextcloud-vue_dist_chunks_NcSelect-jC7ShD5p_mjs":"12cd6ce919e6729340aa","nextcloud-vue_dist_Components_NcActionButton_mjs-nextcloud-vue_dist_chunks_NcUserStatusIcon-_-25c782":"4fcc732568c93a64d015","nextcloud-vue_dist_chunks_NcCheckboxRadioSwitch_vue_vue_type_style_index_0_scoped_2603be83_la-c9fae2":"205610168dec173d0fda","nextcloud-vue_dist_chunks_NcCheckboxRadioSwitch-kFWeinsE_mjs":"2367b9be86f03e98b589","nextcloud-vue_dist_Components_NcActionText_mjs-nextcloud-vue_dist_chunks_NcActionInput-Z-VZ4WYV_mjs":"24d5530b786629356cb0","nextcloud-vue_dist_Components_NcCounterBubble_mjs-nextcloud-vue_dist_Components_NcEmptyConten-9242c8":"d5c7c5601d57354406c4","nextcloud-vue_dist_Components_NcAppNavigationNew_mjs-nextcloud-vue_dist_Components_NcAppSetti-03e80a":"0dacd1415310b68101f5","settings-users":"33b9aa376c4bd98d5338","nextcloud-vue_dist_Components_NcAppNavigationSpacer_mjs-nextcloud-vue_dist_Components_NcAppSi-6f4013":"f47c1b237d91850ec319","settings-apps-view":"0b7ef002c7b33f39e5b6","nextcloud-vue_dist_chunks_Check-0ovJb_fA_mjs-nextcloud-vue_dist_chunks_ChevronRight-BZsZ7HN-_-c2e61e":"bca6148c62cb03156195","nextcloud-vue_dist_Components_NcActionSeparator_mjs-nextcloud-vue_dist_Components_NcButton_mj-d0cc65":"c7f94a341a22ac59156e","nextcloud-vue_dist_Components_NcInputField_mjs-nextcloud-vue_dist_chunks_Close-x3DvlfYA_mjs-n-4bbe1c":"0d0240e5abb1eefea5ff","nextcloud-vue_dist_Components_NcModal_mjs-nextcloud-vue_dist_chunks_ArrowLeft-CEBdpMA3_mjs-ne-b8d0bb":"3e8e97da99163f7888b4","nextcloud-vue_dist_chunks_NcDateTime-ZLuy33tl_mjs-nextcloud-vue_dist_chunks_index-8YtkNyV4_mjs":"7931bb4b2752805efc74","nextcloud-vue_dist_chunks_NcRichContenteditable-4xUZO9JI_mjs":"04885c38aafd5b064f1e","nextcloud-vue_dist_chunks_NcEmojiPicker-3a6zzJ7g_mjs":"f470facec78530d6a3ae","node_modules_nextcloud_dialogs_dist_chunks_FilePicker-cOp1W5mL_mjs":"eb5e6e66bb654ce35e32"}[chunkId] + "";
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/load script */
+/******/ 	(() => {
+/******/ 		var inProgress = {};
+/******/ 		var dataWebpackPrefix = "nextcloud:";
+/******/ 		// loadScript function to load a script via script tag
+/******/ 		__webpack_require__.l = (url, done, key, chunkId) => {
+/******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
+/******/ 			var script, needAttach;
+/******/ 			if(key !== undefined) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				for(var i = 0; i < scripts.length; i++) {
+/******/ 					var s = scripts[i];
+/******/ 					if(s.getAttribute("src") == url || s.getAttribute("data-webpack") == dataWebpackPrefix + key) { script = s; break; }
+/******/ 				}
+/******/ 			}
+/******/ 			if(!script) {
+/******/ 				needAttach = true;
+/******/ 				script = document.createElement('script');
+/******/ 		
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120;
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 				script.setAttribute("data-webpack", dataWebpackPrefix + key);
+/******/ 		
+/******/ 				script.src = url;
+/******/ 			}
+/******/ 			inProgress[url] = [done];
+/******/ 			var onScriptComplete = (prev, event) => {
+/******/ 				// avoid mem leaks in IE.
+/******/ 				script.onerror = script.onload = null;
+/******/ 				clearTimeout(timeout);
+/******/ 				var doneFns = inProgress[url];
+/******/ 				delete inProgress[url];
+/******/ 				script.parentNode && script.parentNode.removeChild(script);
+/******/ 				doneFns && doneFns.forEach((fn) => (fn(event)));
+/******/ 				if(prev) return prev(event);
+/******/ 			}
+/******/ 			var timeout = setTimeout(onScriptComplete.bind(null, undefined, { type: 'timeout', target: script }), 120000);
+/******/ 			script.onerror = onScriptComplete.bind(null, script.onerror);
+/******/ 			script.onload = onScriptComplete.bind(null, script.onload);
+/******/ 			needAttach && document.head.appendChild(script);
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/node module decorator */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nmd = (module) => {
+/******/ 			module.paths = [];
+/******/ 			if (!module.children) module.children = [];
+/******/ 			return module;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && !scriptUrl) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		__webpack_require__.b = document.baseURI || self.location.href;
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"settings-vue-settings-apps-users-management": 0
+/******/ 		};
+/******/ 		
+/******/ 		__webpack_require__.f.j = (chunkId, promises) => {
+/******/ 				// JSONP chunk loading for javascript
+/******/ 				var installedChunkData = __webpack_require__.o(installedChunks, chunkId) ? installedChunks[chunkId] : undefined;
+/******/ 				if(installedChunkData !== 0) { // 0 means "already installed".
+/******/ 		
+/******/ 					// a Promise means "currently loading".
+/******/ 					if(installedChunkData) {
+/******/ 						promises.push(installedChunkData[2]);
+/******/ 					} else {
+/******/ 						if(true) { // all chunks have JS
+/******/ 							// setup Promise in chunk cache
+/******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
+/******/ 							promises.push(installedChunkData[2] = promise);
+/******/ 		
+/******/ 							// start chunk loading
+/******/ 							var url = __webpack_require__.p + __webpack_require__.u(chunkId);
+/******/ 							// create error before stack unwound to get useful stacktrace later
+/******/ 							var error = new Error();
+/******/ 							var loadingEnded = (event) => {
+/******/ 								if(__webpack_require__.o(installedChunks, chunkId)) {
+/******/ 									installedChunkData = installedChunks[chunkId];
+/******/ 									if(installedChunkData !== 0) installedChunks[chunkId] = undefined;
+/******/ 									if(installedChunkData) {
+/******/ 										var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 										var realSrc = event && event.target && event.target.src;
+/******/ 										error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
+/******/ 										error.name = 'ChunkLoadError';
+/******/ 										error.type = errorType;
+/******/ 										error.request = realSrc;
+/******/ 										installedChunkData[1](error);
+/******/ 									}
+/******/ 								}
+/******/ 							};
+/******/ 							__webpack_require__.l(url, loadingEnded, "chunk-" + chunkId, chunkId);
+/******/ 						}
+/******/ 					}
+/******/ 				}
+/******/ 		};
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var chunkIds = data[0];
+/******/ 			var moreModules = data[1];
+/******/ 			var runtime = data[2];
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunknextcloud"] = self["webpackChunknextcloud"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["core-common"], () => (__webpack_require__("./apps/settings/src/main-apps-users-management.js")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
+//# sourceMappingURL=settings-vue-settings-apps-users-management.js.map?v=c63f757b74bdc9f9b097
