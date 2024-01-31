@@ -57,7 +57,7 @@ describe('Delete action conditions tests', () => {
 		mime: 'text/plain',
 		permissions: Permission.ALL,
 		attributes: {
-			'is-mount-root': 'true',
+			'is-mount-root': true,
 			'mount-type': 'shared',
 		},
 	})
@@ -77,7 +77,7 @@ describe('Delete action conditions tests', () => {
 		mime: 'text/plain',
 		permissions: Permission.ALL,
 		attributes: {
-			'is-mount-root': 'true',
+			'is-mount-root': true,
 			'mount-type': 'shared',
 		},
 	})
@@ -89,7 +89,7 @@ describe('Delete action conditions tests', () => {
 		mime: 'text/plain',
 		permissions: Permission.ALL,
 		attributes: {
-			'is-mount-root': 'true',
+			'is-mount-root': true,
 			'mount-type': 'external',
 		},
 	})
