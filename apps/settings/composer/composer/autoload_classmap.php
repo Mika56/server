@@ -76,6 +76,7 @@ return array(
     'OCA\\Settings\\Settings\\Personal\\Security\\TwoFactor' => $baseDir . '/../lib/Settings/Personal/Security/TwoFactor.php',
     'OCA\\Settings\\Settings\\Personal\\Security\\WebAuthn' => $baseDir . '/../lib/Settings/Personal/Security/WebAuthn.php',
     'OCA\\Settings\\Settings\\Personal\\ServerDevNotice' => $baseDir . '/../lib/Settings/Personal/ServerDevNotice.php',
+    'OCA\\Settings\\SetupChecks\\AppConfigLazyMigration' => $baseDir . '/../lib/SetupChecks/AppConfigLazyMigration.php',
     'OCA\\Settings\\SetupChecks\\AppDirsWithDifferentOwner' => $baseDir . '/../lib/SetupChecks/AppDirsWithDifferentOwner.php',
     'OCA\\Settings\\SetupChecks\\BruteForceThrottler' => $baseDir . '/../lib/SetupChecks/BruteForceThrottler.php',
     'OCA\\Settings\\SetupChecks\\CheckUserCertificates' => $baseDir . '/../lib/SetupChecks/CheckUserCertificates.php',

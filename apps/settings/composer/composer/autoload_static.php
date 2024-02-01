@@ -91,6 +91,7 @@ class ComposerStaticInitSettings
         'OCA\\Settings\\Settings\\Personal\\Security\\TwoFactor' => __DIR__ . '/..' . '/../lib/Settings/Personal/Security/TwoFactor.php',
         'OCA\\Settings\\Settings\\Personal\\Security\\WebAuthn' => __DIR__ . '/..' . '/../lib/Settings/Personal/Security/WebAuthn.php',
         'OCA\\Settings\\Settings\\Personal\\ServerDevNotice' => __DIR__ . '/..' . '/../lib/Settings/Personal/ServerDevNotice.php',
+        'OCA\\Settings\\SetupChecks\\AppConfigLazyMigration' => __DIR__ . '/..' . '/../lib/SetupChecks/AppConfigLazyMigration.php',
         'OCA\\Settings\\SetupChecks\\AppDirsWithDifferentOwner' => __DIR__ . '/..' . '/../lib/SetupChecks/AppDirsWithDifferentOwner.php',
         'OCA\\Settings\\SetupChecks\\BruteForceThrottler' => __DIR__ . '/..' . '/../lib/SetupChecks/BruteForceThrottler.php',
         'OCA\\Settings\\SetupChecks\\CheckUserCertificates' => __DIR__ . '/..' . '/../lib/SetupChecks/CheckUserCertificates.php',
