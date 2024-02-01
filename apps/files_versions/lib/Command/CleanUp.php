@@ -122,7 +122,7 @@ class CleanUp extends Command {
 		\OC_Util::setupFS($user);
 
 		$fullPath = '/' . $user . '/files_versions' . ($path ? '/' . $path : '');
-		$this->versionMapper->deleteAllVersionsForUser($user);
+		$this->versionMapper->deleteAllVersionsForUser($user, $path);
 		if ($this->rootFolder->nodeExists($fullPath)) {
 			$this->rootFolder->get($fullPath)->delete();
 		}

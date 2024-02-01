@@ -85,13 +85,13 @@ class VersionsMapper extends QBMapper {
 			 ->executeStatement();
 	}
 
-	public function deleteAllVersionsForUser(string $userId): int {
+	public function deleteAllVersionsForUser(string $userId, string $path = null): int {
 		$deleteQuery = $this->db->getQueryBuilder();
 		$filesVersionSelect = $this->db->getQueryBuilder();
 		$filesVersionSelect->select('fileid')
 			->from('filecache', 'f')
 			->join('f', 'mounts', 'm', $filesVersionSelect->expr()->eq('f.storage', 'm.storage_id'))
-			->where($filesVersionSelect->expr()->like('f.path', $deleteQuery->createNamedParameter('files/%', IQueryBuilder::PARAM_STR)))
+			->where($filesVersionSelect->expr()->like('f.path', $deleteQuery->createNamedParameter('files'.($path ? '/' . $path : '').'/%', IQueryBuilder::PARAM_STR)))
 			->andWhere($filesVersionSelect->expr()->eq('m.user_id', $deleteQuery->createNamedParameter($userId, IQueryBuilder::PARAM_STR)))
 			->andWhere($filesVersionSelect->expr()->eq('m.mount_point', $deleteQuery->createNamedParameter("/$userId/", IQueryBuilder::PARAM_STR)));
 
